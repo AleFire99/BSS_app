@@ -1,0 +1,31 @@
+{
+    "id": "SET001-001",
+    "name": "Viper Dragon Hsuan Fatung",
+    "set": "SET001",
+    "color": ["blue"],
+    "cost": 4,
+    "reduction": ["blue", "blue"],
+    "symbols": ["blue"],
+    "cardType": "Spirit",
+    "subType": ["Serpent"],
+    "rarity": "Rare",
+    "requiredCores": 2,
+    "effects": [
+      {
+        "levels": [1, 2, 3],
+        "condition": "When Destroyed By Opponent",
+        "keywords": [],
+        "steps": [],
+        "details": "Your opponent selects one of their refreshed spirits. Remove three cores from it and place them into their reserve."
+      },
+      {
+        "levels": [1, 2, 3],
+        "condition": "During Your Attack Step",
+        "keywords": [{ "keyword": "Curse", "value": null }],
+        "steps": [],
+        "details": "When one of your Serpent spirits attacks, you may select one of your opponent's exhausted spirits. Your Serpent spirit attacks it."
+      }
+    ],
+    "images": ["card_thumbnails/SET001/viper_dragon_hsuan_fatung.jpg"]
+  }
+  
