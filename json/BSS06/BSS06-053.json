@@ -16,7 +16,7 @@
         "purple",
         "purple"
     ],
-    "symbols": [],
+    "symbols": ["white/purple"],
     "cardType": "SPIRIT",
     "subType": [
         "ANDROID",

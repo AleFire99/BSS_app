@@ -12,7 +12,7 @@
         "white",
         "purple"
     ],
-    "symbols": [],
+    "symbols": ["white/purple"],
     "cardType": "SPIRIT",
     "subType": [
         "MACHINE BEAST"

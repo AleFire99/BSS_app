@@ -13,7 +13,7 @@
         "white",
         "purple"
     ],
-    "symbols": [],
+    "symbols": ["white/purple"],
     "cardType": "SPIRIT",
     "subType": [
         "ICE PRINCESS"

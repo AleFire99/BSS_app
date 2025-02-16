@@ -12,7 +12,7 @@
         "purple",
         "white"
     ],
-    "symbols": [],
+    "symbols": ["purple/white"],
     "cardType": "SPIRIT",
     "subType": [
         "UNDEAD"

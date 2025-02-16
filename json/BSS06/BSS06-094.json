@@ -14,7 +14,7 @@
         "purple",
         "purple"
     ],
-    "symbols": [],
+    "symbols": ["white/purple"],
     "cardType": "NEXUS",
     "subType": [
         "-"

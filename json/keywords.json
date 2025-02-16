@@ -1,0 +1,76 @@
+{
+    "keywords": [
+        {
+            "name": "Agile",
+            "description": "When a battle with one of your spirits that costs less than this card ends, you may return that spirit to your hand. If you do, you may summon this spirit."
+        },
+        {
+            "name": "Armor",
+            "description": "This spirit cannot be selected by the effects of your opponent's spirits, nexuses, or magic of the specified colors."
+        },
+        {
+            "name": "Ascend",
+            "description": "As an additional summoning cost, you must place all cores from one of your spirits into your reserve."
+        },
+        {
+            "name": "Astral",
+            "description": "This spirit cannot be blocked by your opponent's spirits without \"Astral\"."
+        },
+        {
+            "name": "A.T. Field",
+            "description": "If this spirit has a \"soul core\" on it, it cannot be destroyed by the destruction effects of your opponent's spirits."
+        },
+        {
+            "name": "Awaken",
+            "description": "You may remove any number of cores from your other spirits and place them onto this spirit. \"When Destroyed\" effects are not triggered by this effect."
+        },
+        {
+            "name": "Blessed",
+            "description": "Place a core from the void into your life when this spirit's attack reduces your opponent's life."
+        },
+        {
+            "name": "Bloodcurse",
+            "description": "When one of your spirits with \"Curse\" or \"Bloodcurse\" reduces your opponent's life, place the lost life cores into the void instead of their reserve."
+        },
+        {
+            "name": "Burst",
+            "description": "Place this card without paying its cost."
+        },
+        {
+            "name": "Confront",
+            "description": "Your opponent must block if able."
+        },
+        {
+            "name": "Curse",
+            "description": "If one of your opponent's spirits blocks, destroy it when the battle ends."
+        },
+        {
+            "name": "Crush",
+            "description": "Discard a number of cards from the top of your opponent's deck equal to the total of this spirit's level plus any specified modifier."
+        },
+        {
+            "name": "Gale",
+            "description": "When this spirit is blocked, your opponent selects the specified number of refreshed spirits they control and exhausts them."
+        },
+        {
+            "name": "Immortal",
+            "description": "You may summon this spirit card from your trash when one of your other spirits of the specified cost is destroyed."
+        },
+        {
+            "name": "Link",
+            "description": "When your qualifying spirit attacks, you may exhaust this spirit to link it to that spirit during this battle. While linked, that spirit gains this spirit's BP and symbols. Links can't stack."
+        },
+        {
+            "name": "Luster",
+            "description": "When the battle ends, return all magic cards you used during the battle from your trash to your hand"
+        },
+        {
+            "name": "Raid",
+            "description": "Up to the specified number of times per turn, you may exhaust one of your nexuses to refresh this spirit."
+        },
+        {
+            "name": "Swift",
+            "description": "You may summon this card from your hand by using cores from your reserve to pay its cost and place cores onto it."
+        }
+    ]
+}

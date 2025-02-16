@@ -14,7 +14,7 @@
         "white",
         "white"
     ],
-    "symbols": [],
+    "symbols": ["purple/white"],
     "cardType": "SPIRIT",
     "subType": [
         "NIGHTLING"

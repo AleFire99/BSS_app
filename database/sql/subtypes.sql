@@ -1,0 +1,6 @@
+CREATE TABLE subtypes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    card_id INTEGER NOT NULL,
+    subtype TEXT NOT NULL,
+    FOREIGN KEY (card_id) REFERENCES cards (id) ON DELETE CASCADE
+);
