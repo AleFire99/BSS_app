@@ -1,0 +1,82 @@
+{
+    "name": "EVA-00 -Operation Yashima-",
+    "ID": "ST07-008_p1",
+    "set": "ST07",
+    "image": "images/ST07/ST07-008_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "purple"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-00",
+        "NERV"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "If this spirit is refreshed, your EVA-01 spirits cannot be selected by your opponent's effects.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "You may select one of your NERV spirits and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

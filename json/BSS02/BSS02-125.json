@@ -1,0 +1,41 @@
+{
+    "name": "Iceberg",
+    "ID": "BSS02-125",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-125.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains Armor: Red, Purple, Green during this turn: Armor: Red, Purple, Green",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

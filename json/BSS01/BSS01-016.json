@@ -1,0 +1,55 @@
+{
+    "name": "Fierce Gorer Horngrizzly",
+    "ID": "BSS01-016",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-016.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "EMPEROR BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 5
+        }
+    ]
+}

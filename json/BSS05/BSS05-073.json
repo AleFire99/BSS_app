@@ -1,0 +1,51 @@
+{
+    "name": "Shinobi Harrier",
+    "ID": "BSS05-073",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-073.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Swift",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 5
+        }
+    ]
+}

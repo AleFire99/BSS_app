@@ -1,0 +1,54 @@
+{
+    "name": "Spiral Tower",
+    "ID": "ST04-012",
+    "set": "ST04",
+    "image": "images/ST04/ST04-012.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "You may summon a spirit card in your hand that costs 2 without paying its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your yellow spirits would be destroyed, you may exhaust this nexus to return the spirit card to your hand instead of placing it into your trash.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

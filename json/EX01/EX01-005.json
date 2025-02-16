@@ -1,0 +1,70 @@
+{
+    "name": "Jewel Dragon Smagg",
+    "ID": "EX01-005",
+    "set": "EX01",
+    "image": "images/EX01/EX01-005.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": "—",
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "RUIN DRAGON"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Treat this spirit's color and symbol color as purple, white, yellow, green, and blue as well as red.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned Draw a card if you have fewer cards in your hand than your opponent has in theirs.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Place a core from the void into your trash.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 7
+        }
+    ]
+}

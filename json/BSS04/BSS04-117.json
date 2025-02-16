@@ -1,0 +1,32 @@
+{
+    "name": "Mind Flare",
+    "ID": "BSS04-117",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-117.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 3000 or fewer BP and destroy it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

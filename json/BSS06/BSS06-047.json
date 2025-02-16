@@ -1,0 +1,56 @@
+{
+    "name": "Mecha Warlord Gyoten",
+    "ID": "BSS06-047",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-047.png",
+    "color": [
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white",
+        "purple",
+        "green"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 5
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "While This Spirit is Linked",
+            "keywords": [],
+            "details": "When your opponent blocks, refresh this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        }
+    ]
+}

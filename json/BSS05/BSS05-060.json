@@ -1,0 +1,49 @@
+{
+    "name": "Armorfish",
+    "ID": "BSS05-060",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-060.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FLYING FISH",
+        "MACHINE BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

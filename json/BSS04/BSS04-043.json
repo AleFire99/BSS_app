@@ -1,0 +1,77 @@
+{
+    "name": "Angel of Life Florasera",
+    "ID": "BSS04-043",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-043.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "The first time you use a magic card each turn, you may reveal the top four cards of your deck after its effect resolves. Summon one spirit card that costs 2 from the revealed cards. Discard the remaining cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, place a core from your trash that is not a onto this spirit for each of your spirits with Luster.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Luster",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

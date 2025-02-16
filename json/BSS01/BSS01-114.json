@@ -1,0 +1,54 @@
+{
+    "name": "Blessed Cathedral",
+    "ID": "BSS01-114",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-114.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Place a core from the void into your reserve when one of your yellow spirits is destroyed.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Draw a card when one of your yellow spirits is destroyed.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

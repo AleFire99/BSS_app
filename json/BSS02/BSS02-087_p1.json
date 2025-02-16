@@ -1,0 +1,61 @@
+{
+    "name": "Armortree Deity Herak Dynas",
+    "ID": "BSS02-087_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-087_p1.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "7",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "INSECTOID"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "All Insectoid and Carapite spirit cards in your hand gain Swift : Flash Swift",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Place one core from the void into your reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

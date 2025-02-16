@@ -1,0 +1,56 @@
+{
+    "name": "Tranquil Ice Cavern",
+    "ID": "BSS02-108",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-108.png",
+    "color": [
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "Your blocking spirits gain 1000 BP.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Your spirits with a on them cannot be selected by the effects of your opponent's spirits with a {CORE} on them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "name": "Frost Tiger Heavy Armor Form",
+    "ID": "BSS04-052_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-052_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "9",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white",
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Machine Beast",
+                        "Android"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "White",
+                        "Blue"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When This Spirit is Summoned or Blocks Select up to two of your opponent's spirits with 5000 or fewer BP. Return them to the bottom of their deck in any order.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "End of Opponent's Turn",
+            "keywords": [],
+            "details": "If your life total is the same or higher than it was at the start of the turn, place a core from the void onto this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 8000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 14000,
+            "cores": 4
+        }
+    ]
+}

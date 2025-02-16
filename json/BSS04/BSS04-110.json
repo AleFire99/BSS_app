@@ -1,0 +1,55 @@
+{
+    "name": "Permafrost Palace",
+    "ID": "BSS04-110",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-110.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "Draw a card when your opponent uses one of their effect to draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Android or Ice Princess spirits is destroyed, select one of your opponent's spirits and return it to their hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

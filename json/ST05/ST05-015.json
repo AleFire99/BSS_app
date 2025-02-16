@@ -1,0 +1,33 @@
+{
+    "name": "Needle Shot",
+    "ID": "ST05-015",
+    "set": "ST05",
+    "image": "images/ST05/ST05-015.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

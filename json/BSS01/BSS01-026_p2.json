@@ -1,0 +1,79 @@
+{
+    "name": "Grand Underworld Trio Queen Meduke",
+    "ID": "BSS01-026_p2",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-026_p2.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "8",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SERPENT",
+        "UNDEAD"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your spirits with Curse or Bloodcurse reduces your opponent's life, place the lost life cores into the void instead of their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Bloodcurse",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your spirits with Curse gain Bloodcurse.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

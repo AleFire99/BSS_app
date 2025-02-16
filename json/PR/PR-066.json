@@ -1,0 +1,62 @@
+{
+    "name": "Nautilus Golem",
+    "ID": "PR-066",
+    "set": "PR",
+    "image": "images/PR/PR-066.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When one of your nexuses is exhausted, place a core from the void onto this spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may exhaust one of your nexuses to select one of your opponent's nexuses and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 6
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "name": "Great Alvar Plains",
+    "ID": "BSS02-112",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-112.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with no effects listed is destroyed, select one of your spirits and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

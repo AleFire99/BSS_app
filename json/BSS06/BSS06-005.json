@@ -1,0 +1,70 @@
+{
+    "name": "Spirit Mount Black Beauty",
+    "ID": "BSS06-005",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-005.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SKYBINDER",
+        "EMPEROR BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Astral",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit's attack reduces your opponent's life, select one of your opponent's nexuses and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 5
+        }
+    ]
+}

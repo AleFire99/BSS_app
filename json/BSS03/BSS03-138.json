@@ -1,0 +1,32 @@
+{
+    "name": "Muscle Charge",
+    "ID": "BSS03-138",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-138.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "All of your War God spirits are treated as their highest level during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Magic Wrench",
+    "ID": "BSS03-137",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-137.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "All of your blue spirits gain 2000 BP during this turn. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Discard the top four cards of your opponent's deck. When a magic card is discarded by this effect, select one of your spirits and place a core from the void onto it.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

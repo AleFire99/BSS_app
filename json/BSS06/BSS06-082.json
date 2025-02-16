@@ -1,0 +1,65 @@
+{
+    "name": "Wave Wrestler Orinyama",
+    "ID": "BSS06-082",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-082.png",
+    "color": [
+        "Blue",
+        "Yellow"
+    ],
+    "cost": "7",
+    "reduction": [
+        "blue",
+        "blue",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow/blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Place one core from the void onto each of your Supsprite spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Your opponent selects any number of their spirits. Destroy them. Then, activate Feast once for each spirit your opponent controls: Feast instead.)",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

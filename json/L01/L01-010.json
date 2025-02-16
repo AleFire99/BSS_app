@@ -1,0 +1,45 @@
+{
+    "name": "Godslaying",
+    "ID": "L01-010",
+    "set": "L01",
+    "image": "images/L01/L01-010.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Your opponent's spirits that cost 2 or fewer cannot attack or block during this turn. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When resolving the next battle this turn, compare cost rather than BP. The spirit with the higher cost is destroyed in battle. If their costs are equal, both spirits are destroyed.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

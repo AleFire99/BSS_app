@@ -1,0 +1,55 @@
+{
+    "name": "The Imperators' Great War",
+    "ID": "L01-009",
+    "set": "L01",
+    "image": "images/L01/L01-009.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Imperator or Aegis General spirits destroys one of your opponent's spirits in battle, you may exhaust this nexus to place a core from the void onto this nexus.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits reduces your opponent's life, you may discard a card to draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

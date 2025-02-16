@@ -1,0 +1,50 @@
+{
+    "name": "Hippocampo",
+    "ID": "BSS01-089",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-089.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Blessed",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

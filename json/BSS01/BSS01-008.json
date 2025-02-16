@@ -1,0 +1,55 @@
+{
+    "name": "Syntarsaurus",
+    "ID": "BSS01-008",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-008.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Reveal the top card of your deck. If it is a Terrasaur spirit card, add it to your hand. If it is not, return it to the top of your deck.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "This spirit gains 1000 BP for every Terrasaur spirit you control.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

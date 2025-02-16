@@ -1,0 +1,62 @@
+{
+    "name": "Six Aegis Emperor Kei",
+    "ID": "L01-001",
+    "set": "L01",
+    "image": "images/L01/L01-001.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SIX AEGIS EMPEROR"
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "From your trash, select one spirit card of each of the following colors: purple, yellow, white, green, and blue. Return them to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 3000 or fewer BP for each of your spirits with a different colored symbol and destroy them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

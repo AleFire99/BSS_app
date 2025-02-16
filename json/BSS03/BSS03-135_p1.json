@@ -1,0 +1,42 @@
+{
+    "name": "Strong Draw",
+    "ID": "BSS03-135_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-135_p1.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Draw three cards. Then, discard two cards.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one spirit. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

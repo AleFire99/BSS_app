@@ -1,0 +1,59 @@
+{
+    "name": "Galadbolg",
+    "ID": "PR-030",
+    "set": "PR",
+    "image": "images/PR/PR-030.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may exhaust one of your nexuses to place a core from the void onto the nexus you exhausted.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When you destroy one of your opponent's spirits via comparing BP, select one of your nexuses and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 5
+        }
+    ]
+}

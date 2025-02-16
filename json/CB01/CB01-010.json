@@ -1,0 +1,64 @@
+{
+    "name": "Evangelion Production Model-02'γ",
+    "ID": "CB01-010",
+    "set": "CB01",
+    "image": "images/CB01/CB01-010.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red",
+        "green"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-02",
+        "WILLE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Draw a card if you control an Asuka nexus.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

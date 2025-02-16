@@ -1,0 +1,80 @@
+{
+    "name": "EVA-02 Beast Form 2nd Phase (Type 1)",
+    "ID": "CB01-007",
+    "set": "CB01",
+    "image": "images/CB01/CB01-007.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "green"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-02",
+        "NERV"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Awaken",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 5
+        }
+    ]
+}

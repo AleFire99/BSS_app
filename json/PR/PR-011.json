@@ -1,0 +1,63 @@
+{
+    "name": "Horned Dragonoid Tricero",
+    "ID": "PR-011",
+    "set": "PR",
+    "image": "images/PR/PR-011.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "DRAGONOID",
+        "TERRASAUR"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "This spirit gains 2000 BP.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "If this spirit has 10,000 or more BP, it gains Confront : While This Spirit Attacks Confront",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 5
+        }
+    ]
+}

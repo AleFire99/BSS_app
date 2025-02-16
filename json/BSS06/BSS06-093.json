@@ -1,0 +1,44 @@
+{
+    "name": "Castle Storeroom",
+    "ID": "BSS06-093",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-093.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Draw a card. Place a core from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Android spirits is linked, place a core from the void onto it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

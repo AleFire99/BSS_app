@@ -1,0 +1,40 @@
+{
+    "name": "Skullzard",
+    "ID": "BSS02-026",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-026.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": "—",
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

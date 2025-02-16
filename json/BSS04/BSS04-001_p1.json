@@ -1,0 +1,78 @@
+{
+    "name": "Rage Star Dragon Siegwurm Ira",
+    "ID": "BSS04-001_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-001_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "9",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red",
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "STAR DRAGON",
+        "ANCIENT DRAGON"
+    ],
+    "rarity": "SAGA",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": 4
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned If this spirit performs Ascend using a spirit that costs 6 or more, destroy all spirits with one symbol. Draw one card for each spirit destroyed by this effect.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your spirits with two symbols gain 10,000 BP.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 5
+        }
+    ]
+}

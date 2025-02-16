@@ -1,0 +1,53 @@
+{
+    "name": "Arcana Knight Hex",
+    "ID": "BSS01-092",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-092.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "OTHERLANDER"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Draw a card when your life increases.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "name": "Light Aegis General Failinis",
+    "ID": "L01-004",
+    "set": "L01",
+    "image": "images/L01/L01-004.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "2",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "AEGIS GENERAL",
+        "FABLED BEAST"
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may select one of your opponent's spirits. It gains Voidlord spirit type during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

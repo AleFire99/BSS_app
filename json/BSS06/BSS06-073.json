@@ -1,0 +1,56 @@
+{
+    "name": "Gandharan Hydra",
+    "ID": "BSS06-073",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-073.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue",
+        "red",
+        "yellow"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ABERRATION"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 5
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When This Spirit Links",
+            "keywords": [],
+            "details": "You may exhaust one of your nexuses to refresh the linked spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        }
+    ]
+}

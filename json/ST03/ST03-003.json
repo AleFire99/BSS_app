@@ -1,0 +1,54 @@
+{
+    "name": "Mechatrice",
+    "ID": "ST03-003",
+    "set": "ST03",
+    "image": "images/ST03/ST03-003.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "View the top two cards of your deck. You may place any number of them at the bottom of your deck in any order. Return any remaining cards to the top of your deck in any order.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 2 or fewer and return it to their hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        }
+    ]
+}

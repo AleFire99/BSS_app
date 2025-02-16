@@ -1,0 +1,46 @@
+{
+    "name": "Dark Bison",
+    "ID": "BSS06-050",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-050.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "You may summon a spirit card in your hand with Link that costs 4 or fewer without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

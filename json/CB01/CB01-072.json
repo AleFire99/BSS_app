@@ -1,0 +1,33 @@
+{
+    "name": "We've Won",
+    "ID": "CB01-072",
+    "set": "CB01",
+    "image": "images/CB01/CB01-072.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that is blocking one of your NERV spirits and destroy it. If you have ten or more cards in your trash, remove all of its cores and place them into their trash instead.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

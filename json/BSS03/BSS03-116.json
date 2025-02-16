@@ -1,0 +1,57 @@
+{
+    "name": "Whirlpool Strait",
+    "ID": "BSS03-116",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-116.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Place this card without paying its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, select one of your spirits. During this turn, it gains 2000 BP for each nexus you control.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

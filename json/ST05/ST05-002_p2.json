@@ -1,0 +1,56 @@
+{
+    "name": "Emerald Greatbird Aldeed",
+    "ID": "ST05-002_p2",
+    "set": "ST05",
+    "image": "images/ST05/ST05-002_p2.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Place a core from the void into your reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        }
+    ]
+}

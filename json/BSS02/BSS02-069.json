@@ -1,0 +1,60 @@
+{
+    "name": "Scout Crondale",
+    "ID": "BSS02-069",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-069.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BIRDFOLK"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Reveal the top two cards of your deck. Add one Birdfolk spirit card from the revealed cards to your hand. Discard the remaining cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Either Attack Step All LV1 nexuses lose their effects and cannot regain them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

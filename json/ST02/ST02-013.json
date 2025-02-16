@@ -1,0 +1,54 @@
+{
+    "name": "Purple Smoke Valley",
+    "ID": "ST02-013",
+    "set": "ST02",
+    "image": "images/ST02/ST02-013.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Draw a card when one of your effects destroys one of your opponent's spirits via reducing its cores to zero.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Your spirits with Curse cannot be blocked by your opponent's spirits with only one core on them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

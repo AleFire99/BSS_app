@@ -1,0 +1,56 @@
+{
+    "name": "Sword Saint Hermit Jiraiya",
+    "ID": "BSS05-072",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-072.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "If this spirit has aon it, when your opponent's effect ends the attack step, they must discard a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Place a core from the void into your reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

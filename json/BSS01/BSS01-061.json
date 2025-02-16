@@ -1,0 +1,54 @@
+{
+    "name": "Mechabeast Fortress Naumanngard",
+    "ID": "BSS01-061",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-061.png",
+    "color": [
+        "White"
+    ],
+    "cost": "8",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Draw three cards. Place three cores from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Perform a refresh step after your attack step. This effect may only be used once per turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

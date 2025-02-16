@@ -1,0 +1,56 @@
+{
+    "name": "Misato Katsuragi",
+    "ID": "CB01-059",
+    "set": "CB01",
+    "image": "images/CB01/CB01-059.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "green"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "MISATO",
+        "WILLE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Reveal the top four cards of your deck. Add one WILLE card other than Misato Katsuragi from the revealed cards to your hand. Return the remaining cards to the bottom of your deck in any order.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits' attacks reduces your opponent's life, select one of your opponent's spirits with 2000 or fewer BP and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

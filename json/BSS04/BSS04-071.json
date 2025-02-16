@@ -1,0 +1,66 @@
+{
+    "name": "Mother Meadowbird",
+    "ID": "BSS04-071",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-071.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Swift",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step When you use this spirit to perform Ascend , treat it as though it costs 7.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 5
+        }
+    ]
+}

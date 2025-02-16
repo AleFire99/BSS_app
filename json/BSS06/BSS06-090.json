@@ -1,0 +1,45 @@
+{
+    "name": "Thousand Spears Battlefield",
+    "ID": "BSS06-090",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-090.png",
+    "color": [
+        "Purple",
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "white"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "You may discard a spirit card with Link to draw two cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When you summon a spirit, treat this nexus as having two white symbols.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

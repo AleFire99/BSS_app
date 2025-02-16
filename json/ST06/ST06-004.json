@@ -1,0 +1,57 @@
+{
+    "name": "Giant Captain Jason",
+    "ID": "ST06-004",
+    "set": "ST06",
+    "image": "images/ST06/ST06-004.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Crush",
+                    "keyword_modifier": 1
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 5
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 7
+        }
+    ]
+}

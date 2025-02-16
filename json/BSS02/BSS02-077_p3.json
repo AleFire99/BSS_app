@@ -1,0 +1,73 @@
+{
+    "name": "Eternal Phoenix Tokiwa",
+    "ID": "BSS02-077_p3",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-077_p3.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "7",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit gains 10,000 BP if your opponent controls a Voidlord spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Your opponent selects one of their refreshed spirits. Exhaust it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may remove all but three cores from this spirit and place them into your reserve to refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 5
+        }
+    ]
+}

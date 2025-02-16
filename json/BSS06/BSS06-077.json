@@ -1,0 +1,70 @@
+{
+    "name": "Water Golem",
+    "ID": "BSS06-077",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-077.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue",
+        "yellow",
+        "green"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SKYBINDER",
+        "GOLEM"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one your opponent's spirits and destroy it. Then, your opponent draws two cards for each symbol on the destroyed spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Astral",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

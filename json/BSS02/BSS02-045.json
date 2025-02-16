@@ -1,0 +1,67 @@
+{
+    "name": "Blizzaster Eagle",
+    "ID": "BSS02-045",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-045.png",
+    "color": [
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Purple",
+                        "Green",
+                        "Yellow"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "This spirit cannot be destroyed by your opponent's destruction effects during the battle.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        }
+    ]
+}

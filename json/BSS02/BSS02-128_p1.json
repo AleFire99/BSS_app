@@ -1,0 +1,45 @@
+{
+    "name": "The Three Cards",
+    "ID": "BSS02-128_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-128_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "During this turn, all of your spirits gain Otherlander spirit type. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If you have three or more Otherlander spirits, all of your opponent's nexuses lose their effects and cannot regain them during this turn.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

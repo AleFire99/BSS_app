@@ -1,0 +1,55 @@
+{
+    "name": "Great Desk Mountains",
+    "ID": "BSS02-101",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-101.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Opponent's Start Step Select one of your spirits with Awaken and refresh it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with one core on it attacks, select one of your opponent's spirits that costs 7 or fewer. That spirit cannot block during this battle.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

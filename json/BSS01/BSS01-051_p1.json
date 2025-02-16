@@ -1,0 +1,64 @@
+{
+    "name": "Dualgun Mechlord Dirm Dyna",
+    "ID": "BSS01-051_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-051_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Pay this spirit's to select one of your white spirits for each nexus either player controls. The selected spirits cannot be blocked during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When this spirit would be destroyed by your opponent's effect, you may pay a core to keep it on the field refreshed.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

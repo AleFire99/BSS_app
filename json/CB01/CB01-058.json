@@ -1,0 +1,55 @@
+{
+    "name": "WILLE",
+    "ID": "CB01-058",
+    "set": "CB01",
+    "image": "images/CB01/CB01-058.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "green"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "WILLE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "While summoning or placing a WILLE card, this nexus gains a green symbol.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Draw Step Draw one additional card. Then, discard a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

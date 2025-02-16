@@ -1,0 +1,44 @@
+{
+    "name": "Vodyanoy",
+    "ID": "BSS06-042",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-042.png",
+    "color": [
+        "Yellow",
+        "Blue"
+    ],
+    "cost": "2",
+    "reduction": [
+        "yellow",
+        "blue"
+    ],
+    "symbols": [
+        "yellow/blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

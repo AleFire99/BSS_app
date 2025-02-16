@@ -1,0 +1,52 @@
+{
+    "name": "Falco-Panther",
+    "ID": "BSS06-074",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-074.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "yellow",
+        "green"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ABERRATION"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Discard the top three cards of your opponent's deck. Chain: Yellow Select a magic card from your trash and return it to the top of your deck. Chain: Green Your opponent selects one of their spirits. Exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 6
+        }
+    ]
+}

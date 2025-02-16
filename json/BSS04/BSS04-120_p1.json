@@ -1,0 +1,33 @@
+{
+    "name": "Doubly Deadly",
+    "ID": "BSS04-120_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-120_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Destroy one of your spirits to make your opponent select two of their spirits with one symbol and destroy them.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

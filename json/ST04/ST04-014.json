@@ -1,0 +1,45 @@
+{
+    "name": "Imaginary Gate",
+    "ID": "ST04-014",
+    "set": "ST04",
+    "image": "images/ST04/ST04-014.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Discard the top two cards of your deck. Then, select up to two spirit cards that cost 2 or fewer from your trash and return them to your hand. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

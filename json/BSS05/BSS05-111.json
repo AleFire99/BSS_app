@@ -1,0 +1,57 @@
+{
+    "name": "Sacred Wood Research Lab",
+    "ID": "BSS05-111",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-111.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "white/green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Summon one of your Mecha Leaf Kindred Tokens.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When you summon a token spirit, you may exhaust this nexus to summon one additional copy of the same token spirit exhausted. Place a core from your reserve or trash that is not aonto it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

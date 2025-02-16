@@ -1,0 +1,45 @@
+{
+    "name": "Mechawing Duck",
+    "ID": "ST03-004_p2",
+    "set": "ST03",
+    "image": "images/ST03/ST03-004_p2.png",
+    "color": [
+        "White"
+    ],
+    "cost": "1",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When one of your opponent's spirits returns to their hand or deck, place a core from the void onto this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        }
+    ]
+}

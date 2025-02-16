@@ -1,0 +1,55 @@
+{
+    "name": "Palace of the Serpentine Cult",
+    "ID": "BSS03-109",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-109.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Select a spirit from your trash with Curse or Bloodcurse and return it to the top of your deck.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When one of your Serpent spirits is destroyed, place a core from your opponent's reserve into their trash.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

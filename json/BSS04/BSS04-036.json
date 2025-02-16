@@ -1,0 +1,63 @@
+{
+    "name": "Perilbeast Hundun",
+    "ID": "BSS04-036",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-036.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Reveal the top three cards of your deck. Add one Fabled Beast spirit card from the revealed cards to your hand. Return the remaining cards to the bottom of your deck in any order.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. That spirit cannot attack or block during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

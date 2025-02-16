@@ -1,0 +1,43 @@
+{
+    "name": "Three Card Technique",
+    "ID": "BSS06-099",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-099.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Draw two cards. Then, discard four cards from the top of your deck. Add one spirit card with Link from the discarded cards to your hand.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

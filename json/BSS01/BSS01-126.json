@@ -1,0 +1,44 @@
+{
+    "name": "Dark Matter",
+    "ID": "BSS01-126",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-126.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When You Lose Life",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Select a spirit card that costs 4 or fewer from your trash and return it to your hand. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select an exhausted spirit that costs 4 or fewer and destroy it.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

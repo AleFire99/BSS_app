@@ -1,0 +1,34 @@
+{
+    "name": "Insect Aura",
+    "ID": "BSS02-136",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-136.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. During this turn, it gains 1000 BP for each Carapite or Insectoid you control.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,67 @@
+{
+    "name": "Iron Hammer Oswald",
+    "ID": "BSS03-085",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-085.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "2",
+    "reduction": [
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword": "Crush",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "For each spirit card discarded by this spirit's Crush effect, it gains 1000 BP during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

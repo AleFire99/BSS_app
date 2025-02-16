@@ -1,0 +1,69 @@
+{
+    "name": "Hyperdimensional Diva Valkyrie Lyra",
+    "ID": "BSS05-056",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-056.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ICE PRINCESS"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Purple",
+                        "Green"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "Your Ice Princess spirits with aon them can block while exhausted.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 5
+        }
+    ]
+}

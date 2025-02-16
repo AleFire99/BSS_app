@@ -1,0 +1,33 @@
+{
+    "name": "Deadly Balance",
+    "ID": "BSS01-122_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-122_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Your opponent selects one of their spirits. Then, select one of your spirits. Destroy both spirits.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

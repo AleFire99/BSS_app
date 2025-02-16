@@ -1,0 +1,55 @@
+{
+    "name": "Sealord's Maw",
+    "ID": "BSS05-114",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-114.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "If one of your opponent's spirits that costs 2 or fewer attacks, place a core from the void onto this nexus. If one of your spirits that costs 2 or fewer attacks, destroy this nexus.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When your opponent uses a magic card from their hand, place a core from the void onto this nexus after its effect resolves.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

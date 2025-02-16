@@ -1,0 +1,72 @@
+{
+    "name": "Radiant Dragon Palace Breidablik",
+    "ID": "BSS03-064",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-064.png",
+    "color": [
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ARMORED DRAGON"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "Place a core from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "You may return one of your nexuses to the bottom of your deck to draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "You may pay a to select one of your other spirits and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

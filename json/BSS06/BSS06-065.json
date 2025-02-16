@@ -1,0 +1,65 @@
+{
+    "name": "Lancehawk Spineed Hayato",
+    "ID": "BSS06-065",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-065.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you spend aas part of this spirit's summoning cost, you may discard your entire hand. If you do, draw the same number of cards as your opponent has in their hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 4
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "While This Spirit is Linked",
+            "keywords": [],
+            "details": "The linked spirit gains Gale:1.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        }
+    ]
+}

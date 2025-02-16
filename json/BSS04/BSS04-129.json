@@ -1,0 +1,41 @@
+{
+    "name": "Life Saving",
+    "ID": "BSS04-129",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-129.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Place a core from the void into your life if you have less life than your opponent.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

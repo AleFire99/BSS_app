@@ -1,0 +1,33 @@
+{
+    "name": "Raging Tide",
+    "ID": "BSS04-136_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-136_p1.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Destroy all spirits that cost 3 or fewer that are not tokens. If two or more spirits are destroyed by this effect, place a core from the void into your reserve.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

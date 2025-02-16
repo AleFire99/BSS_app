@@ -1,0 +1,44 @@
+{
+    "name": "Third Eye Snake",
+    "ID": "PR-023",
+    "set": "PR",
+    "image": "images/PR/PR-023.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SERPENT"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When your opponent places a core with one of their effects from the void onto one of their spirits or into their reserve, draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

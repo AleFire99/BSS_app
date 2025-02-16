@@ -1,0 +1,57 @@
+{
+    "name": "Mace Angel",
+    "ID": "BSS02-061",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-061.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Luster",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

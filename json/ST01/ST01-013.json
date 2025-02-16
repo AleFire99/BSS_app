@@ -1,0 +1,55 @@
+{
+    "name": "Star Altar",
+    "ID": "ST01-013",
+    "set": "ST01",
+    "image": "images/ST01/ST01-013.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with a on it is destroyed, select one of your spirits. Place all of the destroyed spirit's cores onto it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Star Dragon spirits is blocked, you may exhaust this nexus to refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

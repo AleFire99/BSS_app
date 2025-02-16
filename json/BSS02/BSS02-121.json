@@ -1,0 +1,34 @@
+{
+    "name": "The Hanged Man",
+    "ID": "BSS02-121",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-121.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. If it attacks or blocks during this turn, remove four of its cores and place them into your opponent's reserve.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

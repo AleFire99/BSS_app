@@ -1,0 +1,56 @@
+{
+    "name": "Victory Oath",
+    "ID": "L01-008",
+    "set": "L01",
+    "image": "images/L01/L01-008.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "You and your opponent each draw two cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits destroys one of your opponent's spirits with 3000 or fewer BP in battle, you may refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

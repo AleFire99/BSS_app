@@ -1,0 +1,42 @@
+{
+    "name": "Break Burst",
+    "ID": "BSS03-136",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-136.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Discard the top three cards of your opponent's deck.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 3 or fewer and destroy it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,79 @@
+{
+    "name": "Ten Sword Saint Starblade Dragon",
+    "ID": "BSS02-005_p2",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-005_p2.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "STAR DRAGON"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Awaken",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When you draw a card with one of your effects, select one of your opponent's spirits with 3000 or fewer BP and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When you have 3 or fewer life and you reduce your opponent's life, draw two cards.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "name": "Death Swordfighter Dullabone",
+    "ID": "PR-047",
+    "set": "PR",
+    "image": "images/PR/PR-047.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Curse",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's exhausted spirits. Remove a core from it and place it into your opponent's reserve. Chain: Yellow Select a spirit card that costs 2 from your trash and summon it without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 6
+        }
+    ]
+}

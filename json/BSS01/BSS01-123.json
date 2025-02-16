@@ -1,0 +1,45 @@
+{
+    "name": "Burst Venom",
+    "ID": "BSS01-123",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-123.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Select one spirit. Remove all but one core from it and place them into their owner's reserve. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

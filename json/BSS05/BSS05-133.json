@@ -1,0 +1,42 @@
+{
+    "name": "Wind Pressure",
+    "ID": "BSS05-133",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-133.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "At the end of this turn, refresh all of your spirits.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Your Preybird and Leaf Kindred spirits gain 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

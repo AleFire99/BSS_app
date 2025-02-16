@@ -1,0 +1,55 @@
+{
+    "name": "Giantwood Castle Keep",
+    "ID": "BSS02-115",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-115.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with a on it destroys one of your opponent's spirits via comparing BP, select one of your spirits and refresh it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "\"When Destroyed\" effects on your opponent's spirits are not triggered.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

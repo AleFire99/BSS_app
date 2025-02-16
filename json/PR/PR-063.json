@@ -1,0 +1,61 @@
+{
+    "name": "Machine Brute Mega Therium",
+    "ID": "PR-063",
+    "set": "PR",
+    "image": "images/PR/PR-063.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "white/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST",
+        "GIANT BEAST"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "All of your token spirits gain 10,000 BP during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Summon one of your Mecha Leaf Kindred Tokensfor each nexus you control.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

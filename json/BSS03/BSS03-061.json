@@ -1,0 +1,80 @@
+{
+    "name": "Snowcapped Peak Goddess Skadi",
+    "ID": "BSS03-061",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-061.png",
+    "color": [
+        "White"
+    ],
+    "cost": "9",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ICE PRINCESS"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If you control a spirit with a on it, your opponent can only select a spirit with a {CORE} on it when using an effect to select one of your spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "White"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Opponent's End Step At the start of the step, return all of your opponent's exhausted spirits to their hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 5
+        }
+    ]
+}

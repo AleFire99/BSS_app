@@ -1,0 +1,55 @@
+{
+    "name": "Enchained Arena",
+    "ID": "BSS03-118",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-118.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Place a core from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "Your opponent's spirits that cost 5 or fewer cannot attack unless they pay one core.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

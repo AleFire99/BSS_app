@@ -1,0 +1,58 @@
+{
+    "name": "Queen Antraine",
+    "ID": "BSS02-082",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-082.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "9",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CARAPITE"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Summon two of your Antman Tokens.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits is destroyed, select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 12000,
+            "cores": 4
+        }
+    ]
+}

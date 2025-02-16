@@ -1,0 +1,45 @@
+{
+    "name": "Savage Power",
+    "ID": "ST05-014",
+    "set": "ST05",
+    "image": "images/ST05/ST05-014.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "You may summon a green card from your hand by using cores from your reserve to pay its cost and place cores onto it. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

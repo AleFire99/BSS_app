@@ -1,0 +1,58 @@
+{
+    "name": "Kaworu Nagisa",
+    "ID": "CB01-067",
+    "set": "CB01",
+    "image": "images/CB01/CB01-067.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue",
+        "purple"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "KAWORU",
+        "PILOT",
+        "NERV"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may exhaust this nexus to select one of your Angel or NERV spirits. Treat it as its highest level during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Mark.06 or EVA-13 spirits attacks, you may exhaust this nexus to refresh that spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

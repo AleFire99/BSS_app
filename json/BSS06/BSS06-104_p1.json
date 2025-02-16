@@ -1,0 +1,44 @@
+{
+    "name": "Agarwood Essence",
+    "ID": "BSS06-104_p1",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-104_p1.png",
+    "color": [
+        "Purple",
+        "White"
+    ],
+    "cost": "7",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        "-"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When using this magic card, it costs 5 if your opponent controls three or more spirits.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Discard any number of cards. For each card discarded, select one of your opponent's spirits. Remove one core from each of them and place them into your opponent's trash. Chain: White Select one of your spirits with Link and refresh it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

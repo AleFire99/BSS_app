@@ -1,0 +1,67 @@
+{
+    "name": "Tundra Forager Ptarmigan",
+    "ID": "BSS05-067",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-067.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "green"
+    ],
+    "symbols": [
+        "white/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Swift",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Red"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

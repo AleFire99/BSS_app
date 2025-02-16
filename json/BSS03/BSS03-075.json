@@ -1,0 +1,64 @@
+{
+    "name": "Wind Tiger Tiguard",
+    "ID": "BSS03-075",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-075.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BLADEBEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Swift",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Gale",
+                    "keyword_modifier": 1
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

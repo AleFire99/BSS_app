@@ -1,0 +1,65 @@
+{
+    "name": "Yellowsmoke Tiger",
+    "ID": "PR-059",
+    "set": "PR",
+    "image": "images/PR/PR-059.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SPIRIT BEAST"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "This spirit cannot be blocked by any of your opponent's spirits with only one core on them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 5 or more. For each spirit card that costs 2 in your trash, remove a core from it and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 6
+        }
+    ]
+}

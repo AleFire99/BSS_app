@@ -1,0 +1,46 @@
+{
+    "name": "What's \"Good Morning\"?",
+    "ID": "CB01-074",
+    "set": "CB01",
+    "image": "images/CB01/CB01-074.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When You Lose Life",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Discard three cards from the top of your deck to place a core from your reserve into your life. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one NERV spirit card, or one Shinji or Gendoh nexus card, from your trash and return it to your hand.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

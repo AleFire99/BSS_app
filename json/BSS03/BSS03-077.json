@@ -1,0 +1,57 @@
+{
+    "name": "Radiant Rainbow Wing Jewelbug Σ",
+    "ID": "BSS03-077",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-077.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "7",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CARAPITE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with Gale reduces your opponent's life, place a core from the void onto this spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

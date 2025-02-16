@@ -1,0 +1,75 @@
+{
+    "name": "Dinosaur Harrier Turborex",
+    "ID": "BSS01-059",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-059.png",
+    "color": [
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": 3
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "You may select one of your opponent's spirits at the start of the step. If possible, that spirit must attack first this step.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that does not have Ascend and return it to their hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

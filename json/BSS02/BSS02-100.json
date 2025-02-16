@@ -1,0 +1,64 @@
+{
+    "name": "Meteorite Impact Zone",
+    "ID": "BSS02-100",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-100.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When you reduce your opponent's life with an attack from one of your spirits with a on it, select one of your opponent's spirits with 2000 or fewer BP and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "You may destroy this nexus to draw two cards.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "name": "Conjured Puppet Empty Karma",
+    "ID": "BSS06-025",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-025.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow",
+        "white"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SKYBINDER",
+        "SHADOW"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Astral",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        }
+    ]
+}

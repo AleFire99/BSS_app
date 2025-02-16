@@ -1,0 +1,32 @@
+{
+    "name": "Curse Enchantment",
+    "ID": "BSS04-121",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-121.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains Curse during this turn: While This Spirit Attacks Curse",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

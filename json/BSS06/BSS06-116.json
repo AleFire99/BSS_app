@@ -1,0 +1,41 @@
+{
+    "name": "Cooking! Fish Fillet",
+    "ID": "BSS06-116",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-116.png",
+    "color": [
+        "Blue",
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue",
+        "blue",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When using this magic card, it costs 4 if your opponent has three or more magic cards in their trash.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Discard the top five cards of your opponent's deck. Chain: Yellow You may destroy one of your non-token spirits to summon two Small Supsprite Tokens.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

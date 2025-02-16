@@ -1,0 +1,55 @@
+{
+    "name": "Heaven-Piercing Castle",
+    "ID": "ST03-013",
+    "set": "ST03",
+    "image": "images/ST03/ST03-013.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "When your opponent draws outside of their draw step, you may pay a to draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When a spirit with a \"When This Spirit Blocks\" effect attacks, you may place up to two cores from your trash onto it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

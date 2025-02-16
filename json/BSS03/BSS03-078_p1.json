@@ -1,0 +1,65 @@
+{
+    "name": "Ant Pilgrim",
+    "ID": "BSS03-078_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-078_p1.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CARAPITE"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "View the top three cards of your deck. Reveal one Emerald Sanctuary from the cards you viewed and add it to your hand. Return the remaining cards to the bottom of your deck in any order.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Gale",
+                    "keyword_modifier": 1
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 5
+        }
+    ]
+}

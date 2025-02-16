@@ -1,0 +1,56 @@
+{
+    "name": "Underworld Casino",
+    "ID": "BSS05-107_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-107_p1.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "yellow"
+    ],
+    "symbols": [
+        "purple/yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "ANV",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When you summon a spirit that costs 2, you may exhaust this nexus to select one of your opponent's spirits that costs 7 or fewer. Remove all but one core from it and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your spirits that costs 2 is destroyed, select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

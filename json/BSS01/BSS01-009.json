@@ -1,0 +1,68 @@
+{
+    "name": "Raging Dino Dyrano Rex",
+    "ID": "BSS01-009",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-009.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 4000 or fewer BP and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 5
+        }
+    ]
+}

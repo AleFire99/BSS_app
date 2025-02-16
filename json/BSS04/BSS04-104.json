@@ -1,0 +1,55 @@
+{
+    "name": "Eldened Dragon's Jaw",
+    "ID": "BSS04-104",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-104.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "All of your exhausted spirits gain 1000 BP for each symbol they have.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Ancient Dragon spirits is blocked, if its BP is higher than the blocking spirit's BP by 5000 or more, refresh your spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

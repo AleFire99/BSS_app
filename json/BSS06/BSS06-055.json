@@ -1,0 +1,58 @@
+{
+    "name": "Conjuration Puppet Knight",
+    "ID": "BSS06-055",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-055.png",
+    "color": [
+        "White",
+        "Purple"
+    ],
+    "cost": "8",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST",
+        "SHADOW"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Discard the top three cards of your deck and draw three cards. Chain: Purple Remove three cores from one of your opponent's spirits and place them into their reserve. If you destroy your opponent's spirit with this effect, place two cores from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "Place a core from the void onto this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 11000,
+            "cores": 3
+        }
+    ]
+}

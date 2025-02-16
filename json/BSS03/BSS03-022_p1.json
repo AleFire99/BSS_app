@@ -1,0 +1,74 @@
+{
+    "name": "Viper Dragon Hsuan Falung",
+    "ID": "BSS03-022_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-022_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SERPENT"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Your opponent selects one of their refreshed spirits. Remove three cores from it and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "While This Spirit Attacks Curse",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Serpent spirits attacks, you may select one of your opponent's exhausted spirits. Your Serpent spirit attacks it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 6
+        }
+    ]
+}

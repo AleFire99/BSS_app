@@ -1,0 +1,62 @@
+{
+    "name": "3rd Angel",
+    "ID": "CB01-049",
+    "set": "CB01",
+    "image": "images/CB01/CB01-049.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may discard a blue Angel card to draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 5
+        }
+    ]
+}

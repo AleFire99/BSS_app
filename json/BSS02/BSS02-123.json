@@ -1,0 +1,40 @@
+{
+    "name": "Crystal Crack",
+    "ID": "BSS02-123",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-123.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Discard the top two cards of your deck. Then, draw a card.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,69 @@
+{
+    "name": "Pegacyone",
+    "ID": "BSS01-060",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-060.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Red",
+                        "Purple"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "If this spirit has a on it, it can block your opponent's spirits with 2 or fewer cores on them even if exhausted.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 5
+        }
+    ]
+}

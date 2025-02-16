@@ -1,0 +1,45 @@
+{
+    "name": "Hollowbeast Glassbear",
+    "ID": "ST03-005_p1",
+    "set": "ST03",
+    "image": "images/ST03/ST03-005_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "Place a core from the void onto this spirit if there is a on it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

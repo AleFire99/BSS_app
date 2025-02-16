@@ -1,0 +1,44 @@
+{
+    "name": "Emerald Sanctuary",
+    "ID": "BSS03-114_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-114_p1.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "2",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When one of your effects exhausts one of your opponent's spirits, select one of your spirits. It gains 2000 BP during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

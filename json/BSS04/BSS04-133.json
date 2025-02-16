@@ -1,0 +1,41 @@
+{
+    "name": "Mistral Core",
+    "ID": "BSS04-133",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-133.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Place a core from the void into your reserve.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

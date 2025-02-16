@@ -1,0 +1,36 @@
+{
+    "name": "Shocking Vegetation",
+    "ID": "BSS05-135_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-135_p1.png",
+    "color": [
+        "Green",
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it. Chain: Blue Select one of your opponent's spirits that costs 4 or fewer and destroy it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

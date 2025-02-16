@@ -1,0 +1,79 @@
+{
+    "name": "Woodpath Ninja Hagakure Hanzo",
+    "ID": "BSS06-067",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-067.png",
+    "color": [
+        "Green",
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LEAF KINDRED"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Agile",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select any number of your opponent's spirits with a combined total of 10,000 or fewer BP and exhaust them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Summon one spirit card with Agile in your hand.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

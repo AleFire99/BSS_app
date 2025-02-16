@@ -1,0 +1,43 @@
+{
+    "name": "Poison Mist",
+    "ID": "BSS01-124",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-124.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During this turn, all of your spirits with Curse gain the following effect: When This Spirit Attacks Select one of your opponent's exhausted spirits. You may attack that spirit.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one spirit. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

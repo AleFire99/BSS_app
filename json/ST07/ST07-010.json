@@ -1,0 +1,59 @@
+{
+    "name": "Evangelion Proto Type-00",
+    "ID": "ST07-010",
+    "set": "ST07",
+    "image": "images/ST07/ST07-010.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "2",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-00",
+        "NERV"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 5
+        }
+    ]
+}

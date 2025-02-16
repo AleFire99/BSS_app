@@ -1,0 +1,36 @@
+{
+    "name": "Snowmelting Light",
+    "ID": "BSS05-126_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-126_p1.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. During this turn, it cannot be blocked by your opponent's spirits that cost 5 or fewer. Chain: White Select one of your spirits with one symbol and refresh it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

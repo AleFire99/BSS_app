@@ -1,0 +1,79 @@
+{
+    "name": "Divine Bird Tokiwa",
+    "ID": "BSS04-069_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-069_p1.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "8",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green",
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Preybird"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned If this spirit performs Ascend using a spirit that costs 7 or more, exhaust all of your opponent's spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may discard your entire hand. If a Preybird card is discarded by this effect, draw cards until you have the same number of cards in your hand as your opponent has in theirs.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 11000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 4
+        }
+    ]
+}

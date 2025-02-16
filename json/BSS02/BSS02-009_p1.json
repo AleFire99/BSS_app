@@ -1,0 +1,62 @@
+{
+    "name": "Dragoon Commander Diraidalos",
+    "ID": "BSS02-009_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-009_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR",
+        "DRAGONOID"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When one of your spirits or magic that costs 7 or more destroys an opponent's spirit, treat this spirit as LV3 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Treat this spirit as having two red symbols.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 8
+        }
+    ]
+}

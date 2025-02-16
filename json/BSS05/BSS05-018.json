@@ -1,0 +1,67 @@
+{
+    "name": "Rasal Asclepius",
+    "ID": "BSS05-018",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-018.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "purple",
+        "yellow",
+        "white",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LIGHTGUIDER",
+        "SERPENT"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Discard the top three cards of your deck. Then, select a Skybinder card from your trash and add it to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When this spirit or one of your Skybinder spirits attacks, select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 6
+        }
+    ]
+}

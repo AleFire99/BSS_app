@@ -1,0 +1,67 @@
+{
+    "name": "Island Bearer Francis",
+    "ID": "ST06-002_p1",
+    "set": "ST06",
+    "image": "images/ST06/ST06-002_p1.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Crush",
+                    "keyword_modifier": 1
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If your opponent has ten or more cards in their trash, this spirit gains Raid:1 : When This Spirit Attacks Raid:1",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 6
+        }
+    ]
+}

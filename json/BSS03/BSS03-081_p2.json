@@ -1,0 +1,57 @@
+{
+    "name": "Truth God Mandala",
+    "ID": "BSS03-081_p2",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-081_p2.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "8",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you spend a as part of this spirit's summoning cost, discard the top three cards of your opponent's deck for each nexus you control. You can discard a maximum of twelve cards with this effect.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may discard a spirit card with Crush to discard the top six cards of your opponent's deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

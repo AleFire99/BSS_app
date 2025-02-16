@@ -1,0 +1,52 @@
+{
+    "name": "Cat Aether",
+    "ID": "BSS05-037",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-037.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SKYBINDER",
+        "FABLED BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your other spirits with one symbol. It gains Astral during this turn: Astral",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

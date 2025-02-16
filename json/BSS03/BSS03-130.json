@@ -1,0 +1,32 @@
+{
+    "name": "Eternal Shield",
+    "ID": "BSS03-130",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-130.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During this turn, when your opponent's effect discards cards from your deck, no more than one card is discarded.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

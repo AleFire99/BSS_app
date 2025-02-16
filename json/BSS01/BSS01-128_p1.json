@@ -1,0 +1,34 @@
+{
+    "name": "Regain",
+    "ID": "BSS01-128_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-128_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits that is not currently attacking and refresh it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

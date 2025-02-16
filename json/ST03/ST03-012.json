@@ -1,0 +1,54 @@
+{
+    "name": "Spring of Norn",
+    "ID": "ST03-012",
+    "set": "ST03",
+    "image": "images/ST03/ST03-012.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, select one of your spirits with no effects listed and refresh it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, refresh all of your spirits with no effects listed.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

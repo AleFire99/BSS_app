@@ -1,0 +1,54 @@
+{
+    "name": "Sushi Fairy",
+    "ID": "BSS06-041",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-041.png",
+    "color": [
+        "Yellow",
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "yellow/blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FAIR FOLK"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your Supsprite spirits with aon it is destroyed, select one of your opponent's spirits. Reduce its BP by 10,000 during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "name": "Head Snow Librarian Saga",
+    "ID": "BSS01-072",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-072.png",
+    "color": [
+        "White"
+    ],
+    "cost": "2",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ICE PRINCESS"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "Place a core from your trash into your reserve. If you place a into your reserve with this effect, this spirit gains 3000 BP during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 3000,
+            "cores": 4
+        }
+    ]
+}

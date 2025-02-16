@@ -1,0 +1,63 @@
+{
+    "name": "Shinji Ikari -Infinite Synch Rate-",
+    "ID": "CB01-061_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-061_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "SHINJI",
+        "PILOT"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your EVA-01 spirits is summoned, you may place this card from your hand or your trash without paying its cost if you have no Shinji Ikari -Infinite Synch Rate- nexuses on your field.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Once per turn, you may discard a Golem spirit card to select one of your opponent's spirits. Remove two cores from it and place them into their reserve.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

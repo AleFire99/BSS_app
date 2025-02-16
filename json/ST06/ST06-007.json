@@ -1,0 +1,44 @@
+{
+    "name": "Mithril Golem",
+    "ID": "ST06-007",
+    "set": "ST06",
+    "image": "images/ST06/ST06-007.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 3
+        }
+    ]
+}

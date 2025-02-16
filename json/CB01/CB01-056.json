@@ -1,0 +1,46 @@
+{
+    "name": "12th Angel",
+    "ID": "CB01-056",
+    "set": "CB01",
+    "image": "images/CB01/CB01-056.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "2",
+    "reduction": [
+        "blue",
+        "purple"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "If this spirit has a on it, discard the top two cards of your opponent's deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

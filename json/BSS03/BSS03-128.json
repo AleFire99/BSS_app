@@ -1,0 +1,32 @@
+{
+    "name": "Rapid Rule",
+    "ID": "BSS03-128",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-128.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During this turn, all of your spirits that cost 2 or fewer cannot be blocked by your opponent's spirits that cost 5 or more.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

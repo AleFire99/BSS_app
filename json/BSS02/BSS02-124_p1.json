@@ -1,0 +1,46 @@
+{
+    "name": "Reboot Code",
+    "ID": "BSS02-124_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-124_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "All of your white spirits gain the following effect: When This Spirit Blocks This spirit gains 2000 BP during this battle. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select up to three of your spirits and refresh them. During this turn, your spirits without “When This Spirit Blocks” effects cannot attack.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

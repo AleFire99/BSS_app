@@ -1,0 +1,32 @@
+{
+    "name": "Diamond Radiance",
+    "ID": "EX01-008",
+    "set": "EX01",
+    "image": "images/EX01/EX01-008.png",
+    "color": [
+        "White"
+    ],
+    "cost": "2",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains 2000 BP during this turn. Draw a card if you have three or more white symbols.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

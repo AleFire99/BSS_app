@@ -1,0 +1,47 @@
+{
+    "name": "Magatsu Dragoon",
+    "ID": "BSS05-016",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-016.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "purple"
+    ],
+    "symbols": [
+        "red/purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANCIENT DRAGON"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "The first time a spirit card is placed into your trash each turn, this spirit gains Confront and 3000 BP during this turn: While This Spirit Attacks Confront",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

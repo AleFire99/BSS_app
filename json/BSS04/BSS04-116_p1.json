@@ -1,0 +1,43 @@
+{
+    "name": "Ancient Draw",
+    "ID": "BSS04-116_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-116_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Draw two cards. Then, reveal the top three cards of your deck. Add all spirit cards with Ascend from the revealed cards to your hand. Return any remaining cards to the bottom of your deck in any order.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 5000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

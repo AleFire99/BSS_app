@@ -1,0 +1,46 @@
+{
+    "name": "Ice Aegis General AL-BELT 07",
+    "ID": "L01-005",
+    "set": "L01",
+    "image": "images/L01/L01-005.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "AEGIS GENERAL",
+        "MACHINE BEAST"
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "All of your Imperator and Aegis General spirits gain Armor: Red, Purple, White : Armor: Red, Purple, White",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

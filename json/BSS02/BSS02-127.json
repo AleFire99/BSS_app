@@ -1,0 +1,32 @@
+{
+    "name": "Inescapable Avalanche",
+    "ID": "BSS02-127",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-127.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Return one of your opponent's attacking spirits to their hand.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

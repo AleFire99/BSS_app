@@ -1,0 +1,54 @@
+{
+    "name": "AAA Wunder",
+    "ID": "CB01-060",
+    "set": "CB01",
+    "image": "images/CB01/CB01-060.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "WILLE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When your life is reduced by an attack from one of your opponent's spirits that costs 3 or fewer, you may discard a card to select one of your opponent's spirits with 4000 or fewer BP and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your WILLE spirits attacks, draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

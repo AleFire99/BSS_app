@@ -1,0 +1,33 @@
+{
+    "name": "Gleam of Hope",
+    "ID": "BSS01-135",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-135.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Draw a card. All of your spirits with Luster or Blessed gain 1000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

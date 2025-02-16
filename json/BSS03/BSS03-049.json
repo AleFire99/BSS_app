@@ -1,0 +1,66 @@
+{
+    "name": "Sleepless Guardian Frost Tiger",
+    "ID": "BSS03-049",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-049.png",
+    "color": [
+        "White"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "This spirit can block your opponent's spirits without a on them even if exhausted.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When This Spirit Blocks This spirit gains 1000 BP during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, select one of your spirits with a \"When This Spirit Blocks\" effect for each Diamond Sanctuary you control. During this turn, the selected spirits cannot be blocked by your opponent's spirits that cost 6 or fewer.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

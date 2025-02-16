@@ -1,0 +1,56 @@
+{
+    "name": "Horned Fortress Elasmoth",
+    "ID": "BSS02-094",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-094.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "8",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BLADEBEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains 3000 BP during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits for each of your other spirits with 4000 or more BP and exhaust them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 3
+        }
+    ]
+}

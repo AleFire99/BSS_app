@@ -1,0 +1,75 @@
+{
+    "name": "Colosseum Golem",
+    "ID": "BSS03-087_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-087_p1.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "10",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may exhaust one of your nexuses to summon one of your Golem Tokens.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When one of your nexuses is exhausted, select one of your nexuses. Place a core from the void onto it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your End Step At the start of the step, you may exhaust one of your nexuses to refresh all of your Golem spirits.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 11000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 6
+        }
+    ]
+}

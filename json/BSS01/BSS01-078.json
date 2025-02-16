@@ -1,0 +1,52 @@
+{
+    "name": "Angel Throne",
+    "ID": "BSS01-078",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-078.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select a yellow magic card that costs 4 or fewer from your trash and return it to your hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

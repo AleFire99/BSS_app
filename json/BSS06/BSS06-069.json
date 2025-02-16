@@ -1,0 +1,68 @@
+{
+    "name": "Giantwood Wyrm Millennium Dragon",
+    "ID": "BSS06-069",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-069.png",
+    "color": [
+        "Green",
+        "Red"
+    ],
+    "cost": "8",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PLANTFOLK",
+        "ANCIENT DRAGON"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may return one of your spirits to your hand. If you do, reveal the top five cards of your deck. You may summon up to three spirit cards with Agile from the revealed cards without paying their costs. Discard the remaining cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may discard a red card to select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 6
+        }
+    ]
+}

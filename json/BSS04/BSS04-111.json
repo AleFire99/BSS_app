@@ -1,0 +1,55 @@
+{
+    "name": "Frozen Waterfall",
+    "ID": "BSS04-111",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-111.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "All of your spirits that cost 6 or more gain 2000 BP.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When a battle with one of your spirits with Ascend ends, you may pay three cores from this nexus to refresh that spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

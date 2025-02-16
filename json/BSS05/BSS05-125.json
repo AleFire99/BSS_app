@@ -1,0 +1,33 @@
+{
+    "name": "Reversal Point",
+    "ID": "BSS05-125",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-125.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "All of your spirits that cost 2 gain Astral : Astral",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

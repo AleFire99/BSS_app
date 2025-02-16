@@ -1,0 +1,83 @@
+{
+    "name": "New EVA-02α -Three-Barreled Gatling Gun-",
+    "ID": "CB01-001_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-001_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "8",
+    "reduction": [
+        "red",
+        "red",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-02",
+        "WILLE"
+    ],
+    "rarity": "SAGA",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 6000 or fewer BP and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select any number of your opponent's spirits with a combined total of 6000 or fewer BP and destroy them. If you control an Asuka nexus, your opponent's \"When Destroyed\" effects are not triggered by this effect.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 5
+        }
+    ]
+}

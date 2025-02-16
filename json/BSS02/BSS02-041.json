@@ -1,0 +1,63 @@
+{
+    "name": "Thunder Godmech Donar",
+    "ID": "BSS02-041",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-041.png",
+    "color": [
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Red",
+                        "Yellow"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "Select one of your token spirits. You may place all the cores from it onto this spirit to draw two cards.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

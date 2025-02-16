@@ -1,0 +1,66 @@
+{
+    "name": "Shaznake",
+    "ID": "BSS03-024",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-024.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SERPENT"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "If you control another Serpent spirit, draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Curse",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 6
+        }
+    ]
+}

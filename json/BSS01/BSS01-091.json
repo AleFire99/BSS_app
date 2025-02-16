@@ -1,0 +1,61 @@
+{
+    "name": "Wonderland Alice",
+    "ID": "BSS01-091",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-091.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "OTHERLANDER"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Reduce its BP by 1000 for each spirit you control during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "If you control three or more spirits, when this spirit would be destroyed, you may place a core from the void onto it to keep it on the field exhausted instead.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Infinity Shield",
+    "ID": "BSS02-126",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-126.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your Machine Beast or Mecha spirits. That spirit can block while exhausted during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

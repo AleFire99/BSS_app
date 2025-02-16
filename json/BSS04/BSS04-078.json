@@ -1,0 +1,56 @@
+{
+    "name": "Eldtree Guardian Branboar",
+    "ID": "BSS04-078",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-078.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "7",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BLADEBEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "While This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "Refresh this spirit if it has higher BP than your opponent's spirit when comparing BP during battle resolution.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Refresh this spirit when one of your spirits is summoned with Swift.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

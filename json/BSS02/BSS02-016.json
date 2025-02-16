@@ -1,0 +1,83 @@
+{
+    "name": "Rage Dragon Emperor Ira",
+    "ID": "BSS02-016",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-016.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "10",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANCIENT DRAGON",
+        "VOIDLORD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select ten spirits with 4000 or fewer BP and destroy them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Awaken",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When this spirit destroys one of your opponent's spirits, select one of your opponent's nexuses and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 15000,
+            "cores": 6
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Reanimate",
+    "ID": "BSS02-120_p2",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-120_p2.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Discard the top three cards of your deck and return one purple spirit card from them to your hand. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit card in your trash that costs 5 or fewer. Summon it without paying its cost.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

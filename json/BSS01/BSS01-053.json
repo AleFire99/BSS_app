@@ -1,0 +1,53 @@
+{
+    "name": "Sky Dragonlord Platinum",
+    "ID": "BSS01-053",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-053.png",
+    "color": [
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Return all spirits with 3000 or fewer BP to their owners' hands.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "name": "Phantom Beast King Liin",
+    "ID": "BSS01-085",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-085.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "9",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits for each Fabled Beast spirit you control. They are treated as LV1 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "If you control three or more spirits that cost 2, this spirit cannot be blocked by spirits with any effects listed.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "name": "So They've Completed It",
+    "ID": "CB01-078",
+    "set": "CB01",
+    "image": "images/CB01/CB01-078.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "You may select a WILLE spirit card that costs 6 or fewer in your hand and summon it without paying its cost. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

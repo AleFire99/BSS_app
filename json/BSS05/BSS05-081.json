@@ -1,0 +1,79 @@
+{
+    "name": "Kalavinkale",
+    "ID": "BSS05-081",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-081.png",
+    "color": [
+        "Green",
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "green/blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD",
+        "GOLEM"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Gale",
+                    "keyword_modifier": 2
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may exhaust one of your nexuses to select one of your nexuses and place a core from the void onto it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When one of your nexuses is exhausted, select one of your opponent's spirits that costs 4 or fewer and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

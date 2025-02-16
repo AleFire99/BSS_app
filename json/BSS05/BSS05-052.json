@@ -1,0 +1,73 @@
+{
+    "name": "Jugmech Sadal Aquarius",
+    "ID": "BSS05-052",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-052.png",
+    "color": [
+        "White"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LIGHTGUIDER",
+        "ARMORED DRAGON"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "Refresh this spirit at the start of the step.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Your Lightguider spirits cannot be destroyed by destruction effects on your opponent's spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "You may select one of your spirits. Return that spirit and all spirits that cost the same as that spirit to their owners' hands.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

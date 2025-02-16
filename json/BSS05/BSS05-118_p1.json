@@ -1,0 +1,47 @@
+{
+    "name": "Hellcrack",
+    "ID": "BSS05-118_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-118_p1.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When You Lose Life",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Select two of your opponent's spirits. Remove one core from each of them and place them into your opponent's reserve. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's nexuses and destroy it.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

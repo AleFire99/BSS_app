@@ -1,0 +1,34 @@
+{
+    "name": "Thunderwall",
+    "ID": "BSS05-127",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-127.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that does not have Astral. Reduce its BP by 2000 during this turn. Chain: White Spirits with 2000 or fewer BP cannot attack during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

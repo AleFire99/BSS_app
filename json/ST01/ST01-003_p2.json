@@ -1,0 +1,68 @@
+{
+    "name": "Imperial Thunder Dragon Siegwurm",
+    "ID": "ST01-003_p2",
+    "set": "ST01",
+    "image": "images/ST01/ST01-003_p2.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "STAR DRAGON",
+        "ANCIENT DRAGON"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your spirits with Awaken gain Confront.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 5
+        }
+    ]
+}

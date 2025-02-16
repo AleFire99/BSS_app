@@ -1,0 +1,68 @@
+{
+    "name": "Drago Claw",
+    "ID": "PR-044",
+    "set": "PR",
+    "image": "images/PR/PR-044.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SKYBINDER",
+        "DRAGONOID"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If you only have two or fewer spirits on your field, treat this spirit as LV3.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Turn",
+            "keywords": [
+                {
+                    "keyword_name": "Astral",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 5
+        }
+    ]
+}

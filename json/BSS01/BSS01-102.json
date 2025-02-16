@@ -1,0 +1,57 @@
+{
+    "name": "Ancient Fault",
+    "ID": "BSS01-102",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-102.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "Treat this nexus's symbol as two red symbols.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Terrasaur spirits destroys an opponent's spirit via comparing BP, select one of your opponent's spirits with BP equal to that of the destroyed spirit and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

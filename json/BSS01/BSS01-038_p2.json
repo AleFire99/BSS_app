@@ -1,0 +1,63 @@
+{
+    "name": "Dread Knight Nemesis",
+    "ID": "BSS01-038_p2",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-038_p2.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your spirits. You may destroy it to activate one of the following effects. ・Select one of your opponent's spirits. Place up to two cores from it into their reserve. ・Draw two cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Your opponent selects one of their spirits and destroys it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 6
+        }
+    ]
+}

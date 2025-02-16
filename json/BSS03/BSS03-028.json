@@ -1,0 +1,65 @@
+{
+    "name": "Eternal Pilgrim",
+    "ID": "BSS03-028",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-028.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Discard the top three cards of your deck. Then, select an Amethyst Sanctuary from your trash and return it to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Curse",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 6
+        }
+    ]
+}

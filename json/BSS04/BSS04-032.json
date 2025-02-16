@@ -1,0 +1,50 @@
+{
+    "name": "Crowcat",
+    "ID": "BSS04-032",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-032.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SPIRIT BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Either Attack Step",
+            "keywords": [
+                {
+                    "keyword_name": "Immortal",
+                    "keyword_modifier": [
+                        9,
+                        10
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

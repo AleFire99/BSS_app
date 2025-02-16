@@ -1,0 +1,80 @@
+{
+    "name": "Dark Dragon Knight Rixa",
+    "ID": "BSS04-018_p2",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-018_p2.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "9",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple",
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Shadow",
+                        "Nightling"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned If this spirit performs Ascend using a spirit that costs 6 or more, remove one core from each of your opponent's spirits and nexuses and place them into their trash.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may select a spirit card from your trash that costs 6 or fewer. Summon it without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 6
+        }
+    ]
+}

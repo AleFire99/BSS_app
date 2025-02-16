@@ -1,0 +1,79 @@
+{
+    "name": "Ancient Castle Guardian Nocturna",
+    "ID": "BSS03-017_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-017_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "NIGHTLING"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Curse",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Destroyed Select two of your opponent's spirits. Remove one core from each of those spirits and place them into their reserve. Place a core from the void into your reserve for each of your opponent's spirits destroyed by this effect.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may exhaust one of your Amethyst Sanctuary nexuses to select a spirit card with Curse from your trash and summon it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 6
+        }
+    ]
+}

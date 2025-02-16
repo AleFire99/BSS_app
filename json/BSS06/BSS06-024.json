@@ -1,0 +1,51 @@
+{
+    "name": "Armored Conjuration",
+    "ID": "BSS06-024",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-024.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Either Attack Step",
+            "keywords": [
+                {
+                    "keyword_name": "Immortal",
+                    "keyword_modifier": [
+                        0,
+                        1,
+                        2
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

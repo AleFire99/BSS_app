@@ -1,0 +1,55 @@
+{
+    "name": "Hurricane Highlands",
+    "ID": "BSS03-115",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-115.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step When one of your spirits with Gale is summoned, place a number of cores from the void onto that spirit equal to the number specified in its Gale effect.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with Gale destroys one of your opponent's spirits via comparing BP, your opponent selects one of their refreshed spirits and exhausts it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

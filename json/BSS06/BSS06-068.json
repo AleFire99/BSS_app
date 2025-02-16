@@ -1,0 +1,66 @@
+{
+    "name": "Summoning Ninja Lotusmaru",
+    "ID": "BSS06-068",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-068.png",
+    "color": [
+        "Green",
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "red"
+    ],
+    "symbols": [
+        "red/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LEAF KINDRED"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Agile",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Summon one of your Antman Tokens.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

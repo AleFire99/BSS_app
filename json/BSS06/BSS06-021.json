@@ -1,0 +1,56 @@
+{
+    "name": "Illusionist Simon",
+    "ID": "BSS06-021",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-021.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple",
+        "white"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "NIGHTLING"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Discard the top four cards of your deck. If a white card is among the discarded cards, draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "You may summon a spirit card from your trash with Link that costs 4 or fewer without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

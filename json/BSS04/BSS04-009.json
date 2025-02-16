@@ -1,0 +1,55 @@
+{
+    "name": "Dinocarrier Apato",
+    "ID": "BSS04-009",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-009.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red",
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": 4
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

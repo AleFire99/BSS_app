@@ -1,0 +1,33 @@
+{
+    "name": "Volcanic Break",
+    "ID": "BSS01-119",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-119.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 3000 or fewer BP and destroy it. If you spend a as part of this card's cost, select a spirit with 6000 or fewer BP instead.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,73 @@
+{
+    "name": "Great Artificer Synthetria",
+    "ID": "BSS04-098_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-098_p1.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "7",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BEAUTY"
+    ],
+    "rarity": "SAGA",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Summon one of your Golem Tokens.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "You may destroy one of your nexuses to summon this card from your trash without paying its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your End Step At the start of the step, refresh all of your Golem spirits.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

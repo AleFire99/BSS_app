@@ -1,0 +1,70 @@
+{
+    "name": "Little Vicken",
+    "ID": "PR-039",
+    "set": "PR",
+    "image": "images/PR/PR-039.png",
+    "color": [
+        "White"
+    ],
+    "cost": "2",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CONSTRUCT",
+        "ANDROID"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Red",
+                        "White"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Select one of your spirits with Armor and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

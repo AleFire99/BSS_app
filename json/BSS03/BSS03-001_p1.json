@@ -1,0 +1,77 @@
+{
+    "name": "Ancient Guardian Trident Dragon",
+    "ID": "BSS03-001_p1",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-001_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANCIENT DRAGON"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Awaken",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, place two cores from your trash that are not a onto this spirit for every Ruby Sanctuary you control.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select any number of your opponent's spirits with a combined total of 6000 or fewer BP and destroy them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

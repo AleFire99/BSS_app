@@ -1,0 +1,44 @@
+{
+    "name": "Mi-Gyo",
+    "ID": "BSS06-075",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-075.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ABERRATION"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This card costs 3 in your hand if you don't control any spirits.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

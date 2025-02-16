@@ -1,0 +1,57 @@
+{
+    "name": "EVA-06 -Autonomous-",
+    "ID": "CB01-055",
+    "set": "CB01",
+    "image": "images/CB01/CB01-055.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "0",
+    "reduction": "—",
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MARK.06",
+        "ANGEL",
+        "NERV"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit cannot attack.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step While summoning or placing a NERV card, treat this spirit's color and symbol color as purple as well.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "You may summon one spirit card with \"12th Angel\" in its card name from your hand or trash without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "name": "Dimensional Rift",
+    "ID": "BSS03-129",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-129.png",
+    "color": [
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "You may summon a white spirit card with a \"When This Spirit Blocks\" effect from your hand without paying its cost. \"When Summoned\" effects on the spirit summoned by this effect are not triggered.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

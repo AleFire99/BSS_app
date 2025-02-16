@@ -1,0 +1,46 @@
+{
+    "name": "Dragron Trooper",
+    "ID": "ST01-009",
+    "set": "ST01",
+    "image": "images/ST01/ST01-009.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "2",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "DRAGONOID"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "This spirit gains 2000 BP.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

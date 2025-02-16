@@ -1,0 +1,68 @@
+{
+    "name": "6th Angel",
+    "ID": "CB01-051",
+    "set": "CB01",
+    "image": "images/CB01/CB01-051.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "If this spirit has a on it, when one of your opponent's spirits attacks, discard the top two cards of their deck unless they pay one core. If a magic card is among the discarded cards, destroy the attacking spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 5
+        }
+    ]
+}

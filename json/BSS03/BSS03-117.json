@@ -1,0 +1,55 @@
+{
+    "name": "Seabed Lighthouse",
+    "ID": "BSS03-117",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-117.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Your opponent cannot use magic cards in their hand that do not share a color with any of the symbols on their field.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "All of your LV3 spirits gain 2000 BP.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

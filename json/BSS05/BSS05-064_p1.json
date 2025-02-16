@@ -1,0 +1,74 @@
+{
+    "name": "Sacred Tree Mistletein",
+    "ID": "BSS05-064_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-064_p1.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "8",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "green"
+    ],
+    "symbols": [
+        "white",
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA",
+        "LEAF KINDRED"
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Token"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Summon two of your Mecha Leaf Kindred Tokens. Place a core from the void onto each of them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When one of your token spirits is destroyed, select one of your opponent's spirits that costs 6 or fewer and return it to their hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 13000,
+            "cores": 4
+        }
+    ]
+}

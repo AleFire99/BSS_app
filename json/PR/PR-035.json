@@ -1,0 +1,43 @@
+{
+    "name": "Gemhead Pigeon",
+    "ID": "PR-035",
+    "set": "PR",
+    "image": "images/PR/PR-035.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "0",
+    "reduction": "—",
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "This spirit cannot attack unless one of your spirits has been destroyed this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        }
+    ]
+}

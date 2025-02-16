@@ -1,0 +1,65 @@
+{
+    "name": "Calamity Magnetar Dragon",
+    "ID": "BSS05-004",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-004.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "8",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "STAR DRAGON"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "You may place all cores from one of your Star Dragon spirits onto this spirit to refresh this spirit.",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 5000 or fewer BP and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 5
+        }
+    ]
+}

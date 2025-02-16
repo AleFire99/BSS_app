@@ -1,0 +1,44 @@
+{
+    "name": "Crystalline Phantasm",
+    "ID": "BSS05-128_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-128_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "2",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Select one of your opponent's nexuses and return it to their hand. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. During this turn, your life cannot be reduced by that spirit's attacks.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

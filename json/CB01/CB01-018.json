@@ -1,0 +1,64 @@
+{
+    "name": "EVA-13 -World of Memories-",
+    "ID": "CB01-018",
+    "set": "CB01",
+    "image": "images/CB01/CB01-018.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-13",
+        "NERV"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you control a Gendoh nexus, select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may discard the top two cards of your deck. Draw a card if a NERV card is among the discarded cards.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 5
+        }
+    ]
+}

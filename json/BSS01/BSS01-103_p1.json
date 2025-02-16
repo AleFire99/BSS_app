@@ -1,0 +1,55 @@
+{
+    "name": "Where Stars Are Born",
+    "ID": "BSS01-103_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-103_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Reveal one card from the top of your deck for each Star Dragon spirit you control. Add one red spirit card from the revealed cards to your hand. Return any remaining cards to the bottom of your deck.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits that costs 4 or more attacks, select one of your opponent's spirits with 1000 or fewer BP and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

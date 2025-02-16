@@ -1,0 +1,68 @@
+{
+    "name": "Base Defense Angel Rita",
+    "ID": "BSS05-049",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-049.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow",
+        "white"
+    ],
+    "symbols": [
+        "yellow/white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Blue"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Luster",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

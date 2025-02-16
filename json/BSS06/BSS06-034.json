@@ -1,0 +1,53 @@
+{
+    "name": "Electrum Guardians",
+    "ID": "BSS06-034",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-034.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "purple",
+        "blue"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your spirits that costs 3 or fewer and refresh it. Chain: Purple Remove one core from each of your opponent's exhausted spirits and place them into their reserve. Chain: Blue Select one of your nexuses and place a core from the void onto it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

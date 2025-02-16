@@ -1,0 +1,56 @@
+{
+    "name": "Fortress Bug Larva",
+    "ID": "BSS05-078",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-078.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "white"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "INSECTOID"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "When one of your token spirits is destroyed, place a core from the void onto this spirit. Chain: White Refresh this spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 3 or fewer and exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        }
+    ]
+}

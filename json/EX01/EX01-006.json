@@ -1,0 +1,32 @@
+{
+    "name": "Ruby Radiance",
+    "ID": "EX01-006",
+    "set": "EX01",
+    "image": "images/EX01/EX01-006.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "2",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains 2000 BP during this turn. Draw a card if you have three or more red symbols.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,75 @@
+{
+    "name": "Water Wyrm Caldera Dragon",
+    "ID": "BSS05-099",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-099.png",
+    "color": [
+        "Blue",
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue",
+        "blue",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "blue/red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "HYDRA",
+        "ANCIENT DRAGON"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may discard a card to select any number of nexus cards with a combined total of 6 or fewer cost from your trash. Place them without paying their costs.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 3 or fewer and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may destroy one of your refreshed nexuses to refresh this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

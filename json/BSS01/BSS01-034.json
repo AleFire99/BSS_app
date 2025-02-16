@@ -1,0 +1,56 @@
+{
+    "name": "Infernal King Curse Dragon",
+    "ID": "BSS01-034",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-034.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "8",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Remove one core each from all other spirits and place them into their owners' reserves. Then, place a core from the void onto this spirit for each spirit destroyed by this effect.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove all but one core from it and place them into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Ruby Sanctuary",
+    "ID": "BSS03-106",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-106.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "2",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When an effect on one of your spirits that costs 5 or more destroys one of your opponent's spirits, draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

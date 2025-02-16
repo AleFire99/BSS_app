@@ -1,0 +1,33 @@
+{
+    "name": "Divine Wind",
+    "ID": "BSS04-134",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-134.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains Gale:2 during this turn : While This Spirit Attacks Gale:2",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

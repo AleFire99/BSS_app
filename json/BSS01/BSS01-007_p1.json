@@ -1,0 +1,87 @@
+{
+    "name": "Jurassic King Gigano Rex",
+    "ID": "BSS01-007_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-007_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "8",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When summoning this spirit from your hand, you may count each symbol on your Terrasaur or Emperor Beast spirits on the field as two symbols when calculating cost reduction.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If you only have Terrasaur or Emperor Beast spirits on the field, treat this spirit as LV3.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "All of your spirits gain 3000 BP during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 6
+        }
+    ]
+}

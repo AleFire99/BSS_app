@@ -1,0 +1,57 @@
+{
+    "name": "Rei Ayanami",
+    "ID": "ST07-013",
+    "set": "ST07",
+    "image": "images/ST07/ST07-013.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow",
+        "purple"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "REI",
+        "PILOT",
+        "NERV"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Reveal the top three cards of your deck. Add a NERV card other than Rei Ayanami from the revealed cards to your hand. Discard the remaining cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may select one of your EVA-00 spirits and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

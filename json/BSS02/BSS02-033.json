@@ -1,0 +1,51 @@
+{
+    "name": "Diviner Dragonaga",
+    "ID": "BSS02-033",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-033.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SERPENT"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you spend a as part of this spirit's summoning cost, look at the top two cards of your deck. Discard any number of them. Return any remaining cards to the top of your deck in any order.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 5
+        }
+    ]
+}

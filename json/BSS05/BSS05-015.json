@@ -1,0 +1,67 @@
+{
+    "name": "Crimson Knight",
+    "ID": "BSS05-015",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-015.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red",
+        "purple"
+    ],
+    "symbols": [
+        "red/purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "EMPEROR BEAST",
+        "SHADOW"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Curse",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "name": "Ashtar",
+    "ID": "BSS02-036",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-036.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "NIGHTLING"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 6
+        }
+    ]
+}

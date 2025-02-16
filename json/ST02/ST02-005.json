@@ -1,0 +1,47 @@
+{
+    "name": "Demo Bones",
+    "ID": "ST02-005",
+    "set": "ST02",
+    "image": "images/ST02/ST02-005.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "1",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

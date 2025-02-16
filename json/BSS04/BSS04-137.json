@@ -1,0 +1,31 @@
+{
+    "name": "Double Biceps",
+    "ID": "BSS04-137",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-137.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your attacking or blocking spirits. Treat that spirit as its highest level during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

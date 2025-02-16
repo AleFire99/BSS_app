@@ -1,0 +1,66 @@
+{
+    "name": "Silver Angel Magica Machina",
+    "ID": "BSS05-048_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-048_p1.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "yellow/white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL",
+        "ANDROID"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select a magic card with two or more colors from your trash and return it to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Reduce the BP of all of your opponent's spirits by 2000 during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

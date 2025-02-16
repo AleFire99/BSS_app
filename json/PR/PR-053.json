@@ -1,0 +1,47 @@
+{
+    "name": "Waterbug Beetlegrass",
+    "ID": "PR-053",
+    "set": "PR",
+    "image": "images/PR/PR-053.png",
+    "color": [
+        "Green",
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "INSECTOID"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 5 or more and exhaust it. Chain: Blue The spirit exhausted by this effect will not refresh during your opponent's next refresh step.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

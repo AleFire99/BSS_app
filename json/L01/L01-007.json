@@ -1,0 +1,47 @@
+{
+    "name": "Revolutionary Zeyon",
+    "ID": "L01-007",
+    "set": "L01",
+    "image": "images/L01/L01-007.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "9",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BEASTFOLK"
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may select a nexus card from your trash and place it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

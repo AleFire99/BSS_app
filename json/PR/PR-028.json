@@ -1,0 +1,56 @@
+{
+    "name": "Ghost Mantis",
+    "ID": "PR-028",
+    "set": "PR",
+    "image": "images/PR/PR-028.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "INSECTOID"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Insectoid, Carapite, or Greatbeetle spirits is destroyed, place a core from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Refresh all of your Insectoid, Carapite, and Greatbeetle spirits.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

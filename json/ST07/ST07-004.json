@@ -1,0 +1,83 @@
+{
+    "name": "EVA-01 -Operation Yashima-",
+    "ID": "ST07-004",
+    "set": "ST07",
+    "image": "images/ST07/ST07-004.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "purple",
+        "purple",
+        "red",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-01",
+        "NERV"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select a NERV card that costs 4 or fewer from your trash and return it to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may place five cores from this spirit into your trash to select one of your opponent's spirits. Remove four cores from it and place them into your opponent's reserve. When you destroy a spirit with this effect, if you control a Shinji nexus, remove a core from your opponent's life and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 6
+        }
+    ]
+}

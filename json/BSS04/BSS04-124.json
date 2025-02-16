@@ -1,0 +1,49 @@
+{
+    "name": "Key of Intrusion",
+    "ID": "BSS04-124",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-124.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "8",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This card costs 4 in your hand when you use it during your main step.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Reveal the top four cards of your deck. Add one Angel spirit card from the revealed cards to your hand. Discard the remaining cards.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Reduce its BP by 8000 during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

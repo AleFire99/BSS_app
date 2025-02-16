@@ -1,0 +1,44 @@
+{
+    "name": "Nexus Hazard",
+    "ID": "BSS02-116_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-116_p1.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "8",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When you use this magic card from your hand, you may count each symbol on your Terrasaur spirits as two symbols when calculating cost reduction.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 3000 or fewer BP and one of your opponent's nexuses and destroy them. If used during your main step, draw a card.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

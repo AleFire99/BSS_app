@@ -1,0 +1,49 @@
+{
+    "name": "Second Impact",
+    "ID": "CB01-080",
+    "set": "CB01",
+    "image": "images/CB01/CB01-080.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "8",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When activating this card's main effect, you must return four Angel spirit cards with different names from your trash to the bottom of your deck as an additional cost.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Destroy all spirits except blue Angel spirits.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 5000 BP during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

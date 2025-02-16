@@ -1,0 +1,48 @@
+{
+    "name": "Standard-Bearer Mary Flamme",
+    "ID": "BSS03-045",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-045.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BIRDFOLK"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "View the top card of your deck and return it to either the top or the bottom of your deck. Then, draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

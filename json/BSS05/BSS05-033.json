@@ -1,0 +1,49 @@
+{
+    "name": "Dark Demo Bones",
+    "ID": "BSS05-033",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-033.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple",
+        "yellow"
+    ],
+    "symbols": [
+        "purple/yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 6
+        }
+    ]
+}

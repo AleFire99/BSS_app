@@ -1,0 +1,41 @@
+{
+    "name": "Whirlwind",
+    "ID": "BSS03-133",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-133.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "2",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During this turn, you select which spirits are exhausted by your Gale effects.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,34 @@
+{
+    "name": "Excusez-moi, Eiffel!",
+    "ID": "CB01-077",
+    "set": "CB01",
+    "image": "images/CB01/CB01-077.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your Golem spirits. During this turn, when that spirit destroys one of your opponent's spirits via comparing BP, refresh it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,81 @@
+{
+    "name": "Heavenly Emperor Fenghuang",
+    "ID": "BSS03-069",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-069.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "10",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "VOIDLORD",
+        "PREYBIRD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Gale",
+                    "keyword_modifier": 3
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Voidlord spirits' attacks reduces your opponent's life, you may select one of your opponent's exhausted spirits. You may return that spirit to your opponent's hand to refresh this spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit's attack reduces your opponent's life, place one core from their life into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 15000,
+            "cores": 6
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Helecivet",
+    "ID": "BSS05-044",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-044.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "1",
+    "reduction": "—",
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FROLICKER"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

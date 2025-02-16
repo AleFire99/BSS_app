@@ -1,0 +1,51 @@
+{
+    "name": "Coralfly",
+    "ID": "BSS05-079",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-079.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "INSECTOID"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 7 or more and exhaust it. Chain: Blue Select one of your opponent's spirits that costs 2 or fewer and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

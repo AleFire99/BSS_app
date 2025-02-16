@@ -1,0 +1,45 @@
+{
+    "name": "Game of Destruction",
+    "ID": "BSS05-122",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-122.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Reduce its BP by 5000 during this turn.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove all but one core from it and place them into their reserve.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

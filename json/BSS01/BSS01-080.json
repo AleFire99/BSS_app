@@ -1,0 +1,45 @@
+{
+    "name": "Greatbow Angel",
+    "ID": "BSS01-080",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-080.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you spend a as part of this card's summoning cost, draw two cards. Then, return two cards from your hand to the bottom of your deck in any order.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

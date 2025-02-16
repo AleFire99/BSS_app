@@ -1,0 +1,45 @@
+{
+    "name": "Devilish Prankster Imp",
+    "ID": "BSS01-048",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-048.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "2",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "NIGHTLING"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits when one of your Shadow spirits reduces your opponent's life. Remove a core from it and place it into your opponent's reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

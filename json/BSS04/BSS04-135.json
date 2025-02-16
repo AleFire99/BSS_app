@@ -1,0 +1,33 @@
+{
+    "name": "Absorb Power",
+    "ID": "BSS04-135",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-135.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit and refresh it. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

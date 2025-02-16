@@ -1,0 +1,53 @@
+{
+    "name": "Late-Working Fairy",
+    "ID": "BSS05-051",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-051.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "white"
+    ],
+    "symbols": [
+        "yellow/white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FAIR FOLK"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "This spirit gains Luster or Blessed during this turn: While This Spirit Attacks Luster or While This Spirit Attacks Blessed",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "name": "Purple Haze",
+    "ID": "BSS05-121",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-121.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove a core from it and place it into their reserve. If the spirit's cores are reduced to zero and it is destroyed by this effect, return this card to your hand.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

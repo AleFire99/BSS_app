@@ -1,0 +1,95 @@
+{
+    "name": "10th Angel -EVA-00 Consumed-",
+    "ID": "CB01-045",
+    "set": "CB01",
+    "image": "images/CB01/CB01-045.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "10",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "blue",
+        "yellow"
+    ],
+    "symbols": [
+        "blue",
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "ANGEL"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "You may select one of your opponent's EVA-00 spirits to perform Ascend with this card. If you do, the cores from that spirit are placed in your opponent's reserve.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "EVA-00",
+                        "Angel"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Discard the top eight cards of your opponent's deck. Select one card from among the discarded cards. Destroy all of your opponent's spirits that cost the same as it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 9000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 11000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 15000,
+            "cores": 6
+        }
+    ]
+}

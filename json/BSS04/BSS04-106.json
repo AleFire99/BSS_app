@@ -1,0 +1,55 @@
+{
+    "name": "City of Shadows",
+    "ID": "BSS04-106",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-106.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When your opponent uses one of their effects to place a core from the void onto a spirit or into their reserve, place a core from the void onto this nexus.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "Your Shadow spirits cannot be exhausted by your opponent's effects.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

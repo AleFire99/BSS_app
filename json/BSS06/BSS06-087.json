@@ -1,0 +1,44 @@
+{
+    "name": "Heavenly Fire Takamagahara",
+    "ID": "BSS06-087",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-087.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your linked spirits gain 2000 BP.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Dragonoid spirits reduces your opponent's life, draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

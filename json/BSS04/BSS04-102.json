@@ -1,0 +1,62 @@
+{
+    "name": "Harp Princess Pollon",
+    "ID": "BSS04-102",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-102.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SEAFAE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Reveal the top five cards of your deck. Place a nexus card that costs 4 or fewer from the revealed cards without paying its cost. Discard the remaining cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your End Step At the start of the step, if this spirit is exhausted, you may exhaust one of your nexuses to refresh this spirit and discard the top three cards of your opponent's deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 6
+        }
+    ]
+}

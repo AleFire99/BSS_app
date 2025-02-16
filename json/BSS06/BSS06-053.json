@@ -1,0 +1,72 @@
+{
+    "name": "Conjuring Machine Minazuki",
+    "ID": "BSS06-053",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-053.png",
+    "color": [
+        "White",
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANDROID",
+        "NIGHTLING"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When summoning this card from your hand, you may treat each symbol on your spirits with Link as white or purple when calculating cost reduction.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "You may summon a spirit card in your hand or your trash that costs 6 or less without paying its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may return one of your spirits to your hand to select one of your opponent's spirits that costs the same or less than the spirit you returned. Return it to your opponent's hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 4
+        }
+    ]
+}

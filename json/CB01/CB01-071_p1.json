@@ -1,0 +1,43 @@
+{
+    "name": "I'm Shinji Ikari! Pilot of Evangelion Unit-01!",
+    "ID": "CB01-071_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-071_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove a from it and place it into their reserve. Then, if you control a Shinji nexus, you may select an EVA-01 spirit card from your trash and summon it.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

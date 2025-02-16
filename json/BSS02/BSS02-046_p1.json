@@ -1,0 +1,65 @@
+{
+    "name": "Lion Machine God Superbia",
+    "ID": "BSS02-046_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-046_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "10",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST",
+        "VOIDLORD"
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your opponent's spirits is returned to their hand, you may pay two cores from this spirit to refresh it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When you lose life, refresh this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 15000,
+            "cores": 6
+        }
+    ]
+}

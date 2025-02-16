@@ -1,0 +1,68 @@
+{
+    "name": "Dark Skullpione",
+    "ID": "BSS05-032",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-032.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow"
+    ],
+    "symbols": [
+        "purple/yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD",
+        "SERPENT"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Either Attack Step",
+            "keywords": [
+                {
+                    "keyword_name": "Immortal",
+                    "keyword_modifier": [
+                        4
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit is blocked, remove all but one core from the blocking spirit and place them into your opponent's reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

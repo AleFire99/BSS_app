@@ -1,0 +1,43 @@
+{
+    "name": "Cooking! Premium Sushi",
+    "ID": "BSS06-106",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-106.png",
+    "color": [
+        "Yellow",
+        "Blue"
+    ],
+    "cost": "8",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        "-"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When using this magic card, it costs 6 if your opponent controls a spirit that costs 7 or more.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Reduce its BP by 5000 during this turn. Chain: Blue Activate Feast two times: Feast instead.)",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

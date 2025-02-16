@@ -1,0 +1,56 @@
+{
+    "name": "Steam-Powered Factory",
+    "ID": "BSS05-109_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-109_p1.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow/white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "ANV",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When you use a magic card, you may count each symbol on this nexus as two symbols when calculating cost reduction.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "The first time one of your yellow or white spirits is destroyed by your opponent each turn, return that card from your trash to your hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

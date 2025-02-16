@@ -1,0 +1,87 @@
+{
+    "name": "EVA-01 -Pseudo-Evolution 2nd Phase-",
+    "ID": "CB01-016",
+    "set": "CB01",
+    "image": "images/CB01/CB01-016.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "8",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple",
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-01",
+        "NERV"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "EVA-01"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may return one of your Shinji nexuses to the bottom of your deck to destroy all other spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 6
+        }
+    ]
+}

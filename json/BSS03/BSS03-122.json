@@ -1,0 +1,34 @@
+{
+    "name": "Double Heart",
+    "ID": "BSS03-122",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-122.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit with a on it. Treat that spirit as having two red symbols during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

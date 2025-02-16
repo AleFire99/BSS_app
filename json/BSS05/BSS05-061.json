@@ -1,0 +1,45 @@
+{
+    "name": "Wyvernberyl",
+    "ID": "BSS05-061",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-061.png",
+    "color": [
+        "White"
+    ],
+    "cost": "8",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ARMORED DRAGON"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 12000,
+            "cores": 4
+        }
+    ]
+}

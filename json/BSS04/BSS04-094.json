@@ -1,0 +1,62 @@
+{
+    "name": "Spikeknuckle Roger",
+    "ID": "BSS04-094",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-094.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you spend a as part of this spirit's summoning cost, discard the top six cards of your opponent's deck.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "If your opponent has ten or more cards in their trash, select one of your other spirits. Treat it as its highest level during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 6
+        }
+    ]
+}

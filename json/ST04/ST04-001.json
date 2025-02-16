@@ -1,0 +1,61 @@
+{
+    "name": "Calamity Beast Chaos Pegasoros",
+    "ID": "ST04-001",
+    "set": "ST04",
+    "image": "images/ST04/ST04-001.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your spirits that cost 2 gain 2000 BP.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select two of your spirits that cost 2 and refresh them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 3
+        }
+    ]
+}

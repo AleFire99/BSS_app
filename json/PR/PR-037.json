@@ -1,0 +1,45 @@
+{
+    "name": "Unwise Scarecrow",
+    "ID": "PR-037",
+    "set": "PR",
+    "image": "images/PR/PR-037.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "2",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TOY"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "This spirit gains Luster during this turn: While This Spirit Attacks Luster",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Dino Reborn",
+    "ID": "BSS05-119",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-119.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Draw a card. Chain: Purple You may select a Terrasaur or Shadow spirit card from your trash and return it to your hand.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

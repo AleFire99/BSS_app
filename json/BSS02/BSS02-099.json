@@ -1,0 +1,43 @@
+{
+    "name": "Hungertree",
+    "ID": "BSS02-099",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-099.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PLANTFOLK"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Your opponent selects a card from their hand and discards it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        }
+    ]
+}

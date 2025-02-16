@@ -1,0 +1,62 @@
+{
+    "name": "Heavenly Gate Guardian Clavis",
+    "ID": "BSS02-058_p1",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-058_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "8",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your spirits. Return all yellow magic cards from your trash to your hand that cost the same as that spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit is blocked, treat the blocking spirit as LV1 during the battle.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Fortress Metropolis Naumann City",
+    "ID": "BSS01-109",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-109.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step While summoning a Machine Beast spirit card that costs 6 or more, count the symbol on this nexus as three white symbols.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "All of your spirits gain 1000 BP.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

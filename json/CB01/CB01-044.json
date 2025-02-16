@@ -1,0 +1,83 @@
+{
+    "name": "Evangelion Mark.06",
+    "ID": "CB01-044",
+    "set": "CB01",
+    "image": "images/CB01/CB01-044.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "7",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "purple"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "MARK.06",
+        "NERV"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Neither player can activate their spirits' \"When Summoned\" effects without paying one core. If you control a Kaworu nexus, players must pay three cores for this effect.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select your opponent's spirit that costs the least and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 6
+        }
+    ]
+}

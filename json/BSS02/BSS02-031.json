@@ -1,0 +1,62 @@
+{
+    "name": "Divine Saturn Dragon Chronos-Boros",
+    "ID": "BSS02-031",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-031.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SERPENT"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Your opponent selects one of their spirits. Remove three of its cores and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you spend a as part of this spirit's summoning cost, your opponent selects one of their spirits. Remove a core that is not a {CORE} from it and place it into the void.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 6
+        }
+    ]
+}

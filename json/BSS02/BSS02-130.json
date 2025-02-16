@@ -1,0 +1,32 @@
+{
+    "name": "Magic Mirror",
+    "ID": "BSS02-130",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-130.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "The next time your opponent would select a spirit or nexus while using a magic card during this turn, you select it instead.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

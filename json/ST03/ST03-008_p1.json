@@ -1,0 +1,61 @@
+{
+    "name": "Buffalong Bill",
+    "ID": "ST03-008_p1",
+    "set": "ST03",
+    "image": "images/ST03/ST03-008_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GIANT BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 5 or fewer and return it to their hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your spirits' \"When This Spirit Blocks\" effects also activate when attacking.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

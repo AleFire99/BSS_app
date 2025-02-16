@@ -1,0 +1,56 @@
+{
+    "name": "Ferocious Prison",
+    "ID": "BSS05-105_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-105_p1.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "purple"
+    ],
+    "symbols": [
+        "red/purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "ANV",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "You may discard a card. If you do, select two of your opponent's spirits with 2000 or fewer BP and destroy them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your End Step If a spirit has been destroyed this turn, draw a card at the start of the step.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

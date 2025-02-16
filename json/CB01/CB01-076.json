@@ -1,0 +1,33 @@
+{
+    "name": "You Won't Die. I Will Protect You",
+    "ID": "CB01-076",
+    "set": "CB01",
+    "image": "images/CB01/CB01-076.png",
+    "color": [
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "purple",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Cards cannot be discarded from your deck during this turn. Then, if you control a Rei nexus, select a color. Attacks from your opponent's spirits of the selected color cannot reduce your life to 0 during this turn.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

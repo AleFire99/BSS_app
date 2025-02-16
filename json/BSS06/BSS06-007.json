@@ -1,0 +1,49 @@
+{
+    "name": "Euparlance",
+    "ID": "BSS06-007",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-007.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "2",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

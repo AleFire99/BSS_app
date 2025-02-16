@@ -1,0 +1,62 @@
+{
+    "name": "Imperial Knight God Avalo Paladion",
+    "ID": "BSS02-027",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-027.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove seven of its cores and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Either End Step If one or more of your spirits has been destroyed this turn, draw two cards at the start of the step.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 6
+        }
+    ]
+}

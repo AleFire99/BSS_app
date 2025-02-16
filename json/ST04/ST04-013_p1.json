@@ -1,0 +1,55 @@
+{
+    "name": "Soap Bubble Lakeside",
+    "ID": "ST04-013_p1",
+    "set": "ST04",
+    "image": "images/ST04/ST04-013_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Reveal the top card of your deck when one of your spirits that costs 3 or fewer is destroyed. If it costs the same as the destroyed spirit, add it to your hand. If it does not, discard it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Your yellow spirits cannot be blocked by any of your opponent's spirits with \"When This Spirit Blocks\" effects.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "Thorn Prison",
+    "ID": "BSS02-133_p2",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-133_p2.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

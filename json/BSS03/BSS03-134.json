@@ -1,0 +1,32 @@
+{
+    "name": "Forest Charge",
+    "ID": "BSS03-134",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-134.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During this battle, when one of your Bladebeast spirits destroys one of your opponent's spirits via comparing BP, refresh it.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

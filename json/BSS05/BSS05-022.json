@@ -1,0 +1,59 @@
+{
+    "name": "Shadow Swordfighter Blackeopard",
+    "ID": "BSS05-022",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-022.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 8 or more. Remove two cores from it and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with only one color. Remove a core from it and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 6
+        }
+    ]
+}

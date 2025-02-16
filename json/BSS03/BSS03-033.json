@@ -1,0 +1,63 @@
+{
+    "name": "Empress Guardian Red Queen",
+    "ID": "BSS03-033",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-033.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "OTHERLANDER"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Reduce its BP by 2000 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step When one of your Otherlander spirits is summoned, you may exhaust one of your Topaz Sanctuary nexuses to activate one of the spirit's \"When Summoned\" effects a second time.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

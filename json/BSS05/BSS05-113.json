@@ -1,0 +1,58 @@
+{
+    "name": "Sunken Ruins",
+    "ID": "BSS05-113",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-113.png",
+    "color": [
+        "Green",
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "green",
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Draw two cards. Then, discard two cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may remove a core from this nexus and place it into the void to select one of your other nexuses with a core on it. Treat that nexus as if it is also a Golem spirit with 5000 BP during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

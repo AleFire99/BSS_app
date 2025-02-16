@@ -1,0 +1,65 @@
+{
+    "name": "Violet Lotus Myo-oh",
+    "ID": "BSS06-079",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-079.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 3 or fewer and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 4
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When This Spirit Links",
+            "keywords": [],
+            "details": "Discard the top three cards of your opponent's deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        }
+    ]
+}

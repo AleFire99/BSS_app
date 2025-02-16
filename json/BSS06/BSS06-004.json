@@ -1,0 +1,65 @@
+{
+    "name": "Spearbeast Ballista",
+    "ID": "BSS06-004",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-004.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "EMPEROR BEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select two of your opponent's spirits with 4000 or fewer BP. Or, select one of your opponent's spirits with 4000 or fewer BP and one of your opponent's nexuses. Destroy them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 5
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "While This Spirit is Linked",
+            "keywords": [],
+            "details": "The linked spirit gains Confront.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "name": "Mega Flying Killer",
+    "ID": "BSS05-092",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-092.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue",
+        "red"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ABERRATION"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select any number of your opponent's spirits with a combined total of 3 or fewer cost and destroy them. Discard the top card of your opponent's deck for each spirit destroyed by this effect. Chain: Red Draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

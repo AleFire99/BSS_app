@@ -1,0 +1,46 @@
+{
+    "name": "Darkmage Flauroar",
+    "ID": "BSS05-025",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-025.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple",
+        "red"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "NETHERINE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Discard the top two cards of your deck. Chain: Red Your opponent selects one of their nexuses. Destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

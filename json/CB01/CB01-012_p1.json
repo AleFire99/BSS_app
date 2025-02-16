@@ -1,0 +1,80 @@
+{
+    "name": "EVA-01 -Spear of Cassius-",
+    "ID": "CB01-012_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-012_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-01"
+    ],
+    "rarity": "SAGA",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may discard a spirit card to select one of your opponent's spirits. Remove two cores from it and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Refresh this spirit when an EVA-01 spirit card is discarded from your hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

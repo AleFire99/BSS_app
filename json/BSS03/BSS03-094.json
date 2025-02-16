@@ -1,0 +1,61 @@
+{
+    "name": "Sea Lancer Subito",
+    "ID": "BSS03-094",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-094.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SEAFAE"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may exhaust one of your nexuses to treat this spirit as LV3 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 3 or fewer and destroy it. If you destroy a spirit with this effect, discard the top three cards of your opponent's deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 6
+        }
+    ]
+}

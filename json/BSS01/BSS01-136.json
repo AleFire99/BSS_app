@@ -1,0 +1,48 @@
+{
+    "name": "Exhaust Nexus",
+    "ID": "BSS01-136",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-136.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "7",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "During this turn, reduce the BP of all of your opponent's spirits by 1000 for each nexus they control. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Reduce the BP of all of your opponent's spirits by 3000 during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

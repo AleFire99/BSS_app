@@ -1,0 +1,34 @@
+{
+    "name": "Trident Flare",
+    "ID": "BSS02-117",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-117.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select three of your opponent's spirits with 2000 or fewer BP and destroy them.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

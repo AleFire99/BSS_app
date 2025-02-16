@@ -1,0 +1,33 @@
+{
+    "name": "Death Accompaniment",
+    "ID": "BSS05-120",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-120.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select three of your opponent's spirits that do not have Astral. Remove a core from each of those spirits and place them into their reserve.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

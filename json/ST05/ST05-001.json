@@ -1,0 +1,64 @@
+{
+    "name": "Rooster Zodiac Emperor Gale Phoenix",
+    "ID": "ST05-001",
+    "set": "ST05",
+    "image": "images/ST05/ST05-001.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "8",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When this spirit or one of your spirits with Swift destroys one of your opponent's spirits via comparing BP, select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

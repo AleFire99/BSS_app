@@ -1,0 +1,44 @@
+{
+    "name": "Inverted World",
+    "ID": "BSS06-091",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-091.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When you summon a Surveyor spirit card from your hand, treat the symbol color on this nexus and the symbol colors on all of your spirits that cost 3 as red, purple, white, yellow, green, and blue as well.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits that costs 3 or 5 attacks, place a core from the void onto it. If it is a Surveyor spirit, you may also link it to a spirit with Link , ignoring the link requirement.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

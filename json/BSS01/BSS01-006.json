@@ -1,0 +1,46 @@
+{
+    "name": "Nebula Dragon",
+    "ID": "BSS01-006",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-006.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "STAR DRAGON"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "Count this spirit's symbol as two red symbols if it has a on it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        }
+    ]
+}

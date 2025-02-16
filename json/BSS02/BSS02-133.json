@@ -1,0 +1,33 @@
+{
+    "name": "Thorn Prison",
+    "ID": "BSS02-133",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-133.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Your opponent selects two of their refreshed spirits. Exhaust them.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

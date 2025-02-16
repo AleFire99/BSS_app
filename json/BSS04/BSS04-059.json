@@ -1,0 +1,44 @@
+{
+    "name": "Godmech Gae Bolg",
+    "ID": "BSS04-059",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-059.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Summon one of your Mecha Tokens.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        }
+    ]
+}

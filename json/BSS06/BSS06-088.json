@@ -1,0 +1,46 @@
+{
+    "name": "Dragon Castle Keep",
+    "ID": "BSS06-088",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-088.png",
+    "color": [
+        "Red",
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red",
+        "green"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "This nexus gains a green symbol.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your red spirits gain 1000 BP and all of your green spirits gain 1000 BP.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

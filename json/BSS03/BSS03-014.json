@@ -1,0 +1,54 @@
+{
+    "name": "Chameleowhip",
+    "ID": "BSS03-014",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-014.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "2",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "REPTOID"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit cannot block.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "If this spirit is exhausted, your opponent's spirits with fewer BP than this spirit cannot reduce your life.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

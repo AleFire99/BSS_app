@@ -1,0 +1,60 @@
+{
+    "name": "Ocean Knight Allegro",
+    "ID": "BSS03-093",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-093.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SEAFAE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "If your opponent has ten or more cards in their trash, select their spirit that costs the most and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit reduces your opponent's life, you may exhaust one of your nexuses to select one of your Seafae spirits and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 6
+        }
+    ]
+}

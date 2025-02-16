@@ -1,0 +1,67 @@
+{
+    "name": "Cthulou Shark",
+    "ID": "BSS03-097",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-097.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "6",
+    "reduction": [
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ABERRATION"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "As an additional summoning cost, you must destroy one of your blue nexuses.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned Destroy all spirits without a on them.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit destroys one of your opponent's spirits via comparing BP, select a nexus card in your trash and place it without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 6
+        }
+    ]
+}

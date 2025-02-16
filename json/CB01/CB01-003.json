@@ -1,0 +1,88 @@
+{
+    "name": "New EVA-02α -Backdoor Code Triple Nine-",
+    "ID": "CB01-003",
+    "set": "CB01",
+    "image": "images/CB01/CB01-003.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "9",
+    "reduction": [
+        "red",
+        "red",
+        "red",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "red",
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-02",
+        "WILLE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "EVA-02"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit destroys one of your opponent's spirits via comparing BP, discard the top three cards of their deck. Draw a card for each spirit card among the discarded cards.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 11000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 6
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Mercury Sea Factory Isle",
+    "ID": "BSS06-094",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-094.png",
+    "color": [
+        "White",
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Your spirits with Link gain Armor: Purple, White",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "When your opponent uses one of their effects to draw a card, your opponent selects a card in their hand and discards it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

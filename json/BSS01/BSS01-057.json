@@ -1,0 +1,45 @@
+{
+    "name": "Heavy Tank Curiosity",
+    "ID": "BSS01-057",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-057.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When your Mecha spirits would be destroyed by your opponent's destruction effects, they remain on the field exhausted instead.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        }
+    ]
+}

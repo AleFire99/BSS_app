@@ -1,0 +1,47 @@
+{
+    "name": "Seed Bullet",
+    "ID": "BSS05-131_p2",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-131_p2.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white",
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When You Lose Life",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "You may summon one of your Mecha Leaf Kindred Tokens. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's exhausted spirits and return it to their hand.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

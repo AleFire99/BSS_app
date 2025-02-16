@@ -1,0 +1,32 @@
+{
+    "name": "Binding Branch",
+    "ID": "BSS05-132",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-132.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it. If it has Astral , return it to their hand instead.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

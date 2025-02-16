@@ -1,0 +1,31 @@
+{
+    "name": "Battle Cancelation",
+    "ID": "BSS05-124",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-124.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Neither spirit is destroyed when resolving the battle in which this magic card was used.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

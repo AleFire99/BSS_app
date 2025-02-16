@@ -1,0 +1,34 @@
+{
+    "name": "Royal Potion",
+    "ID": "BSS01-132_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-132_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Refresh all of your spirits that cost 2.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

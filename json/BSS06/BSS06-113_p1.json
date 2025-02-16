@@ -1,0 +1,42 @@
+{
+    "name": "Enveloping Flame Whirlwind",
+    "ID": "BSS06-113_p1",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-113_p1.png",
+    "color": [
+        "Green",
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        "-"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When using this magic card, it costs 4 if your opponent has a burst card set.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits and exhaust it. Chain: Red Select one of your spirits and refresh it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

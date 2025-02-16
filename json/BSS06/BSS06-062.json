@@ -1,0 +1,69 @@
+{
+    "name": "Bladeemperor Bug Grand Stag",
+    "ID": "BSS06-062",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-062.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "7",
+    "reduction": [
+        "green",
+        "green",
+        "red",
+        "red",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "INSECTOID"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Swift",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "This spirit gains 3000 BP during this turn. Chain: Red Draw a card. Chain: White This spirit cannot be selected by the effects of your opponent's magic during this battle.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

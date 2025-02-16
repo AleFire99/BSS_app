@@ -1,0 +1,61 @@
+{
+    "name": "Onyxbird Yatagloss",
+    "ID": "BSS02-078",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-078.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may select one of your Carapite or Insectoid spirits. Destroy it and place a core from the void onto this spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When a core is placed onto this spirit, your opponent selects two of their refreshed spirits. Exhaust them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 8
+        }
+    ]
+}

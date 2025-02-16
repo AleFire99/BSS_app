@@ -1,0 +1,55 @@
+{
+    "name": "Harpy Nest Palace",
+    "ID": "BSS02-111",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-111.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Birdfolk spirits is blocked, treat the blocking spirit as LV1 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "When a core is placed into your reserve, you may exhaust this nexus to select up to two of your spirits. Place any number of cores onto them from your reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 1
+        }
+    ]
+}

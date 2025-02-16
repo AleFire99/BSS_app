@@ -1,0 +1,55 @@
+{
+    "name": "Iceblader Brigid",
+    "ID": "ST03-010",
+    "set": "ST03",
+    "image": "images/ST03/ST03-010.png",
+    "color": [
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ICE PRINCESS"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "If this spirit has a on it, select one of your opponent's spirits and return it to their hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. That spirit will not refresh during their next refresh step.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        }
+    ]
+}

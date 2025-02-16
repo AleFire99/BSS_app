@@ -1,0 +1,44 @@
+{
+    "name": "Ritual Fire",
+    "ID": "BSS03-120",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-120.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "red",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When You Lose Life",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Select one of your spirits. During this turn, that spirit and all of your spirits with one or more of the same spirit type as that spirit gain 2000 BP. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select up to two of your opponent's spirits with 4000 or fewer BP and destroy them.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

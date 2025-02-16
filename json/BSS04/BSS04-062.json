@@ -1,0 +1,56 @@
+{
+    "name": "Valkyrie Calista",
+    "ID": "BSS04-062",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-062.png",
+    "color": [
+        "White"
+    ],
+    "cost": "7",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ICE PRINCESS"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "All of your spirits with \"Valkyrie\" in their card name gain Armor: Red, White, Blue : Armor: Red, White, Blue",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "This spirit and your spirits with a on them cannot be blocked by spirits of the colors specified in any Armor effect they possess.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        }
+    ]
+}

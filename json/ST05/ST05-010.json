@@ -1,0 +1,45 @@
+{
+    "name": "Caprihorn",
+    "ID": "ST05-010",
+    "set": "ST05",
+    "image": "images/ST05/ST05-010.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "1",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WILDSOUL"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, if this spirit has a on it, place a core from your trash into your reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

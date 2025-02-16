@@ -1,0 +1,34 @@
+{
+    "name": "Core Theft",
+    "ID": "BSS01-125",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-125.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Then, discard any number of cards and place one core from that spirit into their trash for each card you discarded.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,42 @@
+{
+    "name": "Antman Soldier",
+    "ID": "ST05-009",
+    "set": "ST05",
+    "image": "images/ST05/ST05-009.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "2",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CARAPITE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        }
+    ]
+}

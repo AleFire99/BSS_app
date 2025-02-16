@@ -1,0 +1,64 @@
+{
+    "name": "Ten Millennia Turtle Genbu",
+    "ID": "BSS03-039",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-039.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "8",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, select one of your other Fabled Beast spirits. It cannot be blocked by your opponent's spirits with effects listed during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Fabled Beast spirits is destroyed by your opponent, select one of your Fabled Beast spirits and refresh it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

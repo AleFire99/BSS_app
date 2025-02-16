@@ -1,0 +1,45 @@
+{
+    "name": "To Think That I, the 1st Angel, Would Be Reduced to Being the 13th...",
+    "ID": "CB01-079",
+    "set": "CB01",
+    "image": "images/CB01/CB01-079.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Destroys Your Spirit",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "If the destroyed spirit was an Angel spirit, you may summon a blue Angel spirit card without Ascend from your hand without paying its cost. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 3 or fewer and destroy it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

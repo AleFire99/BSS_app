@@ -1,0 +1,78 @@
+{
+    "name": "EVA-01 & EVA-13",
+    "ID": "CB01-015",
+    "set": "CB01",
+    "image": "images/CB01/CB01-015.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "10",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple",
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-01",
+        "EVA-13"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may discard four cards from the top of your deck to select one of your opponent's spirits. Remove all cores from it and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks or Blocks",
+            "keywords": [],
+            "details": "You may discard a spirit card to draw two cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit gains one purple symbol for every ten Golem spirit cards in your trash.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 15000,
+            "cores": 6
+        }
+    ]
+}

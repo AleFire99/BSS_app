@@ -1,0 +1,45 @@
+{
+    "name": "Freezstal",
+    "ID": "ST04-011_p1",
+    "set": "ST04",
+    "image": "images/ST04/ST04-011_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "2",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WANDERFAE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "Draw a card when one of your spirits that costs 2 is destroyed in battle.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        }
+    ]
+}

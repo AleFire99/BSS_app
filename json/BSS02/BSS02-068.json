@@ -1,0 +1,74 @@
+{
+    "name": "Air Brigade Captain Raphael",
+    "ID": "BSS02-068",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-068.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "7",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BIRDFOLK"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select a card that costs 2 from your trash and return it to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When This Spirit Attacks If you have four or more other LV1 spirits, select two of your opponent's spirits. Reduce their BP by 3000 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When a core is placed into your reserve, select one of your opponent's spirits. Treat it as LV1 during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

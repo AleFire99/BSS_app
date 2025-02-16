@@ -1,0 +1,57 @@
+{
+    "name": "Mari Makinami Illustrious -Operation Yamato-",
+    "ID": "CB01-066",
+    "set": "CB01",
+    "image": "images/CB01/CB01-066.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "red"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "MARI",
+        "PILOT",
+        "WILLE"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "If you control a WILLE spirit, place a core from the void into your reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When one of your EVA-05 or EVA-08 spirits destroys one of your opponent's spirits via comparing BP, your opponent selects one of their refreshed spirits. Exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

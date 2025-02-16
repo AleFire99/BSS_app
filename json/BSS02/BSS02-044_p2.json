@@ -1,0 +1,57 @@
+{
+    "name": "Merged Mechlord Mammoth Aegis",
+    "ID": "BSS02-044_p2",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-044_p2.png",
+    "color": [
+        "White"
+    ],
+    "cost": "8",
+    "reduction": [
+        "white",
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Draw a card if you have fewer cards in your hand than your opponent has in theirs. Place a core from the void into your life if you have less life than your opponent.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "When this spirit is exhausted, select one of your opponent's spirits that costs 5 or fewer and return it to their hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

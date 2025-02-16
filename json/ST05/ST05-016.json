@@ -1,0 +1,43 @@
+{
+    "name": "Multiple Cores",
+    "ID": "ST05-016",
+    "set": "ST05",
+    "image": "images/ST05/ST05-016.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "2",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Opponent Resolves a Spirit's \"When Summoned\" Effect",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Select one of your opponent's spirits and exhaust it. You may then pay this card's cost to activate its main effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. Place a core from the void onto it.",
+            "steps": [
+                "Main"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

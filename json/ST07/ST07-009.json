@@ -1,0 +1,48 @@
+{
+    "name": "EVA-00 -Activation Test-",
+    "ID": "ST07-009",
+    "set": "ST07",
+    "image": "images/ST07/ST07-009.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "0",
+    "reduction": "—",
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-00",
+        "NERV"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit cannot attack.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step While summoning or placing a NERV card, treat this spirit's color and symbol color as red and purple as well.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "name": "Glider Rider Bourrasque",
+    "ID": "BSS04-051",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-051.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BIRDFOLK"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Discard the top card of your opponent's deck. If that card is a spirit card, draw a card. Otherwise, place a core from the void onto this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "name": "Sacred Tree Priestess Azuma",
+    "ID": "BSS05-066_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-066_p1.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "6",
+    "reduction": [
+        "white",
+        "white",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "white/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LEAF KINDRED",
+        "MECHA"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, if you control no token spirits, you may summon one of your Mecha Leaf Kindred Tokens.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may destroy one of your token spirits. If you do, this spirit gains one additional green symbol during this battle.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 10000,
+            "cores": 5
+        }
+    ]
+}

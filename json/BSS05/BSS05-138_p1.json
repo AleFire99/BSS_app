@@ -1,0 +1,36 @@
+{
+    "name": "Water Spout",
+    "ID": "BSS05-138_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-138_p1.png",
+    "color": [
+        "Blue",
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "blue",
+        "blue"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with 5000 or fewer BP and destroy it. Chain: Blue Select one of your spirits that has one symbol. Treat it as its highest level during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

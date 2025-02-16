@@ -1,0 +1,54 @@
+{
+    "name": "Red Sand Hourglass",
+    "ID": "BSS04-107",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-107.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "When your life is reduced by an attack from one of your opponent's spirits that costs 4 or fewer, remove a core from that spirit and place it into your opponent's reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits with Ascend attacks, you may discard a card to select one of your opponent's spirits. Remove a core from it and place it into your opponent's reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

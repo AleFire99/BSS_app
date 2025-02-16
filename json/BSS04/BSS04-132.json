@@ -1,0 +1,32 @@
+{
+    "name": "Binding Thorn",
+    "ID": "BSS04-132",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-132.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "2",
+    "reduction": [
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits with one symbol and exhaust it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

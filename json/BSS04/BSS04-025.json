@@ -1,0 +1,71 @@
+{
+    "name": "Falseframe Angel Falso",
+    "ID": "BSS04-025",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-025.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "8",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Treat this card as though it costs 5 while it is in the trash.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned Remove two cores from each of your opponent's exhausted spirits and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your spirits is blocked, for each symbol on that spirit, remove a core from your opponent's blocking spirit and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 6
+        }
+    ]
+}

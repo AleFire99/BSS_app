@@ -1,0 +1,63 @@
+{
+    "name": "Dark Goddess Nemain",
+    "ID": "BSS06-057",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-057.png",
+    "color": [
+        "White",
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ICE PRINCESS"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "This spirit cannot attack unless you control a spirit with Link.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Armor",
+                    "keyword_modifier": [
+                        "Purple",
+                        "White"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "name": "Ice Elemental Snowbit",
+    "ID": "EX01-003",
+    "set": "EX01",
+    "image": "images/EX01/EX01-003.png",
+    "color": [
+        "White"
+    ],
+    "cost": "0",
+    "reduction": "—",
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ELEMENTAL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit cannot attack.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 3
+        }
+    ]
+}

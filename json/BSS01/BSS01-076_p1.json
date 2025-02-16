@@ -1,0 +1,56 @@
+{
+    "name": "Archangel Michaela",
+    "ID": "BSS01-076_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-076_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "7",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Reveal one card from the top of your deck for each yellow spirit and nexus you control. Add all magic cards from the revealed cards to your hand. Return any remaining cards to the bottom of your deck in any order.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "If this spirit has a on it, you may use magic cards in your hand without paying their cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

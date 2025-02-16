@@ -1,0 +1,63 @@
+{
+    "name": "2nd Angel Lilith",
+    "ID": "CB01-068",
+    "set": "CB01",
+    "image": "images/CB01/CB01-068.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "You may exhaust this nexus to select one of your Angel spirits and refresh it.",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Reveal the top two cards of your deck when one of your spirits is destroyed by your opponent. Add one blue Angel spirit card from the revealed cards to your hand. Return the remaining cards to the bottom of your deck in any order.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

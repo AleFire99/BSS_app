@@ -1,0 +1,60 @@
+{
+    "name": "Beldegor of the Dark World Seven",
+    "ID": "BSS01-039",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-039.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "3",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Either Attack Step",
+            "keywords": [
+                {
+                    "keyword_name": "Immortal",
+                    "keyword_modifier": [
+                        4,
+                        5
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When Summoned Select one of your opponent's exhausted spirits that costs 4 or fewer and destroy it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

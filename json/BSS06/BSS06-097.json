@@ -1,0 +1,44 @@
+{
+    "name": "Temple of a Thousand Mercies",
+    "ID": "BSS06-097",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-097.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "When your opponent uses one of their effects to draw a card, place a core from the void onto this nexus.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your War God or Golem spirits reduces your opponent's life, discard the top four cards of their deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

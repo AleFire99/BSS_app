@@ -1,0 +1,55 @@
+{
+    "name": "Erupting Submarine Volcano",
+    "ID": "BSS04-115",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-115.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "3",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Select one nexus card that costs 4 or more from your trash and return it to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When one of your Aberration spirits destroys one of your opponent's spirits, discard the top three cards of their deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

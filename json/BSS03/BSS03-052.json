@@ -1,0 +1,40 @@
+{
+    "name": "Fennedish",
+    "ID": "BSS03-052",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-052.png",
+    "color": [
+        "White"
+    ],
+    "cost": "1",
+    "reduction": "—",
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

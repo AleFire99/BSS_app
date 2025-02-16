@@ -1,0 +1,64 @@
+{
+    "name": "Tanugreen",
+    "ID": "BSS06-071",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-071.png",
+    "color": [
+        "Green",
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "green",
+        "red"
+    ],
+    "symbols": [
+        "red/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WILDSOUL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Agile",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Swift",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "name": "EVA-13 -Pseudo-Evolution 3rd Phase (Estimated)-",
+    "ID": "CB01-014_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-014_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "9",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple",
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-13",
+        "NERV"
+    ],
+    "rarity": "SAGA",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "EVA-13"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "If you have 13 or more NERV cards in your trash, place five cores from your trash onto this spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Start Step At the start of the step, remove all cores from all other spirits and nexuses and place them into their owners' reserves.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 6
+        }
+    ]
+}

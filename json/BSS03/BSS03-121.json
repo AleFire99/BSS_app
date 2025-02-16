@@ -1,0 +1,32 @@
+{
+    "name": "Power Boost",
+    "ID": "BSS03-121",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-121.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "2",
+    "reduction": [
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 2000 BP during this turn. If you spend a as part of this card's cost, it gains 5000 BP instead.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

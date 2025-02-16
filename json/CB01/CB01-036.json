@@ -1,0 +1,82 @@
+{
+    "name": "EVA-08γ -Mark.09-A Consumed-",
+    "ID": "CB01-036",
+    "set": "CB01",
+    "image": "images/CB01/CB01-036.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-08",
+        "WILLE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword": "A.T. Field",
+                    "target": null,
+                    "value": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit destroys one of your opponent's spirits via comparing BP, place two cores from the void onto it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "If you control a Mari nexus, when this spirit's attack reduces your opponent's life, select one of your opponent's spirits and exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 5
+        }
+    ]
+}

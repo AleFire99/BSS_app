@@ -1,0 +1,62 @@
+{
+    "name": "Godbeast Behemoth",
+    "ID": "BSS01-083_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-083_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "8",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When summoning this spirit card from your hand, you may use the symbols of any spirit cards in your trash that cost 2 in addition to the symbols on your field to reduce its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Your spirits that cost 2 cannot be blocked by your opponent's spirits that are LV2 or higher during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 3
+        }
+    ]
+}

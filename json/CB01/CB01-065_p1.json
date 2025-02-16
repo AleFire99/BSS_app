@@ -1,0 +1,58 @@
+{
+    "name": "Rei Ayanami -Reunited-",
+    "ID": "CB01-065_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-065_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "REI",
+        "PILOT"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "Once per turn, when one of your EVA-01 spirits is destroyed by your opponent, you may return that spirit card from your trash to your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "Your spirits with a on them gain Blessed : While This Spirit Attacks Blessed",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

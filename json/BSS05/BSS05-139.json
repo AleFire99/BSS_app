@@ -1,0 +1,36 @@
+{
+    "name": "Poseidon Crush",
+    "ID": "BSS05-139",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-139.png",
+    "color": [
+        "Blue",
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "red"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select your opponent's spirit that costs the least and destroy it. Chain: Red Select one of your opponent's nexuses that costs 3 or fewer and destroy it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

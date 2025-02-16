@@ -1,0 +1,59 @@
+{
+    "name": "Shinji Ikari",
+    "ID": "ST07-012",
+    "set": "ST07",
+    "image": "images/ST07/ST07-012.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple",
+        "red",
+        "yellow"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "SHINJI",
+        "PILOT",
+        "NERV"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your EVA-01 spirits is destroyed, draw a card if you have five or fewer cards in your hand.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your EVA-01 spirits is blocked, remove a core from your opponent's blocking spirit and place it into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

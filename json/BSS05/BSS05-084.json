@@ -1,0 +1,48 @@
+{
+    "name": "Sailor Antman",
+    "ID": "BSS05-084",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-084.png",
+    "color": [
+        "Green",
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "green",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "green/blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CARAPITE"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your green nexuses and one of your blue nexuses. Place a core from the void onto each of them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 4
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Great Sapphire Labyrinth",
+    "ID": "BSS04-114_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-114_p1.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step When one of your Aberration spirits that costs 3 or more is summoned, place a core from the void onto this nexus.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step When you summon a spirit card with Ascend from your hand, you may exhaust this nexus to summon it without paying its additional Ascend summoning cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

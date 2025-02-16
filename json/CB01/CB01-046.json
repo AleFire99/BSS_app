@@ -1,0 +1,55 @@
+{
+    "name": "13th Angel",
+    "ID": "CB01-046",
+    "set": "CB01",
+    "image": "images/CB01/CB01-046.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "1",
+    "reduction": "—",
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANGEL"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit cannot attack or block.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When an effect on one of your Angel spirits discards a card from your opponent's deck, select one of your spirits and place a core from the void onto it. This effect does not duplicate.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "If you control one other Angel spirit that costs 2 or more, this spirit cannot be selected by your opponent's effects.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "name": "Racer Pentan",
+    "ID": "BSS06-036",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-036.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LYRIC BIRD",
+        "WANDERFAE"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select two spirit cards from your trash that cost 2 and summon them without paying their costs.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 4
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "While This Spirit is Linked",
+            "keywords": [],
+            "details": "The linked spirit gains Luster.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        }
+    ]
+}

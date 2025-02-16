@@ -1,0 +1,45 @@
+{
+    "name": "Infinite Stairs of the Forgotten Temple",
+    "ID": "BSS06-096",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-096.png",
+    "color": [
+        "Green",
+        "Red"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "red"
+    ],
+    "symbols": [
+        "red/green"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Select one of your spirits with Agile and place a core from the void onto it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your attacking spirits is destroyed, your opponent selects one of their refreshed spirits. Exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

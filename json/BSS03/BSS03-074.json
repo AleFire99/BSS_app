@@ -1,0 +1,65 @@
+{
+    "name": "Archduke Kingtaurus",
+    "ID": "BSS03-074",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-074.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "8",
+    "reduction": [
+        "green",
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GREATBEETLE",
+        "BLADEBEAST"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select three of your spirits that are Carapite, Greatbeetle, or Insectoid. Place a core from the void onto each of those spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Summon one of your Antman Tokens.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 12000,
+            "cores": 9
+        }
+    ]
+}

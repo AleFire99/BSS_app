@@ -1,0 +1,40 @@
+{
+    "name": "Swamurai",
+    "ID": "BSS03-070",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-070.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "1",
+    "reduction": "—",
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "PREYBIRD"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If you control a spirit with Gale , this spirit card gains Swift in your hand: Flash Swift",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        }
+    ]
+}

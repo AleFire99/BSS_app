@@ -1,0 +1,44 @@
+{
+    "name": "Hellish Birthday",
+    "ID": "BSS05-123",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-123.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select up to two spirit cards from your trash that cost 2. Summon them without paying their costs. Chain: Yellow Your spirits that cost 2 cannot be blocked by your opponent's spirits with one core during this turn.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select a spirit. It gains 3000 BP during this turn.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

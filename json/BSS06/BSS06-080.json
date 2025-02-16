@@ -1,0 +1,58 @@
+{
+    "name": "Nation Guardian Astra",
+    "ID": "BSS06-080",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-080.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "8",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Crush",
+                    "keyword_modifier": 5
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 9000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 6
+        }
+    ]
+}

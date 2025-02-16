@@ -1,0 +1,58 @@
+{
+    "name": "Volcanic Island",
+    "ID": "BSS05-115_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-115_p1.png",
+    "color": [
+        "Blue",
+        "Red"
+    ],
+    "cost": "5",
+    "reduction": [
+        "blue",
+        "blue",
+        "red"
+    ],
+    "symbols": [
+        "blue",
+        "red"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "ANV",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "You may pay one core to place this card from your trash exhausted without paying its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Turn",
+            "keywords": [],
+            "details": "When you discard a card, select one of your spirits. It gains 3000 BP and Confront during this turn: While This Spirit Attacks Confront",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 2
+        }
+    ]
+}

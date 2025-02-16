@@ -1,0 +1,62 @@
+{
+    "name": "Heroic Wyrm Lord Dragon",
+    "ID": "L01-002",
+    "set": "L01",
+    "image": "images/L01/L01-002.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR DRAGON"
+    ],
+    "rarity": "L",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit gains Confront if you have a burst card set: While This Spirit Attacks Confront",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When your opponent activates a burst card that does not share a color with any of the symbols on their field, place one core from their life into their reserve.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 5
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Impaler Forest",
+    "ID": "BSS02-104",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-104.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When you destroy one of your spirits with one of your effects, your opponent selects one of their spirits. Remove a core from it and place it into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Opponent's End Step At the start of the step, you may discard the top card of your deck. If you do, select a spirit card in your trash and return it to the top of your deck.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 0,
+            "cores": 0
+        },
+        {
+            "level": 2,
+            "battlePoints": 0,
+            "cores": 3
+        }
+    ]
+}

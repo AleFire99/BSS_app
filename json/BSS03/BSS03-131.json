@@ -1,0 +1,32 @@
+{
+    "name": "Provocation",
+    "ID": "BSS03-131",
+    "set": "BSS03",
+    "image": "images/BSS03/BSS03-131.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. At the end of this turn, if it is refreshed, return it to your opponent's hand.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

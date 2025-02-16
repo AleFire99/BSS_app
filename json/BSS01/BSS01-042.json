@@ -1,0 +1,45 @@
+{
+    "name": "Camelot Knight",
+    "ID": "BSS01-042",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-042.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "1",
+    "reduction": [
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "This spirit gains Curse if it has a on it: While This Spirit Attacks Curse",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 3
+        }
+    ]
+}

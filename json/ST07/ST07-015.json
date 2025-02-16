@@ -1,0 +1,36 @@
+{
+    "name": "Shinji's Decision",
+    "ID": "ST07-015",
+    "set": "ST07",
+    "image": "images/ST07/ST07-015.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "red",
+        "yellow"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove a core from it and place it into their reserve. Then, if you control a Shinji nexus, select one of your opponent's spirits with two or fewer cores and destroy it.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

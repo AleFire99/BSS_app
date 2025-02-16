@@ -1,0 +1,62 @@
+{
+    "name": "Blackblade Dragon Rexbeat Saurer",
+    "ID": "PR-057",
+    "set": "PR",
+    "image": "images/PR/PR-057.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "red",
+        "red",
+        "purple"
+    ],
+    "symbols": [
+        "red/purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "The next time you destroy one of your opponent's spirits this turn, draw two cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Confront",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        }
+    ]
+}

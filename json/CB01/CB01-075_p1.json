@@ -1,0 +1,35 @@
+{
+    "name": "I Feel Warm and Fuzzy When I'm with Shinji",
+    "ID": "CB01-075_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-075_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow",
+        "purple"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your Golem spirits. It gains Blessed during this turn. If you control a Shinji nexus, place a core from the void into your life.",
+            "steps": [
+                "Main",
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

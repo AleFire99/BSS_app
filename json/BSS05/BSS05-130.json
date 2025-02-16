@@ -1,0 +1,40 @@
+{
+    "name": "Darkness Aura",
+    "ID": "BSS05-130",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-130.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your opponent's nexuses. Your opponent returns it to either the top or bottom of their deck.",
+            "steps": [
+                "Main"
+            ]
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Select one of your spirits. It gains 3000 BP during this turn. Then, if it is your opponent's turn, it gains Astral during this turn: Astral",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,54 @@
+{
+    "name": "Bard Orphe",
+    "ID": "PR-067",
+    "set": "PR",
+    "image": "images/PR/PR-067.png",
+    "color": [
+        "Blue",
+        "Red"
+    ],
+    "cost": "4",
+    "reduction": [
+        "blue",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When this card is discarded from your hand, you may pay its cost and summon it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If your opponent has three or more magic cards in their trash, this spirit gains Raid: 1 : When This Spirit Attacks Raid: 1",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 3
+        }
+    ]
+}

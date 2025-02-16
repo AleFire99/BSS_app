@@ -1,0 +1,65 @@
+{
+    "name": "Dread Conjuration Garan",
+    "ID": "BSS06-017",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-017.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "5",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow",
+        "white"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FAMILIAR"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove all but one core from it and place them into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Link",
+                    "keyword_modifier": 3
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1
+            ],
+            "condition": "While This Spirit is Linked",
+            "keywords": [],
+            "details": "The linked spirit gains Curse.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        }
+    ]
+}

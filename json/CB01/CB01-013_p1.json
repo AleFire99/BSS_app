@@ -1,0 +1,71 @@
+{
+    "name": "EVA-13 -Spear of Longinus-",
+    "ID": "CB01-013_p1",
+    "set": "CB01",
+    "image": "images/CB01/CB01-013_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "8",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "GOLEM",
+        "EVA-13",
+        "NERV"
+    ],
+    "rarity": "SAGA",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When summoning this spirit from your hand, you may use the symbols of any NERV cards in your trash in addition to the symbols on your field to reduce its cost.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Discard the top three cards of your deck. Select one of your opponent's spirits for each NERV card among the discarded cards. Remove one core from each of those spirits and place them into your opponent's trash.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When the battle ends, if you have 15 or more NERV cards in your trash, place a core from your opponent's life into their trash.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 5000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 6
+        }
+    ]
+}

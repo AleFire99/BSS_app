@@ -1,0 +1,43 @@
+{
+    "name": "Loyal Retainer Higumaru",
+    "ID": "BSS02-096",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-096.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BLADEBEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Your opponent selects one of their spirits for each of your other spirits with 4000 or more BP and exhausts them.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

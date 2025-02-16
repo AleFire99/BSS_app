@@ -1,0 +1,64 @@
+{
+    "name": "Sage Beast Sphinx",
+    "ID": "PR-061",
+    "set": "PR",
+    "image": "images/PR/PR-061.png",
+    "color": [
+        "Yellow",
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "white"
+    ],
+    "symbols": [
+        "yellow/white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit Blocks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Reduce its BP by 3000 during this turn.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "You may select a white spirit card from your trash that costs 4 or fewer. Summon it without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 6000,
+            "cores": 4
+        }
+    ]
+}

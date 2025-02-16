@@ -1,0 +1,57 @@
+{
+    "name": "Lucky Cat",
+    "ID": "PR-065",
+    "set": "PR",
+    "image": "images/PR/PR-065.png",
+    "color": [
+        "Green",
+        "Blue"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green",
+        "blue"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "BLADEBEAST"
+    ],
+    "rarity": "PR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may discard a nexus card to draw cards until you have the same number of cards in your hand as your opponent has in theirs.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "When Destroyed",
+            "keywords": [],
+            "details": "Your opponent selects one of their spirits. Exhaust it.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 7000,
+            "cores": 3
+        }
+    ]
+}

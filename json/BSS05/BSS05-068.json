@@ -1,0 +1,41 @@
+{
+    "name": "Android Galar",
+    "ID": "BSS05-068",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-068.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "1",
+    "reduction": "—",
+    "symbols": [
+        "white/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ANDROID"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 2000,
+            "cores": 2
+        }
+    ]
+}

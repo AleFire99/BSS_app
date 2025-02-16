@@ -1,0 +1,44 @@
+{
+    "name": "Ghost Metropolis",
+    "ID": "BSS06-089",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-089.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "NEXUS",
+    "subType": [
+        "-"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Placed",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When one of your Nightling spirits is destroyed by an effect, draw a card.",
+            "steps": []
+        }
+    ],
+    "core_requirements": []
+}

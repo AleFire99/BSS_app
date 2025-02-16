@@ -1,0 +1,32 @@
+{
+    "name": "Carry Core",
+    "ID": "BSS02-134",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-134.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "5",
+    "reduction": [
+        "green",
+        "green"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Place one core from the void onto each of your spirits with no effects listed.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

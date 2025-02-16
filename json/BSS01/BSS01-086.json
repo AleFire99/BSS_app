@@ -1,0 +1,54 @@
+{
+    "name": "Sage Beast Iberix",
+    "ID": "BSS01-086",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-086.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "7",
+    "reduction": [
+        "yellow",
+        "yellow",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FABLED BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "All of your magic cards gain a {YELLOW_SYMBOL} reduction symbol.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

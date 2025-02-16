@@ -1,0 +1,55 @@
+{
+    "name": "Punchbeast Kingaroo",
+    "ID": "BSS06-014",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-014.png",
+    "color": [
+        "Red",
+        "Green"
+    ],
+    "cost": "3",
+    "reduction": [
+        "red",
+        "green"
+    ],
+    "symbols": [
+        "red/green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "EMPEROR BEAST",
+        "WILDSOUL"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Agile",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

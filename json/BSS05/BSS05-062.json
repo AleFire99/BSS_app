@@ -1,0 +1,43 @@
+{
+    "name": "Nega Cerberus",
+    "ID": "BSS05-062",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-062.png",
+    "color": [
+        "White"
+    ],
+    "cost": "3",
+    "reduction": [
+        "white",
+        "yellow"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Attacks from your opponent's spirits with 3000 or fewer BP cannot reduce your life during this turn. Chain: Yellow Reduce the BP of all of your opponent's spirits by 2000 during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 4
+        }
+    ]
+}

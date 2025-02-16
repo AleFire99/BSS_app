@@ -1,0 +1,68 @@
+{
+    "name": "Grim Gambler",
+    "ID": "BSS05-031_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-031_p1.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "4",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "UNDEAD"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Either Attack Step",
+            "keywords": [
+                {
+                    "keyword_name": "Immortal",
+                    "keyword_modifier": [
+                        2,
+                        6
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Blessed",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 5
+        }
+    ]
+}
