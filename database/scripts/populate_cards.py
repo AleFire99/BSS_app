@@ -29,32 +29,40 @@ def create_db_from_sql():
 def insert_card_data(conn, card_data):
     """Insert the card data into the 'cards' table."""
     try:
-        # Extract the required fields from card_data
         name = card_data.get('name')
         card_id = card_data.get('ID')
         cost = card_data.get('cost')
         card_type = card_data.get('cardType')
         rarity = card_data.get('rarity')
+        image = card_data.get('image', '')
 
-        # Ensure all required fields are available
         if not all([name, card_id, cost, card_type, rarity]):
             print(f"Skipping card due to missing required fields: {card_data}")
+            return
+
+        cursor = conn.cursor()
+
+        # Check if a card with the same card_id and image already exists
+        select_sql = "SELECT COUNT(*) FROM cards WHERE card_id = ? AND image = ?"
+        cursor.execute(select_sql, (card_id, image))
+        exists = cursor.fetchone()[0]
+
+        if exists:
+            print(f"Skipping duplicate card: {card_data['name']} (card_id: {card_id}, image: {image})")
             return
 
         insert_sql = """
         INSERT INTO cards (name, card_id, set_name, image, cost, reduction, symbols, type, rarity)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
         """
-        
-        cursor = conn.cursor()
         cursor.execute(insert_sql, (
             name,
             card_id,
             card_data.get('set', ''),
-            card_data.get('image', ''),
-            int(cost),  # Ensure cost is an integer
-            ','.join(card_data.get('reduction', [])),  # Convert list to comma-separated string
-            ','.join(card_data.get('symbols', [])),    # Convert list to comma-separated string
+            image,
+            int(cost),
+            ','.join(card_data.get('reduction', [])),
+            ','.join(card_data.get('symbols', [])),
             card_type,
             rarity
         ))
@@ -63,6 +71,7 @@ def insert_card_data(conn, card_data):
     except Exception as e:
         print(f"Error inserting card data: {card_data}")
         print(f"Error message: {e}")
+
 
 def load_and_insert_json_files(conn):
     """Load JSON files from the folder and insert card data into the DB."""
