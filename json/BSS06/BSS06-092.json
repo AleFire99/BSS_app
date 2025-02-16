@@ -37,9 +37,18 @@
             ],
             "condition": "N/A",
             "keywords": [],
-            "details": "When you use a magic card from your hand, you may pay one core from this nexus to activate Feast after its effect resolves: Feast instead.)",
+            "details": "When you use a magic card from your hand, you may pay one core from this nexus to activate \"Feast\" after its effect resolves.",
             "steps": []
         }
     ],
-    "core_requirements": []
+    "core_requirements": [{
+        "level": 1,
+        "battlePoints": 0,
+        "cores": 0
+    },
+    {
+        "level": 2,
+        "battlePoints": 0,
+        "cores": 2
+    }]
 }

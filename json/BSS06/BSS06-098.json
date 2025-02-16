@@ -37,9 +37,18 @@
             ],
             "condition": "N/A",
             "keywords": [],
-            "details": "All of your spirits with Raid gain 2000 BP.",
+            "details": "All of your spirits with \"Raid\" gain 2000 BP.",
             "steps": []
         }
     ],
-    "core_requirements": []
+    "core_requirements": [{
+        "level": 1,
+        "battlePoints": 0,
+        "cores": 0
+    },
+    {
+        "level": 2,
+        "battlePoints": 0,
+        "cores": 2
+    }]
 }
