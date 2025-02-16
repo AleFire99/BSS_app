@@ -5,8 +5,8 @@ import os
 # Path to your database file
 db_path = './database/db/cards.db'
 
-# Path to SQL schema file (make sure the schema file includes the 'core_requirements' table)
-sql_file_path = './database/sql/core_requirements.sql'
+# Path to SQL schema file
+sql_file_path = './database/sql/subtypes.sql'
 
 # Path to the root folder containing JSON files and subfolders
 json_folder_path = './json'
@@ -26,31 +26,26 @@ def create_db_from_sql():
 
     return conn
 
-def insert_core_requirements(conn, card_id, core_requirements):
-    """Insert the core requirements data into the 'core_requirements' table."""
+def insert_subtypes(conn, card_id, subtypes):
+    """Insert the subtype data into the 'subtypes' table."""
     try:
         cursor = conn.cursor()
         
-        for core in core_requirements:
+        for subtype in subtypes:
             insert_sql = """
-            INSERT INTO core_requirements (card_id, level, battle_points, cores)
-            VALUES (?, ?, ?, ?);
+            INSERT INTO subtypes (card_id, subtype)
+            VALUES (?, ?);
             """
-            cursor.execute(insert_sql, (
-                card_id,
-                core['level'],
-                core['battlePoints'],
-                core['cores']
-            ))
+            cursor.execute(insert_sql, (card_id, subtype))
         
         conn.commit()
 
     except Exception as e:
-        print(f"Error inserting core requirements data for card ID {card_id}")
+        print(f"Error inserting subtype data for card ID {card_id}")
         print(f"Error message: {e}")
 
 def load_and_insert_json_files(conn):
-    """Load JSON files from the folder and insert core requirements data into the DB."""
+    """Load JSON files from the folder and insert subtype data into the DB."""
     for root, _, files in os.walk(json_folder_path):
         for file in files:
             if file.endswith('.json'):
@@ -62,12 +57,12 @@ def load_and_insert_json_files(conn):
                         # Get the card ID (should match the 'ID' in the JSON file)
                         card_id = card_data.get('ID')
                         
-                        # Insert core requirements data if present
-                        if 'core_requirements' in card_data:
-                            insert_core_requirements(conn, card_id, card_data['core_requirements'])
-                            print(f"Inserted core requirements for card: {card_data['name']}")
+                        # Insert subtype data if present
+                        if 'subType' in card_data:
+                            insert_subtypes(conn, card_id, card_data['subType'])
+                            print(f"Inserted subtypes for card: {card_data['name']}")
                         else:
-                            print(f"No core requirements found for card: {card_data['name']}")
+                            print(f"No subtypes found for card: {card_data['name']}")
 
                 except Exception as e:
                     print(f"Error processing file {file_path}: {e}")

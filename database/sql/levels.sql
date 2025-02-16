@@ -1,4 +1,4 @@
-CREATE TABLE core_requirements (
+CREATE TABLE levels (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     card_id INTEGER NOT NULL,
     level INTEGER NOT NULL,        -- Level (1, 2, or 3)

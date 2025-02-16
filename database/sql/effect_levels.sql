@@ -1,6 +1,8 @@
 CREATE TABLE effect_levels (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
     effect_id INTEGER NOT NULL,
-    level INTEGER NOT NULL, -- Levels associated with the effect (1, 2, 3)
-    FOREIGN KEY (effect_id) REFERENCES effects (id) ON DELETE CASCADE
+    level_id INTEGER NOT NULL,
+    FOREIGN KEY (effect_id) REFERENCES effects (id) ON DELETE CASCADE,
+    FOREIGN KEY (level_id) REFERENCES levels (id) ON DELETE CASCADE,
+    PRIMARY KEY (effect_id, level_id)
 );
+
