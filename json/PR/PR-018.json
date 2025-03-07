@@ -29,10 +29,17 @@
                     "keyword_modifier": null
                 }
             ],
-            "details": "When Destroyed By Opponent Your opponent selects one of their refreshed spirits and exhausts it.",
+            "details": "N/A",
             "steps": [
                 "Flash"
             ]
+        },
+        {
+            "levels": [],
+            "condition": "When Destroyed By Opponent",
+            "keywords": [],
+            "details": "Your opponent selects one of their refreshed spirits and exhausts it.",
+            "steps": []
         }
     ],
     "core_requirements": [
