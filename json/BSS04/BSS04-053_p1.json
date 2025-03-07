@@ -1,0 +1,52 @@
+{
+    "name": "Battery Bull",
+    "ID": "BSS04-053_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-053_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MACHINE BEAST"
+    ],
+    "rarity": "UC",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "During Your Main Step",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Opponent's Attack Step",
+            "keywords": [],
+            "details": "If this spirit has a on it, it cannot be destroyed by your opponent's effects.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 5000,
+            "cores": 2
+        }
+    ]
+}

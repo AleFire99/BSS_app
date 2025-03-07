@@ -1,0 +1,47 @@
+{
+    "name": "Greenbot",
+    "ID": "BSS05-065_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-065_p1.png",
+    "color": [
+        "White",
+        "Green"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white",
+        "green"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "MECHA"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "During Opponent's Turn",
+            "keywords": [],
+            "details": "If this spirit has aon it, when one of your white or green non-token spirits is destroyed by your opponent, you may summon one of your Mecha Leaf Kindred Tokens.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 4000,
+            "cores": 2
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "name": "Brutal Dino Tyrantosaurus",
+    "ID": "BSS05-012_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-012_p1.png",
+    "color": [
+        "Red",
+        "Purple"
+    ],
+    "cost": "7",
+    "reduction": [
+        "red",
+        "red",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "red/purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "TERRASAUR",
+        "SERPENT"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "At the start of the step, you may summon this spirit from your trash. If you do, select one of your spirits and destroy it.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When this spirit is blocked, place a core from your opponent's life into their reserve if this spirit has higher BP than their blocking spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "When the battle ends, once per turn, refresh this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 6000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 8000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 11000,
+            "cores": 5
+        }
+    ]
+}

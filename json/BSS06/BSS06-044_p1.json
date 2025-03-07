@@ -1,0 +1,57 @@
+{
+    "name": "VR Administrator Mihotsu-hime",
+    "ID": "BSS06-044_p1",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-044_p1.png",
+    "color": [
+        "White"
+    ],
+    "cost": "5",
+    "reduction": [
+        "white",
+        "white",
+        "white"
+    ],
+    "symbols": [
+        "white"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SKYBINDER",
+        "ICE PRINCESS"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "Reveal the top four cards of your deck. Add one spirit card with Link from the revealed cards to your hand. Discard the remaining cards.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [],
+            "details": "If this spirit is linked, it gains Astral",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 2
+        }
+    ]
+}

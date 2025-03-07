@@ -1,0 +1,65 @@
+{
+    "name": "Miser Glutvault",
+    "ID": "BSS05-030_p1",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-030_p1.png",
+    "color": [
+        "Purple",
+        "Yellow"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "FAMILIAR"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "All of your yellow spirits gain Curse.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "Select one of your opponent's spirits that costs 7 or fewer. For each spirit you control, remove one core from the selected spirit and place it into their reserve. Chain: Yellow Select one of your opponent's spirits. Reduce its BP by 2000 during this turn.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 9000,
+            "cores": 6
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "name": "Meteor Emperor Siegwurm",
+    "ID": "BSS02-006_p2",
+    "set": "BSS02",
+    "image": "images/BSS02/BSS02-006_p2.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "6",
+    "reduction": [
+        "red",
+        "red",
+        "red"
+    ],
+    "symbols": [
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "STAR DRAGON"
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Awaken",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": [
+                "Flash"
+            ]
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "If this spirit has a on it, draw a card.",
+            "steps": []
+        },
+        {
+            "levels": [
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "If a spirit card with \"Siegwurm\" in its card name is in your trash, this spirit gains Confront : While This Spirit Attacks Confront",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 4000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 8000,
+            "cores": 5
+        }
+    ]
+}

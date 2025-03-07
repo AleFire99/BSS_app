@@ -1,0 +1,43 @@
+{
+    "name": "Absolute Ice Shield",
+    "ID": "BSS01-127_p3",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-127_p3.png",
+    "color": [
+        "White"
+    ],
+    "cost": "4",
+    "reduction": [
+        "white"
+    ],
+    "symbols": [],
+    "cardType": "MAGIC",
+    "subType": [
+        ""
+    ],
+    "rarity": "SPR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "When You Lose Life",
+            "keywords": [
+                {
+                    "keyword_name": "Burst",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "Place a core from your reserve into your life. You may then pay this card's cost to activate its flash effect.",
+            "steps": []
+        },
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When this battle ends, end the attack step.",
+            "steps": [
+                "Flash"
+            ]
+        }
+    ],
+    "core_requirements": []
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Sage Pentan",
+    "ID": "BSS05-043_p2",
+    "set": "BSS05",
+    "image": "images/BSS05/BSS05-043_p2.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "3",
+    "reduction": [
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LYRIC BIRD",
+        "WANDERFAE"
+    ],
+    "rarity": "CR",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "During Either Attack Step",
+            "keywords": [],
+            "details": "When one of your opponent's spirits is destroyed via reducing its BP to 0, you may summon this spirit card from your trash exhausted without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 2000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "name": "Dark Knight Percival",
+    "ID": "BSS04-019_p1",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-019_p1.png",
+    "color": [
+        "Purple"
+    ],
+    "cost": "6",
+    "reduction": [
+        "purple",
+        "purple",
+        "purple"
+    ],
+    "symbols": [
+        "purple"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "SHADOW"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "You may pay a to select a purple spirit card from your trash that costs 4 or fewer. Summon it exhausted without paying its cost.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 3000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 6000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 7000,
+            "cores": 4
+        }
+    ]
+}

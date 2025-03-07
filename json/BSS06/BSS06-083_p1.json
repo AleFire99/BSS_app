@@ -1,0 +1,81 @@
+{
+    "name": "Giant Angel Magni",
+    "ID": "BSS06-083_p1",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-083_p1.png",
+    "color": [
+        "Blue",
+        "Yellow"
+    ],
+    "cost": "9",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue",
+        "yellow",
+        "yellow"
+    ],
+    "symbols": [
+        "yellow/blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "WAR GOD",
+        "ANGEL"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Supsprite"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When This Spirit is Summoned or Attacks",
+            "keywords": [],
+            "details": "Discard the top ten cards of your opponent's deck.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [],
+            "details": "You may exhaust one of your Supsprite spirits to refresh this spirit.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        },
+        {
+            "level": 3,
+            "battlePoints": 15000,
+            "cores": 6
+        }
+    ]
+}

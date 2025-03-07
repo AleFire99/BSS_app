@@ -1,0 +1,51 @@
+{
+    "name": "Pentan",
+    "ID": "BSS01-099_p1",
+    "set": "BSS01",
+    "image": "images/BSS01/BSS01-099_p1.png",
+    "color": [
+        "Yellow"
+    ],
+    "cost": "2",
+    "reduction": [
+        "yellow"
+    ],
+    "symbols": [
+        "yellow"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LYRIC BIRD",
+        "WANDERFAE"
+    ],
+    "rarity": "C",
+    "effects": [
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "Reduce the cost of the first magic card you use each turn by 1.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 1000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 3000,
+            "cores": 2
+        },
+        {
+            "level": 3,
+            "battlePoints": 4000,
+            "cores": 3
+        }
+    ]
+}

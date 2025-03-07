@@ -1,0 +1,81 @@
+{
+    "name": "Absolute Divinity Amaterasu Dragon",
+    "ID": "BSS06-001_p3",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-001_p3.png",
+    "color": [
+        "Red"
+    ],
+    "cost": "10",
+    "reduction": "—",
+    "symbols": [
+        "red",
+        "red",
+        "red"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "CRYSTAL DIVINITY"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Skybinder",
+                        "Skybinder"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "If you have ten or more symbols, destroy all of your opponent's spirits.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Astral",
+                    "keyword_modifier": null
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 10000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 20000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 30000,
+            "cores": 5
+        }
+    ]
+}

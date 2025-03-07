@@ -1,0 +1,62 @@
+{
+    "name": "Scorpoknight Antares Skoll",
+    "ID": "BSS06-059_p1",
+    "set": "BSS06",
+    "image": "images/BSS06/BSS06-059_p1.png",
+    "color": [
+        "Green"
+    ],
+    "cost": "6",
+    "reduction": [
+        "green",
+        "green",
+        "green"
+    ],
+    "symbols": [
+        "green"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "LIGHTGUIDER",
+        "CARAPITE"
+    ],
+    "rarity": "R",
+    "effects": [
+        {
+            "levels": [
+                1,
+                2
+            ],
+            "condition": "While This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Gale",
+                    "keyword_modifier": 2
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                2
+            ],
+            "condition": "During Your Attack Step",
+            "keywords": [],
+            "details": "When one of your Lightguider spirits' attacks reduces your opponent's life, you may pay one core from your reserve to select two of your opponent's spirits with one symbol. Return them to your opponent's hand.",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 4
+        }
+    ]
+}

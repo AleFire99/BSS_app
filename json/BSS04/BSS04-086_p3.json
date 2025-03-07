@@ -1,0 +1,83 @@
+{
+    "name": "Deepsea Emperor Hydra",
+    "ID": "BSS04-086_p3",
+    "set": "BSS04",
+    "image": "images/BSS04/BSS04-086_p3.png",
+    "color": [
+        "Blue"
+    ],
+    "cost": "7",
+    "reduction": [
+        "blue",
+        "blue",
+        "blue"
+    ],
+    "symbols": [
+        "blue",
+        "blue"
+    ],
+    "cardType": "SPIRIT",
+    "subType": [
+        "ABERRATION"
+    ],
+    "rarity": "X",
+    "effects": [
+        {
+            "levels": [],
+            "condition": "N/A",
+            "keywords": [
+                {
+                    "keyword_name": "Ascend",
+                    "keyword_modifier": [
+                        "Aberration"
+                    ]
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        },
+        {
+            "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "N/A",
+            "keywords": [],
+            "details": "When This Spirit Attacks Your opponent selects one of their spirits. Discard a number of cards from the top of your opponent's deck equal to that spirit's cost and destroy that spirit.",
+            "steps": []
+        },
+        {
+            "levels": [
+                2,
+                3
+            ],
+            "condition": "When This Spirit Attacks",
+            "keywords": [
+                {
+                    "keyword_name": "Raid",
+                    "keyword_modifier": 2
+                }
+            ],
+            "details": "N/A",
+            "steps": []
+        }
+    ],
+    "core_requirements": [
+        {
+            "level": 1,
+            "battlePoints": 7000,
+            "cores": 1
+        },
+        {
+            "level": 2,
+            "battlePoints": 10000,
+            "cores": 3
+        },
+        {
+            "level": 3,
+            "battlePoints": 13000,
+            "cores": 6
+        }
+    ]
+}
