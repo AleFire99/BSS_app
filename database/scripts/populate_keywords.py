@@ -3,10 +3,10 @@ import json
 import os
 
 # Path to your database file
-db_path = './database/db/cards.db'
+db_path = './database/cards.db'
 
 # Path to SQL schema file
-sql_file_path = './database/sql/keywords.sql'
+sql_file_path = './database/sql/Table_creation/keywords.sql'
 
 # Path to the keywords JSON file
 keywords_json_path = './json/keywords.json'

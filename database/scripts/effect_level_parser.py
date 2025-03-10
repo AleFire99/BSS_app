@@ -3,10 +3,10 @@ import json
 import os
 
 # Path to your database file
-db_path = './database/db/cards.db'
+db_path = './database/cards.db'
 
 # Path to SQL schema file
-sql_file_path = './database/sql/effect_levels.sql'
+sql_file_path = './database/sql/Table_creation/effect_levels.sql'
 
 # Path to the root folder containing JSON files and subfolders
 json_folder_path = './json'
@@ -38,8 +38,8 @@ def insert_effects(conn, card_id, effects):
             """
             cursor.execute(insert_sql, (
                 card_id,
-                effect.get('condition', 'N/A'),  # Default to 'N/A' if condition is missing
-                effect.get('details', 'N/A')     # Default to 'N/A' if details are missing
+                effect.get('condition', None),  # Default to 'N/A' if condition is missing
+                effect.get('details', None)     # Default to 'N/A' if details are missing
             ))
         
         conn.commit()

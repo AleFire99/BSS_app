@@ -3,10 +3,10 @@ import json
 import os
 
 # Path to your database file
-db_path = './database/db/cards.db'
+db_path = './database/cards.db'
 
 # Path to SQL schema file
-sql_file_path = './database/sql/subtypes.sql'
+sql_file_path = './database/sql/Table_creation/subtypes.sql'
 
 # Path to the root folder containing JSON files and subfolders
 json_folder_path = './json'
