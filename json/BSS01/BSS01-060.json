@@ -45,7 +45,7 @@
             ],
             "condition": "During Opponent's Attack Step",
             "keywords": [],
-            "details": "If this spirit has a on it, it can block your opponent's spirits with 2 or fewer cores on them even if exhausted.",
+            "details": "If this spirit has a \"Soul Core\" on it, it can block your opponent's spirits with 2 or fewer cores on them even if exhausted.",
             "steps": []
         }
     ],

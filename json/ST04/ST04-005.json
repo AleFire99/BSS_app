@@ -28,7 +28,7 @@
             ],
             "condition": "During Your Turn",
             "keywords": [],
-            "details": "When you spend a as part of a magic card's cost, select one of your opponent's spirits after the magic effect resolves. That spirit cannot block during this turn.",
+            "details": "When you spend a \"Soul Core\" as part of a magic card's cost, select one of your opponent's spirits after the magic effect resolves. That spirit cannot block during this turn.",
             "steps": []
         },
         {

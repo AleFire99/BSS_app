@@ -44,7 +44,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "If one of your nexuses has a on it, when one of your spirits with Crush is blocked, treat that spirit as being its highest level during this turn. Then, activate that spirit's Crush effect.",
+            "details": "If one of your nexuses has a \"Soul Core\" on it, when one of your spirits with Crush is blocked, treat that spirit as being its highest level during this turn. Then, activate that spirit's Crush effect.",
             "steps": []
         }
     ],

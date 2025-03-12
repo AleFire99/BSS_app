@@ -27,7 +27,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "When one of your spirits with a on it is blocked, remove a core from the blocking spirit and place it into your opponent's reserve.",
+            "details": "When one of your spirits with a \"Soul Core\" on it is blocked, remove a core from the blocking spirit and place it into your opponent's reserve.",
             "steps": []
         },
         {

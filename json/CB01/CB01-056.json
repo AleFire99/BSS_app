@@ -27,7 +27,7 @@
             ],
             "condition": "When Destroyed By Opponent",
             "keywords": [],
-            "details": "If this spirit has a on it, discard the top two cards of your opponent's deck.",
+            "details": "If this spirit has a \"Soul Core\" on it, discard the top two cards of your opponent's deck.",
             "steps": []
         }
     ],

@@ -27,6 +27,17 @@
     "effects": [
         {
             "levels": [
+                1,
+                2,
+                3
+            ],
+            "condition": "When Summoned",
+            "keywords": [],
+            "details": "At the end of this turn, place three cores from your trash onto this spirit. You cannot place a \"Soul Core\" on this spirit with this effect.",
+            "steps": []
+        },
+        {
+            "levels": [
                 2,
                 3
             ],

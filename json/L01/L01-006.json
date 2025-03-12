@@ -24,9 +24,9 @@
     "effects": [
         {
             "levels": [],
-            "condition": "N/A",
+            "condition": "During Opponent's End Step",
             "keywords": [],
-            "details": "During Opponent's End Step",
+            "details": "At the start of the step, if you have fewer cards in your hand than your opponent has in theirs, you may pay a \"Soul Core\" to return this card from your trash to your hand.",
             "steps": []
         },
         {

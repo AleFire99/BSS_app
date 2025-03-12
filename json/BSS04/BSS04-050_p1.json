@@ -26,7 +26,7 @@
             ],
             "condition": "When Destroyed",
             "keywords": [],
-            "details": "If this spirit has a on it, select a yellow magic card from your trash and return it to your hand.",
+            "details": "If this spirit has a \"Soul Core\" on it, select a yellow magic card from your trash and return it to your hand.",
             "steps": []
         }
     ],

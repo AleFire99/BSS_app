@@ -57,7 +57,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "If you control a Shinji nexus and you have 2 or fewer life, place a core from your trash that is not a into your life.",
+            "details": "If you control a Shinji nexus and you have 2 or fewer life, place a core from your trash that is not a \"Soul Core\" into your life.",
             "steps": []
         }
     ],

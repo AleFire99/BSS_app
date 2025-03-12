@@ -27,7 +27,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "If this spirit has a on it, select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
+            "details": "If this spirit has a \"Soul Core\" on it, select one of your opponent's spirits. Remove a core from it and place it into their reserve.",
             "steps": []
         }
     ],

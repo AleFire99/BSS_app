@@ -27,7 +27,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "If this spirit has a on it, you may select an exhausted spirit that costs 7 or fewer and destroy it.",
+            "details": "If this spirit has a \"Soul Core\" on it, you may select an exhausted spirit that costs 7 or fewer and destroy it.",
             "steps": []
         }
     ],

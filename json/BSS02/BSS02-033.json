@@ -27,7 +27,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, look at the top two cards of your deck. Discard any number of them. Return any remaining cards to the top of your deck in any order.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, look at the top two cards of your deck. Discard any number of them. Return any remaining cards to the top of your deck in any order.",
             "steps": []
         }
     ],

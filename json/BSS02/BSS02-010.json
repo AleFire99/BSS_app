@@ -27,7 +27,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "When one of your spirits with a on it destroys one of your opponent's spirits via comparing BP, draw a card.",
+            "details": "When one of your spirits with a \"Soul Core\" on it destroys one of your opponent's spirits via comparing BP, draw a card.",
             "steps": []
         }
     ],

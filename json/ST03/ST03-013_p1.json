@@ -27,7 +27,7 @@
             ],
             "condition": "During Opponent's Turn",
             "keywords": [],
-            "details": "When your opponent draws outside of their draw step, you may pay a to draw a card.",
+            "details": "When your opponent draws outside of their draw step, you may pay a \"Soul Core\" to draw a card.",
             "steps": []
         },
         {

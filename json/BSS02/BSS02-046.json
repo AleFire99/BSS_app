@@ -33,7 +33,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "At the end of this turn, place three cores from your trash onto this spirit. You cannot place a on this spirit with this effect.",
+            "details": "At the end of this turn, place three cores from your trash onto this spirit. You cannot place a \"Soul Core\" on this spirit with this effect.",
             "steps": []
         },
         {

@@ -26,7 +26,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "Draw a card if you spend a as part of this spirit's summoning cost.",
+            "details": "Draw a card if you spend a \"Soul Core\" as part of this spirit's summoning cost.",
             "steps": []
         }
     ],

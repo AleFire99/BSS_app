@@ -27,7 +27,7 @@
             ],
             "condition": "When This Spirit Attacks or Blocks",
             "keywords": [],
-            "details": "Place a core from your trash into your reserve. If you place a into your reserve with this effect, this spirit gains 3000 BP during this turn.",
+            "details": "Place a core from your trash into your reserve. If you place a \"Soul Core\" into your reserve with this effect, this spirit gains 3000 BP during this turn.",
             "steps": []
         }
     ],

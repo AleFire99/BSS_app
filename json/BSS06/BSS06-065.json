@@ -28,7 +28,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend aas part of this spirit's summoning cost, you may discard your entire hand. If you do, draw the same number of cards as your opponent has in their hand.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, you may discard your entire hand. If you do, draw the same number of cards as your opponent has in their hand.",
             "steps": []
         },
         {

@@ -28,7 +28,7 @@
             ],
             "condition": "N/A",
             "keywords": [],
-            "details": "Your opponent's effects cannot remove cores from this spirit or any spirit with a on it.",
+            "details": "Your opponent's effects cannot remove cores from this spirit or any spirit with a \"Soul Core\" on it.",
             "steps": []
         }
     ],

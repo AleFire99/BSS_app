@@ -29,7 +29,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, select one of your opponent's spirits and exhaust it.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, select one of your opponent's spirits and exhaust it.",
             "steps": []
         },
         {
@@ -39,7 +39,7 @@
             ],
             "condition": "During Opponent's Turn",
             "keywords": [],
-            "details": "If this spirit has a on it, your opponent's effects cannot remove cores from your other Carapite spirits.",
+            "details": "If this spirit has a \"Soul Core\" on it, your opponent's effects cannot remove cores from your other Carapite spirits.",
             "steps": []
         }
     ],

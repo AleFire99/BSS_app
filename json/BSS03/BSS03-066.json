@@ -42,7 +42,7 @@
             ],
             "condition": "While This Spirit Attacks",
             "keywords": [],
-            "details": "Refresh this spirit when you summon a spirit and spend a as part of its summoning cost.",
+            "details": "Refresh this spirit when you summon a spirit and spend a \"Soul Core\" as part of its summoning cost.",
             "steps": []
         }
     ],

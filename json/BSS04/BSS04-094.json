@@ -28,7 +28,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, discard the top six cards of your opponent's deck.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, discard the top six cards of your opponent's deck.",
             "steps": []
         },
         {

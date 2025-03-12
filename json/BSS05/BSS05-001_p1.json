@@ -44,7 +44,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "Select one of your opponent's spirits with 3000 or fewer BP. Destroy it and place two cores from your trash that are not ainto your reserve.",
+            "details": "Select one of your opponent's spirits with 3000 or fewer BP. Destroy it and place two cores from your trash that are not a \"Soul Core\" into your reserve.",
             "steps": []
         }
     ],

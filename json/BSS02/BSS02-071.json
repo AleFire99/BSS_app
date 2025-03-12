@@ -27,7 +27,7 @@
             ],
             "condition": "N/A",
             "keywords": [],
-            "details": "This spirit gains Blessed if it has a on it: While This Spirit Attacks Blessed",
+            "details": "This spirit gains Blessed if it has a \"Soul Core\" on it: While This Spirit Attacks Blessed",
             "steps": []
         }
     ],

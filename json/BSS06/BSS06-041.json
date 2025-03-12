@@ -30,7 +30,7 @@
             ],
             "condition": "N/A",
             "keywords": [],
-            "details": "When one of your Supsprite spirits with aon it is destroyed, select one of your opponent's spirits. Reduce its BP by 10,000 during this turn.",
+            "details": "When one of your Supsprite spirits with a \"Soul Core\" on it is destroyed, select one of your opponent's spirits. Reduce its BP by 10,000 during this turn.",
             "steps": []
         }
     ],

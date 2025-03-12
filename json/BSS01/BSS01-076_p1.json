@@ -37,7 +37,7 @@
             ],
             "condition": "During Either Attack Step",
             "keywords": [],
-            "details": "If this spirit has a on it, you may use magic cards in your hand without paying their cost.",
+            "details": "If this spirit has a \"Soul Core\" on it, you may use magic cards in your hand without paying their cost.",
             "steps": []
         }
     ],

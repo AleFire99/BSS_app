@@ -28,7 +28,7 @@
             ],
             "condition": "During Opponent's Turn",
             "keywords": [],
-            "details": "If this spirit has aon it, when one of your white or green non-token spirits is destroyed by your opponent, you may summon one of your Mecha Leaf Kindred Tokens.",
+            "details": "If this spirit has a \"Soul Core\" on it, when one of your white or green non-token spirits is destroyed by your opponent, you may summon one of your Mecha Leaf Kindred Tokens.",
             "steps": []
         }
     ],

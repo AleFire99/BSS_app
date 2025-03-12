@@ -33,7 +33,7 @@
             ],
             "condition": "While This Spirit Attacks",
             "keywords": [],
-            "details": "If this spirit has a on it, it cannot be blocked by spirits that cost 8 or more.",
+            "details": "If this spirit has a \"Soul Core\" on it, it cannot be blocked by spirits that cost 8 or more.",
             "steps": []
         }
     ],

@@ -44,7 +44,7 @@
             ],
             "condition": "During Opponent's Attack Step",
             "keywords": [],
-            "details": "If one of your nexuses has a on it, this spirit can block all of your opponent's spirits that cost 5 or fewer even if exhausted.",
+            "details": "If one of your nexuses has a \"Soul Core\" on it, this spirit can block all of your opponent's spirits that cost 5 or fewer even if exhausted.",
             "steps": []
         }
     ],

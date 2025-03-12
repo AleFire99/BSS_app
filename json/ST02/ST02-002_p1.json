@@ -40,7 +40,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "Draw a card if this spirit has a soul core on it.",
+            "details": "Draw a card if this spirit has a \"Soul Core\" on it.",
             "steps": []
         }
     ],

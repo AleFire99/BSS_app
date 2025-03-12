@@ -27,7 +27,7 @@
             ],
             "condition": "When Destroyed",
             "keywords": [],
-            "details": "If this spirit has a on it, select one of your opponent's spirits with 4000 or fewer BP and destroy it.",
+            "details": "If this spirit has a \"Soul Core\" on it, select one of your opponent's spirits with 4000 or fewer BP and destroy it.",
             "steps": []
         }
     ],

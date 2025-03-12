@@ -49,7 +49,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "When one of your Lightguider spirits' attacks reduces your opponent's life, remove a core that is not afrom this spirit and place it into your life.",
+            "details": "When one of your Lightguider spirits' attacks reduces your opponent's life, remove a core that is not a \"Soul Core\" from this spirit and place it into your life.",
             "steps": []
         }
     ],

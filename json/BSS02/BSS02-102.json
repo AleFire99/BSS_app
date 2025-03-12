@@ -36,7 +36,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "When one of your spirits with a on it attacks, select one of your opponent's spirits with a {CORE} on it and attack that spirit.",
+            "details": "When one of your spirits with a \"Soul Core\" on it attacks, select one of your opponent's spirits with a {CORE} on it and attack that spirit.",
             "steps": []
         }
     ],

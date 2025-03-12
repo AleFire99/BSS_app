@@ -26,7 +26,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "Place a core from the void into your reserve if this spirit has a on it.",
+            "details": "Place a core from the void into your reserve if this spirit has a \"Soul Core\" on it.",
             "steps": []
         }
     ],

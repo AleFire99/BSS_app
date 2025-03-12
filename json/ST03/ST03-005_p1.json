@@ -26,7 +26,7 @@
             ],
             "condition": "When This Spirit Blocks",
             "keywords": [],
-            "details": "Place a core from the void onto this spirit if there is a on it.",
+            "details": "Place a core from the void onto this spirit if there is a \"Soul Core\" on it.",
             "steps": []
         }
     ],

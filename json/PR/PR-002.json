@@ -38,7 +38,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "If this spirit has a on it, draw a card when you reduce one of your spirit's cores to zero with an Awaken effect.",
+            "details": "If this spirit has a \"Soul Core\" on it, draw a card when you reduce one of your spirit's cores to zero with an Awaken effect.",
             "steps": []
         }
     ],

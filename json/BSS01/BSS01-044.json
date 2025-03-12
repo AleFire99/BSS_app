@@ -27,7 +27,7 @@
             ],
             "condition": "When Destroyed",
             "keywords": [],
-            "details": "Draw a card if this spirit has a on it.",
+            "details": "Draw a card if this spirit has a \"Soul Core\" on it.",
             "steps": []
         },
         {

@@ -21,7 +21,7 @@
             "levels": [],
             "condition": "N/A",
             "keywords": [],
-            "details": "Select a spirit. It gains 2000 BP during this turn. If you spend a as part of this card's cost, it gains 5000 BP instead.",
+            "details": "Select a spirit. It gains 2000 BP during this turn. If you spend a \"Soul Core\" as part of this card's cost, it gains 5000 BP instead.",
             "steps": [
                 "Main",
                 "Flash"

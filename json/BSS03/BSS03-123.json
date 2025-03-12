@@ -23,7 +23,7 @@
             "levels": [],
             "condition": "N/A",
             "keywords": [],
-            "details": "Select one of your opponent's spirits without a on it. Remove two cores from it and place them into your opponent's reserve.",
+            "details": "Select one of your opponent's spirits without a \"Soul Core\" on it. Remove two cores from it and place them into your opponent's reserve.",
             "steps": [
                 "Main",
                 "Flash"

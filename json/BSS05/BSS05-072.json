@@ -28,7 +28,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "If this spirit has aon it, when your opponent's effect ends the attack step, they must discard a card.",
+            "details": "If this spirit has a \"Soul Core\" on it, when your opponent's effect ends the attack step, they must discard a card.",
             "steps": []
         },
         {

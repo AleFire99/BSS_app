@@ -37,7 +37,7 @@
             ],
             "condition": "During Either Attack Step",
             "keywords": [],
-            "details": "Your spirits with a on them cannot be selected by the effects of your opponent's spirits with a {CORE} on them.",
+            "details": "Your spirits with a \"Soul Core\" on them cannot be selected by the effects of your opponent's spirits with a \"Soul Core\" on them.",
             "steps": []
         }
     ],

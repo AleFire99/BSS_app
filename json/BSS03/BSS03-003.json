@@ -45,7 +45,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "If this spirit has a on it, destroy all of your opponent's spirits with BP equal to this spirit's BP.",
+            "details": "If this spirit has a \"Soul Core\" on it, destroy all of your opponent's spirits with BP equal to this spirit's BP.",
             "steps": []
         }
     ],

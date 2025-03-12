@@ -29,7 +29,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, discard the top three cards of your opponent's deck for each nexus you control. You can discard a maximum of twelve cards with this effect.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, discard the top three cards of your opponent's deck for each nexus you control. You can discard a maximum of twelve cards with this effect.",
             "steps": []
         },
         {

@@ -38,7 +38,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, your opponent selects one of their spirits. Remove a core that is not a {CORE} from it and place it into the void.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, your opponent selects one of their spirits. Remove a core that is not a {CORE} from it and place it into the void.",
             "steps": []
         }
     ],

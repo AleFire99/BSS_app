@@ -26,7 +26,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "If there is a on this spirit, it cannot be blocked by any of your opponent's spirits with only one core on them.",
+            "details": "If there is a \"Soul Core\" on this spirit, it cannot be blocked by any of your opponent's spirits with only one core on them.",
             "steps": []
         }
     ],

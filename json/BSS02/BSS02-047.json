@@ -26,7 +26,7 @@
             ],
             "condition": "When This Spirit Blocks",
             "keywords": [],
-            "details": "Your spirits with a on them gain 3000 BP during this turn.",
+            "details": "Your spirits with a \"Soul Core\" on them gain 3000 BP during this turn.",
             "steps": []
         }
     ],

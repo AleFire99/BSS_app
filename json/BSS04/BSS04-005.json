@@ -29,7 +29,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, the next red spirit card with Ascend you summon this turn will have a cost equal to your life total.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, the next red spirit card with Ascend you summon this turn will have a cost equal to your life total.",
             "steps": []
         },
         {

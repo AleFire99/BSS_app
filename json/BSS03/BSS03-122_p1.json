@@ -23,7 +23,7 @@
             "levels": [],
             "condition": "N/A",
             "keywords": [],
-            "details": "Select a spirit with a on it. Treat that spirit as having two red symbols during this turn.",
+            "details": "Select a spirit with a \"Soul Core\" on it. Treat that spirit as having two red symbols during this turn.",
             "steps": [
                 "Main",
                 "Flash"

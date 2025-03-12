@@ -26,7 +26,7 @@
             ],
             "condition": "During Opponent's Attack Step",
             "keywords": [],
-            "details": "At the start of the step, if this spirit has a on it, place a core from your trash into your reserve.",
+            "details": "At the start of the step, if this spirit has a \"Soul Core\" on it, place a core from your trash into your reserve.",
             "steps": []
         }
     ],

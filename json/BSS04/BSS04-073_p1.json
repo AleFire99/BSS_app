@@ -53,7 +53,7 @@
             ],
             "condition": "When This Spirit Attacks",
             "keywords": [],
-            "details": "If this spirit has a on it, place a core from the void onto each of your token spirits.",
+            "details": "If this spirit has a \"Soul Core\" on it, place a core from the void onto each of your token spirits.",
             "steps": []
         }
     ],

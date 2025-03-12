@@ -33,7 +33,7 @@
             ],
             "condition": "During Opponent's Attack Step",
             "keywords": [],
-            "details": "If this spirit has a on it, it cannot be destroyed by your opponent's effects.",
+            "details": "If this spirit has a \"Soul Core\" on it, it cannot be destroyed by your opponent's effects.",
             "steps": []
         }
     ],

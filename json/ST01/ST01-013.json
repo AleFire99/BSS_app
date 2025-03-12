@@ -27,7 +27,7 @@
             ],
             "condition": "During Your Attack Step",
             "keywords": [],
-            "details": "When one of your spirits with a on it is destroyed, select one of your spirits. Place all of the destroyed spirit's cores onto it.",
+            "details": "When one of your spirits with a \"Soul Core\" on it is destroyed, select one of your spirits. Place all of the destroyed spirit's cores onto it.",
             "steps": []
         },
         {

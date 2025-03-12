@@ -27,7 +27,7 @@
             ],
             "condition": "While This Spirit Attacks",
             "keywords": [],
-            "details": "Count this spirit's symbol as two red symbols if it has a on it.",
+            "details": "Count this spirit's symbol as two red symbols if it has a \"Soul Core\" on it.",
             "steps": []
         }
     ],

@@ -26,7 +26,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "If you spend a as part of this spirit's summoning cost, your opponent selects a card from their hand and discards it.",
+            "details": "If you spend a \"Soul Core\" as part of this spirit's summoning cost, your opponent selects a card from their hand and discards it.",
             "steps": []
         }
     ],

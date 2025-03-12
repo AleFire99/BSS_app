@@ -26,7 +26,7 @@
             ],
             "condition": "When Summoned",
             "keywords": [],
-            "details": "You may reveal the top three cards of your deck. Add one magic card from the revealed cards to your hand. Return the remaining cards to the bottom of your deck in any order. If you spend a as part of this card's summoning cost, reveal the top five cards instead.",
+            "details": "You may reveal the top three cards of your deck. Add one magic card from the revealed cards to your hand. Return the remaining cards to the bottom of your deck in any order. If you spend a \"Soul Core\" as part of this card's summoning cost, reveal the top five cards instead.",
             "steps": []
         }
     ],
