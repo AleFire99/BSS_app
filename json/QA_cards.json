@@ -2,19 +2,19 @@
     {
         "Card No.": "BSS01-001",
         "Card Name": "Supernova Dragon Siegwurm Nova",
-        "Question": "I have one life and this spirit 【Ascends】 using an ST01-003 Imperial Thunder Dragon Siegwurm when summoning it. Can I place four cores from the void into my life using its When Summoned effect?",
+        "Question": "I have one life and this spirit \"Ascends\" using an ST01-003 Imperial Thunder Dragon Siegwurm when summoning it. Can I place four cores from the void into my life using its When Summoned effect?",
         "Answer": "Yes. You place cores from the void into your life until you have five life, so four cores can be moved."
     },
     {
         "Card No.": "BSS01-001",
         "Card Name": "Supernova Dragon Siegwurm Nova",
-        "Question": "I have one life and this spirit 【Ascends】 using another BSS01- 001 Supernova Dragon Siegwurm Nova when summoning it. Can I place four cores from the void into my life using its When Summoned effect?",
+        "Question": "I have one life and this spirit \"Ascends\" using another BSS01- 001 Supernova Dragon Siegwurm Nova when summoning it. Can I place four cores from the void into my life using its When Summoned effect?",
         "Answer": "Yes, you can. The When Summoned effect activates since the spirit being used has \"Siegwurm\" in its card name."
     },
     {
         "Card No.": "BSS01-001",
         "Card Name": "Supernova Dragon Siegwurm Nova",
-        "Question": "When summoned, this spirit 【Ascends】 using a spirit with \"Siegwurm\" in its card name and I place only one soul core on it. Can I place cores from the void into my life by paying for its When Summoned effect with that soul core?",
+        "Question": "When summoned, this spirit \"Ascends\" using a spirit with \"Siegwurm\" in its card name and I place only one soul core on it. Can I place cores from the void into my life by paying for its When Summoned effect with that soul core?",
         "Answer": "Yes, you can. This spirit will have zero cores and be destroyed, but the effect can be activated."
     },
     {
@@ -56,7 +56,7 @@
     {
         "Card No.": "BSS01-003",
         "Card Name": "Divine Mars Dragon Ares Dragoon",
-        "Question": "If a LV1 Divine Mars Dragon Ares Dragoon attacks and its flash effect, 【Awaken】, is used during a flash window to make it LV3, can its LV3 While This Spirit Attacks effect be activated at the end of the battle.",
+        "Question": "If a LV1 Divine Mars Dragon Ares Dragoon attacks and its flash effect, \"Awaken\", is used during a flash window to make it LV3, can its LV3 While This Spirit Attacks effect be activated at the end of the battle.",
         "Answer": "Yes, it will activate."
     },
     {
@@ -98,14 +98,14 @@
     {
         "Card No.": "BSS01-007",
         "Card Name": "Jurassic King Gigano Rex",
-        "Question": "I don't fully understand the 【Confront】 effect.",
-        "Answer": "Refer to the entry Card Effects 【Confront】."
+        "Question": "I don't fully understand the \"Confront\" effect.",
+        "Answer": "Refer to the entry Card Effects \"Confront\"."
     },
     {
         "Card No.": "BSS01-009",
         "Card Name": "Raging Dino Dyrano Rex",
-        "Question": "I don't fully understand the 【Confront】 effect.",
-        "Answer": "Refer to the entry Card Effects 【Confront】."
+        "Question": "I don't fully understand the \"Confront\" effect.",
+        "Answer": "Refer to the entry Card Effects \"Confront\"."
     },
     {
         "Card No.": "BSS01-013",
@@ -116,7 +116,7 @@
     {
         "Card No.": "BSS01-013",
         "Card Name": "Stormbeast Emperor Thunder Leon",
-        "Question": "Can 【Armor: Red】 protect against the When Summoned effect on this spirit?",
+        "Question": "Can \"Armor: Red\" protect against the When Summoned effect on this spirit?",
         "Answer": "No, it cannot. This effect does not rely on selection."
     },
     {
@@ -152,37 +152,37 @@
     {
         "Card No.": "BSS01-026",
         "Card Name": "Grand Underworld Trio Queen Meduke",
-        "Question": "I don't fully understand the 【Bloodcurse】 effect.",
-        "Answer": "If a spirit with 【Bloodcurse】 would be destroyed via comparing BP or destroyed by an effect of your opponent's spirit or similar, 【Bloodcurse】 allows you to place one core from your opponent's life and one core from the spirit with 【Bloodcurse】 into their owners' trashes to keep the spirit on the field refreshed."
+        "Question": "I don't fully understand the \"Bloodcurse\" effect.",
+        "Answer": "If a spirit with \"Bloodcurse\" would be destroyed via comparing BP or destroyed by an effect of your opponent's spirit or similar, \"Bloodcurse\" allows you to place one core from your opponent's life and one core from the spirit with \"Bloodcurse\" into their owners' trashes to keep the spirit on the field refreshed."
     },
     {
         "Card No.": "BSS01-026",
         "Card Name": "Grand Underworld Trio Queen Meduke",
-        "Question": "If this spirit is LV2 and it removes a core from my opponent's life using 【Bloodcurse】, is that core placed into their trash or into the void?",
+        "Question": "If this spirit is LV2 and it removes a core from my opponent's life using \"Bloodcurse\", is that core placed into their trash or into the void?",
         "Answer": "Into their trash."
     },
     {
         "Card No.": "BSS01-026",
         "Card Name": "Grand Underworld Trio Queen Meduke",
-        "Question": "If another spirit gains 【Bloodcurse】 from this spirit, can that 【Bloodcurse】 effect be activated even when the spirit is not attacking?",
-        "Answer": "Yes, it can be activated. Spirits with 【Curse】 will possess 【Bloodcurse】 even when they are not attacking."
+        "Question": "If another spirit gains \"Bloodcurse\" from this spirit, can that \"Bloodcurse\" effect be activated even when the spirit is not attacking?",
+        "Answer": "Yes, it can be activated. Spirits with \"Curse\" will possess \"Bloodcurse\" even when they are not attacking."
     },
     {
         "Card No.": "BSS01-026",
         "Card Name": "Grand Underworld Trio Queen Meduke",
-        "Question": "If a spirit with 【Bloodcurse】 is destroyed by my opponent while it only has one core on it, can 【Bloodcurse】 still be activated?",
-        "Answer": "Yes, it can. In this situation, one core from your opponent's life and one core from the spirit with 【Bloodcurse】 are placed into their owners' trashes, after which that spirit goes to the trash rather than remaining on the field since it no longer has any cores on it."
+        "Question": "If a spirit with \"Bloodcurse\" is destroyed by my opponent while it only has one core on it, can \"Bloodcurse\" still be activated?",
+        "Answer": "Yes, it can. In this situation, one core from your opponent's life and one core from the spirit with \"Bloodcurse\" are placed into their owners' trashes, after which that spirit goes to the trash rather than remaining on the field since it no longer has any cores on it."
     },
     {
         "Card No.": "BSS01-026",
         "Card Name": "Grand Underworld Trio Queen Meduke",
-        "Question": "Can 【Bloodcurse】 be activated on this spirit if it is destroyed after its BP becomes zero?",
-        "Answer": "Yes, it can. In this situation, one core from your opponent's life and one core from the spirit possessing 【Bloodcurse】 are placed into their owners' trashes, after which the spirit goes to the trash rather than remaining on the field since it has zero BP."
+        "Question": "Can \"Bloodcurse\" be activated on this spirit if it is destroyed after its BP becomes zero?",
+        "Answer": "Yes, it can. In this situation, one core from your opponent's life and one core from the spirit possessing \"Bloodcurse\" are placed into their owners' trashes, after which the spirit goes to the trash rather than remaining on the field since it has zero BP."
     },
     {
         "Card No.": "BSS01-027",
         "Card Name": "King Snake Quetzalcutl",
-        "Question": "BSS01-042 Camelot Knight gains 【Curse】 from another effect while on the field. Can a spirit like that be returned to my hand using the effect on this card?",
+        "Question": "BSS01-042 Camelot Knight gains \"Curse\" from another effect while on the field. Can a spirit like that be returned to my hand using the effect on this card?",
         "Answer": "No, it cannot."
     },
     {
@@ -206,7 +206,7 @@
     {
         "Card No.": "BSS01-034",
         "Card Name": "Infernal King Curse Dragon",
-        "Question": "Can 【Armor: Purple】 protect against the When Summoned effect on this spirit?",
+        "Question": "Can \"Armor: Purple\" protect against the When Summoned effect on this spirit?",
         "Answer": "No, it cannot. This effect does not rely on selection."
     },
     {
@@ -218,7 +218,7 @@
     {
         "Card No.": "BSS01-035",
         "Card Name": "Dark Bishop Baculus",
-        "Question": "Can 【Armor: Purple】 protect against the When Summoned effect on this spirit?",
+        "Question": "Can \"Armor: Purple\" protect against the When Summoned effect on this spirit?",
         "Answer": "No, it cannot. This effect does not rely on selection."
     },
     {
@@ -230,7 +230,7 @@
     {
         "Card No.": "BSS01-038",
         "Card Name": "Dread Knight Nemesis",
-        "Question": "When selecting one of your opponent's spirit to be destroyed using the When Destroyed effect on this spirit, can I select one with 【Armor: Purple】?",
+        "Question": "When selecting one of your opponent's spirit to be destroyed using the When Destroyed effect on this spirit, can I select one with \"Armor: Purple\"?",
         "Answer": "No, you cannot."
     },
     {
@@ -284,7 +284,7 @@
     {
         "Card No.": "BSS01-053",
         "Card Name": "Sky Dragonlord Platinum",
-        "Question": "Can 【Armor: White】 protect against the When Summoned effect on this spirit?",
+        "Question": "Can \"Armor: White\" protect against the When Summoned effect on this spirit?",
         "Answer": "No, it cannot. This effect does not rely on selection."
     },
     {
@@ -320,13 +320,13 @@
     {
         "Card No.": "BSS01-067",
         "Card Name": "Armored Dragonship Enterprise",
-        "Question": "Can a spirit with 【Armor: Red】 gain 【Armor: Red, Purple, White】 from the LV3 effect on this spirit?",
+        "Question": "Can a spirit with \"Armor: Red\" gain \"Armor: Red, Purple, White\" from the LV3 effect on this spirit?",
         "Answer": "Yes, it can."
     },
     {
         "Card No.": "BSS01-071",
         "Card Name": "King Harald",
-        "Question": "If this spirit blocks while it has gained 【Armor】, can it be refreshed?",
+        "Question": "If this spirit blocks while it has gained \"Armor\", can it be refreshed?",
         "Answer": "Yes, it can."
     },
     {
@@ -404,7 +404,7 @@
     {
         "Card No.": "BSS01-089",
         "Card Name": "Hippocampo",
-        "Question": "My opponent has a BSS01-002 Divine Halberd Dragon Arc on the field and does not block the attack of this LV1 spirit. Does 【Blessed】 activate even though their life is not reduced?",
+        "Question": "My opponent has a BSS01-002 Divine Halberd Dragon Arc on the field and does not block the attack of this LV1 spirit. Does \"Blessed\" activate even though their life is not reduced?",
         "Answer": "No. The spirit did not reduce their life so it does not activate."
     },
     {
@@ -428,7 +428,7 @@
     {
         "Card No.": "BSS01-095",
         "Card Name": "Crafter Fairy Lepri",
-        "Question": "If the effect on this spirit has been activated, will LV2 or higher When This Spirit Blocks effects on my opponent's spirits no longer activate when they block my spirits with 【Luster】?",
+        "Question": "If the effect on this spirit has been activated, will LV2 or higher When This Spirit Blocks effects on my opponent's spirits no longer activate when they block my spirits with \"Luster\"?",
         "Answer": "No, they will activate. The effect is already activated and waiting to be resolved the moment the block occurs."
     },
     {
@@ -566,7 +566,7 @@
     {
         "Card No.": "BSS01-106",
         "Card Name": "Netherworld Depths",
-        "Question": "Can 【Armor: Purple】 protect against the LV2 effect on this nexus?",
+        "Question": "Can \"Armor: Purple\" protect against the LV2 effect on this nexus?",
         "Answer": "No, it cannot. This effect does not rely on selection."
     },
     {
@@ -656,8 +656,8 @@
     {
         "Card No.": "BSS01-122",
         "Card Name": "Deadly Balance",
-        "Question": "If my opponent uses this magic card and I have a spirit with 【Armor: Purple】 on my field, must I exclude that spirit when making my selection?",
-        "Answer": "Yes. Only select from among those spirits without 【Armor: Purple】. If all of your spirits possess 【Armor: Purple】, then selecting none is permissible."
+        "Question": "If my opponent uses this magic card and I have a spirit with \"Armor: Purple\" on my field, must I exclude that spirit when making my selection?",
+        "Answer": "Yes. Only select from among those spirits without \"Armor: Purple\". If all of your spirits possess \"Armor: Purple\", then selecting none is permissible."
     },
     {
         "Card No.": "BSS01-125",
@@ -746,8 +746,8 @@
     {
         "Card No.": "BSS02-012",
         "Card Name": "King Vulture",
-        "Question": "If I attack with King Vulture, will it retain its 【Confront】 effect even if my opponent's spirit with a \"When Summoned\" effect leaves the field during one of the flash windows?",
-        "Answer": "No. The 【Confront】 effect is lost."
+        "Question": "If I attack with King Vulture, will it retain its \"Confront\" effect even if my opponent's spirit with a \"When Summoned\" effect leaves the field during one of the flash windows?",
+        "Answer": "No. The \"Confront\" effect is lost."
     },
     {
         "Card No.": "BSS02-016",
@@ -788,7 +788,7 @@
     {
         "Card No.": "BSS02-023",
         "Card Name": "Corpse Giant Gigasha",
-        "Question": "If the spirit selected by the \"When This Spirit Attacks\" effect on Corpse Giant Gigasha later gains more cores using 【Awaken】 so that it no longer has only one core, will it then be able to block?",
+        "Question": "If the spirit selected by the \"When This Spirit Attacks\" effect on Corpse Giant Gigasha later gains more cores using \"Awaken\" so that it no longer has only one core, will it then be able to block?",
         "Answer": "No. It remains unable to block."
     },
     {
@@ -962,8 +962,8 @@
     {
         "Card No.": "BSS02-063",
         "Card Name": "Light Emperor Lumiere",
-        "Question": "If a spirit with 【Blessed】 in its card text gains 【Blessed】 from the effect on Light Emperor Lumiere, can I place two cores from the void into my life when that spirit reduces my opponent's life?",
-        "Answer": "No, only one core. Spirits cannot simultaneously possess two instances of the 【Blessed】 effect."
+        "Question": "If a spirit with \"Blessed\" in its card text gains \"Blessed\" from the effect on Light Emperor Lumiere, can I place two cores from the void into my life when that spirit reduces my opponent's life?",
+        "Answer": "No, only one core. Spirits cannot simultaneously possess two instances of the \"Blessed\" effect."
     },
     {
         "Card No.": "BSS02-064",
@@ -1058,8 +1058,8 @@
     {
         "Card No.": "BSS02-087",
         "Card Name": "Armortree Deity Herak Dynas",
-        "Question": "Do spirits which are summoned using 【Swift】 gained from the effect on Armortree Deity Herak Dynas still possess 【Swift】 while they are on the field?",
-        "Answer": "No, they do not. Only spirit cards in your hand gain 【Swift】 from this effect."
+        "Question": "Do spirits which are summoned using \"Swift\" gained from the effect on Armortree Deity Herak Dynas still possess \"Swift\" while they are on the field?",
+        "Answer": "No, they do not. Only spirit cards in your hand gain \"Swift\" from this effect."
     },
     {
         "Card No.": "BSS02-093",
@@ -1094,7 +1094,7 @@
     {
         "Card No.": "BSS02-105",
         "Card Name": "Monstrous Mausoleum",
-        "Question": "Does 【Armor: Purple】 protect against the LV1-LV2 \"During Your Attack Step\" effect on Monstrous Mausoleum?",
+        "Question": "Does \"Armor: Purple\" protect against the LV1-LV2 \"During Your Attack Step\" effect on Monstrous Mausoleum?",
         "Answer": "No, it does not. This effect does not rely on selection."
     },
     {
@@ -1118,7 +1118,7 @@
     {
         "Card No.": "BSS02-111",
         "Card Name": "Harpy Nest Palace",
-        "Question": "Does 【Armor: Yellow】 protect against the LV1-LV2 \"During Your Attack Step\" effect on Harpy Nest Palace?",
+        "Question": "Does \"Armor: Yellow\" protect against the LV1-LV2 \"During Your Attack Step\" effect on Harpy Nest Palace?",
         "Answer": "No, it does not. This effect does not rely on selection."
     },
     {
@@ -1172,7 +1172,7 @@
     {
         "Card No.": "BSS02-115",
         "Card Name": "Giantwood Castle Keep",
-        "Question": "I have a LV2 Giantwood Castle Keep on the field. Can my opponent activate the 【Immortal】 effect of their BSS01-039 Beldegor of the Dark World Seven in their trash when one of their other spirits that costs 4 or 5 is destroyed during either attack step?",
+        "Question": "I have a LV2 Giantwood Castle Keep on the field. Can my opponent activate the \"Immortal\" effect of their BSS01-039 Beldegor of the Dark World Seven in their trash when one of their other spirits that costs 4 or 5 is destroyed during either attack step?",
         "Answer": "Yes, they can. Giantwood Castle Keep prevents the effects of spirits on the field from activating; it does not prevent the effects of spirit cards in the trash from activating."
     },
     {
@@ -1202,8 +1202,8 @@
     {
         "Card No.": "BSS02-122",
         "Card Name": "Assassinate",
-        "Question": "If I have a spirit with 【Armor: Purple】 on my field when my opponent uses the main effect on Assassinate, do I have to select one of my other spirits?",
-        "Answer": "Yes. Select a spirit without 【Armor: Purple】. If all of your spirits have 【Armor: Purple】, do not select any."
+        "Question": "If I have a spirit with \"Armor: Purple\" on my field when my opponent uses the main effect on Assassinate, do I have to select one of my other spirits?",
+        "Answer": "Yes. Select a spirit without \"Armor: Purple\". If all of your spirits have \"Armor: Purple\", do not select any."
     },
     {
         "Card No.": "BSS02-124",
@@ -1220,7 +1220,7 @@
     {
         "Card No.": "BSS02-127",
         "Card Name": "Inescapable Avalanche",
-        "Question": "Does 【Armor: White】 protect against the effect on Inescapable Avalanche?",
+        "Question": "Does \"Armor: White\" protect against the effect on Inescapable Avalanche?",
         "Answer": "No, it does not. This effect does not rely on selection."
     },
     {
@@ -1340,14 +1340,14 @@
     {
         "Card No.": "ST02-013",
         "Card Name": "Purple Smoke Valley",
-        "Question": "I control an ST02-013 Purple Smoke Valley and attack using a spirit with 【Curse】, and my opponent blocks using a spirit with two cores on it. During the flash window that follows, I use ST02-014 Poison Shot to select the blocking spirit and remove one core from it. In this situation, is the block treated as if it did not occur?",
+        "Question": "I control an ST02-013 Purple Smoke Valley and attack using a spirit with \"Curse\", and my opponent blocks using a spirit with two cores on it. During the flash window that follows, I use ST02-014 Poison Shot to select the blocking spirit and remove one core from it. In this situation, is the block treated as if it did not occur?",
         "Answer": "No. The block has already been established, so the battle advances to comparing BP regardless if the number of cores on the blocker becomes one following block declaration."
     },
     {
         "Card No.": "ST02-013",
         "Card Name": "Purple Smoke Valley",
-        "Question": "If I attack with a LV1 spirit which gains 【Curse】 at LV2, will the effect on this nexus prevent my opponent from blocking using spirits with only one core on them?",
-        "Answer": "No, it will not. The spirit does not possess 【Curse】 until it reaches LV2, so the effect on the nexus does not activate."
+        "Question": "If I attack with a LV1 spirit which gains \"Curse\" at LV2, will the effect on this nexus prevent my opponent from blocking using spirits with only one core on them?",
+        "Answer": "No, it will not. The spirit does not possess \"Curse\" until it reaches LV2, so the effect on the nexus does not activate."
     },
     {
         "Card No.": "ST02-014",
@@ -1370,7 +1370,7 @@
     {
         "Card No.": "ST02-016",
         "Card Name": "Bloody Rain",
-        "Question": "If a spirit with 【Armor: Purple】 attacks while the burst effect on this card is active, must one core still be placed into the reserve?",
+        "Question": "If a spirit with \"Armor: Purple\" attacks while the burst effect on this card is active, must one core still be placed into the reserve?",
         "Answer": "Yes, one core must be placed into the reserve. The effect on ST02-016 Bloody Rain does not involve a selection."
     },
     {
@@ -1448,7 +1448,7 @@
     {
         "Card No.": "ST03-012",
         "Card Name": "Spring of Norn",
-        "Question": "Can I use the effect on this nexus to refresh a spirit which has gained 【Armor】 from the effect on BSS01-067 Armored Dragonship Enterprise?",
+        "Question": "Can I use the effect on this nexus to refresh a spirit which has gained \"Armor\" from the effect on BSS01-067 Armored Dragonship Enterprise?",
         "Answer": "No, you cannot."
     },
     {
@@ -1496,8 +1496,8 @@
     {
         "Card No.": "ST04-011",
         "Card Name": "Freezstal",
-        "Question": "Can I draw a card using the effect on Freezstal when my cost 2 spirit is destroyed by 【Curse】?",
-        "Answer": "No, you cannot. Destruction due to 【Curse】 is destruction caused by an effect."
+        "Question": "Can I draw a card using the effect on Freezstal when my cost 2 spirit is destroyed by \"Curse\"?",
+        "Answer": "No, you cannot. Destruction due to \"Curse\" is destruction caused by an effect."
     },
     {
         "Card No.": "ST04-011",
@@ -1538,7 +1538,7 @@
     {
         "Card No.": "ST05-012",
         "Card Name": "Sacred Tree Stump City",
-        "Question": "If I summon an ST05-006 Leafwolf using 【Swift】 during one of the flash windows of my first attack on my turn, does my attacking spirit gain an additional 1000 BP?",
+        "Question": "If I summon an ST05-006 Leafwolf using \"Swift\" during one of the flash windows of my first attack on my turn, does my attacking spirit gain an additional 1000 BP?",
         "Answer": "Yes, it does."
     },
     {
