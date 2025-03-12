@@ -1,0 +1,167 @@
+[
+    {
+        "Card Effects": "Card Effects \"Ascend\"",
+        "Question": "What kind of effect is \"Ascend\"?",
+        "Answer": "When summoning a spirit with \"Ascend\", all the cores from another spirit with a cost equal to or greater than the specified cost must be placed into your reserve as an additional cost."
+    },
+    {
+        "Card Effects": "Card Effects \"Ascend\"",
+        "Question": "What is the specified cost?",
+        "Answer": "In the example \"Ascend: Costs 6 or more\", the specified cost is the \"Costs 6 or more\" portion."
+    },
+    {
+        "Card Effects": "Card Effects \"Ascend\"",
+        "Question": "What must be done when summoning a spirit with the text \"Ascend: Costs 6 or more\"?",
+        "Answer": "When paying its summoning cost, select another spirit which costs 6 or more (the specified cost) and place all of the cores on that spirit into your reserve."
+    },
+    {
+        "Card Effects": "Card Effects \"Ascend\"",
+        "Question": "Can \"Ascend\" be ignored when a spirit possessing \"Ascend\" is summoned without paying its summoning cost?",
+        "Answer": "No, it cannot. Paying the additional cost of \"Ascend\" is necessary, even when not paying the summoning cost. The spirit can only be summoned if it is paid."
+    },
+    {
+        "Card Effects": "Card Effects \"Ascend\"",
+        "Question": "After paying for \"Ascend\", what happens to the spirit that no longer has sufficient cores for LV1.",
+        "Answer": "The spirit that no longer has sufficient cores for LV1 is destroyed. Effects which trigger \"When Destroyed\" do not activate."
+    },
+    {
+        "Card Effects": "Card Effects \"Ascend\"",
+        "Question": "Can a spirit with zero cores remaining on it after paying summoning costs be selected to pay for \"Ascend\"?",
+        "Answer": "No, it cannot. Select a spirit with one or more cores on it."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "What does the \"Immortal\" effect do?",
+        "Answer": "\"Immortal\" allows you to summon the card possessing it when that card it is in your trash and one of your spirits fulfilling the specified conditions for \"Immortal\" is destroyed. This is managed as a triggered effect."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "Must I pay a spirit's cost when summoning it using \"Immortal\"?",
+        "Answer": "Yes. Pay the summoning cost as you would normally."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "When summoning a spirit using \"Immortal\", can symbols on the destroyed spirit be included in cost reduction?",
+        "Answer": "No, they cannot. The destroyed spirit card is already heading to the trash and no longer on the field when the cost is being paid."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "If there are two spirit cards with \"Immortal: Cost 3\" in my trash and one of my spirits that costs 3 is destroyed, can both cards be summoned using \"Immortal\"?",
+        "Answer": "Yes, they can."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "When a spirit with a When Summoned effect is summoned using \"Immortal\", does that When Summoned effect activate?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "Can \"Immortal\" be activated when a spirit which no longer has sufficient cores for LV1 is destroyed?",
+        "Answer": "Yes, it can."
+    },
+    {
+        "Card Effects": "Card Effects \"Immortal\"",
+        "Question": "If a spirit with \"Immortal\" and a spirit fulfilling the specified conditions for \"Immortal\" are destroyed simultaneously, will \"Immortal\" on the destroyed spirit activate?",
+        "Answer": "No, it will not activate."
+    },
+    {
+        "Card Effects": "Card Effects \"Blessed\"",
+        "Question": "Can I choose not to place a core from the void into my life when a spirit with \"Blessed\" reduces my opponent's life during an attack?",
+        "Answer": "No, you cannot choose not to place a core. One core must be placed into your life from the void."
+    },
+    {
+        "Card Effects": "Card Effects \"Blessed\"",
+        "Question": "Is there a limit to how much life I can gain?",
+        "Answer": "No, there is no limit."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "What is the meaning of \"you may attack that spirit\"?",
+        "Answer": "The effect forces that specified spirit to block. The specified spirit is immediately declared as a blocker, even if it is exhausted."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "How is attacking a specified spirit different from a normal attack?",
+        "Answer": "Attacking a specified spirit forces it to be declared as a blocker. Therefor, one: the attack cannot reduce the life of your opponent. Two: the flash window between attack declaration and block declaration is skipped since a blocker has been declared. The remainder of the battle is then managed normally."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "When a spirit is attacked, can another spirit block?",
+        "Answer": "No. No other spirits can block the attack."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "The spirit specified in an attack has a When This Spirit Blocks effect. When does that effect activate?",
+        "Answer": "That spirit is immediately declared as a blocker and its When This Spirit Blocks effect activates directly after the effect responsible for the attack."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "When a specified spirit is attacked, can its owner use magic before block declaration?",
+        "Answer": "No, they cannot. Since the attack forces that spirit to be declared as a blocker, the flash window between attack declaration and block declaration is skipped."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "Can a spirit possessing an effect which prevents it from blocking be attacked?",
+        "Answer": "No, it cannot. Since effects preventing some action take precedence, the block fails to occur when a spirit which cannot block is selected, and the rest of the battle proceeds normally."
+    },
+    {
+        "Card Effects": "Card Effects Attacking a Spirit",
+        "Question": "If the spirit selected for attack then leaves the field or is destroyed during that attack declaration, does the block still occur?",
+        "Answer": "The block was established when the effect responsible for the attack resolved, so no flash window prior to block declaration occurs, and no life is lost from applying damage."
+    },
+    {
+        "Card Effects": "Card Effects \"Swift\"",
+        "Question": "What kind of effect is \"Swift\"?",
+        "Answer": "Spirit cards with the \"Swift\" effect may be summoned from your hand during flash windows. However, when using this effect, cores used to pay summoning costs and cores placed onto the summoned spirits must come from your reserve."
+    },
+    {
+        "Card Effects": "Card Effects \"Gale\"",
+        "Question": "What kind of effect is \"Gale\"?",
+        "Answer": "When your attacking spirit with \"Gale\" is blocked by an opponent's spirit, your opponent selects the specified number of refreshed spirits they control and exhausts them."
+    },
+    {
+        "Card Effects": "Card Effects \"Gale\"",
+        "Question": "Where is the specified number written?",
+        "Answer": "In the \"Gale:1\" keyword effect, the specified number follows the colon. In this instance, one spirit is indicated."
+    },
+    {
+        "Card Effects": "Card Effects \"Gale\"",
+        "Question": "Does \"Armor: Green\" protect against the \"Gale\" effect?",
+        "Answer": "Yes, it does. Spirits with \"Armor: Green\" cannot be selected to be exhausted."
+    },
+    {
+        "Card Effects": "Card Effects Tokens",
+        "Question": "What are tokens?",
+        "Answer": "Tokens are spirits created by effects on cards and are not included in your deck. (They are held in reserve elsewhere until they are needed.)"
+    },
+    {
+        "Card Effects": "Card Effects Tokens",
+        "Question": "Can I include token cards in my deck?",
+        "Answer": "No. Your deck must not contain any token cards."
+    },
+    {
+        "Card Effects": "Card Effects Tokens",
+        "Question": "What happens to tokens when they leave the field?",
+        "Answer": "When a token leaves the field it is removed from the game. At this time, effects and bursts which activate when spirits are destroyed will activate as usual."
+    },
+    {
+        "Card Effects": "Card Effects Tokens",
+        "Question": "What kinds of objects can be used as tokens?",
+        "Answer": "We recommend you use official token cards when possible. If you don't have official token cards, you can use any other objects as substitutes as long as you can place cores onto them and you can tell whether they are refreshed or exhausted by looking at them."
+    },
+    {
+        "Card Effects": "Card Effects Tokens",
+        "Question": "If I will be using tokens, do I need to declare that fact to my opponent before the start of our game?",
+        "Answer": "No. Your opponent does not need to be told about your use of tokens before the game starts."
+    },
+    {
+        "Card Effects": "Matching Cards With Differing Names",
+        "Question": "For cards that have the same card number but different card names, can I put four copies of each into my deck for a total of eight copies?",
+        "Answer": "No. You may only put up to a total of four of those cards in your deck."
+    },
+    {
+        "Card Effects": "Matching Cards With Differing Names",
+        "Question": "Are cards with the same card number but differing card names still treated as the same card?",
+        "Answer": "Yes, they are."
+    }
+]

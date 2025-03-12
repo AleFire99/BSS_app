@@ -1,0 +1,1550 @@
+[
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "I have one life and this spirit 【Ascends】 using an ST01-003 Imperial Thunder Dragon Siegwurm when summoning it. Can I place four cores from the void into my life using its When Summoned effect?",
+        "Answer": "Yes. You place cores from the void into your life until you have five life, so four cores can be moved."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "I have one life and this spirit 【Ascends】 using another BSS01- 001 Supernova Dragon Siegwurm Nova when summoning it. Can I place four cores from the void into my life using its When Summoned effect?",
+        "Answer": "Yes, you can. The When Summoned effect activates since the spirit being used has \"Siegwurm\" in its card name."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "When summoned, this spirit 【Ascends】 using a spirit with \"Siegwurm\" in its card name and I place only one soul core on it. Can I place cores from the void into my life by paying for its When Summoned effect with that soul core?",
+        "Answer": "Yes, you can. This spirit will have zero cores and be destroyed, but the effect can be activated."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "Placing a soul core from my life, my field, or my reserve into the void will allow me to place cores from the void into my life. How about a soul core from my trash?",
+        "Answer": "Yes, it will. Even placing a soul core from your trash into the void can activate the effect."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "Can a soul core placed into the void be placed into my reserve during my next core step?",
+        "Answer": "No, it cannot. Generally speaking, once placed into the void, a soul core can not be moved again."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "My opponent has two spirits with 4000 BP and one spirit with 6000 BP on their field. Can I destroy one spirit with 4000 BP and one spirit with 6000 BP using the When This Spirit Attacks effect on this spirit?",
+        "Answer": "Yes, you can destroy those two spirits since their BP add up to 10,000 when combined."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "My opponent has two spirits with 4000 BP and one spirit with 6000 BP on their field. Can I destroy only one spirit with 4000 BP using the When This Spirit Attacks effect on this spirit?",
+        "Answer": "Yes, you can. Any number of spirits with a combined BP between 0 and 10,000 may be selected."
+    },
+    {
+        "Card No.": "BSS01-001",
+        "Card Name": "Supernova Dragon Siegwurm Nova",
+        "Question": "Which player's soul core is placed into the void with the When Summoned effect on this spirit?",
+        "Answer": "The soul core of the player who activated the When Summoned effect of this spirit."
+    },
+    {
+        "Card No.": "BSS01-002",
+        "Card Name": "Divine Halberd Dragon Arc",
+        "Question": "While this spirit is on my field, I attack using another spirit with 2000 BP. Can I reduce my opponent's life?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "BSS01-003",
+        "Card Name": "Divine Mars Dragon Ares Dragoon",
+        "Question": "If a LV1 Divine Mars Dragon Ares Dragoon attacks and its flash effect, 【Awaken】, is used during a flash window to make it LV3, can its LV3 While This Spirit Attacks effect be activated at the end of the battle.",
+        "Answer": "Yes, it will activate."
+    },
+    {
+        "Card No.": "BSS01-004",
+        "Card Name": "White Hole Dragon",
+        "Question": "What BP is used to determined if a spirit has \"BP equal to or fewer than this one\"?",
+        "Answer": "The current BP when this spirit is destroyed."
+    },
+    {
+        "Card No.": "BSS01-006",
+        "Card Name": "Nebula Dragon",
+        "Question": "If this spirit has a soul core on it and is not blocked while attacking, can it reduce my opponent's life by two?",
+        "Answer": "Yes, it can."
+    },
+    {
+        "Card No.": "BSS01-006",
+        "Card Name": "Nebula Dragon",
+        "Question": "If this spirit has two symbols when it reduces my opponent's life, can I draw two cards using the effect on ST01-012 Scorched Battlefield?",
+        "Answer": "No, you cannot. Only one card is drawn."
+    },
+    {
+        "Card No.": "BSS01-007",
+        "Card Name": "Jurassic King Gigano Rex",
+        "Question": "What is the meaning of \"treat this spirit as LV3\"?",
+        "Answer": "Consider it to be LV3 even if it does not have the necessary number of cores placed onto it."
+    },
+    {
+        "Card No.": "BSS01-007",
+        "Card Name": "Jurassic King Gigano Rex",
+        "Question": "If I have three BSS01-010 Oviraptodons and no other spirits on my field when I summon this card, can I reduce its cost by 6 and only pay 2?",
+        "Answer": "Yes, you can summon it for a cost of 2."
+    },
+    {
+        "Card No.": "BSS01-007",
+        "Card Name": "Jurassic King Gigano Rex",
+        "Question": "Is this spirit treated as LV3 if it is on my field with a BSS01-022 Dinoman Tyrannoid, which is a Dragonoid and a Terrasaur?",
+        "Answer": "Yes, treat it as LV3."
+    },
+    {
+        "Card No.": "BSS01-007",
+        "Card Name": "Jurassic King Gigano Rex",
+        "Question": "I don't fully understand the 【Confront】 effect.",
+        "Answer": "Refer to the entry Card Effects 【Confront】."
+    },
+    {
+        "Card No.": "BSS01-009",
+        "Card Name": "Raging Dino Dyrano Rex",
+        "Question": "I don't fully understand the 【Confront】 effect.",
+        "Answer": "Refer to the entry Card Effects 【Confront】."
+    },
+    {
+        "Card No.": "BSS01-013",
+        "Card Name": "Stormbeast Emperor Thunder Leon",
+        "Question": "What is the meaning of \"your opponent's 'When Destroyed' effects are not triggered by this effect\"?",
+        "Answer": "It means When Destroyed effects, When Opponent Destroys Your Spirit effects, Burst: When Opponent Destroys Your Spirit effects, and other effects which activate when your spirits are destroyed cannot be activated."
+    },
+    {
+        "Card No.": "BSS01-013",
+        "Card Name": "Stormbeast Emperor Thunder Leon",
+        "Question": "Can 【Armor: Red】 protect against the When Summoned effect on this spirit?",
+        "Answer": "No, it cannot. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS01-015",
+        "Card Name": "Dilophoza",
+        "Question": "Can this spirit be attacked if it cannot block?",
+        "Answer": "No, it cannot."
+    },
+    {
+        "Card No.": "BSS01-021",
+        "Card Name": "Dragno Guard",
+        "Question": "This LV1 spirit is blocked by my opponent's LV1 BSS01-010 Oviraptodon while attacking and they are both destroyed in battle. At this time, can I use the While Attacking effect on my spirit to destroy my opponent's nexus?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-022",
+        "Card Name": "Dinoman Tyrannoid",
+        "Question": "What is the meaning of \"treat this spirit as a LV3 spirit\"?",
+        "Answer": "Consider it to be LV3 even if it does not have the necessary number of cores placed onto it."
+    },
+    {
+        "Card No.": "BSS01-022",
+        "Card Name": "Dinoman Tyrannoid",
+        "Question": "Does the effect on this spirit make it LV3 even if it has no cores on it?",
+        "Answer": "No. All spirits are destroyed when the number of cores on them becomes insufficient for LV1."
+    },
+    {
+        "Card No.": "BSS01-022",
+        "Card Name": "Dinoman Tyrannoid",
+        "Question": "Is this spirit counted as one of the spirits for determining \"if you only have two or fewer spirits on your field\"?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-026",
+        "Card Name": "Grand Underworld Trio Queen Meduke",
+        "Question": "I don't fully understand the 【Bloodcurse】 effect.",
+        "Answer": "If a spirit with 【Bloodcurse】 would be destroyed via comparing BP or destroyed by an effect of your opponent's spirit or similar, 【Bloodcurse】 allows you to place one core from your opponent's life and one core from the spirit with 【Bloodcurse】 into their owners' trashes to keep the spirit on the field refreshed."
+    },
+    {
+        "Card No.": "BSS01-026",
+        "Card Name": "Grand Underworld Trio Queen Meduke",
+        "Question": "If this spirit is LV2 and it removes a core from my opponent's life using 【Bloodcurse】, is that core placed into their trash or into the void?",
+        "Answer": "Into their trash."
+    },
+    {
+        "Card No.": "BSS01-026",
+        "Card Name": "Grand Underworld Trio Queen Meduke",
+        "Question": "If another spirit gains 【Bloodcurse】 from this spirit, can that 【Bloodcurse】 effect be activated even when the spirit is not attacking?",
+        "Answer": "Yes, it can be activated. Spirits with 【Curse】 will possess 【Bloodcurse】 even when they are not attacking."
+    },
+    {
+        "Card No.": "BSS01-026",
+        "Card Name": "Grand Underworld Trio Queen Meduke",
+        "Question": "If a spirit with 【Bloodcurse】 is destroyed by my opponent while it only has one core on it, can 【Bloodcurse】 still be activated?",
+        "Answer": "Yes, it can. In this situation, one core from your opponent's life and one core from the spirit with 【Bloodcurse】 are placed into their owners' trashes, after which that spirit goes to the trash rather than remaining on the field since it no longer has any cores on it."
+    },
+    {
+        "Card No.": "BSS01-026",
+        "Card Name": "Grand Underworld Trio Queen Meduke",
+        "Question": "Can 【Bloodcurse】 be activated on this spirit if it is destroyed after its BP becomes zero?",
+        "Answer": "Yes, it can. In this situation, one core from your opponent's life and one core from the spirit possessing 【Bloodcurse】 are placed into their owners' trashes, after which the spirit goes to the trash rather than remaining on the field since it has zero BP."
+    },
+    {
+        "Card No.": "BSS01-027",
+        "Card Name": "King Snake Quetzalcutl",
+        "Question": "BSS01-042 Camelot Knight gains 【Curse】 from another effect while on the field. Can a spirit like that be returned to my hand using the effect on this card?",
+        "Answer": "No, it cannot."
+    },
+    {
+        "Card No.": "BSS01-028",
+        "Card Name": "Pandemium of the Dark World Seven",
+        "Question": "If the effect on this spirit causes another spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-034",
+        "Card Name": "Infernal King Curse Dragon",
+        "Question": "Do I even remove one core from each of my own spirits when this spirit is summoned?",
+        "Answer": "Yes. Remove one core each from all spirits controlled by you and your opponent and place them into their owners' reserves."
+    },
+    {
+        "Card No.": "BSS01-034",
+        "Card Name": "Infernal King Curse Dragon",
+        "Question": "If the effect on this spirit causes another spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is. Afterwards, place a core from the void onto this spirit for each spirit controlled by you or your opponent destroyed by this effect."
+    },
+    {
+        "Card No.": "BSS01-034",
+        "Card Name": "Infernal King Curse Dragon",
+        "Question": "Can 【Armor: Purple】 protect against the When Summoned effect on this spirit?",
+        "Answer": "No, it cannot. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS01-035",
+        "Card Name": "Dark Bishop Baculus",
+        "Question": "If another spirit has both a core and a soul core on it when this spirit is summoned, which player determines which of those cores is removed?",
+        "Answer": "The player controlling the cores determines which one to remove."
+    },
+    {
+        "Card No.": "BSS01-035",
+        "Card Name": "Dark Bishop Baculus",
+        "Question": "Can 【Armor: Purple】 protect against the When Summoned effect on this spirit?",
+        "Answer": "No, it cannot. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS01-038",
+        "Card Name": "Dread Knight Nemesis",
+        "Question": "Can the effect on this spirit be used to destroy this spirit and draw two cards?",
+        "Answer": "Yes, it can."
+    },
+    {
+        "Card No.": "BSS01-038",
+        "Card Name": "Dread Knight Nemesis",
+        "Question": "When selecting one of your opponent's spirit to be destroyed using the When Destroyed effect on this spirit, can I select one with 【Armor: Purple】?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "BSS01-038",
+        "Card Name": "Dread Knight Nemesis",
+        "Question": "If the effect on this spirit causes another spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-047",
+        "Card Name": "Phantasm Archking Zenas",
+        "Question": "If this spirit is blocked by a LV2 spirit and that spirit becomes LV1 following the block, can I treat the block as if it did not occur?",
+        "Answer": "No. The block has already been established, so the battle advances to comparing BP regardless if the number of cores on the blocker becomes one following block declaration."
+    },
+    {
+        "Card No.": "BSS01-048",
+        "Card Name": "Devilish Prankster Imp",
+        "Question": "If the effect on this spirit causes another spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-049",
+        "Card Name": "Earth Spider Demon",
+        "Question": "If the effect on this spirit causes another spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-051",
+        "Card Name": "Dualgun Mechlord Dirm Dyna",
+        "Question": "If this spirit attacks while it only has a single soul core on it, can I pay that soul core to activate its When This Spirit Attacks effect?",
+        "Answer": "Yes, you can. The spirit will then be destroyed since the number of cores on it becomes insufficient for LV1."
+    },
+    {
+        "Card No.": "BSS01-051",
+        "Card Name": "Dualgun Mechlord Dirm Dyna",
+        "Question": "When I attack with this spirit and it has a soul core on it, do I have to pay the soul core because of its When This Spirit Attacks effect?",
+        "Answer": "No, you can choose whether or not to pay the soul core. If you don't pay, the effect will not activate."
+    },
+    {
+        "Card No.": "BSS01-052",
+        "Card Name": "Fortress God Knight Odin Type-X",
+        "Question": "When this LV2 spirit attacks, can I use the effect on ST03-013 Heaven-Piercing Castle to place cores from the trash onto it?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-053",
+        "Card Name": "Sky Dragonlord Platinum",
+        "Question": "Are all of my spirits with 3000 or fewer BP returned to my hand by the When Summoned effect on this spirit?",
+        "Answer": "Yes, they are."
+    },
+    {
+        "Card No.": "BSS01-053",
+        "Card Name": "Sky Dragonlord Platinum",
+        "Question": "Can 【Armor: White】 protect against the When Summoned effect on this spirit?",
+        "Answer": "No, it cannot. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS01-057",
+        "Card Name": "Heavy Tank Curiosity",
+        "Question": "Does the When Destroyed By Opponent effect on BSS01-054 Gun Knight Heavybarrel activate if the effect on this spirit substitutes remaining on the field for it being destroyed?",
+        "Answer": "No, it does not."
+    },
+    {
+        "Card No.": "BSS01-059",
+        "Card Name": "Dinosaur Harrier Turborex",
+        "Question": "If I have two Dinosaur Harrier Turborexes on the field, what happens if I use their LV1-LV2-LV3 effects to select two of my opponent's spirits during my opponent's attack step?",
+        "Answer": "If possible, one of those selected spirits attacks first this step. Following that, it is unnecessary for the second selected spirit to attack."
+    },
+    {
+        "Card No.": "BSS01-060",
+        "Card Name": "Pegacyone",
+        "Question": "Is this spirit able to block any number of my opponent's attacking spirits with 2 or fewer cores on them?",
+        "Answer": "Yes. Unless destroyed, you can declare this spirit as a blocker any number of times while it is exhausted."
+    },
+    {
+        "Card No.": "BSS01-061",
+        "Card Name": "Mechabeast Fortress Naumanngard",
+        "Question": "Does performing a refresh step using the LV2 effect on this spirit allow me a second opportunity to refresh all of my exhausted spirits and move all of the cores from my trash into my reserve?",
+        "Answer": "Yes, it does. Also, all effects which activate during the refresh step are activated."
+    },
+    {
+        "Card No.": "BSS01-061",
+        "Card Name": "Mechabeast Fortress Naumanngard",
+        "Question": "Can I perform a second attack step after performing a refresh step using the LV2 effect on this spirit?",
+        "Answer": "No, you cannot. After performing the refresh step you perform your end step."
+    },
+    {
+        "Card No.": "BSS01-067",
+        "Card Name": "Armored Dragonship Enterprise",
+        "Question": "Can a spirit with 【Armor: Red】 gain 【Armor: Red, Purple, White】 from the LV3 effect on this spirit?",
+        "Answer": "Yes, it can."
+    },
+    {
+        "Card No.": "BSS01-071",
+        "Card Name": "King Harald",
+        "Question": "If this spirit blocks while it has gained 【Armor】, can it be refreshed?",
+        "Answer": "Yes, it can."
+    },
+    {
+        "Card No.": "BSS01-072",
+        "Card Name": "Head Snow Librarian Saga",
+        "Question": "When this LV2 spirit attacks, can I use the effect on ST03-013 Heaven-Piercing Castle to place cores from the trash onto it?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-073",
+        "Card Name": "Head Icemaid Fulla",
+        "Question": "When this spirit is on the field, does it prevent your opponent's effects from removing cores from one of their own spirits that has a soul core on it?",
+        "Answer": "No, it does not. It only prevents your opponent's effects from removing cores from this spirit or one of your spirits with a soul core on it."
+    },
+    {
+        "Card No.": "BSS01-073",
+        "Card Name": "Head Icemaid Fulla",
+        "Question": "If I control a Head Icemaid Fulla and a second spirit with a soul core on it, will my opponent's effects be unable to remove cores from either of them?",
+        "Answer": "Correct. They will be unable to remove cores from either of the two spirits."
+    },
+    {
+        "Card No.": "BSS01-073",
+        "Card Name": "Head Icemaid Fulla",
+        "Question": "Can the effect on Head Icemaid Fulla protect against effects like the one on BSS01-125 Core Theft, which place cores into the trash?",
+        "Answer": "Yes, it can."
+    },
+    {
+        "Card No.": "BSS01-076",
+        "Card Name": "Archangel Michaela",
+        "Question": "What is the meaning of \"you may use magic cards in your hand without paying their cost\"?",
+        "Answer": "Your magic cards may be used without paying their use cost. They may also be used by paying their use cost, as usual."
+    },
+    {
+        "Card No.": "BSS01-076",
+        "Card Name": "Archangel Michaela",
+        "Question": "Is it possible to pay 3 when using a magic card which costs 6 with 0 reduction?",
+        "Answer": "No. You must pay the entire cost or not pay it at all. You cannot choose to pay only a portion of it."
+    },
+    {
+        "Card No.": "BSS01-076",
+        "Card Name": "Archangel Michaela",
+        "Question": "While counting up yellow spirits and nexuses for the When Summoned effect on this spirit, can I include this spirit in the count?",
+        "Answer": "Yes, it counts."
+    },
+    {
+        "Card No.": "BSS01-076",
+        "Card Name": "Archangel Michaela",
+        "Question": "While counting up spirits and nexuses for the When Summoned effect on this spirit, can I include nexuses of colors other than yellow in the count?",
+        "Answer": "No, you cannot. Like spirits, only nexuses of the color yellow are counted."
+    },
+    {
+        "Card No.": "BSS01-081",
+        "Card Name": "Spear Angel",
+        "Question": "If a nexus is LV2 or higher, will it still lose effects active at LV1 in response to the effect on this spirit?",
+        "Answer": "Yes, it will."
+    },
+    {
+        "Card No.": "BSS01-083",
+        "Card Name": "Godbeast Behemoth",
+        "Question": "My field is empty but I have four spirit cards with yellow symbols which cost 2 in my trash. Can I use those four symbols for cost reduction and only pay 4 to summon this spirit?",
+        "Answer": "Yes, you can summon this spirit by paying 4."
+    },
+    {
+        "Card No.": "BSS01-083",
+        "Card Name": "Godbeast Behemoth",
+        "Question": "This spirit has attacked and all of my spirits that cost 2 can no longer be blocked by my opponent's spirits that are LV2 or higher. Does that condition remain even if this spirit is then destroyed?",
+        "Answer": "Yes. Even if this spirit is destroyed, your spirits that cost 2 cannot be blocked by your opponent's spirits that are LV2 or higher."
+    },
+    {
+        "Card No.": "BSS01-086",
+        "Card Name": "Sage Beast Iberix",
+        "Question": "What happens to the use cost of a magic card when it gains more reduction symbols than its original cost from the effect on this card?",
+        "Answer": "The use cost is reduced to zero. Adding reduction symbols beyond the amount of the original cost will not reduce the use cost any further."
+    },
+    {
+        "Card No.": "BSS01-089",
+        "Card Name": "Hippocampo",
+        "Question": "My opponent has a BSS01-002 Divine Halberd Dragon Arc on the field and does not block the attack of this LV1 spirit. Does 【Blessed】 activate even though their life is not reduced?",
+        "Answer": "No. The spirit did not reduce their life so it does not activate."
+    },
+    {
+        "Card No.": "BSS01-091",
+        "Card Name": "Wonderland Alice",
+        "Question": "What happens to a spirit when its BP becomes zero?",
+        "Answer": "Spirits with zero or less BP are destroyed."
+    },
+    {
+        "Card No.": "BSS01-091",
+        "Card Name": "Wonderland Alice",
+        "Question": "If I use the LV3 effect on this spirit to keep it on the field when it would be destroyed, can I then use the effect on BSS01-114 Blessed Cathedral to place a core into my reserve?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "BSS01-091",
+        "Card Name": "Wonderland Alice",
+        "Question": "I have three spirits on my field, including this one. If all three of them are simultaneously destroyed, can I place a core from the void onto this spirit and keep it on the field, using its effect.",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-095",
+        "Card Name": "Crafter Fairy Lepri",
+        "Question": "If the effect on this spirit has been activated, will LV2 or higher When This Spirit Blocks effects on my opponent's spirits no longer activate when they block my spirits with 【Luster】?",
+        "Answer": "No, they will activate. The effect is already activated and waiting to be resolved the moment the block occurs."
+    },
+    {
+        "Card No.": "BSS01-099",
+        "Card Name": "Pentan",
+        "Question": "What happens when a magic card gains more reduction symbols than its original cost from the effect on this card?",
+        "Answer": "The use cost is reduced to zero. Adding reduction symbols beyond the amount of the original cost will not reduce the use cost any further."
+    },
+    {
+        "Card No.": "BSS01-100",
+        "Card Name": "Pentan Chick",
+        "Question": "If this is the only spirit on my field, can I use its effect to reduce the cost of a BSS01-133 Angelic Pressure by 2 and only pay 1 to use it?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-101",
+        "Card Name": "Volcanic Canyon",
+        "Question": "If I have two of these nexuses on my field, can I draw two cards and discard one, then draw one more and discard one?",
+        "Answer": "No. You must first draw three cards before choosing and discarding two."
+    },
+    {
+        "Card No.": "BSS01-102",
+        "Card Name": "Ancient Fault",
+        "Question": "If this nexus is all I have on my field and I summon an ST01-003 Imperial Thunder Dragon Siegwurm, can I pay 4 to summon it after reducing the cost by 2?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-104",
+        "Card Name": "Sacred Thundering Peaks",
+        "Question": "What is the meaning of \"attacks first during your turn\"?",
+        "Answer": "It is the first spirit to attack after your attack step has begun."
+    },
+    {
+        "Card No.": "BSS01-106",
+        "Card Name": "Netherworld Depths",
+        "Question": "If the LV2 effect on this nexus is activated, when is the blocking spirit destroyed?",
+        "Answer": "It is destroyed at the end of the battle in which it blocked, after battle resolution has been performed."
+    },
+    {
+        "Card No.": "BSS01-106",
+        "Card Name": "Netherworld Depths",
+        "Question": "If I use the LV2 effect on this nexus while it has three cores on it, the nexus will become LV1 when one core is placed into the trash. Does the LV2 effect still activate?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card No.": "BSS01-107",
+        "Card Name": "Ancient Amethyst Palace",
+        "Question": "If an effect on this nexus removes all of the cores from a spirit, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-108",
+        "Card Name": "Rotting Swamp",
+        "Question": "Can I use the effect on this nexus to draw two cards when two of my spirits are destroyed simultaneously?",
+        "Answer": "No. You only draw one card."
+    },
+    {
+        "Card No.": "BSS01-108",
+        "Card Name": "Rotting Swamp",
+        "Question": "When I use the LV2 effect on this nexus to return one of my Serpent spirits on the field to my hand, can I also use the LV1 effect on it to draw a card?",
+        "Answer": "No. When returning a card on the field to your hand substitutes for destruction, the draw effect does not activate."
+    },
+    {
+        "Card No.": "BSS01-109",
+        "Card Name": "Fortress Metropolis Naumann City",
+        "Question": "If this nexus is all I have on my field and I summon a BSS01- 061 Mechabeast Fortress Naumanngard, can I pay 5 to summon it after reducing the cost by 3?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-110",
+        "Card Name": "Infinity Mothership",
+        "Question": "If I have two LV2 BSS01-110 Infinity Motherships on my field along with a Mecha spirit, do I place a total of three cores into my reserve during my core step after adding two cores?",
+        "Answer": "No, only two cores. This effect does not add to the number of cores you receive, it only changes the number of cores you receive to two."
+    },
+    {
+        "Card No.": "BSS01-111",
+        "Card Name": "Rocket City",
+        "Question": "If my opponent draws two cards during their main step using an effect, can I force them to discard two cards using the LV2 effect on this nexus?",
+        "Answer": "No, they only discard one card. If conditions for activating an effect triggered by drawing are fulfilled multiple times simultaneously, it only activates one time."
+    },
+    {
+        "Card No.": "BSS01-111",
+        "Card Name": "Rocket City",
+        "Question": "My opponent activates the burst effect on BSS01-118 Starblessed Draw then uses its main effect, drawing a total of four cards. How many cards must they discard if I activate the effect on Rocket City?",
+        "Answer": "One card. They are drawing four cards all at one time using the effects on BSS01-118 Starblessed Draw, so the effect on this nexus only activates once."
+    },
+    {
+        "Card No.": "BSS01-112",
+        "Card Name": "Forest of Steel Leaves",
+        "Question": "Does the effect on Forest of Steel Leaves prevent destruction by the effects of red spirits and all magic, or the effects of red spirits and red magic?",
+        "Answer": "It prevents the destruction of White nexuses by the effects of your opponent's red spirits and red magic."
+    },
+    {
+        "Card No.": "BSS01-114",
+        "Card Name": "Blessed Cathedral",
+        "Question": "If one of my yellow spirits is destroyed after an opponent's effect removes all of its cores, does the effect on this nexus still activate?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card No.": "BSS01-115",
+        "Card Name": "Flying Ark",
+        "Question": "If I return a spirit to my hand using the LV2 effect on this nexus, do other effects that would trigger on its destruction activate?",
+        "Answer": "Yes, they activate because the spirit has been destroyed."
+    },
+    {
+        "Card No.": "BSS01-116",
+        "Card Name": "Green Field of the Victor",
+        "Question": "If I have no spirits on my field during my start step, does the LV2 effect on this nexus activate?",
+        "Answer": "No, it does not."
+    },
+    {
+        "Card No.": "BSS01-101",
+        "Card Name": "Volcanic Canyon",
+        "Question": "If I have two of these nexuses on my field, can I draw two cards and discard one, then draw one more and discard one?",
+        "Answer": "No. You must first draw three cards before choosing and discarding two."
+    },
+    {
+        "Card No.": "BSS01-102",
+        "Card Name": "Ancient Fault",
+        "Question": "If this nexus is all I have on my field and I summon an ST01-003 Imperial Thunder Dragon Siegwurm, can I pay 4 to summon it after reducing the cost by 2?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-106",
+        "Card Name": "Netherworld Depths",
+        "Question": "If the LV2 effect on this nexus is activated, when is the blocking spirit destroyed?",
+        "Answer": "It is destroyed at the end of the battle in which it blocked, after battle resolution has been performed."
+    },
+    {
+        "Card No.": "BSS01-106",
+        "Card Name": "Netherworld Depths",
+        "Question": "If I use the LV2 effect on this nexus while it has three cores on it, the nexus will become LV1 when one core is placed into the trash. Does the LV2 effect still activate?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card No.": "BSS01-106",
+        "Card Name": "Netherworld Depths",
+        "Question": "Can 【Armor: Purple】 protect against the LV2 effect on this nexus?",
+        "Answer": "No, it cannot. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS01-107",
+        "Card Name": "Ancient Amethyst Palace",
+        "Question": "If an effect on this nexus removes all of the cores from a spirit, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-108",
+        "Card Name": "Rotting Swamp",
+        "Question": "Can I use the effect on this nexus to draw two cards when two of my spirits are destroyed simultaneously?",
+        "Answer": "No. You only draw one card."
+    },
+    {
+        "Card No.": "BSS01-108",
+        "Card Name": "Rotting Swamp",
+        "Question": "When I use the LV2 effect on this nexus to return one of my Serpent spirits on the field to my hand, can I also use the LV1 effect on it to draw a card?",
+        "Answer": "No. When returning a card on the field to your hand substitutes for destruction, the draw effect does not activate."
+    },
+    {
+        "Card No.": "BSS01-109",
+        "Card Name": "Fortress Metropolis Naumann City",
+        "Question": "If this nexus is all I have on my field and I summon a BSS01- 061 Mechabeast Fortress Naumanngard, can I pay 5 to summon it after reducing the cost by 3?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-110",
+        "Card Name": "Infinity Mothership",
+        "Question": "If I have two LV2 BSS01-110 Infinity Motherships on my field along with a Mecha spirit, do I place a total of three cores into my reserve during my core step after adding two cores?",
+        "Answer": "No, only two cores. This effect does not add to the number of cores you receive, it only changes the number of cores you receive to two."
+    },
+    {
+        "Card No.": "BSS01-111",
+        "Card Name": "Rocket City",
+        "Question": "If my opponent draws two cards during their main step using an effect, can I force them to discard two cards using the LV2 effect on this nexus?",
+        "Answer": "No, they only discard one card. If conditions for activating an effect triggered by drawing are fulfilled multiple times simultaneously, it only activates one time."
+    },
+    {
+        "Card No.": "BSS01-111",
+        "Card Name": "Rocket City",
+        "Question": "My opponent activates the burst effect on BSS01-118 Starblessed Draw then uses its main effect, drawing a total of four cards. How many cards must they discard if I activate the effect on Rocket City?",
+        "Answer": "One card. They are drawing four cards all at one time using the effects on BSS01-118 Starblessed Draw, so the effect on this nexus only activates once."
+    },
+    {
+        "Card No.": "BSS01-112",
+        "Card Name": "Forest of Steel Leaves",
+        "Question": "Does the effect on Forest of Steel Leaves prevent destruction by the effects of red spirits and all magic, or the effects of red spirits and red magic?",
+        "Answer": "It prevents the destruction of White nexuses by the effects of your opponent's red spirits and red magic."
+    },
+    {
+        "Card No.": "BSS01-114",
+        "Card Name": "Blessed Cathedral",
+        "Question": "If one of my yellow spirits is destroyed after an opponent's effect removes all of its cores, does the effect on this nexus still activate?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card No.": "BSS01-115",
+        "Card Name": "Flying Ark",
+        "Question": "If I return a spirit to my hand using the LV2 effect on this nexus, do other effects that would trigger on its destruction activate?",
+        "Answer": "Yes, they activate because the spirit has been destroyed."
+    },
+    {
+        "Card No.": "BSS01-117",
+        "Card Name": "Big Bang Energy",
+        "Question": "I have three life and I use the effect on this magic card to change the cost on an ST01-003 Imperial Thunder Dragon Siegwurm in my hand to 3. Can I pay 3 to summon it?",
+        "Answer": "Yes, you can. You can also use the reduction symbols on it to reduce the cost even further, since they remain unchanged."
+    },
+    {
+        "Card No.": "BSS01-118",
+        "Card Name": "Starblessed Draw",
+        "Question": "If I activate this card as a burst and draw four cards total using both the burst effect and the main effect, am I activating two separate effects letting me draw two cards each?",
+        "Answer": "No, you are not. It is considered one effect combining the burst effect and the main effect to let you draw two cards then draw two more, increasing your hand by a total of four cards."
+    },
+    {
+        "Card No.": "BSS01-122",
+        "Card Name": "Deadly Balance",
+        "Question": "Who chooses a spirit to destroy first, you or your opponent?",
+        "Answer": "Your opponent selects a spirit to destroy, then you select a spirit to destroy."
+    },
+    {
+        "Card No.": "BSS01-122",
+        "Card Name": "Deadly Balance",
+        "Question": "Which spirit is destroyed first: mine or my opponent's?",
+        "Answer": "They are destroyed simultaneously."
+    },
+    {
+        "Card No.": "BSS01-122",
+        "Card Name": "Deadly Balance",
+        "Question": "If my opponent uses this magic card and I have a spirit with 【Armor: Purple】 on my field, must I exclude that spirit when making my selection?",
+        "Answer": "Yes. Only select from among those spirits without 【Armor: Purple】. If all of your spirits possess 【Armor: Purple】, then selecting none is permissible."
+    },
+    {
+        "Card No.": "BSS01-125",
+        "Card Name": "Core Theft",
+        "Question": "If the effect on this magic card causes a spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS01-127",
+        "Card Name": "Absolute Ice Shield",
+        "Question": "If my life total becomes zero, can I avoid losing by using the burst effect on this magic card to place a core from my reserve into my life?",
+        "Answer": "No, you cannot. When your life total becomes zero, you have already lost by the time the burst effect on this magic card would activate."
+    },
+    {
+        "Card No.": "BSS01-128",
+        "Card Name": "Regain",
+        "Question": "Using the effect on this magic card, can I select one of my spirits which is blocking and refresh it?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS01-130",
+        "Card Name": "Suppression",
+        "Question": "What is the meaning of \"that spirit can block while exhausted\"?",
+        "Answer": "The spirit selected when using the effect on this magic card can be declared as a blocker any number of times while it is exhausted."
+    },
+    {
+        "Card No.": "BSS01-133",
+        "Card Name": "Angelic Pressure",
+        "Question": "What happens to a spirit when its BP becomes zero?",
+        "Answer": "Spirits with zero or less BP are destroyed."
+    },
+    {
+        "Card No.": "BSS01-134",
+        "Card Name": "Ascension Zero",
+        "Question": "If a spirit is being treated as LV1 as a result of the burst effect on this magic card, does it remain LV1 even if all of its cores are removed?",
+        "Answer": "No. All spirits are destroyed when the number of cores on them becomes insufficient for LV1."
+    },
+    {
+        "Card No.": "BSS01-136",
+        "Card Name": "Exhaust Nexus",
+        "Question": "Do spirits summoned after the flash effect on this magic card has been activated have their BP reduced by 3000?",
+        "Answer": "No, they do not. Only spirits on the field when this effect is activated have their BP reduced by 3000."
+    },
+    {
+        "Card No.": "BSS01-136",
+        "Card Name": "Exhaust Nexus",
+        "Question": "What happens to a spirit when its BP becomes zero?",
+        "Answer": "Spirits with zero or less BP are destroyed."
+    },
+    {
+        "Card No.": "BSS02-001",
+        "Card Name": "Dragno King",
+        "Question": "My opponent blocks my attacking spirit with a soul core on it and both spirits are destroyed because their BP are the same. Can I use the LV2-LV3 effect on Dragno King to destroy a spirit with 6000 or fewer BP at this time?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-005",
+        "Card Name": "Ten Sword Saint Starblade Dragon",
+        "Question": "I control a LV2 Ten Sword Saint Starblade Dragon and use the effect on a BSS01-101 Volcanic Canyon to draw two cards and discard one during my draw step. Can I then use the LV2-LV3 effect on Ten Sword Saint Starblade Dragon to destroy one of my opponent's spirits with 3000 or fewer BP?",
+        "Answer": "No, you cannot. The LV1-LV2 effect on Volcanic Canyon does not make you draw a card. It only increases the number of cards drawn during your draw step."
+    },
+    {
+        "Card No.": "BSS02-009",
+        "Card Name": "Dragoon Commander Diraidalos",
+        "Question": "Does a Dragoon Commander Diraidalos that has become LV3 due to its LV1-LV2-LV3 effect still remain as a LV3 spirit even if it has no cores on it?",
+        "Answer": "No. If Dragoon Commander Diraidalos has insufficient cores for LV1, it is destroyed as usual."
+    },
+    {
+        "Card No.": "BSS02-009",
+        "Card Name": "Dragoon Commander Diraidalos",
+        "Question": "If I treat my Dragoon Commander Diraidalos spirit as having two red symbols and it is not blocked by one of my opponent's spirits when attacking, can I reduce their life by two?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-009",
+        "Card Name": "Dragoon Commander Diraidalos",
+        "Question": "Does the LV1-LV2-LV3 effect on my Dragoon Commander Diraidalos activate when one of my opponent's spirits is destroyed by either one of my spirits that costs 7 or more or one of my magic cards that costs 7 or more?",
+        "Answer": "Yes, that is correct. (The 7-or-more cost condition applies to both spirits and magic.)"
+    },
+    {
+        "Card No.": "BSS02-010",
+        "Card Name": "Armorsaur Edmontsaurd",
+        "Question": "My attacking spirit with a soul core on it is blocked and both spirits are destroyed because their BP are the same. Can I use the effect on Armorsaur Edmontsaurd at this time to draw a card?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-012",
+        "Card Name": "King Vulture",
+        "Question": "If I attack with King Vulture, will it retain its 【Confront】 effect even if my opponent's spirit with a \"When Summoned\" effect leaves the field during one of the flash windows?",
+        "Answer": "No. The 【Confront】 effect is lost."
+    },
+    {
+        "Card No.": "BSS02-016",
+        "Card Name": "Rage Dragon Emperor Ira",
+        "Question": "Do I have to include my own spirits when attempting to select ten spirits for the \"When Summoned\" effect on Rage Dragon Emperor Ira?",
+        "Answer": "Yes. You must select and destroy ten spirits from the total pool of both your spirits and your opponent's spirits."
+    },
+    {
+        "Card No.": "BSS02-016",
+        "Card Name": "Rage Dragon Emperor Ira",
+        "Question": "Can I destroy one of my opponent's nexuses using the LV3 effect on Rage Dragon Emperor Ira even when its own \"When Summoned\" effect destroys one of my opponent's spirits?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-020",
+        "Card Name": "Void Ogre Emperor Avaritia",
+        "Question": "When my opponent is selecting a spirit for the \"When This Spirit Attacks\" effect on Void Ogre Emperor Avaritia, can they select a BSS01-073 Head Icemaid Fulla?",
+        "Answer": "Yes, they can. However, no cores are removed since the effect is prevented from doing so."
+    },
+    {
+        "Card No.": "BSS02-020",
+        "Card Name": "Void Ogre Emperor Avaritia",
+        "Question": "If the \"When This Spirit Attacks\" effect on Void Ogre Emperor Avaritia removes all the cores from a spirit, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-022",
+        "Card Name": "Floating Grave White Whale",
+        "Question": "When I select three of my opponent's spirits as a result of the \"When This Spirit Attacks\" effect on Floating Grave White Whale, do I remove all but one core from one spirit along with all of the cores from the other two spirits and place those cores into my opponent's reserve?",
+        "Answer": "No. Leave one core on each of the spirits and place all of the other cores into their reserve."
+    },
+    {
+        "Card No.": "BSS02-022",
+        "Card Name": "Floating Grave White Whale",
+        "Question": "If the effect on Floating Grave White Whale removes all of the cores from a spirit, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-023",
+        "Card Name": "Corpse Giant Gigasha",
+        "Question": "If the spirit selected by the \"When This Spirit Attacks\" effect on Corpse Giant Gigasha later gains more cores using 【Awaken】 so that it no longer has only one core, will it then be able to block?",
+        "Answer": "No. It remains unable to block."
+    },
+    {
+        "Card No.": "BSS02-027",
+        "Card Name": "Imperial Knight God Avalo Paladion",
+        "Question": "If the effect on Imperial Knight God Avalo Paladion removes all of the cores from a spirit, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-027",
+        "Card Name": "Imperial Knight God Avalo Paladion",
+        "Question": "If one of my spirits was destroyed after all of its cores were removed to pay a cost and none of my other spirits were destroyed this turn, can I use the effect on a LV3 Imperial Knight God Avalo Paladion I control to draw a card during my end step?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "BSS02-028",
+        "Card Name": "Dark Knight Lamorak",
+        "Question": "If I return a destroyed spirit from my trash to my hand using the effect on Dark Knight Lamorakan, can I use other effects that activate \"When Destroyed\"?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-028",
+        "Card Name": "Dark Knight Lamorak",
+        "Question": "After paying a cost, one of my purple spirits is left with no cores on it and it becomes the first spirit to be destroyed during my turn. If I control a LV2 Dark Knight Lamorak, can I use its effect to return that destroyed spirit card from my trash to my hand?",
+        "Answer": "No, you cannot. Destruction effects do not activate when a spirit is self-destroyed."
+    },
+    {
+        "Card No.": "BSS02-028",
+        "Card Name": "Dark Knight Lamorak",
+        "Question": "The first destruction of one of my purple spirits during my turn occurs when one of them is destroyed to pay a cost. If my LV2 Dark Knight Lamorak is destroyed in battle later that turn, can I return it to my hand from my trash using its own effect?",
+        "Answer": "No, you cannot. One of your spirits has already been destroyed this turn while paying a cost, so the Dark Knight Lamorak is not the first spirit to be destroyed."
+    },
+    {
+        "Card No.": "BSS02-028",
+        "Card Name": "Dark Knight Lamorak",
+        "Question": "Can I even use the effect on Dark Knight Lamorak to return itself from my trash to my hand when it is destroyed?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-028",
+        "Card Name": "Dark Knight Lamorak",
+        "Question": "When two of my spirits are destroyed simultaneously and could both be considered the first to be destroyed that turn, which one do I return to my hand?",
+        "Answer": "Choose whichever spirit you would prefer."
+    },
+    {
+        "Card No.": "BSS02-028",
+        "Card Name": "Dark Knight Lamorak",
+        "Question": "If a spirit loses all of its cores due to the effect on Dark Knight Lamorak, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-031",
+        "Card Name": "Divine Saturn Dragon Chronos-Boros",
+        "Question": "When your opponent selects a spirit while resolving the effect on Divine Saturn Dragon Chronos-Boros, can they choose to select a BSS01-073 Head Icemaid Fulla?",
+        "Answer": "Yes, they can. However, no cores are removed since the effect is prevented from doing so."
+    },
+    {
+        "Card No.": "BSS02-031",
+        "Card Name": "Divine Saturn Dragon Chronos-Boros",
+        "Question": "If the effect on Divine Saturn Dragon Chronos-Boros removes all of the cores from a spirit, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-035",
+        "Card Name": "Ripper Princess Azalea",
+        "Question": "When I summon this card from the trash, can my opponent activate a burst effect with the condition [Burst: When Opponent Resolves a Spirit's \"When Summoned\" Effect]?",
+        "Answer": "No, they cannot, since the \"When Summoned\" effect does not activate when it is summoned from the trash."
+    },
+    {
+        "Card No.": "BSS02-039",
+        "Card Name": "Trickster Machine God Loki",
+        "Question": "When selecting a Mecha spirit to return to my hand for the LV3 effect on Trickster Machine God Loki, can I select Trickster Machine God Loki itself?",
+        "Answer": "Yes, you can. Since the spirit returns to your hand it does not refresh."
+    },
+    {
+        "Card No.": "BSS02-040",
+        "Card Name": "Winged Godmech Grand Woden",
+        "Question": "What is the meaning of \"they must discard a card as an additional cost\"?",
+        "Answer": "When your opponent is going to use a magic card, they must discard a card from their hand or else they cannot use the magic card."
+    },
+    {
+        "Card No.": "BSS02-040",
+        "Card Name": "Winged Godmech Grand Woden",
+        "Question": "Must I pay the additional cost when activating a magic card set as a burst card?",
+        "Answer": "No. Paying the additional cost is only necessary when you use a magic card from your hand."
+    },
+    {
+        "Card No.": "BSS02-040",
+        "Card Name": "Winged Godmech Grand Woden",
+        "Question": "Does the additional cost increase to discarding two cards if there are two Winged Godmech Grand Wodens on the field?",
+        "Answer": "Yes, it increases to two cards."
+    },
+    {
+        "Card No.": "BSS02-040",
+        "Card Name": "Winged Godmech Grand Woden",
+        "Question": "I have a Winged Godmech Grand Woden on my field and my opponent has a BSS01-076 Archangel Michaela on theirs. If my opponent uses the effect on Archangel Michaela in order to use a magic card without paying its cost, must they still discard a card as an additional cost due to the effect on Winged Godmech Grand Woden?",
+        "Answer": "Yes, they must discard a card as an additional cost."
+    },
+    {
+        "Card No.": "BSS02-040",
+        "Card Name": "Winged Godmech Grand Woden",
+        "Question": "When Winged Godmech Grand Woden refreshes during my refresh step, will it gain 4000 BP from its own LV3 effect?",
+        "Answer": "Yes, it will."
+    },
+    {
+        "Card No.": "BSS02-042",
+        "Card Name": "Gunsmith Mime",
+        "Question": "Does the \"When Summoned\" effect on Gunsmith Mime still summon a token if I only have one core total on my field and in my reserve?",
+        "Answer": "Yes, it does. Gunsmith Mime will end up with zero cores on it and be destroyed."
+    },
+    {
+        "Card No.": "BSS02-044",
+        "Card Name": "Merged Mechlord Mammoth Aegis",
+        "Question": "Can I return one of my opponent's spirits that costs 5 or fewer to their hand using the LV2 effect on Merged Mechlord Mammoth Aegis even after exhausting it in order to block?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-045",
+        "Card Name": "Blizzaster Eagle",
+        "Question": "What is the meaning of \"this spirit cannot be destroyed by your opponent's destruction effects\"?",
+        "Answer": "Blizzaster Eagle is not affected by effects which instruct you to \"destroy\" it, even if selected. It will be destroyed if it loses all of its cores or BP, as usual."
+    },
+    {
+        "Card No.": "BSS02-046",
+        "Card Name": "Lion Machine God Superbia",
+        "Question": "What happens to Lion Machine God Superbia's \"When Summoned\" effect if it is destroyed by the end of that turn?",
+        "Answer": "Nothing happens, as there is nowhere to place the cores."
+    },
+    {
+        "Card No.": "BSS02-054",
+        "Card Name": "Ice Goddess Frig",
+        "Question": "When this spirit is on the field and someone draws outside of the draw step, is it just the player that draws cards who must pay cores?",
+        "Answer": "Yes, that is correct."
+    },
+    {
+        "Card No.": "BSS02-054",
+        "Card Name": "Ice Goddess Frig",
+        "Question": "Do I have to pay two cores while drawing two cards using the main effect on BSS01-118 Starblessed Draw when there is an Ice Goddess Frig on the field?",
+        "Answer": "Yes, you must pay one core for each card you draw."
+    },
+    {
+        "Card No.": "BSS02-054",
+        "Card Name": "Ice Goddess Frig",
+        "Question": "When there are two Ice Goddess Frigs on the field, do I have to pay two cores for each card drawn?",
+        "Answer": "Yes, that is correct."
+    },
+    {
+        "Card No.": "BSS02-054",
+        "Card Name": "Ice Goddess Frig",
+        "Question": "Is there any situation where I would not have to pay the additional cost while drawing a card outside of my draw step when an Ice Goddess Frig is on the field.",
+        "Answer": "No. You must always pay the cost."
+    },
+    {
+        "Card No.": "BSS02-054",
+        "Card Name": "Ice Goddess Frig",
+        "Question": "What happens if Ice Goddess Frig is on the field and I have insufficient cores to pay the additional cost while drawing cards outside of my draw step?",
+        "Answer": "You pay as many cores as you are able to, then only draw that number of cards."
+    },
+    {
+        "Card No.": "BSS02-058",
+        "Card Name": "Heavenly Gate Guardian Clavis",
+        "Question": "Does a spirit that has become LV1 due to the effect on Heavenly Gate Guardian Clavis remain LV1 if it loses all of its cores?",
+        "Answer": "No. A spirit with zero cores is destroyed as usual."
+    },
+    {
+        "Card No.": "BSS02-059",
+        "Card Name": "Fallen Angel Acedia",
+        "Question": "Does a spirit that has become LV1 due to the effect on Fallen Angle Acedia remain LV1 if it loses all of its cores?",
+        "Answer": "No. A spirit with zero cores is destroyed as usual."
+    },
+    {
+        "Card No.": "BSS02-063",
+        "Card Name": "Light Emperor Lumiere",
+        "Question": "If a spirit with 【Blessed】 in its card text gains 【Blessed】 from the effect on Light Emperor Lumiere, can I place two cores from the void into my life when that spirit reduces my opponent's life?",
+        "Answer": "No, only one core. Spirits cannot simultaneously possess two instances of the 【Blessed】 effect."
+    },
+    {
+        "Card No.": "BSS02-064",
+        "Card Name": "Arcana Princess Anne",
+        "Question": "If two of my Otherlander spirits are destroyed simultaneously during the turn when the \"When Summoned\" effect on Arcana Princess Anne is activated, does the 1000 BP reduction effect activate two times?",
+        "Answer": "No. The effect only activates one time."
+    },
+    {
+        "Card No.": "BSS02-064",
+        "Card Name": "Arcana Princess Anne",
+        "Question": "What happens to a spirit if its BP becomes zero?",
+        "Answer": "Spirits with zero or fewer BP are destroyed."
+    },
+    {
+        "Card No.": "BSS02-065",
+        "Card Name": "Arcana Joker",
+        "Question": "When I activate another Otherlander spirit's \"When Summoned\" effect using the effect on Arcana Joker, can my opponent then activate a burst which reads [Burst: When Opponent Resolves a Spirit's \"When Summoned\" Effect]?",
+        "Answer": "Yes, they can."
+    },
+    {
+        "Card No.": "BSS02-065",
+        "Card Name": "Arcana Joker",
+        "Question": "When activating another Otherlander spirit's \"When Summoned\" effect using the effect on Arcana Joker, can I use a LV2 \"When Summoned\" effect if that spirit is only LV1?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "BSS02-066",
+        "Card Name": "Arcana Beast Queen",
+        "Question": "What happens to a spirit if its BP becomes zero?",
+        "Answer": "Spirits with zero or fewer BP are destroyed."
+    },
+    {
+        "Card No.": "BSS02-068",
+        "Card Name": "Air Brigade Captain Raphael",
+        "Question": "When one of my spirits is destroyed and its cores are placed into my reserve, is one of my opponent's spirits treated as LV1 due to the effect on Air Brigade Captain Raphael?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-068",
+        "Card Name": "Air Brigade Captain Raphael",
+        "Question": "When my life is reduced and those cores are placed into my reserve, is one of my opponent's spirits treated as LV1 due to the effect on Air Brigade Captain Raphael?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-068",
+        "Card Name": "Air Brigade Captain Raphael",
+        "Question": "What happens to a spirit if its BP becomes zero?",
+        "Answer": "Spirits with zero or fewer BP are destroyed."
+    },
+    {
+        "Card No.": "BSS02-068",
+        "Card Name": "Air Brigade Captain Raphael",
+        "Question": "Does a spirit that has become LV1 due to the effect on Air Brigade Captain Raphael remain LV1 if it loses all of its cores?",
+        "Answer": "No. A spirit with zero cores is destroyed as usual."
+    },
+    {
+        "Card No.": "BSS02-076",
+        "Card Name": "Toy Hero Musashi",
+        "Question": "When the \"When Destroyed By Opponent\" effect on Toy Hero Musashi observes the costs of my spirits, can it observe itself?",
+        "Answer": "No, it cannot. Toy Hero Musashi is not on the field when the effect is being resolved."
+    },
+    {
+        "Card No.": "BSS02-078",
+        "Card Name": "Onyxbird Yatagloss",
+        "Question": "My Onyxbird Yatagloss with seven cores on it attacks and then has a core placed onto it from the void by its \"When This Spirit Attacks\" effect, making it LV3. Does its LV3 effect activate at this time?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card No.": "BSS02-079",
+        "Card Name": "Shryke",
+        "Question": "What happens to a spirit if its BP becomes zero?",
+        "Answer": "Spirits with zero or fewer BP are destroyed."
+    },
+    {
+        "Card No.": "BSS02-082",
+        "Card Name": "Queen Antraine",
+        "Question": "Does the \"When Summoned\" effect on Queen Antraine still summon tokens if I only have one core total on my field and in my reserve?",
+        "Answer": "Yes, one token is summoned. Queen Antraine will end up with zero cores on it and be destroyed, and the second token will not be summoned since there are insufficient cores."
+    },
+    {
+        "Card No.": "BSS02-082",
+        "Card Name": "Queen Antraine",
+        "Question": "When my LV2 Queen Antraine is destroyed, can I still exhaust one of my opponent's spirits?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-083",
+        "Card Name": "Antman General",
+        "Question": "Does the LV1-LV2 \"When Summoned\" effect on Antman General still summon a token if I only have one core total on my field and in my reserve?",
+        "Answer": "Yes, it does. Antman General will end up with zero cores on it and be destroyed."
+    },
+    {
+        "Card No.": "BSS02-087",
+        "Card Name": "Armortree Deity Herak Dynas",
+        "Question": "Do spirits which are summoned using 【Swift】 gained from the effect on Armortree Deity Herak Dynas still possess 【Swift】 while they are on the field?",
+        "Answer": "No, they do not. Only spirit cards in your hand gain 【Swift】 from this effect."
+    },
+    {
+        "Card No.": "BSS02-093",
+        "Card Name": "Daimyo Beast Yaiba-no-Kami",
+        "Question": "What happens to spirits whose LV1 BP has become 4000 due to the LV2-LV3 effect on Daimyo Beast Yaiba-no-Kami when the flash effect on BSS02-135 Stamina Recovery is used on them?",
+        "Answer": "Their BP becomes 6000. The effect on Daimyo Beast Yaiba-no- Kami does not fix their BP at 4000."
+    },
+    {
+        "Card No.": "BSS02-096",
+        "Card Name": "Loyal Retainer Higumaru",
+        "Question": "Can my opponent select exhausted spirits when resolving the effect on Loyal Retainer Higumaru?",
+        "Answer": "Yes, they can. Any refreshed spirits among those selected are then exhausted."
+    },
+    {
+        "Card No.": "BSS02-102",
+        "Card Name": "Flame Crystal",
+        "Question": "If I attack my opponent's spirit with a soul core on it using the effect on Flame Crystal and that soul core is removed by a simultaneously activated \"When Attacking\" effect, is the spirit's block canceled?",
+        "Answer": "No, it is not canceled. After the effect enabling the spirit to be attacked resolves, the block remains valid even if the soul core is removed."
+    },
+    {
+        "Card No.": "BSS02-103",
+        "Card Name": "Dreadrock Fortress",
+        "Question": "If a spirit loses all of its cores due to the effect on Dreadrock Fortress, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-104",
+        "Card Name": "Impaler Forest",
+        "Question": "If a spirit loses all of its cores due to the effect on Impaler Forest, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-105",
+        "Card Name": "Monstrous Mausoleum",
+        "Question": "Does 【Armor: Purple】 protect against the LV1-LV2 \"During Your Attack Step\" effect on Monstrous Mausoleum?",
+        "Answer": "No, it does not. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS02-106",
+        "Card Name": "Farflung Land",
+        "Question": "When my opponent summons a LV1 spirit which would possess a \"When Summoned\" effect at LV2, can I place a core from the void onto my Farflung Land using its effect?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "BSS02-109",
+        "Card Name": "Ticking Floral Clock",
+        "Question": "Does a spirit that has become LV1 due to the effect on Ticking Floral Clock remain LV1 if it loses all of its cores?",
+        "Answer": "No. A spirit with insufficient cores for LV1 is destroyed as usual."
+    },
+    {
+        "Card No.": "BSS02-110",
+        "Card Name": "Secret Flower Garden",
+        "Question": "Can I use the effect on Secret Flower Garden to place a core from the void into my life even when the nexus itself is destroyed?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-111",
+        "Card Name": "Harpy Nest Palace",
+        "Question": "Does 【Armor: Yellow】 protect against the LV1-LV2 \"During Your Attack Step\" effect on Harpy Nest Palace?",
+        "Answer": "No, it does not. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS02-111",
+        "Card Name": "Harpy Nest Palace",
+        "Question": "When one of my spirits is destroyed and its cores are placed into my reserve, can I use the effect on Harpy Nest Palace to place cores onto my spirits?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-111",
+        "Card Name": "Harpy Nest Palace",
+        "Question": "When my life is reduced and those cores are placed into my reserve, can I use the effect on Harpy Nest Palace to place cores onto my spirits?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-111",
+        "Card Name": "Harpy Nest Palace",
+        "Question": "Does a spirit that has become LV1 due to the effect on Harpy Nest Palace remain LV1 if it loses all of its cores?",
+        "Answer": "No. A spirit with insufficient cores for LV1 is destroyed as usual."
+    },
+    {
+        "Card No.": "BSS02-113",
+        "Card Name": "Greattree Gate",
+        "Question": "I attack and my opponent blocks, and both spirits are destroyed since their BP are equal. At this time, can I use the effect on Greattree Gate to place a core from the void onto it?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-114",
+        "Card Name": "Infinite Ant Undercity",
+        "Question": "If I summon two token spirits simultaneously, can I place two cores from my trash into my reserve?",
+        "Answer": "No. You only place one core."
+    },
+    {
+        "Card No.": "BSS02-115",
+        "Card Name": "Giantwood Castle Keep",
+        "Question": "My spirit with a soul core on it blocks my opponent's attack, and both spirits are destroyed since their BP are equal. At this time, can I use the effect on Giantwood Castle Keep to select one of my spirits and refresh it?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "BSS02-115",
+        "Card Name": "Giantwood Castle Keep",
+        "Question": "Can my opponent activate a \"When Destroyed By Opponent\" effect when I have a LV2 Giantwood Castle Keep on the field?",
+        "Answer": "No, they cannot. \"When Destroyed\" and \"When Destroyed By Opponent\"effects on their spirits, and effects that activate when one of their spirits is destroyed, are prevented from activating."
+    },
+    {
+        "Card No.": "BSS02-115",
+        "Card Name": "Giantwood Castle Keep",
+        "Question": "I have a LV2 Giantwood Castle Keep on the field. Can my opponent activate the effect of their BSS01-114 Blessed Cathedral when one of their yellow spirits is destroyed during either attack step?",
+        "Answer": "Yes, they can. Only \"When Destroyed\" effects, \"When Destroyed By Opponent\" effects, and effects that activate when one of their spirits is destroyed which are on spirits are prevented from activating."
+    },
+    {
+        "Card No.": "BSS02-115",
+        "Card Name": "Giantwood Castle Keep",
+        "Question": "I have a LV2 Giantwood Castle Keep on the field. Can my opponent activate the 【Immortal】 effect of their BSS01-039 Beldegor of the Dark World Seven in their trash when one of their other spirits that costs 4 or 5 is destroyed during either attack step?",
+        "Answer": "Yes, they can. Giantwood Castle Keep prevents the effects of spirits on the field from activating; it does not prevent the effects of spirit cards in the trash from activating."
+    },
+    {
+        "Card No.": "BSS02-116",
+        "Card Name": "Nexus Hazard",
+        "Question": "When I want to use a Nexus Hazard and all I have on my field are three BSS01-010 Oviraptodons, can I pay 2 to use it after reducing its cost by 6?",
+        "Answer": "Yes, you can pay 2 to use it."
+    },
+    {
+        "Card No.": "BSS02-120",
+        "Card Name": "Reanimate",
+        "Question": "Does the burst effect on Reanimate let me return a purple spirit card from my trash that was not among the three discarded cards?",
+        "Answer": "No. The purple spirit card returned to your hand must be one of the three discarded cards."
+    },
+    {
+        "Card No.": "BSS02-121",
+        "Card Name": "The Hanged Man",
+        "Question": "Does the \"When This Spirit Attacks\" effect still activate if a spirit no longer has sufficient cores for that effect's level after cores are removed by the effect on The Hanged Man?",
+        "Answer": "Yes, it does. Once the attack is declared, the effect is activated and waiting to be resolved, regardless if the number of cores on the spirit later becomes insufficient for that effect's level."
+    },
+    {
+        "Card No.": "BSS02-121",
+        "Card Name": "The Hanged Man",
+        "Question": "If a spirit loses all of its cores due to the effect on The Hanged Man, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "BSS02-122",
+        "Card Name": "Assassinate",
+        "Question": "If I have a spirit with 【Armor: Purple】 on my field when my opponent uses the main effect on Assassinate, do I have to select one of my other spirits?",
+        "Answer": "Yes. Select a spirit without 【Armor: Purple】. If all of your spirits have 【Armor: Purple】, do not select any."
+    },
+    {
+        "Card No.": "BSS02-124",
+        "Card Name": "Reboot Code",
+        "Question": "When spirits gain a \"When This Spirit Blocks\" effect from the burst effect on Reboot Code, how long does it last?",
+        "Answer": "They have it for the duration of the turn in which the burst effect activated."
+    },
+    {
+        "Card No.": "BSS02-126",
+        "Card Name": "Infinity Shield",
+        "Question": "What is the meaning of \"can block while exhausted\"?",
+        "Answer": "A spirit selected by the effect on Infinity Shield can be declared as a blocker any number of times while exhausted."
+    },
+    {
+        "Card No.": "BSS02-127",
+        "Card Name": "Inescapable Avalanche",
+        "Question": "Does 【Armor: White】 protect against the effect on Inescapable Avalanche?",
+        "Answer": "No, it does not. This effect does not rely on selection."
+    },
+    {
+        "Card No.": "BSS02-128",
+        "Card Name": "The Three Cards",
+        "Question": "If I raise a nexus to LV2 after the main effect on The Three Cards is activated, can its LV2 effect be activated?",
+        "Answer": "No, it cannot. Nexuses affected by the effect on The Three Cards cannot regain any effects."
+    },
+    {
+        "Card No.": "BSS02-128",
+        "Card Name": "The Three Cards",
+        "Question": "Are effects on nexuses placed after activation of the main effect on The Three Cards prevented from activating?",
+        "Answer": "No, they may be activated. Only nexuses on the field at the time the main effect on The Three Cards activates lose their effects."
+    },
+    {
+        "Card No.": "BSS02-130",
+        "Card Name": "Magic Mirror",
+        "Question": "When my opponent uses a magic card and the effect on Magic Mirror allows me to make a selection instead of them, and the magic card effect text states \"Select one of your opponent's spirits,\" do I select one of my own spirits?",
+        "Answer": "Yes, you select one of your own spirits. Select a target which conforms to the conditions described in the magic effect."
+    },
+    {
+        "Card No.": "BSS02-130",
+        "Card Name": "Magic Mirror",
+        "Question": "If my opponent uses a BSS01-122 Deadly Balance after I have used Magic Mirror, do I select both of the spirits to be destroyed?",
+        "Answer": "Yes, you do. You select one of your spirits, then you select one of your opponent's spirits."
+    },
+    {
+        "Card No.": "BSS02-130",
+        "Card Name": "Magic Mirror",
+        "Question": "When my opponent uses a BSS01-125 Core Theft after I have used Magic Mirror, does my opponent discard cards after I have selected a spirit?",
+        "Answer": "Yes, that is correct. After you select a spirit, your opponent can discard as many cards as they like."
+    },
+    {
+        "Card No.": "BSS02-132",
+        "Card Name": "The Ants Strike Back",
+        "Question": "How does token summoning in the main effect on The Ants Strike Back resolve if I only have one core total on my field and in my reserve?",
+        "Answer": "Only one token is summoned. The second token is not summoned since there are insufficient cores."
+    },
+    {
+        "Card No.": "BSS02-134",
+        "Card Name": "Carry Core",
+        "Question": "When using the effect on Carry Core to place cores from the void onto my spirits, can I place a core on a spirit that currently has no effect at LV1 but does have an effect at LV2?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST01-002",
+        "Card Name": "Galaxy Dragon Andrometeos",
+        "Question": "Can I pay 4 to summon an ST01-001 Nebula Dragon Andromeda when all I have on my field is this spirit?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST01-007",
+        "Card Name": "Blade Dino Parasaur",
+        "Question": "If I pay this spirit's soul core and it becomes LV1, can I still draw a card?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST01-009",
+        "Card Name": "Dragron Trooper",
+        "Question": "I attack with a LV1 Dragron Trooper and my opponent uses ST04- 016 Drowsy Fumes during a flash window to reduce its BP by 2000. Will it be destroyed at the end of the battle when its BP becomes zero?",
+        "Answer": "Yes, it is destroyed when its BP becomes zero."
+    },
+    {
+        "Card No.": "ST01-012",
+        "Card Name": "Scorched Battlefield",
+        "Question": "Can I draw two cards when I reduce my opponent's life using a spirit with two symbols?",
+        "Answer": "No, you cannot. It is still a single reduction, so you only draw one card."
+    },
+    {
+        "Card No.": "ST01-013",
+        "Card Name": "Star Altar",
+        "Question": "If two spirits are destroyed simultaneously and one has my soul core on it, can I use the effect on this nexus to place all of the cores from the spirit with the soul core along with all of the cores from the spirit without the soul core onto the selected spirit?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST01-014",
+        "Card Name": "Charged Draw",
+        "Question": "Can I use the flash effect on this card to cause one of my opponent's spirits to gain 2000 BP?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST01-016",
+        "Card Name": "Fire Wall",
+        "Question": "Can a LV2 ST01-009 Dragron Trooper attack while the flash effect on this card is active?",
+        "Answer": "No, it cannot. Spirits with 4000 or fewer BP before attack declaration cannot attack."
+    },
+    {
+        "Card No.": "ST02-001",
+        "Card Name": "Dark King Snake Pendocles",
+        "Question": "If the effect on this spirit causes a spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "ST02-003",
+        "Card Name": "Segro Snake",
+        "Question": "I attack with this spirit while it has a soul core on it and my opponent blocks using a spirit with two cores on it. During the flash window after blocking, the number of cores on the blocking spirit is reduced to one using ST02-014 Poison Shot. In this situation, is the block treated as if it did not occur?",
+        "Answer": "No, the block remains valid. Since the block has been established, the battle continues to comparing BP even if the cores on the blocking spirit are reduced to one following block declaration."
+    },
+    {
+        "Card No.": "ST02-004",
+        "Card Name": "Mummirra",
+        "Question": "If the effect on this spirit causes a spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "ST02-011",
+        "Card Name": "Stray Soul",
+        "Question": "If the effect on this spirit causes a spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "ST02-012",
+        "Card Name": "Dark Grail",
+        "Question": "When placing this nexus, can I place one core from one of my opponent's spirits into their reserve if that spirit has one core and one soul core on it?",
+        "Answer": "Yes, you can. In this situation, the spirit's owner decides which of the two cores to place into their reserve."
+    },
+    {
+        "Card No.": "ST02-013",
+        "Card Name": "Purple Smoke Valley",
+        "Question": "I control an ST02-013 Purple Smoke Valley and attack using a spirit with 【Curse】, and my opponent blocks using a spirit with two cores on it. During the flash window that follows, I use ST02-014 Poison Shot to select the blocking spirit and remove one core from it. In this situation, is the block treated as if it did not occur?",
+        "Answer": "No. The block has already been established, so the battle advances to comparing BP regardless if the number of cores on the blocker becomes one following block declaration."
+    },
+    {
+        "Card No.": "ST02-013",
+        "Card Name": "Purple Smoke Valley",
+        "Question": "If I attack with a LV1 spirit which gains 【Curse】 at LV2, will the effect on this nexus prevent my opponent from blocking using spirits with only one core on them?",
+        "Answer": "No, it will not. The spirit does not possess 【Curse】 until it reaches LV2, so the effect on the nexus does not activate."
+    },
+    {
+        "Card No.": "ST02-014",
+        "Card Name": "Poison Shot",
+        "Question": "If the effect on this magic card causes a spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "ST02-015",
+        "Card Name": "Core Drain",
+        "Question": "If the effect on this magic card causes a spirit to have zero cores, is that spirit destroyed?",
+        "Answer": "Yes, it is."
+    },
+    {
+        "Card No.": "ST02-016",
+        "Card Name": "Bloody Rain",
+        "Question": "Can a spirit with only one core on it attack while the burst effect on this card is active?",
+        "Answer": "Yes, it can. In that situation, after one core is placed into the reserve, the attacking spirit has insufficient cores for LV1 and it is destroyed."
+    },
+    {
+        "Card No.": "ST02-016",
+        "Card Name": "Bloody Rain",
+        "Question": "If a spirit with 【Armor: Purple】 attacks while the burst effect on this card is active, must one core still be placed into the reserve?",
+        "Answer": "Yes, one core must be placed into the reserve. The effect on ST02-016 Bloody Rain does not involve a selection."
+    },
+    {
+        "Card No.": "ST03-001",
+        "Card Name": "Divine Moonsky Beast Fanatech Elk",
+        "Question": "What is the meaning of \"this spirit cannot be destroyed by your opponent's destruction effects or as the result of battle\"?",
+        "Answer": "It means you ignore effects that explicitly say to destroy the spirit, and you do not destroy the spirit after comparing BP during battle resolution, even if it has the lower BP."
+    },
+    {
+        "Card No.": "ST03-001",
+        "Card Name": "Divine Moonsky Beast Fanatech Elk",
+        "Question": "After losing one life during my opponent's attack step, I activate my BSS01-127 Absolute Ice Shield burst, increasing my life by one. If I control an ST03-001 Divine Moonsky Beast Fanatech Elk, can I use the effect on it at the end of my opponent's turn to place one core from their life into their trash, even though my life total remained the same?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST03-002",
+        "Card Name": "Greygarmr",
+        "Question": "I block with a LV2 ST03-002 Greygarmr and my opponent uses a BSS01-133 Angelic Pressure during the flash window following blocking to reduce its BP by 3000. When the turn ends, will my spirit be destroyed when its BP becomes zero?",
+        "Answer": "No, because all effects become inactive simultaneously."
+    },
+    {
+        "Card No.": "ST03-004",
+        "Card Name": "Mechawing Duck",
+        "Question": "Does the effect on Mechawing Duck activate when a spirit card returns from the trash to the hand?",
+        "Answer": "No, it does not activate."
+    },
+    {
+        "Card No.": "ST03-008",
+        "Card Name": "Buffalong Bill",
+        "Question": "Can the While This Spirit Blocks effect on an attacking spirit be activated by the effect on this spirit?",
+        "Answer": "No, because it is not a When This Spirit Blocks effect."
+    },
+    {
+        "Card No.": "ST03-008",
+        "Card Name": "Buffalong Bill",
+        "Question": "Will a When This Spirit Attacks or Blocks effect activate twice?",
+        "Answer": "No, only once."
+    },
+    {
+        "Card No.": "ST03-008",
+        "Card Name": "Buffalong Bill",
+        "Question": "I attack with this spirit while it has two cores on it then use the LV2 effect on ST03-013 Heaven-Piercing Castle to place two cores onto it, raising it to LV3. At this point, can the When This Spirit Blocks effect on this spirit be activated by its other effect?",
+        "Answer": "No, it cannot. The spirit must be LV3 when the attack is declared to activate that effect."
+    },
+    {
+        "Card No.": "ST03-010",
+        "Card Name": "Iceblader Brigid",
+        "Question": "Does a spirit selected by the effect on this spirit never refresh?",
+        "Answer": "It does not refresh during the refresh step of the turn following when it was selected. On later turns it will refresh normally."
+    },
+    {
+        "Card No.": "ST03-011",
+        "Card Name": "Frosttree Goddess Eir",
+        "Question": "Can I use the effect on this spirit to place a core onto a LV1 spirit which gains a When This Spirit Blocks effect at LV2?",
+        "Answer": "No. You must confirm the spirit fulfills the conditions at its current level."
+    },
+    {
+        "Card No.": "ST03-011",
+        "Card Name": "Frosttree Goddess Eir",
+        "Question": "Can I use the effect on this spirit to place a core onto a spirit possessing a When This Spirit Attacks or Blocks effect?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST03-011",
+        "Card Name": "Frosttree Goddess Eir",
+        "Question": "Can I use the effect on this spirit to place a core onto a spirit possessing a While This Spirit Blocks effect?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST03-012",
+        "Card Name": "Spring of Norn",
+        "Question": "Can I use the effect on this nexus to refresh a LV1 spirit which has no effect at LV1 and only gains an effect at LV2 or higher?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST03-012",
+        "Card Name": "Spring of Norn",
+        "Question": "Can I use the effect on this nexus to refresh a spirit which has gained 【Armor】 from the effect on BSS01-067 Armored Dragonship Enterprise?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST03-013",
+        "Card Name": "Heaven-Piercing Castle",
+        "Question": "Can I use the effect on this nexus and pay a soul core to draw a card when my opponent adds a magic card to his hand from his deck using the effect on ST04-009 Grimoire Fairy?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST03-013",
+        "Card Name": "Heaven-Piercing Castle",
+        "Question": "When I attack using a spirit with a When This Spirit Blocks effect, can I place my soul core from my trash onto that spirit?",
+        "Answer": "Yes, you can place up to two cores onto it, including both regular cores and soul cores."
+    },
+    {
+        "Card No.": "ST04-003",
+        "Card Name": "Airavatah",
+        "Question": "Does the When Destroyed effect on this spirit activate when the number of cores on it becomes zero and it is destroyed?",
+        "Answer": "No, it does not."
+    },
+    {
+        "Card No.": "ST04-003",
+        "Card Name": "Airavatah",
+        "Question": "Do I pay a spirit's summoning cost when summoning it from the trash using the When Destroyed effect on this spirit?",
+        "Answer": "Yes, you do."
+    },
+    {
+        "Card No.": "ST04-003",
+        "Card Name": "Airavatah",
+        "Question": "Can I use the symbol on this spirit for cost reduction when summoning a spirit from the trash using the When Destroyed effect on this spirit?",
+        "Answer": "No, you cannot. This spirit has already been destroyed and the card is on its way to the trash when the effect is being resolved."
+    },
+    {
+        "Card No.": "ST04-009",
+        "Card Name": "Grimoire Fairy",
+        "Question": "Does \"view the top four cards of your deck\" mean I also have to show them to my opponent?",
+        "Answer": "No, you do not have to show them to your opponent."
+    },
+    {
+        "Card No.": "ST04-011",
+        "Card Name": "Freezstal",
+        "Question": "Can I draw a card when this spirit is destroyed in battle?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST04-011",
+        "Card Name": "Freezstal",
+        "Question": "Can I draw a card using the effect on Freezstal when my cost 2 spirit is destroyed by 【Curse】?",
+        "Answer": "No, you cannot. Destruction due to 【Curse】 is destruction caused by an effect."
+    },
+    {
+        "Card No.": "ST04-011",
+        "Card Name": "Freezstal",
+        "Question": "Can I draw a card using the effect on Freezstal when my cost 2 spirit is destroyed by magic during a flash window while it is participating in a battle?",
+        "Answer": "No, you cannot."
+    },
+    {
+        "Card No.": "ST04-012",
+        "Card Name": "Spiral Tower",
+        "Question": "If I return a destroyed spirit to my hand using the effect on this nexus, do bursts and effects which would trigger on its destruction activate?",
+        "Answer": "Yes, they still activate even when the card is returned to your hand."
+    },
+    {
+        "Card No.": "ST04-013",
+        "Card Name": "Soap Bubble Lakeside",
+        "Question": "I control an ST04-013 Soap Bubble Lakeside and my cost 2 spirit and cost 3 spirit are simultaneously destroyed. If the effect on this nexus reveals a cost 2 card on the top of my deck, can I add it to my hand?",
+        "Answer": "Yes, you can."
+    },
+    {
+        "Card No.": "ST04-016",
+        "Card Name": "Drowsy Fumes",
+        "Question": "What happens to a spirit when its BP becomes zero?",
+        "Answer": "Spirits with zero or fewer BP are destroyed."
+    },
+    {
+        "Card No.": "ST05-001",
+        "Card Name": "Rooster Zodiac Emperor Gale Phoenix",
+        "Question": "If my opponent blocks this spirit's attack and both spirits are destroyed because their BP are the same, can I exhaust one of my opponent's spirits using the effect on this spirit at this time?",
+        "Answer": "Yes, you may exhaust one of your opponent's spirits."
+    },
+    {
+        "Card No.": "ST05-012",
+        "Card Name": "Sacred Tree Stump City",
+        "Question": "How long does the BP gain from this nexus' effect remain active?",
+        "Answer": "The BP gain remains active until the end of the battle resulting from the first attack of each turn."
+    },
+    {
+        "Card No.": "ST05-012",
+        "Card Name": "Sacred Tree Stump City",
+        "Question": "If I summon an ST05-006 Leafwolf using 【Swift】 during one of the flash windows of my first attack on my turn, does my attacking spirit gain an additional 1000 BP?",
+        "Answer": "Yes, it does."
+    },
+    {
+        "Card No.": "ST05-012",
+        "Card Name": "Sacred Tree Stump City",
+        "Question": "I control three green spirits at the start of my first attack during my turn so my attacking spirit is gaining 3000 BP from the effect on Sacred Tree Stump City. If two of those green spirits are later destroyed during flash windows of that attack, leaving only one, how many BP will my attacking spirit be gaining from the effect on Sacred Tree Stump City?",
+        "Answer": "Your attacking spirit will be gaining 1000 BP from it."
+    }
+]

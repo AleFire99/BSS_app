@@ -1,2 +1,5 @@
 selenium
 webdriver-manager
+pandas
+camelot-py[cv]
+pdfplumber
