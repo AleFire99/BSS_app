@@ -29,9 +29,10 @@ def handle_inline_query(msg):
 
     # Prepare inline query results (images hosted on your server or ngrok)
     inline_results = []
-    for card_id, name, image_url in results:
+    for card_id, name, path in results:
+
         # Generate the URL for the full image
-        photo_url = f"http://192.168.1.16:8000/{image_url}"
+        photo_url = f"https://www.bssdb.dev/cards/bss/{card_id}.png"
 
         # Prepare the inline query result with the full image
         inline_results.append({
@@ -41,10 +42,19 @@ def handle_inline_query(msg):
             'thumb_url': photo_url,  # Thumbnail URL (same as full-size image)
         })
 
-    print(inline_results)
+        print(f"Card ID: {card_id}")
 
-    # Send results back to the user
-    bot.answerInlineQuery(msg['id'], inline_results)
+    inline_results = inline_results[:50]
+
+    try:
+        # Send results back to the user
+        bot.answerInlineQuery(msg['id'], inline_results)
+    except telepot.exception.TelegramError as e:
+        # Handle specific Telegram errors
+        if 'query is too old' in str(e):
+            print("Query is too old, ignoring the response.")
+        else:
+            print(f"Error while answering inline query: {e}")
 
 # Initialize the bot
 bot = telepot.Bot(BOT_TOKEN)
