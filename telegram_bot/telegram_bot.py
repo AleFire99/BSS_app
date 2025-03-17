@@ -19,40 +19,73 @@ DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
 # Initialize the bot
 bot = telepot.Bot(BOT_TOKEN)
 
-# Cache for database results to reduce repeated queries
 @lru_cache(maxsize=128)
 def search_cards(query):
     # Connect to the database
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
 
-    # Strip the query of leading/trailing whitespace
-    query = query.strip()
+    # Initialize the base SQL query and parameters
+    sql_query = """
+    SELECT DISTINCT Cards.CardID, Cards.Name, Cards.Image 
+    FROM Cards
+    LEFT JOIN CardColors ON Cards.CardID = CardColors.CardID
+    LEFT JOIN Colors ON CardColors.ColorID = Colors.ColorID
+    WHERE 1=1
+    """
+    params = []
 
-    if query.lower().startswith("cost "):
-        try:
-            # Extract the number after "cost"
-            cost_value = int(query.split(" ", 1)[1].split(" ", 1)[0])
-            remaining_query = query[len(f"cost {cost_value}"):].strip()  # Get the rest for name query
+    # Split the query into conditions
+    conditions = query.lower().split()
+    i = 0
 
-            # Query by cost
-            cursor.execute("SELECT CardID, Name, Image FROM Cards WHERE Cost = ?", (cost_value,))
-            results = cursor.fetchall()
+    # Parse each condition
+    while i < len(conditions):
+        if conditions[i] == "cost":
+            try:
+                # Parse the cost value
+                cost_value = int(conditions[i + 1])
+                sql_query += " AND Cards.Cost = ?"
+                params.append(cost_value)
+                i += 2
+            except (ValueError, IndexError):
+                logger.error("Invalid 'cost' value in query.")
+                conn.close()
+                return []
+        elif conditions[i] == "color":
+            try:
+                # Parse the color name
+                color_name = conditions[i + 1]
+                sql_query += " AND LOWER(Colors.ColorName) = LOWER(?)"
+                params.append(color_name)
+                i += 2
+            except IndexError:
+                logger.error("Invalid 'color' value in query.")
+                conn.close()
+                return []
+        elif conditions[i] == "type":
+            try:
+                # Parse the type name
+                type_name = conditions[i + 1]
+                sql_query += " AND LOWER(Cards.Type) = LOWER(?)"
+                params.append(type_name)
+                i += 2
+            except IndexError:
+                logger.error("Invalid 'type' value in query.")
+                conn.close()
+                return []
+        else:
+            # Assume the remaining part is a general name query
+            name_query = " ".join(conditions[i:])
+            sql_query += " AND LOWER(Cards.Name) LIKE LOWER(?)"
+            params.append(f"%{name_query}%")
+            break
 
-            # If there is a part for the name, filter results by name
-            if remaining_query:
-                results = [card for card in results if remaining_query.lower() in card[1].lower()]
-            
-        except ValueError:
-            # If the value after "cost" is not a valid integer, return an empty result
-            conn.close()
-            return []
-    else:
-        # Regular name query (case insensitive)
-        cursor.execute("SELECT CardID, Name, Image FROM Cards WHERE LOWER(Name) LIKE LOWER(?)", (f"%{query}%",))
-        results = cursor.fetchall()
-
+    # Execute the dynamically constructed query
+    cursor.execute(sql_query, params)
+    results = cursor.fetchall()
     conn.close()
+
     return results
 
 # Define the function to handle inline queries

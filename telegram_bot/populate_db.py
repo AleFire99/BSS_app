@@ -3,7 +3,7 @@ import json
 import sqlite3
 
 # Database file
-DB_FILE = "cards.db"
+DB_FILE = "new_cards.db"
 
 # Directory containing JSON files
 JSON_DIR = "json/Sets"
@@ -23,6 +23,25 @@ CREATE TABLE IF NOT EXISTS Cards (
 );
 """)
 
+# Ensure the Colors table exists
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS Colors (
+    ColorID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ColorName TEXT NOT NULL UNIQUE
+);
+""")
+
+# Ensure the CardColors table exists
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS CardColors (
+    CardID TEXT NOT NULL,
+    ColorID INTEGER NOT NULL,
+    FOREIGN KEY (CardID) REFERENCES Cards(CardID),
+    FOREIGN KEY (ColorID) REFERENCES Colors(ColorID),
+    PRIMARY KEY (CardID, ColorID)
+);
+""")
+
 # Function to parse JSON files and insert data
 def populate_database():
     for set_folder in os.listdir(JSON_DIR):
@@ -33,18 +52,40 @@ def populate_database():
                     file_path = os.path.join(set_path, json_file)
                     with open(file_path, "r", encoding="utf-8") as file:
                         data = json.load(file)
-                        # Extract relevant fields
+                        
+                        # Extract card details
                         card_id = data["ID"]
                         name = data["name"]
                         card_type = data.get("cardType", "Unknown")
                         cost = int(data.get("cost", 0))
                         image = data["image"]
 
-                        # Insert into database
+                        # Insert card into the Cards table
                         cursor.execute("""
                         INSERT OR IGNORE INTO Cards (CardID, Name, Type, Cost, Image)
                         VALUES (?, ?, ?, ?, ?)
                         """, (card_id, name, card_type, cost, image))
+
+                        # Insert colors and link them to the card
+                        colors = data.get("color", [])
+                        for color in colors:
+                            # Insert color into the Colors table
+                            cursor.execute("""
+                            INSERT OR IGNORE INTO Colors (ColorName)
+                            VALUES (?)
+                            """, (color,))
+                            
+                            # Get the ColorID for the inserted/selected color
+                            cursor.execute("""
+                            SELECT ColorID FROM Colors WHERE ColorName = ?
+                            """, (color,))
+                            color_id = cursor.fetchone()[0]
+                            
+                            # Link the card to the color in the CardColors table
+                            cursor.execute("""
+                            INSERT OR IGNORE INTO CardColors (CardID, ColorID)
+                            VALUES (?, ?)
+                            """, (card_id, color_id))
 
 # Populate the database
 populate_database()
