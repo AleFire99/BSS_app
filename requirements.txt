@@ -3,4 +3,3 @@ webdriver-manager
 pandas
 pdfplumber
 telepot
-flask
