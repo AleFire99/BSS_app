@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = "8024197858:AAEmeR0DQdriA2kzgJEdaq9d9UrdCfLWbXQ"  # Replace with your bot's token
 
 # Database file
-DB_FILE = '/app/cards.db'  # Path inside the container
-#DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
+#DB_FILE = '/app/cards.db'  # Path inside the container
+DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
 
 # Initialize the bot
 bot = telepot.Bot(BOT_TOKEN)
@@ -25,6 +25,9 @@ def search_cards(query):
     # Connect to the database
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
+
+    # Strip the query of leading/trailing whitespace
+    query = query.strip()
 
     if query.lower().startswith("cost "):
         try:
