@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = "REDACTED_BOT_TOKEN"  # Replace with your bot's token
 
 # Database file
-#DB_FILE = '/app/cards.db'  # Path inside the container
-DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
+DB_FILE = '/app/cards.db'  # Path inside the container
+#DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
 
 # Initialize the bot
 bot = telepot.Bot(BOT_TOKEN)
