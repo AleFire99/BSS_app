@@ -27,8 +27,11 @@
                 3
             ],
             "condition": "When Destroyed By Opponent",
-            "keywords": [],
-            "details": "Place a core from your reserve into your life. Chain: Purple Draw a card.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Purple"
+            }],
+            "details": "Place a core from your reserve into your life. Chain Purple: Draw a card.",
             "steps": []
         }
     ],

@@ -32,8 +32,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Discard any number of cards. For each card discarded, select one of your opponent's spirits. Remove one core from each of them and place them into your opponent's trash. Chain: White Select one of your spirits with Link and refresh it.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "White"
+            }],
+            "details": "Discard any number of cards. For each card discarded, select one of your opponent's spirits. Remove one core from each of them and place them into your opponent's trash. Chain White: Select one of your spirits with Link and refresh it.",
             "steps": [
                 "Main",
                 "Flash"

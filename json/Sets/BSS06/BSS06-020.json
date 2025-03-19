@@ -28,8 +28,16 @@
                 2
             ],
             "condition": "When Summoned",
-            "keywords": [],
-            "details": "Remove all but one core from each of your opponent's spirits with only one color and place them into their reserve. Chain: White Select one of your opponent's spirits with 6000 or fewer BP and return it to their hand. Chain: Red Your opponent selects one of their nexuses. Destroy it.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "White"
+            },
+            {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Red"
+            }
+        ],
+            "details": "Remove all but one core from each of your opponent's spirits with only one color and place them into their reserve. Chain White: Select one of your opponent's spirits with 6000 or fewer BP and return it to their hand. Chain Red: Your opponent selects one of their nexuses. Destroy it.",
             "steps": []
         }
     ],

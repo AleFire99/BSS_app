@@ -28,8 +28,11 @@
                 3
             ],
             "condition": "When Summoned",
-            "keywords": [],
-            "details": "Reveal the top three cards of your deck. Return any number of the revealed cards to the bottom of your deck in any order. Return any remaining cards to the top of your deck. Chain: White This spirit cannot be selected by the effects of your opponent's spirits until the end of their next turn.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "White"
+            }],
+            "details": "Reveal the top three cards of your deck. Return any number of the revealed cards to the bottom of your deck in any order. Return any remaining cards to the top of your deck. Chain White: This spirit cannot be selected by the effects of your opponent's spirits until the end of their next turn.",
             "steps": []
         },
         {

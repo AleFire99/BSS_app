@@ -26,8 +26,11 @@
                 2
             ],
             "condition": "When Destroyed",
-            "keywords": [],
-            "details": "Discard the top two cards of your deck. Chain: Red Your opponent selects one of their nexuses. Destroy it.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Red"
+            }],
+            "details": "Discard the top two cards of your deck. Chain Red: Your opponent selects one of their nexuses. Destroy it.",
             "steps": []
         }
     ],

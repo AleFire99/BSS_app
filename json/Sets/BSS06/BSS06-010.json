@@ -46,8 +46,17 @@
                 3
             ],
             "condition": "When This Spirit Attacks",
-            "keywords": [],
-            "details": "Select one of your opponent's spirits with 4000 or fewer BP and destroy it. Chain: Green Place a core from the void onto this spirit. Chain: Blue Draw two cards. Then, discard two cards.",
+            "keywords": [
+                {
+                    "keyword_name": "Chain",
+                    "keyword_modifier": "Green"
+                },
+                {
+                    "keyword_name": "Chain",
+                    "keyword_modifier": "Blue"
+                }
+            ],
+            "details": "Select one of your opponent's spirits with 4000 or fewer BP and destroy it. Chain Green: Place a core from the void onto this spirit. Chain Blue: Draw two cards. Then, discard two cards.",
             "steps": []
         }
     ],

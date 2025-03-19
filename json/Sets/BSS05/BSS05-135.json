@@ -24,8 +24,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Select one of your opponent's spirits and exhaust it. Chain: Blue Select one of your opponent's spirits that costs 4 or fewer and destroy it.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "Blue"
+            }],
+            "details": "Select one of your opponent's spirits and exhaust it. Chain Blue: Select one of your opponent's spirits that costs 4 or fewer and destroy it.",
             "steps": [
                 "Main",
                 "Flash"
