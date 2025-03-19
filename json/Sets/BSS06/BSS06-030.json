@@ -28,7 +28,10 @@
                 3
             ],
             "condition": "When Summoned",
-            "keywords": [],
+            "keywords": [{
+                "keyword_name": "Feast",
+                "keyword_modifier": 1
+            }],
             "details": "Select one of your opponent's spirits. Reduce its BP by 4000 during this turn. If you destroy one of your opponent's spirits via reducing its BP to 0 with this effect, activate Feast one time.",
             "steps": []
         },
