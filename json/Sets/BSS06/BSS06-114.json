@@ -26,15 +26,22 @@
                 {
                     "keyword_name": "Burst",
                     "keyword_modifier": null
+                },
+                {
+                    "keyword_name": "Feast",
+                    "keyword_modifier": 1
                 }
             ],
-            "details": "Activate Feast instead.) You may then pay this card's cost to activate its flash effect.",
+            "details": "Activate Feast. You may then pay this card's cost to activate its flash effect.",
             "steps": []
         },
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
+            "keywords": [{
+                "keyword_name": "Feast",
+                "keyword_modifier": 1
+            }],
             "details": "Activate Feast.",
             "steps": [
                 "Main",

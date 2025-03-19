@@ -28,8 +28,11 @@
                 3
             ],
             "condition": "When Summoned",
-            "keywords": [],
-            "details": "If you don't control any token spirits, activate Feast instead.)",
+            "keywords": [{
+                "keyword_name": "Feast",
+                "keyword_modifier": 1
+            }],
+            "details": "If you don't control any token spirits, activate Feast.",
             "steps": []
         }
     ],

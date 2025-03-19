@@ -40,8 +40,11 @@
                 3
             ],
             "condition": "When This Spirit Attacks",
-            "keywords": [],
-            "details": "Your opponent selects any number of their spirits. Destroy them. Then, activate Feast once for each spirit your opponent controls: Feast instead.)",
+            "keywords": [{
+                "keyword_name": "Feast",
+                "keyword_modifier": 1
+            }],
+            "details": "Your opponent selects any number of their spirits. Destroy them. Then, activate Feast once for each spirit your opponent controls.",
             "steps": []
         }
     ],

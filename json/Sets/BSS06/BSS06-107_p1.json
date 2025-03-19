@@ -22,8 +22,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Activate Feast : Feast instead.)",
+            "keywords": [{
+                "keyword_name": "Feast",
+                "keyword_modifier": 1
+            }],
+            "details": "Activate Feast.",
             "steps": [
                 "Main"
             ]
