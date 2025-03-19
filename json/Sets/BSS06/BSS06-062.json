@@ -44,8 +44,15 @@
                 3
             ],
             "condition": "When This Spirit Attacks",
-            "keywords": [],
-            "details": "This spirit gains 3000 BP during this turn. Chain: Red Draw a card. Chain: White This spirit cannot be selected by the effects of your opponent's magic during this battle.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Red"
+            },
+            {
+                "keyword_name": "Chain",
+                "keyword_modifier": "White"
+            }],
+            "details": "This spirit gains 3000 BP during this turn. Chain Red: Draw a card. Chain White: This spirit cannot be selected by the effects of your opponent's magic during this battle.",
             "steps": []
         }
     ],

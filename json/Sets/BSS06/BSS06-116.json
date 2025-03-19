@@ -30,8 +30,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Discard the top five cards of your opponent's deck. Chain: Yellow You may destroy one of your non-token spirits to summon two Small Supsprite Tokens.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "Yellow"
+            }],
+            "details": "Discard the top five cards of your opponent's deck. Chain Yellow: You may destroy one of your non-token spirits to summon two Small Supsprite Tokens.",
             "steps": [
                 "Main"
             ]

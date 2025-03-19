@@ -24,8 +24,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Select your opponent's spirit that costs the least and destroy it. Chain: Red Select one of your opponent's nexuses that costs 3 or fewer and destroy it.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "Red"
+            }],
+            "details": "Select your opponent's spirit that costs the least and destroy it. Chain Red: Select one of your opponent's nexuses that costs 3 or fewer and destroy it.",
             "steps": [
                 "Main",
                 "Flash"

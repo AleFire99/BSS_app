@@ -24,8 +24,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Select a spirit. During this turn, it cannot be blocked by your opponent's spirits that cost 5 or fewer. Chain: White Select one of your spirits with one symbol and refresh it.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "White"
+            }],
+            "details": "Select a spirit. During this turn, it cannot be blocked by your opponent's spirits that cost 5 or fewer. Chain White: Select one of your spirits with one symbol and refresh it.",
             "steps": [
                 "Main",
                 "Flash"

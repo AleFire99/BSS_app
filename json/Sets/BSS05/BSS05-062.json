@@ -23,8 +23,11 @@
         {
             "levels": [],
             "condition": "When Destroyed By Opponent",
-            "keywords": [],
-            "details": "Attacks from your opponent's spirits with 3000 or fewer BP cannot reduce your life during this turn. Chain: Yellow Reduce the BP of all of your opponent's spirits by 2000 during this turn.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Yellow"
+            }],
+            "details": "Attacks from your opponent's spirits with 3000 or fewer BP cannot reduce your life during this turn. Chain Yellow: Reduce the BP of all of your opponent's spirits by 2000 during this turn.",
             "steps": []
         }
     ],

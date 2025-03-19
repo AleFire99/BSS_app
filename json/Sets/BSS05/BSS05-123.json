@@ -23,8 +23,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Select up to two spirit cards from your trash that cost 2. Summon them without paying their costs. Chain: Yellow Your spirits that cost 2 cannot be blocked by your opponent's spirits with one core during this turn.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "Yellow"
+            }],
+            "details": "Select up to two spirit cards from your trash that cost 2. Summon them without paying their costs. Chain Yellow: Your spirits that cost 2 cannot be blocked by your opponent's spirits with one core during this turn.",
             "steps": [
                 "Main"
             ]

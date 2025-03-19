@@ -40,8 +40,11 @@
                 3
             ],
             "condition": "When This Spirit Attacks",
-            "keywords": [],
-            "details": "Select one of your opponent's spirits that costs 7 or fewer. For each spirit you control, remove one core from the selected spirit and place it into their reserve. Chain: Yellow Select one of your opponent's spirits. Reduce its BP by 2000 during this turn.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Yellow"
+            }],
+            "details": "Select one of your opponent's spirits that costs 7 or fewer. For each spirit you control, remove one core from the selected spirit and place it into their reserve. Chain Yellow: Select one of your opponent's spirits. Reduce its BP by 2000 during this turn.",
             "steps": []
         }
     ],

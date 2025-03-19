@@ -24,8 +24,11 @@
         {
             "levels": [],
             "condition": "N/A",
-            "keywords": [],
-            "details": "Select one of your opponent's spirits with 5000 or fewer BP and destroy it. Chain: Blue Select one of your spirits that has one symbol. Treat it as its highest level during this turn.",
+            "keywords": [{
+                "keyword_name": "Chain",
+                "keyword_modifier": "Blue"
+            }],
+            "details": "Select one of your opponent's spirits with 5000 or fewer BP and destroy it. Chain Blue: Select one of your spirits that has one symbol. Treat it as its highest level during this turn.",
             "steps": [
                 "Main",
                 "Flash"

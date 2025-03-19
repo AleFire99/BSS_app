@@ -24,8 +24,11 @@
         {
             "levels": [],
             "condition": "When Destroyed By Opponent",
-            "keywords": [],
-            "details": "Select one of your opponent's spirits and return it to their hand. Chain: Green Summon one of your Mecha Leaf Kindred Tokens.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Green"
+            }],
+            "details": "Select one of your opponent's spirits and return it to their hand. Chain Green: Summon one of your Mecha Leaf Kindred Tokens.",
             "steps": []
         }
     ],

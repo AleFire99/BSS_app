@@ -37,6 +37,10 @@
             "description": "Place this card without paying its cost."
         },
         {
+            "name": "Chain",
+            "description": "If you have a symbol of the chained color, also activate the following effect."
+        }
+        {
             "name": "Confront",
             "description": "Your opponent must block if able."
         },

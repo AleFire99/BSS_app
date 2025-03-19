@@ -27,8 +27,11 @@
                 2
             ],
             "condition": "During Opponent's Turn",
-            "keywords": [],
-            "details": "When one of your token spirits is destroyed, place a core from the void onto this spirit. Chain: White Refresh this spirit.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "White"
+            }],
+            "details": "When one of your token spirits is destroyed, place a core from the void onto this spirit. Chain White: Refresh this spirit.",
             "steps": []
         },
         {

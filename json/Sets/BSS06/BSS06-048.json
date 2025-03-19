@@ -25,8 +25,15 @@
                 2
             ],
             "condition": "When This Spirit Attacks or Blocks",
-            "keywords": [],
-            "details": "Select a spirit with Link and refresh it. Chain: Purple This spirit gains Curse during this battle. Chain: Yellow During this battle, this spirit cannot be blocked by LV1 spirits.",
+            "keywords": [                {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Purple"
+            },
+            {
+                "keyword_name": "Chain",
+                "keyword_modifier": "Yellow"
+            }],
+            "details": "Select a spirit with Link and refresh it. Chain Purple: This spirit gains Curse during this battle. Chain Yellow: During this battle, this spirit cannot be blocked by LV1 spirits.",
             "steps": []
         }
     ],
