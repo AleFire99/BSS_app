@@ -1,9 +1,8 @@
 import sqlite3
-import telepot
-from telepot.loop import MessageLoop
-import time
 import logging
 from functools import lru_cache
+from telegram import Update
+from telegram.ext import Application, CommandHandler, CallbackContext, InlineQueryHandler
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -13,12 +12,21 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = "8024197858:AAEmeR0DQdriA2kzgJEdaq9d9UrdCfLWbXQ"  # Replace with your bot's token
 
 # Database file
-DB_FILE = '/app/cards.db'  # Path inside the container
-#DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
+DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
+#DB_FILE = '/app/cards.db'  # Path inside the container
 
-# Initialize the bot
-bot = telepot.Bot(BOT_TOKEN)
+# Create the application
+application = Application.builder().token(BOT_TOKEN).build()
 
+# Define the /help command handler
+async def help_command(update: Update, context: CallbackContext):
+    video_file_id = "BAACAgQAAxkBAAEy6-Jn3rbtRB3WrkbTaBLA1eO6FuN9JAAC7BkAAplM-VJ4xBBDJPhJUjYE"  # Replace with your actual video file ID
+    await update.message.reply_video(video=video_file_id, caption="Here's a quick guide on how to use the bot!")
+
+# Add the /help command to the bot
+application.add_handler(CommandHandler("help", help_command))
+
+# Inline query search logic
 @lru_cache(maxsize=128)
 def search_cards(query):
     # Connect to the database
@@ -89,8 +97,8 @@ def search_cards(query):
     return results
 
 # Define the function to handle inline queries
-def handle_inline_query(msg):
-    query = msg.get('query', '').strip()
+async def handle_inline_query(update: Update, context: CallbackContext):
+    query = update.inline_query.query.strip()
     if not query:
         return
 
@@ -116,22 +124,13 @@ def handle_inline_query(msg):
 
     try:
         # Send results back to the user
-        bot.answerInlineQuery(msg['id'], inline_results)
-    except telepot.exception.TelegramError as e:
-        # Handle specific Telegram errors
-        if 'query is too old' in str(e):
-            logger.info("Query is too old, ignoring the response.")
-        else:
-            logger.error(f"Error while answering inline query: {e}")
+        await update.inline_query.answer(inline_results)
+    except Exception as e:
+        logger.error(f"Error while answering inline query: {e}")
 
-# Set up the message loop for inline queries
-MessageLoop(bot, {'inline_query': handle_inline_query}).run_as_thread()
+# Add the inline query handler to the bot
+application.add_handler(InlineQueryHandler(handle_inline_query))
 
-logger.info("Bot is running...")
+# Start the application for polling
+application.run_polling()
 
-# Keep the program running with less CPU usage
-try:
-    while True:
-        time.sleep(10)  # Sleep to reduce CPU usage
-except KeyboardInterrupt:
-    logger.info("Bot stopped by user")
