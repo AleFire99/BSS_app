@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Install any needed dependencies specified in requirements.txt
-RUN pip install telepot, python-telegram-bot
+RUN pip install python-telegram-bot
 
 # Run bot.py when the container launches
 CMD ["python", "telegram_bot.py"]
