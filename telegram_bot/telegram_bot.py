@@ -12,19 +12,19 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = "REDACTED_BOT_TOKEN"  # Replace with your bot's token
 
 # Database file
-DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
-#DB_FILE = '/app/cards.db'  # Path inside the container
+#DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"
+DB_FILE = '/app/cards.db'  # Path inside the container
 
 # Create the application
 application = Application.builder().token(BOT_TOKEN).build()
 
-# Define the /help command handler
-async def help_command(update: Update, context: CallbackContext):
+# Define the /start command handler
+async def start_command(update: Update, context: CallbackContext):
     video_file_id = "BAACAgQAAxkBAAEy6-Jn3rbtRB3WrkbTaBLA1eO6FuN9JAAC7BkAAplM-VJ4xBBDJPhJUjYE"  # Replace with your actual video file ID
     await update.message.reply_video(video=video_file_id, caption="Here's a quick guide on how to use the bot!")
 
 # Add the /help command to the bot
-application.add_handler(CommandHandler("help", help_command))
+application.add_handler(CommandHandler("start", start_command))
 
 # Inline query search logic
 @lru_cache(maxsize=128)

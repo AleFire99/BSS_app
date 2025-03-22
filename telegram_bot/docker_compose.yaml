@@ -1,0 +1,6 @@
+services:
+  my_service:
+    container_name: bss-bot
+    image: alefire/bss-bot:latest
+    restart: always
+version: '3'
