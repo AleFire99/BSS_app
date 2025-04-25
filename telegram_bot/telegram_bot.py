@@ -1,15 +1,16 @@
-import sqlite3
+import sqlite3, os
 import logging
 from functools import lru_cache
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext, InlineQueryHandler
+from dotenv import load_dotenv
+
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-
-# Telegram bot token
-BOT_TOKEN = "REDACTED_BOT_TOKEN"  # Replace with your bot's token
 
 # Database file
 #DB_FILE = "C:/Users/AleFire/Desktop/Projects/BSS_app/telegram_bot/cards.db"

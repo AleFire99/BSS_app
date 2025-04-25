@@ -1,6 +1,9 @@
+version: '3'
+
 services:
-  my_service:
+  bss-bot:
     container_name: bss-bot
     image: alefire/bss-bot:latest
     restart: always
-version: '3'
+    environment:
+      - BOT_TOKEN=REDACTED_BOT_TOKEN  # You can pass environment variables here if necessary
