@@ -29,10 +29,11 @@ def search_cards(query):
     cursor = conn.cursor()
 
     sql_query = """
-    SELECT DISTINCT Cards.CardID, Cards.Name, Cards.Image 
+    SELECT DISTINCT Cards.CardID, Cards.Name, Cards.Image
     FROM Cards
     LEFT JOIN CardColors ON Cards.CardID = CardColors.CardID
     LEFT JOIN Colors ON CardColors.ColorID = Colors.ColorID
+    LEFT JOIN CardTypes ON Cards.TypeID = CardTypes.TypeID
     WHERE 1=1
     """
     params = []
@@ -54,7 +55,7 @@ def search_cards(query):
         elif conditions[i] == "color":
             try:
                 color_name = conditions[i + 1]
-                sql_query += " AND LOWER(Colors.ColorName) = LOWER(?)"
+                sql_query += " AND LOWER(Colors.Name) = LOWER(?)"
                 params.append(color_name)
                 i += 2
             except IndexError:
@@ -64,7 +65,7 @@ def search_cards(query):
         elif conditions[i] == "type":
             try:
                 type_name = conditions[i + 1]
-                sql_query += " AND LOWER(Cards.Type) = LOWER(?)"
+                sql_query += " AND LOWER(CardTypes.Name) = LOWER(?)"
                 params.append(type_name)
                 i += 2
             except IndexError:
