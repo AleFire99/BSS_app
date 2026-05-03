@@ -53,7 +53,7 @@ def load_cards() -> list[dict]:
         cards: dict[str, dict] = {}
         for row in conn.execute("""
             SELECT c.CardID as id, c.Name as name,
-                   ct.Name as type, s.Name as set,
+                   ct.Name as type, s.Name as card_set,
                    c.Cost as cost, c.Rarity as rarity
             FROM Cards c
             JOIN CardTypes ct ON c.TypeID = ct.TypeID
@@ -62,7 +62,7 @@ def load_cards() -> list[dict]:
         """):
             cards[row["id"]] = {
                 "id": row["id"], "name": row["name"],
-                "type": row["type"], "set": row["set"],
+                "type": row["type"], "set": row["card_set"],
                 "cost": row["cost"], "rarity": row["rarity"],
                 "color": [], "subtypes": [], "symbols": [],
                 "core": [], "effects": [],
