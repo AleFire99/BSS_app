@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
+import re
 import sqlite3
 
 from fastapi import FastAPI, HTTPException
@@ -145,7 +146,20 @@ def load_cards() -> list[dict]:
             card_id = eff.pop("_card_id")
             cards[card_id]["effects"].append(eff)
 
-        return list(cards.values())
+        # Group alt-art variants (_p1, _p2…) under their base card
+        _alt_re = re.compile(r'_p\d+$')
+        base_cards: dict[str, dict] = {}
+        for card_id, card in cards.items():
+            card['alt_art_ids'] = []
+            if not _alt_re.search(card_id):
+                base_cards[card_id] = card
+        for card_id, card in cards.items():
+            if _alt_re.search(card_id):
+                base_id = _alt_re.sub('', card_id)
+                if base_id in base_cards:
+                    base_cards[base_id]['alt_art_ids'].append(card_id)
+
+        return list(base_cards.values())
     finally:
         conn.close()
 

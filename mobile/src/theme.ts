@@ -20,5 +20,5 @@ export const theme = {
   border:     '#333333',
   text:       '#f5f5f5',
   textMuted:  '#9e9e9e',
-  accent:     '#ff6f00',
+  accent:     '#f9a825',
 };
