@@ -168,29 +168,24 @@ class DeckCardAdd(BaseModel):
 # ── Deck helpers ──────────────────────────────────────────────────────────────
 
 def _deck_stats(deck_id: int, conn: sqlite3.Connection) -> dict:
-    """Compute card_count and color_counts for a deck."""
     row = conn.execute(
         "SELECT COALESCE(SUM(Count), 0) as total FROM DeckCards WHERE DeckID = ?",
         (deck_id,)
     ).fetchone()
     card_count = row["total"]
 
-    colors = conn.execute("""
-        SELECT co.Name as color, SUM(dc.Count) as qty
-        FROM DeckCards dc
-        JOIN Colors co ON co.Name IN (
-            SELECT col.Name FROM CardColors cc
-            JOIN Colors col USING (ColorID)
-            WHERE cc.CardID = dc.CardID
-        )
-        WHERE dc.DeckID = ?
-        GROUP BY co.Name
-    """, (deck_id,)).fetchall()
+    # Colors computed from in-memory cache — avoids cross-DB join
+    deck_cards = conn.execute(
+        "SELECT CardID, Count FROM DeckCards WHERE DeckID = ?", (deck_id,)
+    ).fetchall()
+    color_counts: dict[str, int] = {}
+    for dc in deck_cards:
+        card = CARDS_BY_ID.get(dc["CardID"])
+        if card:
+            for color in card["color"]:
+                color_counts[color] = color_counts.get(color, 0) + dc["Count"]
 
-    return {
-        "card_count": card_count,
-        "colors": {r["color"]: r["qty"] for r in colors},
-    }
+    return {"card_count": card_count, "colors": color_counts}
 
 
 def _deck_or_404(deck_id: int, conn: sqlite3.Connection) -> sqlite3.Row:
