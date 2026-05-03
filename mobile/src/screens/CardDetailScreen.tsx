@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  View, Text, Image, ScrollView, StyleSheet, TouchableOpacity,
+  View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, FlatList,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { theme, COLOR_MAP, RARITY_COLOR } from '../theme';
@@ -11,11 +11,28 @@ type Props = NativeStackScreenProps<RootStackParamList, 'CardDetail'>;
 
 export default function CardDetailScreen({ route }: Props) {
   const card = route.params.card;
-  const imageUrl = `https://www.bssdb.dev/cards/bss/${card.id}.png`;
+  const [activeId, setActiveId] = useState(card.id);
+  const imageUrl = `https://www.bssdb.dev/cards/bss/${activeId}.png`;
+  const allArtIds = [card.id, ...(card.alt_art_ids ?? [])];
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <Image source={{ uri: imageUrl }} style={styles.image} resizeMode="contain" />
+
+      {/* Alt art strip */}
+      {allArtIds.length > 1 && (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.altStrip} contentContainerStyle={styles.altContent}>
+          {allArtIds.map(id => (
+            <TouchableOpacity key={id} onPress={() => setActiveId(id)} activeOpacity={0.75}>
+              <Image
+                source={{ uri: `https://www.bssdb.dev/cards/bss/${id}.png` }}
+                style={[styles.altThumb, activeId === id && styles.altThumbActive]}
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      )}
 
       {/* Header */}
       <Text style={styles.name}>{card.name}</Text>
@@ -32,9 +49,9 @@ export default function CardDetailScreen({ route }: Props) {
 
       {/* Stats row */}
       <View style={styles.statsRow}>
-        <Stat label="Type"   value={card.type} />
-        <Stat label="Set"    value={card.set} />
-        <Stat label="Cost"   value={String(card.cost)} />
+        <Stat label="Type" value={card.type} />
+        <Stat label="Set"  value={card.set} />
+        <Stat label="Cost" value={String(card.cost)} />
       </View>
 
       {card.subtypes.filter(Boolean).length > 0 && (
@@ -109,28 +126,36 @@ function EffectBlock({ effect }: { effect: Effect }) {
 }
 
 const styles = StyleSheet.create({
-  container:    { flex: 1, backgroundColor: theme.bg },
-  content:      { padding: 16, paddingBottom: 40 },
-  image:        { width: '100%', height: 280, borderRadius: 10, marginBottom: 16 },
-  name:         { color: theme.text, fontSize: 22, fontWeight: '700', marginBottom: 8 },
-  row:          { flexDirection: 'row', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' },
-  colorBadge:   { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 3 },
-  colorText:    { color: '#000', fontSize: 12, fontWeight: '700' },
-  rarity:       { fontSize: 16, fontWeight: '800' },
-  statsRow:     { flexDirection: 'row', gap: 8, marginBottom: 8 },
-  stat:         { flex: 1, backgroundColor: theme.surface, borderRadius: 8, padding: 10, alignItems: 'center' },
-  statLabel:    { color: theme.textMuted, fontSize: 10, marginBottom: 2 },
-  statValue:    { color: theme.text, fontSize: 13, fontWeight: '600' },
-  subtypes:     { color: theme.textMuted, fontSize: 12, marginBottom: 12 },
+  container: { flex: 1, backgroundColor: theme.bg },
+  content:   { padding: 16, paddingBottom: 40 },
+  image:     { width: '100%', height: 280, borderRadius: 10, marginBottom: 12 },
+
+  altStrip:   { marginBottom: 14 },
+  altContent: { gap: 6 },
+  altThumb:   { width: 54, height: 76, borderRadius: 4, backgroundColor: theme.border, opacity: 0.5 },
+  altThumbActive: { opacity: 1, borderWidth: 2, borderColor: theme.accent },
+
+  name:       { color: theme.text, fontSize: 22, fontWeight: '700', marginBottom: 8 },
+  row:        { flexDirection: 'row', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' },
+  colorBadge: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 3 },
+  colorText:  { color: '#000', fontSize: 12, fontWeight: '700' },
+  rarity:     { fontSize: 16, fontWeight: '800' },
+  statsRow:   { flexDirection: 'row', gap: 8, marginBottom: 8 },
+  stat:       { flex: 1, backgroundColor: theme.surface, borderRadius: 8, padding: 10, alignItems: 'center' },
+  statLabel:  { color: theme.textMuted, fontSize: 10, marginBottom: 2 },
+  statValue:  { color: theme.text, fontSize: 13, fontWeight: '600' },
+  subtypes:   { color: theme.textMuted, fontSize: 12, marginBottom: 12 },
+
   section:      { marginTop: 16 },
   sectionTitle: { color: theme.accent, fontSize: 13, fontWeight: '700', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
   coreRow:      { flexDirection: 'row', gap: 16, paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: theme.border },
   coreLabel:    { color: theme.textMuted, fontSize: 13, width: 40 },
   coreVal:      { color: theme.text, fontSize: 13 },
-  effectBlock:  { backgroundColor: theme.surface, borderRadius: 8, padding: 12, marginBottom: 8 },
-  effectLevels: { color: theme.accent, fontSize: 11, fontWeight: '700', marginBottom: 4 },
-  effectSteps:  { color: '#1e88e5', fontSize: 11, fontWeight: '600', marginBottom: 4 },
+
+  effectBlock:     { backgroundColor: theme.surface, borderRadius: 8, padding: 12, marginBottom: 8 },
+  effectLevels:    { color: theme.accent, fontSize: 11, fontWeight: '700', marginBottom: 4 },
+  effectSteps:     { color: '#1e88e5', fontSize: 11, fontWeight: '600', marginBottom: 4 },
   effectCondition: { color: theme.textMuted, fontSize: 12, fontStyle: 'italic', marginBottom: 4 },
-  keyword:      { color: '#43a047', fontSize: 13, fontWeight: '600', marginBottom: 2 },
-  effectDetails:{ color: theme.text, fontSize: 13, lineHeight: 20 },
+  keyword:         { color: '#43a047', fontSize: 13, fontWeight: '600', marginBottom: 2 },
+  effectDetails:   { color: theme.text, fontSize: 13, lineHeight: 20 },
 });

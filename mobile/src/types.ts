@@ -29,6 +29,7 @@ export interface Card {
   symbols: string[];
   core: CoreLevel[];
   effects: Effect[];
+  alt_art_ids: string[];
 }
 
 export interface DeckCard {
