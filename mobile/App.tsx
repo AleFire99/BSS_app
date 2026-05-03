@@ -9,6 +9,7 @@ import CardsScreen      from './src/screens/CardsScreen';
 import CardDetailScreen from './src/screens/CardDetailScreen';
 import DecksScreen      from './src/screens/DecksScreen';
 import DeckDetailScreen from './src/screens/DeckDetailScreen';
+import RulingsScreen    from './src/screens/RulingsScreen';
 import { Card } from './src/types';
 import { theme } from './src/theme';
 
@@ -76,6 +77,18 @@ export default function App() {
           options={{
             title: 'Decks',
             tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📚</Text>,
+          }}
+        />
+        <Tab.Screen
+          name="RulingsTab"
+          component={RulingsScreen}
+          options={{
+            title: 'Rulings',
+            headerShown: true,
+            headerStyle:      { backgroundColor: theme.surface },
+            headerTintColor:  theme.text,
+            headerTitleStyle: { fontWeight: '700' as const },
+            tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📖</Text>,
           }}
         />
       </Tab.Navigator>

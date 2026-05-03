@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Optional
 import re
 import sqlite3
+import json as _json
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -46,6 +47,12 @@ def _init_user_db():
 
 CARDS_CACHE: list[dict] = []
 CARDS_BY_ID: dict[str, dict] = {}
+KEYWORDS_DESC: dict[str, str] = {}         # name → description
+KW_QA_MAP: dict[str, list[dict]] = {}      # name → [{question, answer}]
+CARD_QA_CACHE: list[dict] = []             # [{card_id, card_name, question, answer}]
+KEYWORD_QA_CACHE: list[dict] = []          # [{name, description, qa_count}]
+
+_JSON_DIR = Path(__file__).parent.parent / "json"
 
 
 def load_cards() -> list[dict]:
@@ -211,12 +218,49 @@ def _deck_or_404(deck_id: int, conn: sqlite3.Connection) -> sqlite3.Row:
 
 # ── App lifecycle ─────────────────────────────────────────────────────────────
 
+def _load_rulings():
+    global KEYWORDS_DESC, KW_QA_MAP, CARD_QA_CACHE, KEYWORD_QA_CACHE
+
+    # Keyword definitions
+    f = _JSON_DIR / "keywords.json"
+    if f.exists():
+        KEYWORDS_DESC = {kw["name"]: kw["description"]
+                         for kw in _json.loads(f.read_text("utf-8"))["keywords"]}
+
+    # Keyword Q&A — "Card Effects \"Ascend\"" → extract name
+    f = _JSON_DIR / "QA_keywords.json"
+    if f.exists():
+        for r in _json.loads(f.read_text("utf-8")):
+            m = re.search(r'"([^"]+)"', r["Card Effects"])
+            name = m.group(1) if m else r["Card Effects"]
+            KW_QA_MAP.setdefault(name, []).append(
+                {"question": r["Question"], "answer": r["Answer"]}
+            )
+
+    # Card Q&A
+    f = _JSON_DIR / "QA_cards.json"
+    if f.exists():
+        CARD_QA_CACHE = [
+            {"card_id": r["Card No."], "card_name": r["Card Name"],
+             "question": r["Question"], "answer": r["Answer"]}
+            for r in _json.loads(f.read_text("utf-8"))
+        ]
+
+    KEYWORD_QA_CACHE = [
+        {"name": name, "description": desc, "qa_count": len(KW_QA_MAP.get(name, []))}
+        for name, desc in sorted(KEYWORDS_DESC.items())
+    ]
+    print(f"[BSS API] Rulings: {len(KEYWORD_QA_CACHE)} keywords, "
+          f"{len(CARD_QA_CACHE)} card Q&As")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global CARDS_CACHE, CARDS_BY_ID
     _init_user_db()
     CARDS_CACHE = load_cards()
     CARDS_BY_ID = {c["id"]: c for c in CARDS_CACHE}
+    _load_rulings()
     print(f"[BSS API] Loaded {len(CARDS_CACHE)} cards")
     yield
 
@@ -414,6 +458,35 @@ def remove_card_from_deck(deck_id: int, card_id: str):
         conn.commit()
     finally:
         conn.close()
+
+
+# ── Rulings routes ───────────────────────────────────────────────────────────
+
+@app.get("/api/rulings/keywords")
+def list_keywords_with_desc() -> list[dict]:
+    return KEYWORD_QA_CACHE
+
+
+@app.get("/api/rulings/keywords/{name}")
+def get_keyword_detail(name: str) -> dict:
+    return {
+        "name": name,
+        "description": KEYWORDS_DESC.get(name, ""),
+        "qa": KW_QA_MAP.get(name, []),
+    }
+
+
+@app.get("/api/rulings/cards")
+def list_card_rulings() -> list[dict]:
+    return CARD_QA_CACHE
+
+
+@app.get("/api/rulings/cards/{card_id}")
+def get_card_rulings_by_id(card_id: str) -> list[dict]:
+    return [
+        {"question": r["question"], "answer": r["answer"]}
+        for r in CARD_QA_CACHE if r["card_id"] == card_id
+    ]
 
 
 # ── Static frontend ───────────────────────────────────────────────────────────

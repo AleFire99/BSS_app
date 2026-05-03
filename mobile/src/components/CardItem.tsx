@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Card } from '../types';
-import { COLOR_MAP, RARITY_COLOR, theme } from '../theme';
+import { COLOR_MAP, theme } from '../theme';
 import { API_BASE } from '../api';
 
 interface Props {
@@ -21,9 +21,7 @@ export default function CardItem({ card, onPress, actionLabel, onAction }: Props
         <Text style={styles.name} numberOfLines={1}>{card.name}</Text>
         <View style={styles.row}>
           <Text style={styles.cost}>⬡ {card.cost}</Text>
-          <Text style={[styles.rarity, { color: RARITY_COLOR[card.rarity] ?? theme.textMuted }]}>
-            {card.rarity}
-          </Text>
+          <Text style={styles.rarity}>{card.rarity}</Text>
           <View style={styles.colors}>
             {card.color.map(c => (
               <View key={c} style={[styles.dot, { backgroundColor: COLOR_MAP[c] ?? '#999' }]} />
@@ -31,7 +29,7 @@ export default function CardItem({ card, onPress, actionLabel, onAction }: Props
           </View>
         </View>
         <Text style={styles.sub} numberOfLines={1}>
-          {card.type} · {card.set} · {card.subtypes.join(', ')}
+          {card.type} · {card.id}
         </Text>
       </View>
       {actionLabel && onAction && (
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
   name: { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
   cost: { color: theme.textMuted, fontSize: 12 },
-  rarity: { fontSize: 12, fontWeight: '700' },
+  rarity: { fontSize: 12, fontWeight: '700', color: theme.textMuted },
   colors: { flexDirection: 'row', gap: 3 },
   dot: { width: 10, height: 10, borderRadius: 5 },
   sub: { color: theme.textMuted, fontSize: 11 },
