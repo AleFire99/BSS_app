@@ -32,6 +32,24 @@ export interface Card {
   alt_art_ids: string[];
 }
 
+export interface KeywordDef {
+  name: string;
+  description: string;
+  qa_count: number;
+}
+
+export interface QAItem {
+  question: string;
+  answer: string;
+}
+
+export interface CardRuling {
+  card_id: string;
+  card_name: string;
+  question: string;
+  answer: string;
+}
+
 export interface DeckCard {
   card_id: string;
   count: number;

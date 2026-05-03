@@ -1,4 +1,4 @@
-import { Card, Deck, DeckCard } from './types';
+import { Card, Deck, DeckCard, KeywordDef, QAItem, CardRuling } from './types';
 
 // Change to your machine's local IP when testing on a physical device
 export const API_BASE = 'http://192.168.1.25:8000';
@@ -52,3 +52,17 @@ export const addCardToDeck = (deckId: number, cardId: string, count = 1): Promis
 
 export const removeCardFromDeck = (deckId: number, cardId: string): Promise<void> =>
   req(`/api/decks/${deckId}/cards/${cardId}`, { method: 'DELETE' });
+
+// ── Rulings ───────────────────────────────────────────────────────────────────
+
+export const getKeywords = (): Promise<KeywordDef[]> =>
+  req('/api/rulings/keywords');
+
+export const getKeywordDetail = (name: string): Promise<{ name: string; description: string; qa: QAItem[] }> =>
+  req(`/api/rulings/keywords/${encodeURIComponent(name)}`);
+
+export const getCardRulings = (): Promise<CardRuling[]> =>
+  req('/api/rulings/cards');
+
+export const getCardRulingsById = (cardId: string): Promise<QAItem[]> =>
+  req(`/api/rulings/cards/${encodeURIComponent(cardId)}`);
