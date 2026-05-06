@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Companion app for the **Battle Spirits Saga (BSS)** trading card game. Components:
 - Card database (SQLite) with full card data scraped from https://www.bssdb.dev
 - Telegram inline bot for card search (deployed via Docker)
-- Planned: web/mobile companion app with deck building and hand simulation
+- React Native/Expo mobile app (`mobile/`) — Cards browser, Deck builder, Rulings viewer
 
 ## Commands
 
@@ -128,6 +128,65 @@ BSS01–BSS06 (base), ST01–ST07 (starter), CB01 (collaboration), EX01, L01, PR
    docker build -t alefire/bss-bot:latest -t alefire/bss-bot:vNN .
    docker push alefire/bss-bot:latest && docker push alefire/bss-bot:vNN
    ```
+
+## Mobile App (`mobile/`)
+
+React Native + Expo SDK 54, TypeScript. Three tabs: Cards, Decks, Rulings.
+
+### Architecture — Local SQLite (no server)
+
+**Design decision:** fully offline. No Python backend at runtime.
+
+| Data | Storage | Notes |
+|------|---------|-------|
+| Cards + rulings | `mobile/assets/cards.db` bundled in APK | Copied to device document dir on first launch |
+| Keyword descriptions | `mobile/assets/keywords.json` bundled | QA tables in cards.db are empty; data lives in JSON only |
+| Card Q&A | `mobile/assets/qa_cards.json` bundled | Same reason |
+| Keyword Q&A | `mobile/assets/qa_keywords.json` bundled | Same reason |
+| Decks | On-device `deck.db` via expo-sqlite | Created fresh on first launch |
+
+### Mobile Key Files
+
+| File | Role |
+|------|------|
+| `mobile/src/api.ts` | Re-export barrel → `src/db/queries/*` (same signatures as original fetch API) |
+| `mobile/src/db/init.ts` | First-launch DB copy + open both DB handles; called from App.tsx |
+| `mobile/src/db/queries/cards.ts` | `getCards()` / `getCard()` via 3-pass SQL + JS assembly |
+| `mobile/src/db/queries/decks.ts` | Full deck CRUD; stats computed in JS via cross-DB card lookup |
+| `mobile/src/db/queries/rulings.ts` | Keywords + Q&A from bundled JSON (not DB) |
+| `mobile/eas.json` | EAS build profiles: `preview` = APK, `production` = APK |
+| `mobile/assets/cards.db` | Bundled card DB — copy from `telegram_bot/cards.db` when updating |
+
+### Mobile Commands
+
+```powershell
+cd mobile
+npx expo start                                    # dev server
+npx expo start --android                          # run on emulator
+
+# Build APK (EAS cloud build — no Android SDK needed locally)
+eas build --platform android --profile preview
+```
+
+### Updating Cards for New Sets
+
+1. Run `python scripts/populate_db.py` → rebuilds `telegram_bot/cards.db`
+2. Copy to `mobile/assets/cards.db`
+3. Bump `version` in `mobile/app.json` — triggers DB re-copy on next app launch
+4. Rebuild APK via EAS
+
+### SQLite Query Notes
+
+- Alt-arts excluded from card list: `WHERE CardID NOT LIKE '%_p%'`
+- GROUP_CONCAT uses `||` as entry delimiter (not `,`) to safely handle `4,5` list modifiers in keyword fields
+- Deck stats (colors, type_counts, avg_cost) computed in JS — no cross-DB SQLite joins
+- `PRAGMA foreign_keys = ON` required on `deck.db` for cascade deletes
+
+### EAS / Build Notes
+
+- `mobile/app.json` must have `android.package` and `plugins: [["expo-sqlite"]]` (New Architecture)
+- `eas init` writes `projectId` to `app.json extra.eas`
+- Branch for this feature: `feature/local-sqlite`
 
 ## Environment
 
