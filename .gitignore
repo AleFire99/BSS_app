@@ -3,3 +3,6 @@
 */QA
 */Manuals
 .env
+__pycache__/
+*.pyc
+*.pyo
