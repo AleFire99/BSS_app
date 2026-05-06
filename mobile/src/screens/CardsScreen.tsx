@@ -8,6 +8,7 @@ import { getCards } from '../api';
 import { Card } from '../types';
 import CardItem from '../components/CardItem';
 import CardGrid from '../components/CardGrid';
+import { Feather } from '@expo/vector-icons';
 import RangeSlider from '../components/RangeSlider';
 import { theme, COLOR_MAP } from '../theme';
 import { RootStackParamList } from '../../App';
@@ -142,7 +143,7 @@ export default function CardsScreen({ navigation }: Props) {
           style={styles.viewToggle}
           onPress={() => setViewMode(v => v === 'list' ? 'grid' : 'list')}
         >
-          <Text style={styles.viewToggleText}>{viewMode === 'list' ? '⊞' : '☰'}</Text>
+          <Feather name={viewMode === 'list' ? 'grid' : 'list'} size={20} color={theme.accent} />
         </TouchableOpacity>
       </View>
 
@@ -304,7 +305,6 @@ const styles = StyleSheet.create({
   filterBtnText:     { color: theme.textMuted, fontSize: 13 },
   filterBtnTextActive: { color: '#fff', fontWeight: '700' },
   viewToggle:     { backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 7, justifyContent: 'center' },
-  viewToggleText: { color: theme.text, fontSize: 18 },
 
   gemRow:    { flexDirection: 'row', gap: 12, paddingHorizontal: 14, marginBottom: 8, alignItems: 'center' },
   gem:       { width: 28, height: 28, borderRadius: 14, opacity: 0.45 },

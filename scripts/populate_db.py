@@ -16,7 +16,8 @@ CARD_TYPES = ["SPIRIT", "MAGIC", "NEXUS"]
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def get_or_insert(cur, table, col, value, pk_col):
-    cur.execute(f"SELECT `{pk_col}` FROM `{table}` WHERE `{col}` = ?", (value,))
+    cur.execute(
+        f"SELECT `{pk_col}` FROM `{table}` WHERE `{col}` = ?", (value,))
     row = cur.fetchone()
     if row:
         return row[0]
@@ -98,7 +99,8 @@ def insert_card(cur, data):
     # CardSubtypes
     for subtype in data.get("subType", []):
         if subtype:
-            subtype_id = get_or_insert(cur, "Subtypes", "Name", subtype.upper(), "SubtypeID")
+            subtype_id = get_or_insert(
+                cur, "Subtypes", "Name", subtype.upper(), "SubtypeID")
             cur.execute("INSERT OR IGNORE INTO CardSubtypes (CardID, SubtypeID) VALUES (?, ?)",
                         (card_id, subtype_id))
 
@@ -119,7 +121,8 @@ def insert_card(cur, data):
         cur.execute("""
             INSERT OR IGNORE INTO Core (CardID, Level, BP, Cores) VALUES (?, ?, ?, ?)
         """, (card_id, level, core.get("battlePoints", 0), core.get("cores", 0)))
-        cur.execute("SELECT CoreID FROM Core WHERE CardID = ? AND Level = ?", (card_id, level))
+        cur.execute(
+            "SELECT CoreID FROM Core WHERE CardID = ? AND Level = ?", (card_id, level))
         core_id_map[level] = cur.fetchone()[0]
 
     # Effects
@@ -150,7 +153,8 @@ def insert_card(cur, data):
         for kw in effect.get("keywords", []):
             kw_name = kw.get("keyword_name")
             if kw_name:
-                kw_id = get_or_insert(cur, "Keywords", "Name", kw_name, "KeywordID")
+                kw_id = get_or_insert(
+                    cur, "Keywords", "Name", kw_name, "KeywordID")
                 modifier = kw.get("keyword_modifier")
                 if isinstance(modifier, list):
                     modifier = ",".join(str(m) for m in modifier)
@@ -164,7 +168,8 @@ def insert_card(cur, data):
         # EffectSteps
         for step_name in effect.get("steps", []):
             if step_name:
-                step_id = get_or_insert(cur, "Steps", "Name", step_name, "StepID")
+                step_id = get_or_insert(
+                    cur, "Steps", "Name", step_name, "StepID")
                 cur.execute("""
                     INSERT OR IGNORE INTO EffectSteps (EffectID, StepID) VALUES (?, ?)
                 """, (effect_id, step_id))

@@ -7,6 +7,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { theme, COLOR_MAP } from '../theme';
 import { Effect, QAItem } from '../types';
 import { getKeywordDetail, getCardRulingsById } from '../api';
+import { Feather } from '@expo/vector-icons';
 import { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'CardDetail'>;
@@ -18,9 +19,13 @@ const LEVEL_COLOR: Record<number, string> = {
   4: '#8e24aa',
 };
 
-export default function CardDetailScreen({ route }: Props) {
+export default function CardDetailScreen({ route, navigation }: Props) {
   const card = route.params.card;
   const [activeId, setActiveId] = useState(card.id);
+
+  useEffect(() => {
+    navigation.setOptions({ title: card.name });
+  }, [card.name]);
   const imageUrl = `https://www.bssdb.dev/cards/bss/${activeId}.png`;
   const allArtIds = [card.id, ...(card.alt_art_ids ?? [])];
 
@@ -67,7 +72,6 @@ export default function CardDetailScreen({ route }: Props) {
       )}
 
       {/* Header */}
-      <Text style={styles.name}>{card.name}</Text>
       <View style={styles.row}>
         {card.color.map(c => (
           <View key={c} style={[styles.colorBadge, { backgroundColor: COLOR_MAP[c] ?? '#999' }]}>
@@ -131,8 +135,9 @@ export default function CardDetailScreen({ route }: Props) {
       {/* Card rulings button — only if rulings exist */}
       {cardRulings.length > 0 && (
         <TouchableOpacity style={styles.rulingsBtn} onPress={() => setRulingsModal(true)}>
+          <Feather name="book-open" size={15} color={theme.accent} />
           <Text style={styles.rulingsBtnText}>
-            📖 {cardRulings.length} Official Ruling{cardRulings.length !== 1 ? 's' : ''}
+            {cardRulings.length} Official Ruling{cardRulings.length !== 1 ? 's' : ''}
           </Text>
         </TouchableOpacity>
       )}
@@ -146,7 +151,7 @@ export default function CardDetailScreen({ route }: Props) {
               <View style={styles.sheetHeader}>
                 <Text style={styles.sheetTitle}>{kwModal.name}</Text>
                 <TouchableOpacity onPress={() => setKwModal(null)}>
-                  <Text style={styles.closeBtn}>✕</Text>
+                  <Feather name="x" size={20} color={theme.textMuted} />
                 </TouchableOpacity>
               </View>
               <ScrollView>
@@ -263,7 +268,6 @@ const styles = StyleSheet.create({
   altThumb:       { width: 54, height: 76, borderRadius: 4, backgroundColor: theme.border, opacity: 0.5 },
   altThumbActive: { opacity: 1, borderWidth: 2, borderColor: theme.accent },
 
-  name:       { color: theme.text, fontSize: 22, fontWeight: '700', marginBottom: 8 },
   row:        { flexDirection: 'row', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' },
   colorBadge: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 3 },
   colorText:  { color: '#000', fontSize: 12, fontWeight: '700' },
@@ -299,7 +303,7 @@ const styles = StyleSheet.create({
   keyword:         { color: '#43a047', fontSize: 13, fontWeight: '600', marginBottom: 2, textDecorationLine: 'underline' },
   effectDetails:   { color: theme.text, fontSize: 13, lineHeight: 20 },
 
-  rulingsBtn:     { marginTop: 20, backgroundColor: theme.surface, borderRadius: 10, padding: 14, alignItems: 'center', borderWidth: 1, borderColor: theme.border },
+  rulingsBtn:     { marginTop: 20, backgroundColor: theme.surface, borderRadius: 10, padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderWidth: 1, borderColor: theme.border },
   rulingsBtnText: { color: theme.accent, fontSize: 14, fontWeight: '700' },
 
   overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.55)' },
