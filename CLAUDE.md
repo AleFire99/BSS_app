@@ -41,7 +41,8 @@ python scripts/populate_db.py
 pip install -r requirements.txt
 jupyter notebook scripts/scraper.ipynb         # scrape card data → json/Sets/
 jupyter notebook scripts/image_scraper.ipynb   # download card images → images/
-jupyter notebook scripts/FAQ_extractor.ipynb   # extract Q&A from PDFs → json/
+jupyter notebook FAQ/FAQ_extractor.ipynb       # extract Q&A from PDFs → json/
+jupyter notebook scripts/json_editer.ipynb     # normalize JSON format after scraping
 ```
 
 ## Architecture
@@ -64,6 +65,8 @@ telegram_bot/cards.db → [Docker COPY] → /app/cards.db inside container
 | `database/Diagram.md` | Mermaid ER diagram of full schema |
 | `scripts/populate_db.py` | JSON → SQLite loader; reads schema.sql, writes telegram_bot/cards.db |
 | `scripts/scraper.ipynb` | Selenium scraper for card data |
+| `scripts/json_editer.ipynb` | JSON format normalizer (run after scraping new sets) |
+| `FAQ/FAQ_extractor.ipynb` | Extracts Q&A from official BSS FAQ PDFs → `json/` |
 | `json/keywords.json` | All ~50+ game keyword definitions |
 | `json/QA_cards.json` | Per-card rulings/Q&A |
 | `json/QA_keywords.json` | Per-keyword rulings/Q&A |
@@ -82,7 +85,7 @@ Fully normalized. See `database/schema.sql` for DDL, `database/Diagram.md` for E
 
 **Effects** → `EffectLevels` (which Core levels activate it), `EffectKeywords` (keyword + optional modifier), `EffectSteps` (Main/Flash timing).
 
-**Q&A:** `QA_cards`, `QA_keywords`
+**Q&A:** `QA_cards` (258 card rulings), `QA_keywords` (19 keyword rulings). Populated by `populate_db.py` from `json/QA_*.json`. `Keywords` table includes `Description` column from `json/keywords.json`.
 
 ### Card JSON Format
 Each card at `json/Sets/[SET]/[SET]-[NUM].json`:
