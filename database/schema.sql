@@ -31,10 +31,11 @@ CREATE TABLE `Subtypes` (
 );
 
 CREATE TABLE `Keywords` (
-  `KeywordID` INTEGER PRIMARY KEY,
-  `Name`      TEXT NOT NULL UNIQUE,
-  `Target`    TEXT,
-  `Value`     TEXT
+  `KeywordID`   INTEGER PRIMARY KEY,
+  `Name`        TEXT NOT NULL UNIQUE,
+  `Target`      TEXT,
+  `Value`       TEXT,
+  `Description` TEXT
 );
 
 CREATE TABLE `Steps` (

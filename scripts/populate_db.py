@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import sqlite3
 from pathlib import Path
@@ -61,6 +62,70 @@ def seed_lookups(cur):
             "INSERT OR IGNORE INTO Symbols (Name, Image, ColorID) VALUES (?, ?, ?)",
             (color, f"images/symbols/{color.lower()}.png", color_id),
         )
+
+
+# ── Q&A and keyword description seeding ──────────────────────────────────────
+
+def seed_keyword_descriptions(cur):
+    """Pre-populate Keywords table with descriptions from json/keywords.json."""
+    with open("json/keywords.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+    for kw in data.get("keywords", []):
+        kw_id = get_or_insert(cur, "Keywords", "Name", kw["name"], "KeywordID")
+        cur.execute(
+            "UPDATE Keywords SET Description = ? WHERE KeywordID = ?",
+            (kw.get("description"), kw_id),
+        )
+
+
+def seed_qa_cards(cur):
+    """Insert card Q&A from json/QA_cards.json into QA_cards table."""
+    with open("json/QA_cards.json", "r", encoding="utf-8") as f:
+        entries = json.load(f)
+    inserted = skipped = 0
+    for entry in entries:
+        card_id = entry.get("Card No.")
+        question = entry.get("Question")
+        answer = entry.get("Answer")
+        if not card_id or not question:
+            skipped += 1
+            continue
+        cur.execute("SELECT 1 FROM Cards WHERE CardID = ?", (card_id,))
+        if cur.fetchone():
+            cur.execute(
+                "INSERT INTO QA_cards (CardID, Question, Answer) VALUES (?, ?, ?)",
+                (card_id, question, answer),
+            )
+            inserted += 1
+        else:
+            skipped += 1
+    return inserted, skipped
+
+
+def seed_qa_keywords(cur):
+    """Insert keyword Q&A from json/QA_keywords.json into QA_keywords table.
+    Only entries with a quoted keyword name (e.g. 'Card Effects \"Ascend\"') are
+    inserted; general rulings without a keyword reference are skipped.
+    """
+    with open("json/QA_keywords.json", "r", encoding="utf-8") as f:
+        entries = json.load(f)
+    inserted = skipped = 0
+    for entry in entries:
+        card_effects = entry.get("Card Effects", "")
+        question = entry.get("Question")
+        answer = entry.get("Answer")
+        match = re.search(r'"([^"]+)"', card_effects)
+        if not match:
+            skipped += 1
+            continue
+        kw_name = match.group(1)
+        kw_id = get_or_insert(cur, "Keywords", "Name", kw_name, "KeywordID")
+        cur.execute(
+            "INSERT INTO QA_keywords (KeywordID, Question, Answer) VALUES (?, ?, ?)",
+            (kw_id, question, answer),
+        )
+        inserted += 1
+    return inserted, skipped
 
 
 # ── Per-card insertion ────────────────────────────────────────────────────────
@@ -188,6 +253,7 @@ def main():
 
     cur = conn.cursor()
     seed_lookups(cur)
+    seed_keyword_descriptions(cur)
 
     json_files = sorted(Path(JSON_DIR).rglob("*.json"))
     errors = []
@@ -200,10 +266,15 @@ def main():
         except Exception as e:
             errors.append((file_path.name, str(e)))
 
+    qa_cards_count, qa_cards_skipped = seed_qa_cards(cur)
+    qa_kw_count, qa_kw_skipped = seed_qa_keywords(cur)
+
     conn.commit()
     conn.close()
 
-    print(f"Done. {len(json_files)} files processed, {len(errors)} errors.")
+    print(f"Done. {len(json_files)} card files processed, {len(errors)} errors.")
+    print(f"  Q&A cards:    {qa_cards_count} inserted, {qa_cards_skipped} skipped")
+    print(f"  Q&A keywords: {qa_kw_count} inserted, {qa_kw_skipped} skipped (general rulings)")
     for name, err in errors:
         print(f"  ERROR {name}: {err}")
 
