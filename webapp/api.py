@@ -185,6 +185,9 @@ class DeckCardAdd(BaseModel):
     card_id: str
     count: int = 1
 
+class DeckCardUpdate(BaseModel):
+    count: int
+
 
 # ── Deck helpers ──────────────────────────────────────────────────────────────
 
@@ -195,18 +198,36 @@ def _deck_stats(deck_id: int, conn: sqlite3.Connection) -> dict:
     ).fetchone()
     card_count = row["total"]
 
-    # Colors computed from in-memory cache — avoids cross-DB join
     deck_cards = conn.execute(
         "SELECT CardID, Count FROM DeckCards WHERE DeckID = ?", (deck_id,)
     ).fetchall()
+
     color_counts: dict[str, int] = {}
+    type_counts:  dict[str, int] = {}
+    total_cost = 0
+    total_copies = 0
+
     for dc in deck_cards:
         card = CARDS_BY_ID.get(dc["CardID"])
-        if card:
-            for color in card["color"]:
-                color_counts[color] = color_counts.get(color, 0) + dc["Count"]
+        if not card:
+            continue
+        n = dc["Count"]
+        for color in card["color"]:
+            color_counts[color] = color_counts.get(color, 0) + n
+        ct = card.get("type", "")
+        if ct:
+            type_counts[ct] = type_counts.get(ct, 0) + n
+        total_cost   += card.get("cost", 0) * n
+        total_copies += n
 
-    return {"card_count": card_count, "colors": color_counts}
+    avg_cost = round(total_cost / total_copies, 1) if total_copies > 0 else 0
+
+    return {
+        "card_count":  card_count,
+        "colors":      color_counts,
+        "type_counts": type_counts,
+        "avg_cost":    avg_cost,
+    }
 
 
 def _deck_or_404(deck_id: int, conn: sqlite3.Connection) -> sqlite3.Row:
@@ -438,6 +459,32 @@ def add_card_to_deck(deck_id: int, body: DeckCardAdd) -> dict:
         conn.commit()
         stats = _deck_stats(deck_id, conn)
         return {"deck_id": deck_id, "card_id": body.card_id, **stats}
+    finally:
+        conn.close()
+
+
+@app.put("/api/decks/{deck_id}/cards/{card_id}")
+def update_card_in_deck(deck_id: int, card_id: str, body: DeckCardUpdate) -> dict:
+    conn = _user_conn()
+    try:
+        _deck_or_404(deck_id, conn)
+        if body.count <= 0:
+            conn.execute(
+                "DELETE FROM DeckCards WHERE DeckID = ? AND CardID = ?",
+                (deck_id, card_id)
+            )
+        else:
+            conn.execute(
+                "UPDATE DeckCards SET Count = ? WHERE DeckID = ? AND CardID = ?",
+                (body.count, deck_id, card_id)
+            )
+        conn.execute(
+            "UPDATE Decks SET UpdatedAt = CURRENT_TIMESTAMP WHERE DeckID = ?",
+            (deck_id,)
+        )
+        conn.commit()
+        stats = _deck_stats(deck_id, conn)
+        return {"deck_id": deck_id, "card_id": card_id, **stats}
     finally:
         conn.close()
 

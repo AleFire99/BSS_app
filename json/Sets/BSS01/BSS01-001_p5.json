@@ -1,92 +1,70 @@
 {
-    "name": "Supernova Dragon Siegwurm Nova",
-    "ID": "BSS01-001_p5",
-    "set": "BSS01",
-    "image": "images/BSS01/BSS01-001_p5.png",
-    "color": [
-        "Red"
-    ],
-    "cost": "8",
-    "reduction": [
-        "red",
-        "red",
-        "red"
-    ],
-    "symbols": [
-        "red"
-    ],
-    "cardType": "SPIRIT",
-    "subType": [
-        "STAR DRAGON",
-        "VALIANT HERO"
-    ],
-    "rarity": "X",
-    "effects": [
+  "name": "Supernova Dragon Siegwurm Nova",
+  "ID": "BSS01-001_p5",
+  "set": "BSS01",
+  "image": "images/BSS01/BSS01-001_p5.png",
+  "color": ["Red"],
+  "cost": "8",
+  "reduction": ["red", "red", "red"],
+  "symbols": ["red"],
+  "cardType": "SPIRIT",
+  "subType": ["STAR DRAGON", "VALIANT HERO"],
+  "rarity": "X",
+  "effects": [
+    {
+      "levels": [],
+      "condition": "N/A",
+      "keywords": [
         {
-            "levels": [],
-            "condition": "N/A",
-            "keywords": [
-                {
-                    "keyword_name": "Ascend",
-                    "keyword_modifier": 6
-                }
-            ],
-            "details": "N/A",
-            "steps": []
-        },
-        {
-            "levels": [
-                1,
-                2,
-                3
-            ],
-            "condition": "N/A",
-            "keywords": [
-                {
-                    "keyword_name": "Awaken",
-                    "keyword_modifier": null
-                }
-            ],
-            "details": "N/A",
-            "steps": []
-        },
-        {
-            "levels": [
-                1,
-                2,
-                3
-            ],
-            "condition": "When Summoned",
-            "keywords": [],
-            "details": "When this spirit performs Ascend using a spirit with \"Siegwurm\" in its card name, you may place a into the void. If you do, place cores from the void into your life until you have 5 life.",
-            "steps": []
-        },
-        {
-            "levels": [
-                2,
-                3
-            ],
-            "condition": "When This Spirit Attacks",
-            "keywords": [],
-            "details": "Select any number of your opponent's spirits with a combined total of 10,000 or fewer BP and destroy them.",
-            "steps": []
+          "keyword_name": "Ascend",
+          "keyword_modifier": 6
         }
-    ],
-    "core_requirements": [
+      ],
+      "details": "N/A",
+      "steps": []
+    },
+    {
+      "levels": [1, 2, 3],
+      "condition": "N/A",
+      "keywords": [
         {
-            "level": 1,
-            "battlePoints": 5000,
-            "cores": 1
-        },
-        {
-            "level": 2,
-            "battlePoints": 9000,
-            "cores": 3
-        },
-        {
-            "level": 3,
-            "battlePoints": 12000,
-            "cores": 5
+          "keyword_name": "Awaken",
+          "keyword_modifier": null
         }
-    ]
+      ],
+      "details": "N/A",
+      "steps": ["Flash"]
+    },
+    {
+      "levels": [1, 2, 3],
+      "condition": "When Summoned",
+      "keywords": [],
+      "details": "When this spirit performs Ascend using a spirit with \"Siegwurm\" in its card name, you may place a \"Soul Core\" into the void. If you do, place cores from the void into your life until you have 5 life.",
+      "steps": []
+    },
+    {
+      "levels": [2, 3],
+      "condition": "When This Spirit Attacks",
+      "keywords": [],
+      "details": "Select any number of your opponent's spirits with a combined total of 10,000 or fewer BP and destroy them.",
+      "steps": []
+    }
+  ],
+  "core_requirements": [
+    {
+      "level": 1,
+      "battlePoints": 5000,
+      "cores": 1
+    },
+    {
+      "level": 2,
+      "battlePoints": 9000,
+      "cores": 3
+    },
+    {
+      "level": 3,
+      "battlePoints": 12000,
+      "cores": 5
+    }
+  ]
 }

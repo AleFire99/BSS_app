@@ -53,6 +53,13 @@ export const addCardToDeck = (deckId: number, cardId: string, count = 1): Promis
 export const removeCardFromDeck = (deckId: number, cardId: string): Promise<void> =>
   req(`/api/decks/${deckId}/cards/${cardId}`, { method: 'DELETE' });
 
+export const updateCardCount = (deckId: number, cardId: string, count: number): Promise<void> =>
+  req(`/api/decks/${deckId}/cards/${cardId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ count }),
+  });
+
 // ── Rulings ───────────────────────────────────────────────────────────────────
 
 export const getKeywords = (): Promise<KeywordDef[]> =>

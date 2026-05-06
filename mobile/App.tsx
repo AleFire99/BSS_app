@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 import CardsScreen      from './src/screens/CardsScreen';
 import CardDetailScreen from './src/screens/CardDetailScreen';
@@ -68,7 +68,7 @@ export default function App() {
           component={CardsStack}
           options={{
             title: 'Cards',
-            tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>🃏</Text>,
+            tabBarIcon: ({ color }) => <Feather name="layers" size={22} color={color} />,
           }}
         />
         <Tab.Screen
@@ -76,7 +76,7 @@ export default function App() {
           component={DecksStack}
           options={{
             title: 'Decks',
-            tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📚</Text>,
+            tabBarIcon: ({ color }) => <Feather name="folder" size={22} color={color} />,
           }}
         />
         <Tab.Screen
@@ -88,7 +88,7 @@ export default function App() {
             headerStyle:      { backgroundColor: theme.surface },
             headerTintColor:  theme.text,
             headerTitleStyle: { fontWeight: '700' as const },
-            tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📖</Text>,
+            tabBarIcon: ({ color }) => <Feather name="book-open" size={22} color={color} />,
           }}
         />
       </Tab.Navigator>

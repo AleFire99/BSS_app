@@ -63,5 +63,7 @@ export interface Deck {
   updated_at: string;
   card_count: number;
   colors: Record<string, number>;
+  type_counts: Record<string, number>;
+  avg_cost: number;
   cards?: DeckCard[];
 }
