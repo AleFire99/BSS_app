@@ -21,10 +21,21 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.alefire.bssapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-sqlite",
+      ["expo-asset", {"assets": ["./assets/cards.db"]}]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a4ad9de9-56d3-47b2-99b9-4c2ae5bb222d"
+      }
+    },
+    "owner": "alefire"
   }
 }
