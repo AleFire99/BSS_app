@@ -19,7 +19,25 @@
       "Bash(Select-Object FullName)",
       "Read(//c/Users/AleFire/Downloads/**)",
       "Read(//c/Users/AleFire/.claude/projects/c--Users-AleFire-Desktop-Projects-BSS-app/cacd3d13-67a9-4623-bcd8-42eeab5c581e/tool-results/design_extracted//**)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npx expo *)",
+      "Bash(.\\\\gradlew.bat assembleRelease)",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; cd \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat assembleRelease 2>&1)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\\\\app\\\\src\\\\main\\\\assets\" -Recurse -Force | ForEach-Object { \"$\\($_.FullName\\) [$\\($_.Length\\) bytes]\" })",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; cd \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat clean --no-build-cache assembleRelease 2>&1 | Select-String -Pattern \"FAILED|error:|Error|BUILD|Task :app:bundle|Task :app:create|up-to-date|executed\" | Select-Object -Last 30)",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; & \"$env:ANDROID_HOME\\\\platform-tools\\\\adb.exe\" install -r \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\\\\app\\\\build\\\\outputs\\\\apk\\\\release\\\\app-release.apk\" 2>&1)",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; cd \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat assembleRelease 2>&1 | Select-String -Pattern \"FAILED|Exception|error:|BUILD|Task :app:create|Task :app:bundle|Task :app:package\" | Select-Object -Last 15)",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; cd \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat assembleRelease 2>&1 | Select-String -Pattern \"FAILED|Exception|BUILD\" | Select-Object -Last 5)",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; cd \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat assembleRelease 2>&1 | Select-String -Pattern \"FAILED|error:|BUILD\" | Select-Object -Last 5)",
+      "Bash(eas whoami *)",
+      "Bash(eas build *)",
+      "PowerShell(java -version 2>&1; echo \"---\"; echo \"JAVA_HOME: $env:JAVA_HOME\"; echo \"ANDROID_HOME: $env:ANDROID_HOME\")",
+      "PowerShell($env:ANDROID_HOME = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; cd \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\"; npx expo prebuild --clean --platform android 2>&1)",
+      "PowerShell($env:ANDROID_HOME = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\"; $env:PATH = \"$env:PATH;$env:ANDROID_HOME\\\\platform-tools\"; cd \"C:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat assembleRelease 2>&1 | Select-Object -Last 20)",
+      "Bash(git merge *)",
+      "Bash(git stash *)",
+      "Bash(git push *)"
     ]
   }
 }
