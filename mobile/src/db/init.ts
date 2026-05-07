@@ -1,15 +1,17 @@
 import * as SQLite from 'expo-sqlite';
-import * as FileSystem from 'expo-file-system/legacy';
 import { Asset } from 'expo-asset';
+import * as FileSystem from 'expo-file-system/legacy';
 
 export let cardsDb: SQLite.SQLiteDatabase;
 export let deckDb: SQLite.SQLiteDatabase;
 
+const CARDS_DB_MODULE = require('../../assets/cards.db');
+
 const DECK_SCHEMA = `
   CREATE TABLE IF NOT EXISTS Decks (
-    DeckID   INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name     TEXT    NOT NULL,
-    Notes    TEXT,
+    DeckID    INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name      TEXT    NOT NULL,
+    Notes     TEXT,
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
   );
@@ -21,20 +23,24 @@ const DECK_SCHEMA = `
   );
 `;
 
-export async function initDatabases(): Promise<void> {
-  const targetPath = FileSystem.documentDirectory! + 'cards.db';
-  const info = await FileSystem.getInfoAsync(targetPath);
+export async function initCardsDb(): Promise<void> {
+  const asset = Asset.fromModule(CARDS_DB_MODULE);
+  await asset.downloadAsync();
+
+  const sqliteDir = `${FileSystem.documentDirectory}SQLite/`;
+  const dbPath = `${sqliteDir}cards.db`;
+  const info = await FileSystem.getInfoAsync(dbPath);
 
   if (!info.exists) {
-    const asset = Asset.fromModule(require('../../assets/cards.db'));
-    await asset.downloadAsync();
-    if (!asset.localUri) throw new Error('cards.db asset has no localUri after download');
-    await FileSystem.copyAsync({ from: asset.localUri, to: targetPath });
+    await FileSystem.makeDirectoryAsync(sqliteDir, { intermediates: true });
+    await FileSystem.copyAsync({ from: asset.localUri!, to: dbPath });
   }
 
   cardsDb = await SQLite.openDatabaseAsync('cards.db');
-  deckDb  = await SQLite.openDatabaseAsync('deck.db');
+}
 
+export async function initDeckDb(): Promise<void> {
+  deckDb = await SQLite.openDatabaseAsync('deck.db');
   await deckDb.execAsync('PRAGMA foreign_keys = ON;');
   await deckDb.execAsync(DECK_SCHEMA);
 }
