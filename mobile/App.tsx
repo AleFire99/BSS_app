@@ -12,6 +12,7 @@ import CardDetailScreen from './src/screens/CardDetailScreen';
 import DecksScreen      from './src/screens/DecksScreen';
 import DeckDetailScreen from './src/screens/DeckDetailScreen';
 import RulingsScreen    from './src/screens/RulingsScreen';
+import AboutScreen      from './src/screens/AboutScreen';
 import { Card } from './src/types';
 import { theme } from './src/theme';
 
@@ -127,6 +128,18 @@ export default function App() {
               headerTintColor:  theme.text,
               headerTitleStyle: { fontWeight: '700' as const },
               tabBarIcon: ({ color }) => <Feather name="book-open" size={22} color={color} />,
+            }}
+          />
+          <Tab.Screen
+            name="AboutTab"
+            component={AboutScreen}
+            options={{
+              title: 'About',
+              headerShown: true,
+              headerStyle:      { backgroundColor: theme.surface },
+              headerTintColor:  theme.text,
+              headerTitleStyle: { fontWeight: '700' as const },
+              tabBarIcon: ({ color }) => <Feather name="info" size={22} color={color} />,
             }}
           />
         </Tab.Navigator>
