@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, Modal, ScrollView, TouchableOpacity,
   StyleSheet, Image,
@@ -37,6 +37,8 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
     setMulligans(mull);
     setPhase('hand');
   };
+
+  useEffect(() => { drawHand(0); }, []);
 
   const handleAccept = () => {
     setPool(prev => {
@@ -77,15 +79,6 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
               <Text style={styles.closeBtnText}>✕</Text>
             </TouchableOpacity>
           </View>
-
-          {phase === 'idle' && (
-            <View style={styles.center}>
-              <Text style={styles.deckInfo}>{deck.card_count} cards in deck</Text>
-              <TouchableOpacity style={styles.btn} onPress={() => drawHand(0)}>
-                <Text style={styles.btnText}>Draw Opening Hand</Text>
-              </TouchableOpacity>
-            </View>
-          )}
 
           {(phase === 'hand' || phase === 'final') && (
             <>
@@ -182,11 +175,6 @@ const styles = StyleSheet.create({
   mulliganCount: { color: theme.textMuted, fontSize: 13, marginTop: 2 },
   closeBtn:      { padding: 4 },
   closeBtnText:  { color: theme.textMuted, fontSize: 20 },
-  center: {
-    flex: 1, justifyContent: 'center', alignItems: 'center',
-    gap: 20, padding: 24,
-  },
-  deckInfo: { color: theme.textMuted, fontSize: 15 },
   cardScroll:  { maxHeight: 220 },
   cardRow:     { paddingHorizontal: 16, paddingVertical: 12, gap: 12 },
   cardWrapper: { width: 110, alignItems: 'center', gap: 6 },
