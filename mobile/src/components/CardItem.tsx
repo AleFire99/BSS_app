@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Card } from '../types';
 import { COLOR_MAP, theme } from '../theme';
-import { API_BASE } from '../api';
 
 interface Props {
   card: Card;
