@@ -16,6 +16,18 @@ export default function AboutScreen() {
       </View>
 
       <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Changelog</Text>
+        <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.0.0</Text>
+          <Text style={styles.body}>• Cards browser — search by name, effects, keywords; filter by color, set, rarity, type, cost</Text>
+          <Text style={styles.body}>• Deck builder — create, copy, rename, delete decks; sort by type/cost/name/color</Text>
+          <Text style={styles.body}>• Opening hand simulator with mulligan support</Text>
+          <Text style={styles.body}>• Rulings viewer — keyword definitions and official card Q&A</Text>
+          <Text style={styles.body}>• Fully offline — all card data bundled in the app</Text>
+        </View>
+      </View>
+
+      <View style={styles.section}>
         <Text style={styles.sectionTitle}>Legal</Text>
         <Text style={styles.body}>
           Battle Spirits Saga is a trading card game owned and published by Bandai Namco Entertainment. All card names, images, artwork, and game content are property of Bandai Namco Entertainment Inc.
@@ -78,4 +90,6 @@ const styles = StyleSheet.create({
     color: theme.accent,
     textDecorationLine: 'underline',
   },
+  changelogEntry:   { gap: 4, marginTop: 4 },
+  changelogVersion: { color: theme.text, fontWeight: '700', fontSize: 14, marginBottom: 4 },
 });
