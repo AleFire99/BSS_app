@@ -172,55 +172,59 @@ export default function RulingsScreen() {
       )}
 
       {/* Keyword detail modal */}
-      <Modal visible={!!kwDetail} transparent animationType="slide">
-        <Pressable style={styles.overlay} onPress={() => setKwDetail(null)} />
-        <View style={styles.sheet}>
-          {kwDetail && (
-            <>
-              <View style={styles.sheetHeader}>
-                <Text style={styles.sheetTitle}>{kwDetail.name}</Text>
-                <TouchableOpacity onPress={() => setKwDetail(null)}>
-                  <Text style={styles.closeBtn}>✕</Text>
-                </TouchableOpacity>
-              </View>
-              <ScrollView>
-                <Text style={styles.kwDefText}>{kwDetail.description}</Text>
-                {kwDetailLoading && <ActivityIndicator color={theme.accent} style={{ marginVertical: 12 }} />}
-                {kwDetail.qa.length > 0 && (
-                  <>
-                    <Text style={styles.qaHeader}>Rulings ({kwDetail.qa.length})</Text>
-                    {kwDetail.qa.map((qa, i) => <QABlock key={i} qa={qa} />)}
-                  </>
-                )}
-                {!kwDetailLoading && kwDetail.qa.length === 0 && (
-                  <Text style={styles.emptyNote}>No rulings for this keyword.</Text>
-                )}
-              </ScrollView>
-            </>
-          )}
+      <Modal visible={!!kwDetail} transparent animationType="fade">
+        <Pressable style={StyleSheet.absoluteFill} onPress={() => setKwDetail(null)} />
+        <View style={styles.centeredWrap} pointerEvents="box-none">
+          <View style={styles.centeredSheet}>
+            {kwDetail && (
+              <>
+                <View style={styles.sheetHeader}>
+                  <Text style={styles.sheetTitle}>{kwDetail.name}</Text>
+                  <TouchableOpacity onPress={() => setKwDetail(null)}>
+                    <Text style={styles.closeBtn}>✕</Text>
+                  </TouchableOpacity>
+                </View>
+                <ScrollView>
+                  <Text style={styles.kwDefText}>{kwDetail.description}</Text>
+                  {kwDetailLoading && <ActivityIndicator color={theme.accent} style={{ marginVertical: 12 }} />}
+                  {kwDetail.qa.length > 0 && (
+                    <>
+                      <Text style={styles.qaHeader}>Rulings ({kwDetail.qa.length})</Text>
+                      {kwDetail.qa.map((qa, i) => <QABlock key={i} qa={qa} />)}
+                    </>
+                  )}
+                  {!kwDetailLoading && kwDetail.qa.length === 0 && (
+                    <Text style={styles.emptyNote}>No rulings for this keyword.</Text>
+                  )}
+                </ScrollView>
+              </>
+            )}
+          </View>
         </View>
       </Modal>
 
       {/* Card ruling modal */}
-      <Modal visible={!!cardDetail} transparent animationType="slide">
-        <Pressable style={styles.overlay} onPress={() => setCardDetail(null)} />
-        <View style={styles.sheet}>
-          {cardDetail && (
-            <>
-              <View style={styles.sheetHeader}>
-                <View>
-                  <Text style={styles.sheetTitle}>{cardDetail.card_name}</Text>
-                  <Text style={styles.sheetSub}>{cardDetail.card_id}</Text>
+      <Modal visible={!!cardDetail} transparent animationType="fade">
+        <Pressable style={StyleSheet.absoluteFill} onPress={() => setCardDetail(null)} />
+        <View style={styles.centeredWrap} pointerEvents="box-none">
+          <View style={styles.centeredSheet}>
+            {cardDetail && (
+              <>
+                <View style={styles.sheetHeader}>
+                  <View style={{ flex: 1, marginRight: 12 }}>
+                    <Text style={styles.sheetTitle}>{cardDetail.card_name}</Text>
+                    <Text style={styles.sheetSub}>{cardDetail.card_id}</Text>
+                  </View>
+                  <TouchableOpacity onPress={() => setCardDetail(null)}>
+                    <Text style={styles.closeBtn}>✕</Text>
+                  </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress={() => setCardDetail(null)}>
-                  <Text style={styles.closeBtn}>✕</Text>
-                </TouchableOpacity>
-              </View>
-              <ScrollView>
-                {cardDetail.entries.map((qa, i) => <QABlock key={i} qa={qa} />)}
-              </ScrollView>
-            </>
-          )}
+                <ScrollView>
+                  {cardDetail.entries.map((qa, i) => <QABlock key={i} qa={qa} />)}
+                </ScrollView>
+              </>
+            )}
+          </View>
         </View>
       </Modal>
     </View>
@@ -278,10 +282,17 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
 
-  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.55)' },
-  sheet: {
-    maxHeight: '80%', backgroundColor: theme.surface,
-    borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20,
+  centeredWrap: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center', alignItems: 'center',
+    padding: 20, backgroundColor: 'rgba(0,0,0,0.55)',
+  },
+  centeredSheet: {
+    width: '100%', maxHeight: '80%',
+    backgroundColor: theme.surface,
+    borderRadius: 20, padding: 20,
+    elevation: 16,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.4, shadowRadius: 12,
   },
   sheetHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 },
   sheetTitle:  { color: theme.text, fontSize: 18, fontWeight: '700', flex: 1, marginRight: 12 },

@@ -1,36 +1,56 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import {
   View, Text, FlatList, Image, StyleSheet, TouchableOpacity,
   ActivityIndicator, Alert, TextInput, Modal, Animated,
+  KeyboardAvoidingView, Platform, ScrollView,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDeck, getCards, addCardToDeck, removeCardFromDeck, updateDeck, updateCardCount } from '../api';
 import { Feather } from '@expo/vector-icons';
 import HandTester from '../components/HandTester';
 import SwipeableRow from '../components/SwipeableRow';
+import RangeSlider from '../components/RangeSlider';
 import { Card, Deck, DeckCard } from '../types';
 import { theme, COLOR_MAP } from '../theme';
 import { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'DeckDetail'>;
 
+const COLORS = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'White'];
+const TYPES  = ['SPIRIT', 'MAGIC', 'NEXUS'];
+const TYPE_ORDER: Record<string, number> = { SPIRIT: 0, NEXUS: 1, MAGIC: 2 };
+type SortMode = 'type+cost' | 'type+name' | 'type+color';
+const SORT_LABELS: Record<SortMode, string> = { 'type+cost': 'Cost', 'type+name': 'Name', 'type+color': 'Color' };
+const SORT_CYCLE: SortMode[] = ['type+cost', 'type+name', 'type+color'];
+
 export default function DeckDetailScreen({ route, navigation }: Props) {
   const { deckId } = route.params;
 
-  const [deck, setDeck]         = useState<(Deck & { cards: DeckCard[] }) | null>(null);
-  const [allCards, setAllCards] = useState<Card[]>([]);
-  const [loading, setLoading]   = useState(true);
-  const [addMode, setAddMode]   = useState(false);
-  const [search, setSearch]     = useState('');
-  const [editName, setEditName] = useState('');
+  const [deck, setDeck]           = useState<(Deck & { cards: DeckCard[] }) | null>(null);
+  const [allCards, setAllCards]   = useState<Card[]>([]);
+  const [loading, setLoading]     = useState(true);
+  const [addMode, setAddMode]     = useState(false);
+  const [editName, setEditName]   = useState('');
   const [editModal, setEditModal] = useState(false);
   const [handTester, setHandTester] = useState(false);
-  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+  const [viewMode, setViewMode]   = useState<'list' | 'grid'>('list');
+  const [sortMode, setSortMode]   = useState<SortMode>('type+cost');
+
+  // Add card filter states
+  const [addSearch,     setAddSearch]     = useState('');
+  const [addColors,     setAddColors]     = useState<string[]>([]);
+  const [addType,       setAddType]       = useState<string | null>(null);
+  const [addRarity,     setAddRarity]     = useState<string | null>(null);
+  const [addSet,        setAddSet]        = useState<string | null>(null);
+  const [addCostRange,  setAddCostRange]  = useState<[number, number]>([0, 13]);
+  const [addSetOpen,    setAddSetOpen]    = useState(false);
+  const [addRarityOpen, setAddRarityOpen] = useState(false);
+  const [addTypeOpen,   setAddTypeOpen]   = useState(false);
 
   // Card swipe-delete flow
-  const [collapsingCardId, setCollapsingCardId]   = useState<string | null>(null);
-  const [undoCard, setUndoCard]                   = useState<{ dc: DeckCard; index: number } | null>(null);
-  const [showCardToast, setShowCardToast]         = useState(false);
+  const [collapsingCardId, setCollapsingCardId] = useState<string | null>(null);
+  const [undoCard, setUndoCard]                 = useState<{ dc: DeckCard; index: number } | null>(null);
+  const [showCardToast, setShowCardToast]       = useState(false);
   const pendingCardDeleteRef = useRef<{ dc: DeckCard; index: number } | null>(null);
   const cardDeleteTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cardToastAnim        = useRef(new Animated.Value(0)).current;
@@ -42,31 +62,64 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       .finally(() => setLoading(false));
   }, [deckId]);
 
-  useEffect(() => {
-    load();
-    navigation.setOptions({ title: 'Deck' });
-  }, []);
-
-  useEffect(() => {
-    if (deck) navigation.setOptions({ title: deck.name });
-  }, [deck]);
-
+  useEffect(() => { load(); navigation.setOptions({ title: 'Deck' }); }, []);
+  useEffect(() => { if (deck) navigation.setOptions({ title: deck.name }); }, [deck]);
   useEffect(() => {
     Animated.spring(cardToastAnim, { toValue: showCardToast ? 1 : 0, useNativeDriver: true, bounciness: 4 }).start();
   }, [showCardToast, cardToastAnim]);
 
-  const cardMap = React.useMemo(
+  const cardMap = useMemo(
     () => Object.fromEntries(allCards.map(c => [c.id, c])),
     [allCards]
   );
 
+  const addSets     = useMemo(() => [...new Set(allCards.map(c => c.set))].sort(), [allCards]);
+  const addRarities = useMemo(() => [...new Set(allCards.map(c => c.rarity))].sort(), [allCards]);
+  const maxAddCost  = useMemo(() => allCards.length > 0 ? Math.max(...allCards.map(c => c.cost)) : 13, [allCards]);
+
   const getDeckCount = (cardId: string) =>
     deck?.cards?.find(dc => dc.card_id === cardId)?.count ?? 0;
 
-  const filteredAdd = React.useMemo(() => {
-    if (!search) return [];
-    return allCards.filter(c => c.name.toLowerCase().includes(search.toLowerCase())).slice(0, 30);
-  }, [allCards, search]);
+  const filteredAdd = useMemo(() => {
+    return allCards.filter(c => {
+      if (addSearch) {
+        const lq = addSearch.toLowerCase();
+        const nameMatch = c.name.toLowerCase().includes(lq);
+        const effectMatch = c.effects.some(e =>
+          (e.details?.toLowerCase().includes(lq) ?? false) ||
+          (e.condition?.toLowerCase().includes(lq) ?? false) ||
+          e.keywords.some(kw => kw.name.toLowerCase().includes(lq))
+        );
+        if (!nameMatch && !effectMatch) return false;
+      }
+      if (addColors.length > 0 && !addColors.every(col => c.color.includes(col))) return false;
+      if (addType   && c.type !== addType)     return false;
+      if (addRarity && c.rarity !== addRarity) return false;
+      if (addSet    && c.set !== addSet)       return false;
+      if (c.cost < addCostRange[0] || c.cost > addCostRange[1]) return false;
+      return true;
+    });
+  }, [allCards, addSearch, addColors, addType, addRarity, addSet, addCostRange]);
+
+  const sortedCards = useMemo(() => {
+    const cards = [...(deck?.cards ?? [])];
+    return cards.sort((a, b) => {
+      const ca = cardMap[a.card_id], cb = cardMap[b.card_id];
+      if (!ca || !cb) return 0;
+      const tDiff = (TYPE_ORDER[ca.type] ?? 3) - (TYPE_ORDER[cb.type] ?? 3);
+      if (tDiff !== 0) return tDiff;
+      if (sortMode === 'type+cost') return ca.cost - cb.cost;
+      if (sortMode === 'type+name') return ca.name.localeCompare(cb.name);
+      if (sortMode === 'type+color') return (ca.color[0] ?? '').localeCompare(cb.color[0] ?? '');
+      return 0;
+    });
+  }, [deck?.cards, cardMap, sortMode]);
+
+  const closeAddMode = () => {
+    setAddMode(false);
+    setAddSearch(''); setAddColors([]); setAddType(null);
+    setAddRarity(null); setAddSet(null); setAddCostRange([0, maxAddCost]);
+  };
 
   const handleAdd = async (cardId: string) => {
     try { await addCardToDeck(deckId, cardId); load(); }
@@ -87,8 +140,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     catch (e: any) { Alert.alert('Error', e.message); }
   };
 
-  // ── Card swipe-delete ─────────────────────────────────────────────────────────
-
   const handleCardDeletePress = useCallback((dc: DeckCard) => {
     const idx = deck?.cards?.findIndex(c => c.card_id === dc.card_id) ?? -1;
     pendingCardDeleteRef.current = { dc, index: idx };
@@ -107,7 +158,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     } : null);
     setUndoCard(item);
     setShowCardToast(true);
-
     if (cardDeleteTimerRef.current) clearTimeout(cardDeleteTimerRef.current);
     cardDeleteTimerRef.current = setTimeout(() => {
       removeCardFromDeck(deckId, item.dc.card_id).catch(e => Alert.alert('Error', e.message));
@@ -131,13 +181,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     }
   };
 
-  // ─────────────────────────────────────────────────────────────────────────────
-
   if (loading || !deck) return (
     <View style={styles.center}><ActivityIndicator color={theme.accent} size="large" /></View>
   );
 
   const cardToastTranslate = cardToastAnim.interpolate({ inputRange: [0, 1], outputRange: [80, 0] });
+  const cycleSort = () => setSortMode(m => SORT_CYCLE[(SORT_CYCLE.indexOf(m) + 1) % SORT_CYCLE.length]);
+  const addCostActive = addCostRange[0] !== 0 || addCostRange[1] !== maxAddCost;
 
   const renderCardRow = (dc: DeckCard, card: Card, swipeable = false) => {
     const row = (
@@ -156,6 +206,11 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <Text style={styles.cardBlockName} numberOfLines={1}>{card.name}</Text>
             <View style={styles.cardBlockMeta}>
               <Text style={styles.cardBlockMetaText}>⬡ {card.cost}</Text>
+              <View style={styles.colorDots}>
+                {card.color.map(c => (
+                  <View key={c} style={[styles.colorDot, { backgroundColor: COLOR_MAP[c] ?? '#999' }]} />
+                ))}
+              </View>
               <Text style={styles.cardBlockMetaText}>{card.rarity}</Text>
             </View>
             <Text style={styles.cardBlockSub} numberOfLines={1}>{card.type} · {card.id}</Text>
@@ -180,9 +235,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         </View>
       </View>
     );
-
     if (!swipeable) return row;
-
     return (
       <SwipeableRow
         borderRadius={8}
@@ -201,23 +254,20 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       <View style={styles.statsBar}>
         <Text style={styles.cardCount}>{deck.card_count} cards</Text>
         <View style={styles.colorRow}>
-          {Object.entries(deck.colors).sort((a,b) => b[1]-a[1]).map(([c, n]) => (
+          {Object.entries(deck.colors).sort((a, b) => b[1] - a[1]).map(([c, n]) => (
             <View key={c} style={styles.colorChip}>
               <View style={[styles.dot, { backgroundColor: COLOR_MAP[c] ?? '#999' }]} />
               <Text style={styles.colorQty}>{n}</Text>
             </View>
           ))}
         </View>
-        <TouchableOpacity
-          onPress={() => setViewMode(v => v === 'list' ? 'grid' : 'list')}
-          style={styles.statsBtn}
-        >
+        <TouchableOpacity onPress={cycleSort} style={styles.statsBtn}>
+          <Text style={styles.sortLabel}>{SORT_LABELS[sortMode]}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setViewMode(v => v === 'list' ? 'grid' : 'list')} style={styles.statsBtn}>
           <Feather name={viewMode === 'list' ? 'grid' : 'list'} size={20} color={theme.accent} />
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => { setEditName(deck.name); setEditModal(true); }}
-          style={styles.statsBtn}
-        >
+        <TouchableOpacity onPress={() => { setEditName(deck.name); setEditModal(true); }} style={styles.statsBtn}>
           <Feather name="edit-2" size={20} color={theme.accent} />
         </TouchableOpacity>
       </View>
@@ -248,34 +298,150 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
 
       {addMode ? (
         <View style={styles.flex}>
-          <TextInput
-            style={styles.search}
-            placeholder="Search to add…"
-            placeholderTextColor={theme.textMuted}
-            value={search}
-            onChangeText={setSearch}
-            autoFocus
-          />
+          {/* Search */}
+          <View style={styles.addSearchWrap}>
+            <TextInput
+              style={styles.search}
+              placeholder="Search name, effects, keywords…"
+              placeholderTextColor={theme.textMuted}
+              value={addSearch}
+              onChangeText={setAddSearch}
+              autoFocus
+            />
+            {addSearch.length > 0 && (
+              <TouchableOpacity style={styles.clearBtn} onPress={() => setAddSearch('')}>
+                <Text style={styles.clearText}>✕</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+
+          {/* Filter toolbar */}
+          <View style={styles.addToolbar}>
+            <TouchableOpacity
+              style={[styles.filterBtn, !!addSet && styles.filterBtnActive]}
+              onPress={() => setAddSetOpen(true)}
+            >
+              <Text style={[styles.filterBtnText, !!addSet && styles.filterBtnTextActive]} numberOfLines={1}>
+                {addSet ?? 'Set'} ▾
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.filterBtn, !!addRarity && styles.filterBtnActive]}
+              onPress={() => setAddRarityOpen(true)}
+            >
+              <Text style={[styles.filterBtnText, !!addRarity && styles.filterBtnTextActive]} numberOfLines={1}>
+                {addRarity ?? 'Rarity'} ▾
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.filterBtn, !!addType && styles.filterBtnActive]}
+              onPress={() => setAddTypeOpen(true)}
+            >
+              <Text style={[styles.filterBtnText, !!addType && styles.filterBtnTextActive]} numberOfLines={1}>
+                {addType ?? 'Type'} ▾
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Color gems */}
+          <View style={styles.gemRow}>
+            {COLORS.map(c => {
+              const active = addColors.includes(c);
+              return (
+                <TouchableOpacity
+                  key={c}
+                  onPress={() => setAddColors(prev => prev.includes(c) ? prev.filter(x => x !== c) : [...prev, c])}
+                  activeOpacity={0.75}
+                >
+                  <View style={[styles.gem, { backgroundColor: COLOR_MAP[c] }, active && styles.gemActive]} />
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+
+          {/* Cost slider */}
+          <View style={styles.costSection}>
+            <Text style={[styles.costLabel, addCostActive && styles.costLabelActive]}>
+              Cost: {addCostRange[0]} – {addCostRange[1]}
+            </Text>
+            <RangeSlider min={0} max={maxAddCost} values={addCostRange} onChange={setAddCostRange} />
+          </View>
+
+          <Text style={styles.addCount}>{filteredAdd.length} cards</Text>
+
           <FlatList
             data={filteredAdd}
             keyExtractor={c => c.id}
             renderItem={({ item }) => renderCardRow({ card_id: item.id, count: getDeckCount(item.id) }, item, false)}
-            ListEmptyComponent={
-              search.length > 0
-                ? <Text style={styles.empty}>No results</Text>
-                : <Text style={styles.empty}>Type to search cards</Text>
-            }
+            ListEmptyComponent={<Text style={styles.empty}>No cards match filters</Text>}
+            initialNumToRender={20}
+            maxToRenderPerBatch={20}
+            windowSize={10}
+            removeClippedSubviews
           />
-          <TouchableOpacity style={styles.doneBtn} onPress={() => setAddMode(false)}>
+
+          <TouchableOpacity style={styles.doneBtn} onPress={closeAddMode}>
             <Text style={styles.doneBtnText}>Done</Text>
           </TouchableOpacity>
+
+          {/* Picker modals */}
+          <Modal visible={addSetOpen} transparent animationType="slide">
+            <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setAddSetOpen(false)} />
+            <View style={styles.pickerSheet}>
+              <Text style={styles.pickerTitle}>Select Set</Text>
+              <ScrollView>
+                <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddSet(null); setAddSetOpen(false); }}>
+                  <Text style={[styles.pickerRowText, !addSet && styles.pickerRowSelected]}>All Sets</Text>
+                </TouchableOpacity>
+                {addSets.map(s => (
+                  <TouchableOpacity key={s} style={styles.pickerRow} onPress={() => { setAddSet(s); setAddSetOpen(false); }}>
+                    <Text style={[styles.pickerRowText, addSet === s && styles.pickerRowSelected]}>{s}</Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+          </Modal>
+
+          <Modal visible={addRarityOpen} transparent animationType="slide">
+            <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setAddRarityOpen(false)} />
+            <View style={styles.pickerSheet}>
+              <Text style={styles.pickerTitle}>Select Rarity</Text>
+              <ScrollView>
+                <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddRarity(null); setAddRarityOpen(false); }}>
+                  <Text style={[styles.pickerRowText, !addRarity && styles.pickerRowSelected]}>All Rarities</Text>
+                </TouchableOpacity>
+                {addRarities.map(r => (
+                  <TouchableOpacity key={r} style={styles.pickerRow} onPress={() => { setAddRarity(r); setAddRarityOpen(false); }}>
+                    <Text style={[styles.pickerRowText, addRarity === r && styles.pickerRowSelected]}>{r}</Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+          </Modal>
+
+          <Modal visible={addTypeOpen} transparent animationType="slide">
+            <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setAddTypeOpen(false)} />
+            <View style={styles.pickerSheet}>
+              <Text style={styles.pickerTitle}>Select Type</Text>
+              <ScrollView>
+                <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddType(null); setAddTypeOpen(false); }}>
+                  <Text style={[styles.pickerRowText, !addType && styles.pickerRowSelected]}>All Types</Text>
+                </TouchableOpacity>
+                {TYPES.map(t => (
+                  <TouchableOpacity key={t} style={styles.pickerRow} onPress={() => { setAddType(t); setAddTypeOpen(false); }}>
+                    <Text style={[styles.pickerRowText, addType === t && styles.pickerRowSelected]}>{t}</Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+          </Modal>
         </View>
       ) : (
         <View style={styles.flex}>
           {viewMode === 'list' ? (
             <FlatList
               key="list"
-              data={deck.cards}
+              data={sortedCards}
               keyExtractor={dc => dc.card_id}
               renderItem={({ item }) => {
                 const card = cardMap[item.card_id];
@@ -289,7 +455,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           ) : (
             <FlatList
               key="grid"
-              data={deck.cards}
+              data={sortedCards}
               keyExtractor={dc => dc.card_id}
               numColumns={3}
               renderItem={({ item }) => {
@@ -332,7 +498,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             </TouchableOpacity>
           </View>
 
-          {/* Card undo toast */}
           <Animated.View
             style={[styles.toast, { transform: [{ translateY: cardToastTranslate }], opacity: cardToastAnim }]}
             pointerEvents={showCardToast ? 'auto' : 'none'}
@@ -349,21 +514,24 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         <HandTester deck={deck} cardMap={cardMap} onClose={() => setHandTester(false)} />
       )}
 
+      {/* Rename deck modal — keyboard-aware */}
       <Modal visible={editModal} transparent animationType="slide">
-        <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setEditModal(false)} />
-        <View style={styles.sheet}>
-          <Text style={styles.sheetTitle}>Rename Deck</Text>
-          <TextInput
-            style={styles.input}
-            value={editName}
-            onChangeText={setEditName}
-            placeholderTextColor={theme.textMuted}
-            autoFocus
-          />
-          <TouchableOpacity style={styles.btn} onPress={handleRename}>
-            <Text style={styles.btnText}>Save</Text>
-          </TouchableOpacity>
-        </View>
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setEditModal(false)} />
+          <View style={styles.sheet}>
+            <Text style={styles.sheetTitle}>Rename Deck</Text>
+            <TextInput
+              style={styles.input}
+              value={editName}
+              onChangeText={setEditName}
+              placeholderTextColor={theme.textMuted}
+              autoFocus
+            />
+            <TouchableOpacity style={styles.btn} onPress={handleRename}>
+              <Text style={styles.btnText}>Save</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
       </Modal>
     </View>
   );
@@ -384,6 +552,7 @@ const styles = StyleSheet.create({
   dot:       { width: 10, height: 10, borderRadius: 5 },
   colorQty:  { color: theme.textMuted, fontSize: 12 },
   statsBtn:  { paddingHorizontal: 10, paddingVertical: 6 },
+  sortLabel: { color: theme.accent, fontSize: 12, fontWeight: '700' },
 
   deckStatsBadges: {
     flexDirection: 'row', backgroundColor: theme.surface,
@@ -402,10 +571,12 @@ const styles = StyleSheet.create({
   cardBlockImage:     { width: 50, height: 70, borderRadius: 4, backgroundColor: theme.border },
   cardBlockInfo:      { flex: 1 },
   cardBlockName:      { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
-  cardBlockMeta:      { flexDirection: 'row', gap: 8, marginBottom: 2 },
+  cardBlockMeta:      { flexDirection: 'row', gap: 8, marginBottom: 2, alignItems: 'center' },
   cardBlockMetaText:  { color: theme.textMuted, fontSize: 12 },
   cardBlockSub:       { color: theme.textMuted, fontSize: 11 },
   cardBlockQty:       { flexDirection: 'row', alignItems: 'center', gap: 6, paddingRight: 12 },
+  colorDots:          { flexDirection: 'row', gap: 3, alignItems: 'center' },
+  colorDot:           { width: 10, height: 10, borderRadius: 5 },
 
   qty:                { color: theme.text, fontSize: 15, fontWeight: '700', minWidth: 26, textAlign: 'center' },
   qtyBtn:             { width: 32, height: 32, borderRadius: 16, backgroundColor: theme.bg, borderWidth: 1, borderColor: theme.accent, alignItems: 'center', justifyContent: 'center' },
@@ -418,11 +589,27 @@ const styles = StyleSheet.create({
   gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
   gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
 
+  addSearchWrap:       { marginHorizontal: 12, marginTop: 8, marginBottom: 6, position: 'relative' },
+  addToolbar:          { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
+  addCount:            { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
   search: {
     backgroundColor: theme.surface, color: theme.text,
-    borderRadius: 8, margin: 12,
-    paddingHorizontal: 12, paddingVertical: 8, fontSize: 14,
+    borderRadius: 8, paddingHorizontal: 12, paddingRight: 36,
+    paddingVertical: 8, fontSize: 14,
   },
+  clearBtn:            { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
+  clearText:           { color: theme.textMuted, fontSize: 15 },
+  filterBtn:           { flex: 1, backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
+  filterBtnActive:     { backgroundColor: theme.accent },
+  filterBtnText:       { color: theme.textMuted, fontSize: 13 },
+  filterBtnTextActive: { color: '#fff', fontWeight: '700' },
+  gemRow:              { flexDirection: 'row', gap: 12, paddingHorizontal: 14, marginBottom: 8, alignItems: 'center' },
+  gem:                 { width: 28, height: 28, borderRadius: 14, opacity: 0.45 },
+  gemActive:           { opacity: 1, borderWidth: 2.5, borderColor: '#fff' },
+  costSection:         { marginHorizontal: 12, marginBottom: 6 },
+  costLabel:           { color: theme.textMuted, fontSize: 11, marginBottom: 6 },
+  costLabelActive:     { color: theme.accent },
+
   empty: { color: theme.textMuted, textAlign: 'center', marginTop: 40, fontSize: 14 },
 
   bottomBar: {
@@ -466,4 +653,10 @@ const styles = StyleSheet.create({
   },
   btn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
   btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
+
+  pickerSheet:       { maxHeight: '60%', backgroundColor: theme.surface, borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20 },
+  pickerTitle:       { color: theme.text, fontSize: 16, fontWeight: '700', marginBottom: 12 },
+  pickerRow:         { paddingVertical: 13, borderBottomWidth: 1, borderBottomColor: theme.border },
+  pickerRowText:     { color: theme.text, fontSize: 14 },
+  pickerRowSelected: { fontWeight: '700', color: theme.accent },
 });
