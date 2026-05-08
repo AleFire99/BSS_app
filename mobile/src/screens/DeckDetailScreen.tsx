@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import {
   View, Text, FlatList, Image, StyleSheet, TouchableOpacity,
-  ActivityIndicator, Alert, TextInput, Modal, Animated,
+  ActivityIndicator, Alert, TextInput, Modal, Animated, Pressable,
   KeyboardAvoidingView, Platform, ScrollView,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -34,7 +34,8 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [editModal, setEditModal] = useState(false);
   const [handTester, setHandTester] = useState(false);
   const [viewMode, setViewMode]   = useState<'list' | 'grid'>('list');
-  const [sortMode, setSortMode]   = useState<SortMode>('type+cost');
+  const [sortMode, setSortMode]     = useState<SortMode>('type+cost');
+  const [sortMenuOpen, setSortMenuOpen] = useState(false);
 
   // Add card filter states
   const [addSearch,     setAddSearch]     = useState('');
@@ -186,7 +187,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   );
 
   const cardToastTranslate = cardToastAnim.interpolate({ inputRange: [0, 1], outputRange: [80, 0] });
-  const cycleSort = () => setSortMode(m => SORT_CYCLE[(SORT_CYCLE.indexOf(m) + 1) % SORT_CYCLE.length]);
   const addCostActive = addCostRange[0] !== 0 || addCostRange[1] !== maxAddCost;
 
   const renderCardRow = (dc: DeckCard, card: Card, swipeable = false) => {
@@ -261,8 +261,8 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             </View>
           ))}
         </View>
-        <TouchableOpacity onPress={cycleSort} style={styles.statsBtn}>
-          <Text style={styles.sortLabel}>{SORT_LABELS[sortMode]}</Text>
+        <TouchableOpacity onPress={() => setSortMenuOpen(true)} style={styles.statsBtn}>
+          <Feather name="sliders" size={18} color={theme.accent} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setViewMode(v => v === 'list' ? 'grid' : 'list')} style={styles.statsBtn}>
           <Feather name={viewMode === 'list' ? 'grid' : 'list'} size={20} color={theme.accent} />
@@ -514,6 +514,28 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         <HandTester deck={deck} cardMap={cardMap} onClose={() => setHandTester(false)} />
       )}
 
+      {/* Sort dropdown */}
+      <Modal visible={sortMenuOpen} transparent animationType="fade">
+        <Pressable style={StyleSheet.absoluteFill} onPress={() => setSortMenuOpen(false)} />
+        <View style={styles.sortMenuWrap} pointerEvents="box-none">
+          <View style={styles.sortMenu}>
+            <Text style={styles.sortMenuTitle}>Sort by</Text>
+            {SORT_CYCLE.map(mode => (
+              <TouchableOpacity
+                key={mode}
+                style={styles.sortMenuRow}
+                onPress={() => { setSortMode(mode); setSortMenuOpen(false); }}
+              >
+                <Text style={[styles.sortMenuText, sortMode === mode && styles.sortMenuTextActive]}>
+                  {SORT_LABELS[mode]}
+                </Text>
+                {sortMode === mode && <Feather name="check" size={16} color={theme.accent} />}
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+      </Modal>
+
       {/* Rename deck modal — keyboard-aware */}
       <Modal visible={editModal} transparent animationType="slide">
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -552,7 +574,27 @@ const styles = StyleSheet.create({
   dot:       { width: 10, height: 10, borderRadius: 5 },
   colorQty:  { color: theme.textMuted, fontSize: 12 },
   statsBtn:  { paddingHorizontal: 10, paddingVertical: 6 },
-  sortLabel: { color: theme.accent, fontSize: 12, fontWeight: '700' },
+
+  sortMenuWrap: { ...StyleSheet.absoluteFillObject },
+  sortMenu: {
+    position: 'absolute', top: 90, right: 12,
+    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+    minWidth: 150, elevation: 10,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  sortMenuTitle: {
+    color: theme.textMuted, fontSize: 11, fontWeight: '700',
+    textTransform: 'uppercase', letterSpacing: 0.8,
+    paddingHorizontal: 14, paddingVertical: 8,
+  },
+  sortMenuRow: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    paddingHorizontal: 14, paddingVertical: 12,
+    borderTopWidth: 1, borderTopColor: theme.border,
+  },
+  sortMenuText:       { color: theme.text, fontSize: 14 },
+  sortMenuTextActive: { color: theme.accent, fontWeight: '700' },
 
   deckStatsBadges: {
     flexDirection: 'row', backgroundColor: theme.surface,
