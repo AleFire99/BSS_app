@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import {
   View, Text, FlatList, StyleSheet, TouchableOpacity,
   ActivityIndicator, Alert, TextInput, Modal, Animated,
+  KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDecks, getDeck, createDeck, updateDeck, deleteDeck, addCardToDeck } from '../api';
@@ -292,25 +293,27 @@ export default function DecksScreen({ navigation }: Props) {
 
       {/* Create deck modal */}
       <Modal visible={createVisible} transparent animationType="slide">
-        <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setCreateVisible(false)} />
-        <View style={styles.createSheet}>
-          <Text style={styles.sheetTitle}>New Deck</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Deck name"
-            placeholderTextColor={theme.textMuted}
-            value={newName}
-            onChangeText={setNewName}
-            autoFocus
-          />
-          <TouchableOpacity
-            style={[styles.btn, (!newName.trim() || creating) && styles.btnDisabled]}
-            onPress={handleCreate}
-            disabled={!newName.trim() || creating}
-          >
-            <Text style={styles.btnText}>{creating ? 'Creating…' : 'Create'}</Text>
-          </TouchableOpacity>
-        </View>
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setCreateVisible(false)} />
+          <View style={styles.createSheet}>
+            <Text style={styles.sheetTitle}>New Deck</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Deck name"
+              placeholderTextColor={theme.textMuted}
+              value={newName}
+              onChangeText={setNewName}
+              autoFocus
+            />
+            <TouchableOpacity
+              style={[styles.btn, (!newName.trim() || creating) && styles.btnDisabled]}
+              onPress={handleCreate}
+              disabled={!newName.trim() || creating}
+            >
+              <Text style={styles.btnText}>{creating ? 'Creating…' : 'Create'}</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
       </Modal>
     </View>
   );
