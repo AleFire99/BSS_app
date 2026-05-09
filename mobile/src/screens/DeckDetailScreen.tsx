@@ -122,9 +122,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     setAddRarity(null); setAddSet(null); setAddCostRange([0, maxAddCost]);
   };
 
+  const pendingAdds = useRef<Set<string>>(new Set());
   const handleAdd = async (cardId: string) => {
+    if (pendingAdds.current.has(cardId)) return;
+    pendingAdds.current.add(cardId);
     try { await addCardToDeck(deckId, cardId); load(); }
     catch (e: any) { Alert.alert('Error', e.message); }
+    finally { pendingAdds.current.delete(cardId); }
   };
 
   const handleDecrement = async (cardId: string, currentCount: number) => {
