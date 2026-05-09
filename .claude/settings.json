@@ -37,7 +37,9 @@
       "PowerShell($env:ANDROID_HOME = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\"; $env:PATH = \"$env:PATH;$env:ANDROID_HOME\\\\platform-tools\"; cd \"C:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\"; .\\\\gradlew.bat assembleRelease 2>&1 | Select-Object -Last 20)",
       "Bash(git merge *)",
       "Bash(git stash *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git branch *)",
+      "Bash(adb devices *)"
     ]
   }
 }

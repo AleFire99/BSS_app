@@ -120,6 +120,42 @@ Results: up to 50 inline photo results. Card images served from `https://www.bss
 ### Card Sets
 BSS01–BSS06 (base), ST01–ST07 (starter), CB01 (collaboration), EX01, L01, PR (promos). ~1,488 total card JSON files.
 
+## Git Flow
+
+Two permanent branches: `main` (production) and `develop` (integration).
+
+| Branch type | Pattern | Base | Merge into |
+|-------------|---------|------|------------|
+| Feature | `feature/<name>` | `develop` | `develop` |
+| Hotfix | `hotfix/<name>` | `main` | `main` + `develop` |
+| Release | `release/<version>` | `develop` | `main` + `develop` |
+
+**Rules:**
+- Never commit directly to `main` or `develop`
+- Features branch off `develop`, merge back into `develop` when done
+- Hotfixes branch off `main` (production bug fix), merge into both `main` and `develop`
+- Releases branch off `develop` for final polish, merge into both `main` (tag it) and `develop`
+- Feature branches are disposable — delete after merge
+- Tag `main` on every release/hotfix merge: `git tag vX.Y.Z`
+
+```powershell
+# New feature
+git checkout develop && git pull
+git checkout -b feature/my-feature
+
+# Done → merge back
+git checkout develop && git merge --no-ff feature/my-feature
+git branch -d feature/my-feature
+
+# Hotfix
+git checkout main && git pull
+git checkout -b hotfix/fix-name
+# fix, commit...
+git checkout main && git merge --no-ff hotfix/fix-name && git tag vX.Y.Z
+git checkout develop && git merge --no-ff hotfix/fix-name
+git branch -d hotfix/fix-name
+```
+
 ## Workflow: Adding New Cards / Schema Changes
 
 1. Scrape new data with `scraper.ipynb` → new JSON files in `json/Sets/`
