@@ -151,7 +151,7 @@ export async function addCardToDeck(
 ): Promise<void> {
   await deckDb.runAsync(
     `INSERT INTO DeckCards (DeckID, CardID, Count) VALUES (?, ?, ?)
-     ON CONFLICT(DeckID, CardID) DO UPDATE SET Count = Count + excluded.Count`,
+     ON CONFLICT(DeckID, CardID) DO UPDATE SET Count = MIN(Count + excluded.Count, 4)`,
     [deckId, cardId, count],
   );
   await deckDb.runAsync(
