@@ -8,6 +8,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDeck, getCards, addCardToDeck, removeCardFromDeck, updateDeck, updateCardCount } from '../api';
 import { Feather } from '@expo/vector-icons';
 import HandTester from '../components/HandTester';
+import DeckExportModal from '../components/DeckExportModal';
 import SwipeableRow from '../components/SwipeableRow';
 import RangeSlider from '../components/RangeSlider';
 import { Card, Deck, DeckCard } from '../types';
@@ -33,6 +34,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [editName, setEditName]   = useState('');
   const [editModal, setEditModal] = useState(false);
   const [handTester, setHandTester] = useState(false);
+  const [exportModal, setExportModal] = useState(false);
   const [viewMode, setViewMode]   = useState<'list' | 'grid'>('list');
   const [sortMode, setSortMode]     = useState<SortMode>('type+cost');
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
@@ -492,6 +494,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           <View style={styles.bottomBar}>
             <TouchableOpacity
               style={[styles.bottomBtn, styles.bottomBtnSecondary, deck.card_count === 0 && styles.bottomBtnDisabled]}
+              onPress={() => setExportModal(true)}
+              disabled={deck.card_count === 0}
+            >
+              <Text style={styles.bottomBtnSecondaryText}>Export</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.bottomBtn, styles.bottomBtnSecondary, deck.card_count === 0 && styles.bottomBtnDisabled]}
               onPress={() => setHandTester(true)}
               disabled={deck.card_count === 0}
             >
@@ -517,6 +526,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       {handTester && (
         <HandTester deck={deck} cardMap={cardMap} onClose={() => setHandTester(false)} />
       )}
+
+      <DeckExportModal
+        visible={exportModal}
+        deck={deck}
+        cardMap={cardMap}
+        onClose={() => setExportModal(false)}
+      />
 
       {/* Sort dropdown */}
       <Modal visible={sortMenuOpen} transparent animationType="fade">

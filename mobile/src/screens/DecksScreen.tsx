@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDecks, getDeck, createDeck, updateDeck, deleteDeck, addCardToDeck } from '../api';
+import { pickAndImportDeck } from '../utils/deckImport';
 import { Feather } from '@expo/vector-icons';
 import { Deck } from '../types';
 import DeckItem from '../components/DeckItem';
@@ -30,6 +31,7 @@ export default function DecksScreen({ navigation }: Props) {
   const [renameName, setRenameName]           = useState('');
   const [renaming, setRenaming]               = useState(false);
   const [copying, setCopying]                 = useState(false);
+  const [importing, setImporting]             = useState(false);
 
   // Delete flow
   const [confirmDeck, setConfirmDeck]   = useState<Deck | null>(null);
@@ -114,6 +116,32 @@ export default function DecksScreen({ navigation }: Props) {
     }
   };
 
+  // ── Import ───────────────────────────────────────────────────────────────────
+
+  const handleImport = async () => {
+    setImporting(true);
+    try {
+      const result = await pickAndImportDeck();
+      if (!result) return;
+      load();
+      if (result.unknownIds.length > 0) {
+        const skipped = result.unknownIds.slice(0, 5).join(', ');
+        const more = result.unknownIds.length > 5 ? ` (+${result.unknownIds.length - 5} more)` : '';
+        Alert.alert(
+          'Import complete',
+          `"${result.deckName}" imported with ${result.cardCount} cards.\n\n` +
+          `${result.unknownIds.length} unknown card ID(s) skipped:\n${skipped}${more}`,
+        );
+      } else {
+        navigation.navigate('DeckDetail', { deckId: result.deckId });
+      }
+    } catch (e: any) {
+      Alert.alert('Import failed', e.message);
+    } finally {
+      setImporting(false);
+    }
+  };
+
   // ── Delete ────────────────────────────────────────────────────────────────────
 
   const handleDeletePress = (deck: Deck) => { setContextDeck(null); setConfirmDeck(deck); };
@@ -189,16 +217,21 @@ export default function DecksScreen({ navigation }: Props) {
         contentContainerStyle={{ paddingVertical: 8, paddingHorizontal: 12 }}
       />
 
+      {/* Import FAB */}
+      <TouchableOpacity style={styles.fabImport} onPress={handleImport} disabled={importing}>
+        <Feather name="download" size={22} color="#fff" />
+      </TouchableOpacity>
+
       {/* FAB */}
       <TouchableOpacity style={styles.fab} onPress={() => setCreateVisible(true)}>
         <Text style={styles.fabText}>+</Text>
       </TouchableOpacity>
 
-      {/* Copying indicator */}
-      {copying && (
+      {/* Copying / importing indicator */}
+      {(copying || importing) && (
         <View style={styles.copyingBanner}>
           <ActivityIndicator color={theme.accent} size="small" />
-          <Text style={styles.copyingText}>Copying deck…</Text>
+          <Text style={styles.copyingText}>{importing ? 'Importing deck…' : 'Copying deck…'}</Text>
         </View>
       )}
 
@@ -333,6 +366,15 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   fabText: { color: '#fff', fontSize: 32, lineHeight: 36 },
+
+  fabImport: {
+    position: 'absolute', bottom: 92, right: 24,
+    width: 48, height: 48, borderRadius: 24,
+    backgroundColor: theme.surface,
+    borderWidth: 1, borderColor: theme.accent,
+    justifyContent: 'center', alignItems: 'center',
+    elevation: 6,
+  },
 
   copyingBanner: {
     position: 'absolute', top: 12, alignSelf: 'center',

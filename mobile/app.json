@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "BSS Companion",
-    "slug": "bss-companion",
+    "slug": "mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,7 +29,15 @@
     },
     "plugins": [
       "expo-sqlite",
-      ["expo-asset", {"assets": ["./assets/cards.db"]}]
+      "expo-document-picker",
+      [
+        "expo-asset",
+        {
+          "assets": [
+            "./assets/cards.db"
+          ]
+        }
+      ]
     ],
     "extra": {
       "eas": {
