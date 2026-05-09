@@ -135,7 +135,8 @@ Two permanent branches: `main` (production) and `develop` (integration).
 - Features branch off `develop`, merge back into `develop` when done
 - Hotfixes branch off `main` (production bug fix), merge into both `main` and `develop`
 - Releases branch off `develop` for final polish, merge into both `main` (tag it) and `develop`
-- Feature branches are disposable — delete after merge
+- Feature and hotfix branches are disposable — delete after merge
+- Release branches (`release/vX.Y.Z`) are kept permanently on remote after merge
 - Tag `main` on every release/hotfix merge: `git tag vX.Y.Z`
 
 ```powershell
