@@ -1,15 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Modal, View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Pressable,
 } from 'react-native';
-import { captureRef } from 'react-native-view-shot';
-import * as Sharing from 'expo-sharing';
+import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
 import { theme } from '../theme';
-import { buildJSON, buildTXT, buildCSV, shareTextExport } from '../utils/deckExport';
-import DeckExportImage from './DeckExportImage';
+import { buildTXT, buildCSV, shareTextExport } from '../utils/deckExport';
 
-type ExportState = 'idle' | 'preparing-image' | 'sharing' | 'error';
+type ExportState = 'idle' | 'sharing' | 'error';
 
 interface Props {
   visible: boolean;
@@ -21,13 +19,10 @@ interface Props {
 export default function DeckExportModal({ visible, deck, cardMap, onClose }: Props) {
   const [state, setState] = useState<ExportState>('idle');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [capturingImage, setCapturingImage] = useState(false);
-  const imageViewRef = useRef<View>(null);
 
   const safeName = deck.name.replace(/[^a-zA-Z0-9_-]/g, '_');
 
-  const reset = () => { setState('idle'); setErrorMsg(null); setCapturingImage(false); };
-
+  const reset = () => { setState('idle'); setErrorMsg(null); };
   const handleClose = () => { reset(); onClose(); };
 
   const wrap = async (fn: () => Promise<void>) => {
@@ -41,48 +36,18 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
     }
   };
 
-  const exportTXT = () => wrap(async () => {
-    await shareTextExport(buildTXT(deck, cardMap), `${safeName}.txt`, 'text/plain');
-  });
+  const exportTXT = () => wrap(() =>
+    shareTextExport(buildTXT(deck, cardMap), `${safeName}.txt`, 'text/plain'),
+  );
 
-  const exportCSV = () => wrap(async () => {
-    await shareTextExport(buildCSV(deck, cardMap), `${safeName}.csv`, 'text/csv');
-  });
+  const exportCSV = () => wrap(() =>
+    shareTextExport(buildCSV(deck, cardMap), `${safeName}.csv`, 'text/csv'),
+  );
 
-  const exportJSON = () => wrap(async () => {
-    await shareTextExport(buildJSON(deck), `${safeName}.json`, 'application/json');
-  });
-
-  const exportImage = () => {
-    setState('preparing-image');
-    setCapturingImage(true);
-  };
-
-  const handleImageReady = async (ref: React.RefObject<View | null>) => {
-    try {
-      await new Promise(res => setTimeout(res, 200));
-      const uri = await captureRef(ref, { format: 'png', quality: 1.0 });
-      await Sharing.shareAsync(uri, { mimeType: 'image/png', dialogTitle: `${safeName}.png` });
-      setState('idle');
-    } catch (e: any) {
-      setErrorMsg(e.message ?? 'Image capture failed.');
-      setState('error');
-    } finally {
-      setCapturingImage(false);
-    }
-  };
-
-  const busy = state === 'sharing' || state === 'preparing-image';
+  const busy = state === 'sharing';
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
-      {/* Off-screen image render target — mounted only when capturing */}
-      {capturingImage && (
-        <View style={styles.offscreen} pointerEvents="none">
-          <DeckExportImage deck={deck} cardMap={cardMap} onReady={handleImageReady} />
-        </View>
-      )}
-
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={handleClose}>
       <Pressable style={styles.overlay} onPress={busy ? undefined : handleClose}>
         <Pressable style={styles.sheet} onPress={e => e.stopPropagation()}>
           <Text style={styles.title}>Export Deck</Text>
@@ -97,31 +62,25 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
           ) : busy ? (
             <View style={styles.loadingWrap}>
               <ActivityIndicator color={theme.accent} size="large" />
-              <Text style={styles.loadingText}>
-                {state === 'preparing-image' ? 'Preparing image…' : 'Opening share sheet…'}
-              </Text>
+              <Text style={styles.loadingText}>Opening share sheet…</Text>
             </View>
           ) : (
-            <View style={styles.grid}>
-              <TouchableOpacity style={styles.exportBtn} onPress={exportImage}>
-                <Text style={styles.exportBtnIcon}>🖼</Text>
-                <Text style={styles.exportBtnLabel}>Image</Text>
-                <Text style={styles.exportBtnSub}>PNG · card grid</Text>
-              </TouchableOpacity>
+            <View style={styles.btnList}>
               <TouchableOpacity style={styles.exportBtn} onPress={exportTXT}>
-                <Text style={styles.exportBtnIcon}>📄</Text>
-                <Text style={styles.exportBtnLabel}>TXT</Text>
-                <Text style={styles.exportBtnSub}>plain text list</Text>
+                <Feather name="file-text" size={22} color={theme.accent} />
+                <View style={styles.exportBtnText}>
+                  <Text style={styles.exportBtnLabel}>Text</Text>
+                  <Text style={styles.exportBtnSub}>plain list · shareable anywhere</Text>
+                </View>
+                <Feather name="chevron-right" size={18} color={theme.border} />
               </TouchableOpacity>
               <TouchableOpacity style={styles.exportBtn} onPress={exportCSV}>
-                <Text style={styles.exportBtnIcon}>📊</Text>
-                <Text style={styles.exportBtnLabel}>CSV</Text>
-                <Text style={styles.exportBtnSub}>spreadsheet</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.exportBtn} onPress={exportJSON}>
-                <Text style={styles.exportBtnIcon}>🔁</Text>
-                <Text style={styles.exportBtnLabel}>JSON</Text>
-                <Text style={styles.exportBtnSub}>import-ready</Text>
+                <Feather name="grid" size={22} color={theme.accent} />
+                <View style={styles.exportBtnText}>
+                  <Text style={styles.exportBtnLabel}>CSV</Text>
+                  <Text style={styles.exportBtnSub}>spreadsheet · Count, ID, Name…</Text>
+                </View>
+                <Feather name="chevron-right" size={18} color={theme.border} />
               </TouchableOpacity>
             </View>
           )}
@@ -138,21 +97,15 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
 }
 
 const styles = StyleSheet.create({
-  offscreen: {
-    position: 'absolute',
-    left: -9999,
-    top: 0,
-    zIndex: -1,
-  },
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
   },
   sheet: {
     backgroundColor: theme.surface,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: 16,
     padding: 24,
     gap: 16,
   },
@@ -161,23 +114,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
   },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
+  btnList: {
+    gap: 8,
   },
   exportBtn: {
-    width: '47%',
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: theme.bg,
     borderRadius: 12,
     borderWidth: 1,
     borderColor: theme.border,
     padding: 16,
-    alignItems: 'center',
-    gap: 4,
+    gap: 14,
   },
-  exportBtnIcon: {
-    fontSize: 28,
+  exportBtnText: {
+    flex: 1,
+    gap: 2,
   },
   exportBtnLabel: {
     color: theme.text,
@@ -186,7 +138,7 @@ const styles = StyleSheet.create({
   },
   exportBtnSub: {
     color: theme.textMuted,
-    fontSize: 11,
+    fontSize: 12,
   },
   loadingWrap: {
     alignItems: 'center',

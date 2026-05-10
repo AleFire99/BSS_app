@@ -391,54 +391,60 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           </TouchableOpacity>
 
           {/* Picker modals */}
-          <Modal visible={addSetOpen} transparent animationType="slide">
-            <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setAddSetOpen(false)} />
-            <View style={styles.pickerSheet}>
-              <Text style={styles.pickerTitle}>Select Set</Text>
-              <ScrollView>
-                <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddSet(null); setAddSetOpen(false); }}>
-                  <Text style={[styles.pickerRowText, !addSet && styles.pickerRowSelected]}>All Sets</Text>
-                </TouchableOpacity>
-                {addSets.map(s => (
-                  <TouchableOpacity key={s} style={styles.pickerRow} onPress={() => { setAddSet(s); setAddSetOpen(false); }}>
-                    <Text style={[styles.pickerRowText, addSet === s && styles.pickerRowSelected]}>{s}</Text>
+          <Modal visible={addSetOpen} transparent animationType="fade">
+            <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setAddSetOpen(false)} />
+            <View style={styles.pickerCenteredWrap} pointerEvents="box-none">
+              <View style={styles.pickerSheet}>
+                <Text style={styles.pickerTitle}>Select Set</Text>
+                <ScrollView>
+                  <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddSet(null); setAddSetOpen(false); }}>
+                    <Text style={[styles.pickerRowText, !addSet && styles.pickerRowSelected]}>All Sets</Text>
                   </TouchableOpacity>
-                ))}
-              </ScrollView>
+                  {addSets.map(s => (
+                    <TouchableOpacity key={s} style={styles.pickerRow} onPress={() => { setAddSet(s); setAddSetOpen(false); }}>
+                      <Text style={[styles.pickerRowText, addSet === s && styles.pickerRowSelected]}>{s}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+              </View>
             </View>
           </Modal>
 
-          <Modal visible={addRarityOpen} transparent animationType="slide">
-            <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setAddRarityOpen(false)} />
-            <View style={styles.pickerSheet}>
-              <Text style={styles.pickerTitle}>Select Rarity</Text>
-              <ScrollView>
-                <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddRarity(null); setAddRarityOpen(false); }}>
-                  <Text style={[styles.pickerRowText, !addRarity && styles.pickerRowSelected]}>All Rarities</Text>
-                </TouchableOpacity>
-                {addRarities.map(r => (
-                  <TouchableOpacity key={r} style={styles.pickerRow} onPress={() => { setAddRarity(r); setAddRarityOpen(false); }}>
-                    <Text style={[styles.pickerRowText, addRarity === r && styles.pickerRowSelected]}>{r}</Text>
+          <Modal visible={addRarityOpen} transparent animationType="fade">
+            <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setAddRarityOpen(false)} />
+            <View style={styles.pickerCenteredWrap} pointerEvents="box-none">
+              <View style={styles.pickerSheet}>
+                <Text style={styles.pickerTitle}>Select Rarity</Text>
+                <ScrollView>
+                  <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddRarity(null); setAddRarityOpen(false); }}>
+                    <Text style={[styles.pickerRowText, !addRarity && styles.pickerRowSelected]}>All Rarities</Text>
                   </TouchableOpacity>
-                ))}
-              </ScrollView>
+                  {addRarities.map(r => (
+                    <TouchableOpacity key={r} style={styles.pickerRow} onPress={() => { setAddRarity(r); setAddRarityOpen(false); }}>
+                      <Text style={[styles.pickerRowText, addRarity === r && styles.pickerRowSelected]}>{r}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+              </View>
             </View>
           </Modal>
 
-          <Modal visible={addTypeOpen} transparent animationType="slide">
-            <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setAddTypeOpen(false)} />
-            <View style={styles.pickerSheet}>
-              <Text style={styles.pickerTitle}>Select Type</Text>
-              <ScrollView>
-                <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddType(null); setAddTypeOpen(false); }}>
-                  <Text style={[styles.pickerRowText, !addType && styles.pickerRowSelected]}>All Types</Text>
-                </TouchableOpacity>
-                {TYPES.map(t => (
-                  <TouchableOpacity key={t} style={styles.pickerRow} onPress={() => { setAddType(t); setAddTypeOpen(false); }}>
-                    <Text style={[styles.pickerRowText, addType === t && styles.pickerRowSelected]}>{t}</Text>
+          <Modal visible={addTypeOpen} transparent animationType="fade">
+            <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setAddTypeOpen(false)} />
+            <View style={styles.pickerCenteredWrap} pointerEvents="box-none">
+              <View style={styles.pickerSheet}>
+                <Text style={styles.pickerTitle}>Select Type</Text>
+                <ScrollView>
+                  <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddType(null); setAddTypeOpen(false); }}>
+                    <Text style={[styles.pickerRowText, !addType && styles.pickerRowSelected]}>All Types</Text>
                   </TouchableOpacity>
-                ))}
-              </ScrollView>
+                  {TYPES.map(t => (
+                    <TouchableOpacity key={t} style={styles.pickerRow} onPress={() => { setAddType(t); setAddTypeOpen(false); }}>
+                      <Text style={[styles.pickerRowText, addType === t && styles.pickerRowSelected]}>{t}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+              </View>
             </View>
           </Modal>
         </View>
@@ -456,7 +462,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               }}
               ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
               ListEmptyComponent={<Text style={styles.empty}>Deck is empty. Add cards!</Text>}
-              contentContainerStyle={{ paddingBottom: 90, paddingHorizontal: 12, paddingTop: 8 }}
+              contentContainerStyle={{ paddingBottom: 200, paddingHorizontal: 12, paddingTop: 8 }}
             />
           ) : (
             <FlatList
@@ -487,29 +493,27 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
                 );
               }}
               ListEmptyComponent={<Text style={styles.empty}>Deck is empty. Add cards!</Text>}
-              contentContainerStyle={{ paddingBottom: 90, paddingHorizontal: 8 }}
+              contentContainerStyle={{ paddingBottom: 200, paddingHorizontal: 8 }}
             />
           )}
 
-          <View style={styles.bottomBar}>
-            <TouchableOpacity
-              style={[styles.bottomBtn, styles.bottomBtnSecondary, deck.card_count === 0 && styles.bottomBtnDisabled]}
-              onPress={() => setExportModal(true)}
-              disabled={deck.card_count === 0}
-            >
-              <Text style={styles.bottomBtnSecondaryText}>Export</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.bottomBtn, styles.bottomBtnSecondary, deck.card_count === 0 && styles.bottomBtnDisabled]}
-              onPress={() => setHandTester(true)}
-              disabled={deck.card_count === 0}
-            >
-              <Text style={styles.bottomBtnSecondaryText}>Test Hand</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.bottomBtn, styles.bottomBtnPrimary]} onPress={() => setAddMode(true)}>
-              <Text style={styles.bottomBtnPrimaryText}>+ Add Card</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={styles.fab} onPress={() => setAddMode(true)}>
+            <Feather name="plus" size={22} color="#fff" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.fabSecondary, { bottom: 100, right: 26 }, deck.card_count === 0 && styles.fabDisabled]}
+            onPress={() => setExportModal(true)}
+            disabled={deck.card_count === 0}
+          >
+            <Feather name="upload" size={20} color={deck.card_count === 0 ? theme.textMuted : theme.accent} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.fabSecondary, { bottom: 152, right: 26 }, deck.card_count === 0 && styles.fabDisabled]}
+            onPress={() => setHandTester(true)}
+            disabled={deck.card_count === 0}
+          >
+            <Feather name="layers" size={20} color={deck.card_count === 0 ? theme.textMuted : theme.accent} />
+          </TouchableOpacity>
 
           <Animated.View
             style={[styles.toast, { transform: [{ translateY: cardToastTranslate }], opacity: cardToastAnim }]}
@@ -557,9 +561,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       </Modal>
 
       {/* Rename deck modal — keyboard-aware */}
-      <Modal visible={editModal} transparent animationType="slide">
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setEditModal(false)} />
+      <Modal visible={editModal} transparent animationType="fade">
+        <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setEditModal(false)} />
+        <KeyboardAvoidingView
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 24 }}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          pointerEvents="box-none"
+        >
           <View style={styles.sheet}>
             <Text style={styles.sheetTitle}>Rename Deck</Text>
             <TextInput
@@ -674,18 +682,17 @@ const styles = StyleSheet.create({
 
   empty: { color: theme.textMuted, textAlign: 'center', marginTop: 40, fontSize: 14 },
 
-  bottomBar: {
-    position: 'absolute', bottom: 0, left: 0, right: 0,
-    flexDirection: 'row', gap: 10,
-    paddingHorizontal: 16, paddingTop: 12, paddingBottom: 24,
-    backgroundColor: theme.bg, borderTopWidth: 1, borderTopColor: theme.border,
+  fab: {
+    position: 'absolute', width: 56, height: 56, borderRadius: 28,
+    backgroundColor: theme.accent, right: 20, bottom: 24,
+    justifyContent: 'center', alignItems: 'center', elevation: 6,
   },
-  bottomBtn:              { flex: 1, borderRadius: 12, padding: 14, alignItems: 'center' },
-  bottomBtnPrimary:       { backgroundColor: theme.accent },
-  bottomBtnSecondary:     { backgroundColor: theme.surface, borderWidth: 1, borderColor: theme.accent },
-  bottomBtnDisabled:      { borderColor: theme.border, opacity: 0.4 },
-  bottomBtnPrimaryText:   { color: '#fff', fontWeight: '700', fontSize: 15 },
-  bottomBtnSecondaryText: { color: theme.accent, fontWeight: '700', fontSize: 15 },
+  fabSecondary: {
+    position: 'absolute', width: 44, height: 44, borderRadius: 22,
+    backgroundColor: theme.surface, borderWidth: 1, borderColor: theme.accent,
+    justifyContent: 'center', alignItems: 'center', elevation: 5,
+  },
+  fabDisabled: { borderColor: theme.border, opacity: 0.4 },
 
   doneBtn:     { backgroundColor: theme.surface, margin: 12, borderRadius: 8, padding: 14, alignItems: 'center' },
   doneBtnText: { color: theme.text, fontWeight: '700', fontSize: 15 },
@@ -701,10 +708,9 @@ const styles = StyleSheet.create({
   undoBtn:   { paddingHorizontal: 16, paddingVertical: 12 },
   undoText:  { color: theme.accent, fontSize: 14, fontWeight: '700' },
 
-  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' },
   sheet: {
     backgroundColor: theme.surface,
-    borderTopLeftRadius: 20, borderTopRightRadius: 20,
+    borderRadius: 16,
     padding: 24, gap: 12,
   },
   sheetTitle: { color: theme.text, fontSize: 18, fontWeight: '700' },
@@ -716,7 +722,8 @@ const styles = StyleSheet.create({
   btn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
   btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
 
-  pickerSheet:       { maxHeight: '60%', backgroundColor: theme.surface, borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20 },
+  pickerCenteredWrap: { ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center' },
+  pickerSheet:       { width: '90%', maxHeight: '70%', backgroundColor: theme.surface, borderRadius: 16, padding: 20 },
   pickerTitle:       { color: theme.text, fontSize: 16, fontWeight: '700', marginBottom: 12 },
   pickerRow:         { paddingVertical: 13, borderBottomWidth: 1, borderBottomColor: theme.border },
   pickerRowText:     { color: theme.text, fontSize: 14 },

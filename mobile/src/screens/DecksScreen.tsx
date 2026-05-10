@@ -325,9 +325,13 @@ export default function DecksScreen({ navigation }: Props) {
       </Modal>
 
       {/* Create deck modal */}
-      <Modal visible={createVisible} transparent animationType="slide">
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setCreateVisible(false)} />
+      <Modal visible={createVisible} transparent animationType="fade">
+        <TouchableOpacity style={styles.scrim} activeOpacity={1} onPress={() => setCreateVisible(false)} />
+        <KeyboardAvoidingView
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 24 }}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          pointerEvents="box-none"
+        >
           <View style={styles.createSheet}>
             <Text style={styles.sheetTitle}>New Deck</Text>
             <TextInput
@@ -423,11 +427,10 @@ const styles = StyleSheet.create({
   menuDivider:{ height: 1, backgroundColor: theme.border, marginVertical: 4, marginHorizontal: 20 },
   menuDanger: { color: '#ef5350' },
 
-  // Create / rename shared
-  overlay:    { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' },
+  // Create sheet
   createSheet: {
     backgroundColor: theme.surface,
-    borderTopLeftRadius: 20, borderTopRightRadius: 20,
+    borderRadius: 16,
     padding: 24, gap: 12,
   },
   sheetTitle: { color: theme.text, fontSize: 18, fontWeight: '700', marginBottom: 4 },

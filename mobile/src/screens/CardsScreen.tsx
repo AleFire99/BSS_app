@@ -204,77 +204,83 @@ export default function CardsScreen({ navigation }: Props) {
       )}
 
       {/* Set picker modal */}
-      <Modal visible={setPickerOpen} transparent animationType="slide">
-        <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setSetPickerOpen(false)} />
-        <View style={styles.sheet}>
-          <Text style={styles.sheetTitle}>Select Set</Text>
-          <ScrollView>
-            <TouchableOpacity
-              style={styles.modalRow}
-              onPress={() => { setFilterSet(null); setSetPickerOpen(false); }}
-            >
-              <Text style={[styles.modalRowText, !filterSet && styles.modalRowSelected]}>All Sets</Text>
-            </TouchableOpacity>
-            {sets.map(s => (
+      <Modal visible={setPickerOpen} transparent animationType="fade">
+        <TouchableOpacity style={styles.backdrop} activeOpacity={1} onPress={() => setSetPickerOpen(false)} />
+        <View style={styles.centeredWrap} pointerEvents="box-none">
+          <View style={styles.sheet}>
+            <Text style={styles.sheetTitle}>Select Set</Text>
+            <ScrollView>
               <TouchableOpacity
-                key={s}
                 style={styles.modalRow}
-                onPress={() => { setFilterSet(s); setSetPickerOpen(false); }}
+                onPress={() => { setFilterSet(null); setSetPickerOpen(false); }}
               >
-                <Text style={[styles.modalRowText, filterSet === s && styles.modalRowSelected]}>{s}</Text>
+                <Text style={[styles.modalRowText, !filterSet && styles.modalRowSelected]}>All Sets</Text>
               </TouchableOpacity>
-            ))}
-          </ScrollView>
+              {sets.map(s => (
+                <TouchableOpacity
+                  key={s}
+                  style={styles.modalRow}
+                  onPress={() => { setFilterSet(s); setSetPickerOpen(false); }}
+                >
+                  <Text style={[styles.modalRowText, filterSet === s && styles.modalRowSelected]}>{s}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
         </View>
       </Modal>
 
       {/* Type picker modal */}
-      <Modal visible={typePickerOpen} transparent animationType="slide">
-        <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setTypePickerOpen(false)} />
-        <View style={styles.sheet}>
-          <Text style={styles.sheetTitle}>Select Type</Text>
-          <ScrollView>
-            <TouchableOpacity
-              style={styles.modalRow}
-              onPress={() => { setFilterType(null); setTypePickerOpen(false); }}
-            >
-              <Text style={[styles.modalRowText, !filterType && styles.modalRowSelected]}>All Types</Text>
-            </TouchableOpacity>
-            {TYPES.map(t => (
+      <Modal visible={typePickerOpen} transparent animationType="fade">
+        <TouchableOpacity style={styles.backdrop} activeOpacity={1} onPress={() => setTypePickerOpen(false)} />
+        <View style={styles.centeredWrap} pointerEvents="box-none">
+          <View style={styles.sheet}>
+            <Text style={styles.sheetTitle}>Select Type</Text>
+            <ScrollView>
               <TouchableOpacity
-                key={t}
                 style={styles.modalRow}
-                onPress={() => { setFilterType(t); setTypePickerOpen(false); }}
+                onPress={() => { setFilterType(null); setTypePickerOpen(false); }}
               >
-                <Text style={[styles.modalRowText, filterType === t && styles.modalRowSelected]}>{t}</Text>
+                <Text style={[styles.modalRowText, !filterType && styles.modalRowSelected]}>All Types</Text>
               </TouchableOpacity>
-            ))}
-          </ScrollView>
+              {TYPES.map(t => (
+                <TouchableOpacity
+                  key={t}
+                  style={styles.modalRow}
+                  onPress={() => { setFilterType(t); setTypePickerOpen(false); }}
+                >
+                  <Text style={[styles.modalRowText, filterType === t && styles.modalRowSelected]}>{t}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
         </View>
       </Modal>
 
       {/* Rarity picker modal */}
-      <Modal visible={rarityPickerOpen} transparent animationType="slide">
-        <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setRarityPickerOpen(false)} />
-        <View style={styles.sheet}>
-          <Text style={styles.sheetTitle}>Select Rarity</Text>
-          <ScrollView>
-            <TouchableOpacity
-              style={styles.modalRow}
-              onPress={() => { setFilterRarity(null); setRarityPickerOpen(false); }}
-            >
-              <Text style={[styles.modalRowText, !filterRarity && styles.modalRowSelected]}>All Rarities</Text>
-            </TouchableOpacity>
-            {rarities.map(r => (
+      <Modal visible={rarityPickerOpen} transparent animationType="fade">
+        <TouchableOpacity style={styles.backdrop} activeOpacity={1} onPress={() => setRarityPickerOpen(false)} />
+        <View style={styles.centeredWrap} pointerEvents="box-none">
+          <View style={styles.sheet}>
+            <Text style={styles.sheetTitle}>Select Rarity</Text>
+            <ScrollView>
               <TouchableOpacity
-                key={r}
                 style={styles.modalRow}
-                onPress={() => { setFilterRarity(r); setRarityPickerOpen(false); }}
+                onPress={() => { setFilterRarity(null); setRarityPickerOpen(false); }}
               >
-                <Text style={[styles.modalRowText, filterRarity === r && styles.modalRowSelected]}>{r}</Text>
+                <Text style={[styles.modalRowText, !filterRarity && styles.modalRowSelected]}>All Rarities</Text>
               </TouchableOpacity>
-            ))}
-          </ScrollView>
+              {rarities.map(r => (
+                <TouchableOpacity
+                  key={r}
+                  style={styles.modalRow}
+                  onPress={() => { setFilterRarity(r); setRarityPickerOpen(false); }}
+                >
+                  <Text style={[styles.modalRowText, filterRarity === r && styles.modalRowSelected]}>{r}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
         </View>
       </Modal>
     </View>
@@ -317,10 +323,11 @@ const styles = StyleSheet.create({
   count:      { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
   footerText: { color: theme.textMuted, fontSize: 12, textAlign: 'center', padding: 16 },
 
-  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' },
+  backdrop:    { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.5)' },
+  centeredWrap:{ ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center' },
   sheet: {
-    maxHeight: '60%', backgroundColor: theme.surface,
-    borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20,
+    width: '90%', maxHeight: '70%', backgroundColor: theme.surface,
+    borderRadius: 16, padding: 20,
   },
   sheetTitle:       { color: theme.text, fontSize: 16, fontWeight: '700', marginBottom: 12 },
   modalRow:         { paddingVertical: 13, borderBottomWidth: 1, borderBottomColor: theme.border },
