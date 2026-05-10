@@ -493,7 +493,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
                     <Image
                       source={{ uri: `https://www.bssdb.dev/cards/bss/${item.card_id}.png` }}
                       style={styles.gridImage}
-                      resizeMode="contain"
+                      resizeMode="cover"
                     />
                     {item.count > 1 && (
                       <View style={styles.gridBadge}>
@@ -666,7 +666,7 @@ const styles = StyleSheet.create({
   qtyBtnTextDisabled: { color: theme.textMuted },
 
   gridItem:      { width: '33.33%', padding: 3 },
-  gridImage:     { width: '100%', height: 150, borderRadius: 4, backgroundColor: theme.border },
+  gridImage:     { width: '100%', aspectRatio: 63 / 88, borderRadius: 4, backgroundColor: theme.border },
   gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
   gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
 
