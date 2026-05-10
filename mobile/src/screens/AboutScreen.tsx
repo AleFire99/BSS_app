@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.0.0</Text>
+      <Text style={styles.version}>v1.1.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -33,7 +33,48 @@ export default function AboutScreen() {
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Changelog</Text>
+
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.1.0</Text>
+
+          <Text style={styles.changelogGroup}>Deck Export</Text>
+          <Text style={styles.body}>• Export decks as Image, Text, or CSV</Text>
+          <Text style={styles.body}>• Image: dark-theme preview with color donut chart, avg cost, type breakdown, and full card grid</Text>
+          <Text style={styles.body}>• Text: human-readable list (e.g. 4x BSS01-001: Card Name)</Text>
+          <Text style={styles.body}>• CSV: spreadsheet-compatible with Count, CardID, Name, Type, Color, Rarity, Cost columns</Text>
+          <Text style={styles.body}>• Share via system share sheet or save directly to device storage</Text>
+
+          <Text style={styles.changelogGroup}>Deck Import</Text>
+          <Text style={styles.body}>• Import decks from .json, .txt, or .csv files</Text>
+          <Text style={styles.body}>• Unknown card IDs are reported and skipped gracefully</Text>
+
+          <Text style={styles.changelogGroup}>Deck List</Text>
+          <Text style={styles.body}>• Stacked FABs (create / import / hand-test) replace bottom bar</Text>
+          <Text style={styles.body}>• Long-press context menu is now centered on screen</Text>
+
+          <Text style={styles.changelogGroup}>Deck Builder</Text>
+          <Text style={styles.body}>• Round accent FAB replaces "Done" text button in add-card mode</Text>
+          <Text style={styles.body}>• Rename icon moved to the navigation header for easier access</Text>
+          <Text style={styles.body}>• Card grid uses correct 63:88 aspect ratio with equal padding on all sides</Text>
+
+          <Text style={styles.changelogGroup}>Cards Browser</Text>
+          <Text style={styles.body}>• Set, Rarity, and Type filters now open inline dropdowns — no full-screen modal</Text>
+          <Text style={styles.body}>• Active filter highlighted in accent color</Text>
+
+          <Text style={styles.changelogGroup}>Bug Fixes</Text>
+          <Text style={styles.body}>• Fixed: deleting multiple decks in a row now correctly removes all of them</Text>
+          <Text style={styles.body}>• Fixed: importing a .txt file with card IDs ending in a colon now parses correctly</Text>
+          <Text style={styles.body}>• Fixed: CSV export was missing rarity data</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
+          <Text style={styles.changelogVersion}>v1.0.1</Text>
+
+          <Text style={styles.changelogGroup}>Bug Fixes</Text>
+          <Text style={styles.body}>• Fixed: adding the same card rapidly could exceed the 4-copy limit due to a race condition</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.0.0</Text>
 
           <Text style={styles.changelogGroup}>Cards</Text>
@@ -44,24 +85,19 @@ export default function AboutScreen() {
 
           <Text style={styles.changelogGroup}>Deck Builder</Text>
           <Text style={styles.body}>• Create, rename, copy, and delete decks</Text>
-          <Text style={styles.body}>• Add cards with full collection-style filters (name/effects/keywords search, color gems, set, rarity, type, cost range)</Text>
-          <Text style={styles.body}>• Sort deck cards by type › cost, type › name, or type › color via dropdown</Text>
-          <Text style={styles.body}>• Color dots on each card row for quick color recognition</Text>
-          <Text style={styles.body}>• Swipe left to remove a card (with 4-second undo)</Text>
-          <Text style={styles.body}>• Live deck stats: card count, avg cost, Spirit/Magic/Nexus breakdown, color distribution</Text>
-          <Text style={styles.body}>• Grid view mode for visual overview</Text>
-          <Text style={styles.body}>• Keyboard-aware modals — name prompt slides above the keyboard</Text>
+          <Text style={styles.body}>• Add cards with full collection-style filters</Text>
+          <Text style={styles.body}>• Sort deck cards by type › cost, type › name, or type › color</Text>
+          <Text style={styles.body}>• Swipe left to remove a card (with undo)</Text>
+          <Text style={styles.body}>• Live deck stats: card count, avg cost, type breakdown, color distribution</Text>
+          <Text style={styles.body}>• List and grid view modes</Text>
 
           <Text style={styles.changelogGroup}>Hand Tester</Text>
-          <Text style={styles.body}>• Simulates a 5-card opening hand drawn from your deck</Text>
+          <Text style={styles.body}>• Simulate a 5-card opening hand drawn from your deck</Text>
           <Text style={styles.body}>• Mulligan support — redraw as many times as you like</Text>
-          <Text style={styles.body}>• Auto-draws on open, no extra tap needed</Text>
 
           <Text style={styles.changelogGroup}>Rulings</Text>
-          <Text style={styles.body}>• Keyword definitions with per-keyword Q&A rulings</Text>
+          <Text style={styles.body}>• Keyword definitions with Q&A rulings</Text>
           <Text style={styles.body}>• Official card-specific Q&A from the BSS rulebook</Text>
-          <Text style={styles.body}>• Centered popup dialogs — no longer hidden behind the navigation bar</Text>
-          <Text style={styles.body}>• Search keywords and cards by name, ID, or ruling text</Text>
 
           <Text style={styles.changelogGroup}>General</Text>
           <Text style={styles.body}>• Fully offline — all card data bundled in the app</Text>
