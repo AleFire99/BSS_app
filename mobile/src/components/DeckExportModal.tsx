@@ -7,6 +7,7 @@ import * as Sharing from 'expo-sharing';
 import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
 import { theme } from '../theme';
+import * as FileSystem from 'expo-file-system/legacy';
 import { buildTXT, buildCSV, shareTextExport, saveTextToDevice } from '../utils/deckExport';
 import DeckExportImage from './DeckExportImage';
 
@@ -63,6 +64,15 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
     await Sharing.shareAsync(uri, { mimeType: 'image/png', dialogTitle: 'Share Deck Image' });
   });
 
+  const saveImage = () => wrap(async () => {
+    if (!imageRef.current) throw new Error('Image not ready yet.');
+    const b64 = await captureRef(imageRef.current, { format: 'png', quality: 1, result: 'base64' });
+    const dir = await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+    if (!dir.granted) return;
+    const fileUri = await FileSystem.StorageAccessFramework.createFileAsync(dir.directoryUri, `${safeName}.png`, 'image/png');
+    await FileSystem.StorageAccessFramework.writeAsStringAsync(fileUri, b64, { encoding: FileSystem.EncodingType.Base64 });
+  });
+
   const busy = state === 'sharing';
 
   return (
@@ -105,6 +115,9 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
                 </View>
                 <TouchableOpacity style={styles.exportAction} onPress={shareImage} disabled={busy}>
                   <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.exportAction} onPress={saveImage} disabled={busy}>
+                  <Feather name="download" size={20} color={busy ? theme.border : theme.accent} />
                 </TouchableOpacity>
               </View>
               <View style={styles.exportBtn}>
