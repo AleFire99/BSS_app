@@ -332,5 +332,5 @@ const styles = StyleSheet.create({
   sheetTitle:       { color: theme.text, fontSize: 16, fontWeight: '700', marginBottom: 12 },
   modalRow:         { paddingVertical: 13, borderBottomWidth: 1, borderBottomColor: theme.border },
   modalRowText:     { color: theme.text, fontSize: 14 },
-  modalRowSelected: { fontWeight: '700', color: theme.text },
+  modalRowSelected: { fontWeight: '700', color: theme.accent },
 });
