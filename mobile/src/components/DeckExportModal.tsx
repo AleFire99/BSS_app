@@ -5,7 +5,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
 import { theme } from '../theme';
-import { buildTXT, buildCSV, shareTextExport } from '../utils/deckExport';
+import { buildTXT, buildCSV, shareTextExport, saveTextToDevice } from '../utils/deckExport';
 
 type ExportState = 'idle' | 'sharing' | 'error';
 
@@ -39,9 +39,14 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
   const exportTXT = () => wrap(() =>
     shareTextExport(buildTXT(deck, cardMap), `${safeName}.txt`, 'text/plain'),
   );
-
   const exportCSV = () => wrap(() =>
     shareTextExport(buildCSV(deck, cardMap), `${safeName}.csv`, 'text/csv'),
+  );
+  const saveTXT = () => wrap(() =>
+    saveTextToDevice(buildTXT(deck, cardMap), `${safeName}.txt`, 'text/plain'),
+  );
+  const saveCSV = () => wrap(() =>
+    saveTextToDevice(buildCSV(deck, cardMap), `${safeName}.csv`, 'text/csv'),
   );
 
   const busy = state === 'sharing';
@@ -66,22 +71,32 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
             </View>
           ) : (
             <View style={styles.btnList}>
-              <TouchableOpacity style={styles.exportBtn} onPress={exportTXT}>
+              <View style={styles.exportBtn}>
                 <Feather name="file-text" size={22} color={theme.accent} />
                 <View style={styles.exportBtnText}>
                   <Text style={styles.exportBtnLabel}>Text</Text>
-                  <Text style={styles.exportBtnSub}>plain list · shareable anywhere</Text>
+                  <Text style={styles.exportBtnSub}>plain text list</Text>
                 </View>
-                <Feather name="chevron-right" size={18} color={theme.border} />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.exportBtn} onPress={exportCSV}>
+                <TouchableOpacity style={styles.exportAction} onPress={exportTXT} disabled={busy}>
+                  <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.exportAction} onPress={saveTXT} disabled={busy}>
+                  <Feather name="download" size={20} color={busy ? theme.border : theme.accent} />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.exportBtn}>
                 <Feather name="grid" size={22} color={theme.accent} />
                 <View style={styles.exportBtnText}>
                   <Text style={styles.exportBtnLabel}>CSV</Text>
-                  <Text style={styles.exportBtnSub}>spreadsheet · Count, ID, Name…</Text>
+                  <Text style={styles.exportBtnSub}>spreadsheet format</Text>
                 </View>
-                <Feather name="chevron-right" size={18} color={theme.border} />
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.exportAction} onPress={exportCSV} disabled={busy}>
+                  <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.exportAction} onPress={saveCSV} disabled={busy}>
+                  <Feather name="download" size={20} color={busy ? theme.border : theme.accent} />
+                </TouchableOpacity>
+              </View>
             </View>
           )}
 
@@ -127,6 +142,7 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 14,
   },
+  exportAction: { padding: 6 },
   exportBtnText: {
     flex: 1,
     gap: 2,

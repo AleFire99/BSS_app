@@ -62,7 +62,7 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   };
 
   return (
-    <Modal visible animationType="slide" transparent>
+    <Modal visible animationType="fade" transparent>
       <View style={styles.overlay}>
         <View style={styles.container}>
           {/* Header */}
@@ -154,14 +154,15 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.7)',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
   },
   container: {
     backgroundColor: theme.bg,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: 16,
     paddingBottom: 32,
     minHeight: '60%',
+    maxHeight: '85%',
   },
   header: {
     flexDirection: 'row',

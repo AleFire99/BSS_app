@@ -49,3 +49,16 @@ export async function shareTextExport(
 export async function canShareFiles(): Promise<boolean> {
   return Sharing.isAvailableAsync();
 }
+
+export async function saveTextToDevice(
+  content: string,
+  filename: string,
+  mimeType: string,
+): Promise<void> {
+  const result = await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+  if (!result.granted) return;
+  const fileUri = await FileSystem.StorageAccessFramework.createFileAsync(
+    result.directoryUri, filename, mimeType,
+  );
+  await FileSystem.StorageAccessFramework.writeAsStringAsync(fileUri, content);
+}

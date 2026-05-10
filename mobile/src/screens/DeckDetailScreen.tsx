@@ -66,7 +66,20 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   }, [deckId]);
 
   useEffect(() => { load(); navigation.setOptions({ title: 'Deck' }); }, []);
-  useEffect(() => { if (deck) navigation.setOptions({ title: deck.name }); }, [deck]);
+  useEffect(() => {
+    if (!deck) return;
+    navigation.setOptions({
+      title: deck.name,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => { setEditName(deck.name); setEditModal(true); }}
+          style={{ marginRight: 16 }}
+        >
+          <Feather name="edit-2" size={20} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [deck]);
   useEffect(() => {
     Animated.spring(cardToastAnim, { toValue: showCardToast ? 1 : 0, useNativeDriver: true, bounciness: 4 }).start();
   }, [showCardToast, cardToastAnim]);
@@ -272,9 +285,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setViewMode(v => v === 'list' ? 'grid' : 'list')} style={styles.statsBtn}>
           <Feather name={viewMode === 'list' ? 'grid' : 'list'} size={20} color={theme.accent} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => { setEditName(deck.name); setEditModal(true); }} style={styles.statsBtn}>
-          <Feather name="edit-2" size={20} color={theme.accent} />
         </TouchableOpacity>
       </View>
 
@@ -498,7 +508,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           )}
 
           <TouchableOpacity style={styles.fab} onPress={() => setAddMode(true)}>
-            <Feather name="plus" size={22} color="#fff" />
+            <Feather name="plus" size={22} color="#000" />
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.fabSecondary, { bottom: 100, right: 26 }, deck.card_count === 0 && styles.fabDisabled]}
