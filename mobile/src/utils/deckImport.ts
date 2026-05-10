@@ -53,7 +53,7 @@ function parseTXT(content: string, filename: string): ParsedDeck {
   for (const line of lines) {
     const headerMatch = line.match(/^===\s*(.+?)\s*===$/);
     if (headerMatch) { name = headerMatch[1]; continue; }
-    const cardMatch = line.match(/^(\d+)x\s+(\S+)/);
+    const cardMatch = line.match(/^(\d+)x\s+([^\s:]+)/);
     if (cardMatch) {
       cards.push({ card_id: cardMatch[2], count: parseInt(cardMatch[1], 10) });
     }

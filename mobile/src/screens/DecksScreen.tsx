@@ -413,11 +413,12 @@ const styles = StyleSheet.create({
   dialogBtnText: { fontSize: 14, fontWeight: '600' },
 
   // Context menu sheet
-  sheetWrap: { ...StyleSheet.absoluteFillObject, justifyContent: 'flex-end' },
+  sheetWrap: { ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 },
   sheet: {
     backgroundColor: '#2a2a2a',
-    borderTopLeftRadius: 20, borderTopRightRadius: 20,
-    paddingTop: 20, paddingBottom: 36, paddingHorizontal: 0,
+    borderRadius: 20,
+    paddingVertical: 8, paddingHorizontal: 0,
+    width: '100%',
   },
   sheetDeckName: { color: theme.textMuted, fontSize: 13, paddingHorizontal: 20, marginBottom: 8 },
   menuRow:    { flexDirection: 'row', alignItems: 'center', gap: 16, paddingVertical: 14, paddingHorizontal: 20 },
