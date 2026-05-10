@@ -10,6 +10,13 @@ export interface ImportResult {
   unknownIds: string[];
 }
 
+interface ParsedDeck {
+  name: string;
+  cards: { card_id: string; count: number }[];
+}
+
+// ── JSON ──────────────────────────────────────────────────────────────────────
+
 interface DeckJSON {
   version: number;
   name: string;
@@ -17,7 +24,7 @@ interface DeckJSON {
   cards: { card_id: string; count: number }[];
 }
 
-function validateShape(data: unknown): DeckJSON {
+function validateJSON(data: unknown): ParsedDeck {
   if (!data || typeof data !== 'object') throw new Error('Not a valid BSS deck file.');
   const d = data as Record<string, unknown>;
   if (d.version !== 1) throw new Error('Unsupported deck file version.');
@@ -29,36 +36,92 @@ function validateShape(data: unknown): DeckJSON {
     if (typeof entry.card_id !== 'string') throw new Error('Invalid card_id in deck file.');
     if (typeof entry.count !== 'number' || entry.count < 1) throw new Error('Invalid count in deck file.');
   }
-  return d as unknown as DeckJSON;
+  const json = d as unknown as DeckJSON;
+  return { name: json.name.trim(), cards: json.cards };
 }
+
+// ── TXT ───────────────────────────────────────────────────────────────────────
+// Format:
+//   === Deck Name ===
+//   4x BSS01-001: Card Name
+
+function parseTXT(content: string, filename: string): ParsedDeck {
+  const lines = content.split('\n').map(l => l.trim()).filter(Boolean);
+  let name = filename.replace(/\.txt$/i, '').replace(/_/g, ' ');
+  const cards: { card_id: string; count: number }[] = [];
+
+  for (const line of lines) {
+    const headerMatch = line.match(/^===\s*(.+?)\s*===$/);
+    if (headerMatch) { name = headerMatch[1]; continue; }
+    const cardMatch = line.match(/^(\d+)x\s+(\S+)/);
+    if (cardMatch) {
+      cards.push({ card_id: cardMatch[2], count: parseInt(cardMatch[1], 10) });
+    }
+  }
+
+  if (cards.length === 0) throw new Error('No cards found in TXT file.');
+  return { name, cards };
+}
+
+// ── CSV ───────────────────────────────────────────────────────────────────────
+// Format: Count,CardID,Name,Type,Color,Rarity,Cost (header row, then data)
+
+function parseCSV(content: string, filename: string): ParsedDeck {
+  const lines = content.split('\n').map(l => l.trim()).filter(Boolean);
+  const name = filename.replace(/\.csv$/i, '').replace(/_/g, ' ');
+  const cards: { card_id: string; count: number }[] = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const parts = lines[i].split(',');
+    const count = parseInt(parts[0], 10);
+    const cardId = parts[1]?.trim();
+    if (!isNaN(count) && count > 0 && cardId) {
+      cards.push({ card_id: cardId, count });
+    }
+  }
+
+  if (cards.length === 0) throw new Error('No cards found in CSV file.');
+  return { name, cards };
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
 
 export async function pickAndImportDeck(): Promise<ImportResult | null> {
   const result = await DocumentPicker.getDocumentAsync({
-    type: 'application/json',
+    type: ['application/json', 'text/plain', 'text/csv', 'text/comma-separated-values'],
     copyToCacheDirectory: true,
   });
 
   if (result.canceled) return null;
 
   const asset = result.assets[0];
+  const ext = asset.name.split('.').pop()?.toLowerCase() ?? '';
+
   let content: string;
   try {
     content = await FileSystem.readAsStringAsync(asset.uri);
   } catch {
     throw new Error('Could not read the selected file.');
   }
+  FileSystem.deleteAsync(asset.uri, { idempotent: true }).catch(() => {});
 
-  let json: DeckJSON;
+  let parsed: ParsedDeck;
   try {
-    json = validateShape(JSON.parse(content));
+    if (ext === 'json') {
+      parsed = validateJSON(JSON.parse(content));
+    } else if (ext === 'txt') {
+      parsed = parseTXT(content, asset.name);
+    } else if (ext === 'csv') {
+      parsed = parseCSV(content, asset.name);
+    } else {
+      throw new Error('Unsupported file type. Use .json, .txt, or .csv.');
+    }
   } catch (e: any) {
-    throw new Error(e.message ?? 'Not a valid BSS deck file.');
-  } finally {
-    FileSystem.deleteAsync(asset.uri, { idempotent: true }).catch(() => {});
+    throw new Error(e.message ?? 'Could not parse deck file.');
   }
 
   // Validate card IDs against local cards.db
-  const allIds = json.cards.map(c => c.card_id);
+  const allIds = parsed.cards.map(c => c.card_id);
   const placeholders = allIds.map(() => '?').join(',');
   const rows = await cardsDb.getAllAsync<{ CardID: string }>(
     `SELECT CardID FROM Cards WHERE CardID IN (${placeholders})`,
@@ -66,9 +129,9 @@ export async function pickAndImportDeck(): Promise<ImportResult | null> {
   );
   const knownSet = new Set(rows.map(r => r.CardID));
   const unknownIds = allIds.filter(id => !knownSet.has(id));
-  const validCards = json.cards.filter(c => knownSet.has(c.card_id));
+  const validCards = parsed.cards.filter(c => knownSet.has(c.card_id));
 
-  const deck = await createDeck(json.name.trim());
+  const deck = await createDeck(parsed.name);
   let cardCount = 0;
   for (const c of validCards) {
     await addCardToDeck(deck.id, c.card_id, Math.min(c.count, 4));

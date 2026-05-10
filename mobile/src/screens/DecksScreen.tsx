@@ -219,12 +219,12 @@ export default function DecksScreen({ navigation }: Props) {
 
       {/* Import FAB */}
       <TouchableOpacity style={styles.fabImport} onPress={handleImport} disabled={importing}>
-        <Feather name="download" size={22} color="#fff" />
+        <Feather name="download" size={20} color={theme.accent} />
       </TouchableOpacity>
 
       {/* FAB */}
       <TouchableOpacity style={styles.fab} onPress={() => setCreateVisible(true)}>
-        <Text style={styles.fabText}>+</Text>
+        <Feather name="plus" size={22} color="#000" />
       </TouchableOpacity>
 
       {/* Copying / importing indicator */}
@@ -369,15 +369,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center', alignItems: 'center',
     elevation: 6,
   },
-  fabText: { color: '#fff', fontSize: 32, lineHeight: 36 },
-
   fabImport: {
-    position: 'absolute', bottom: 92, right: 24,
-    width: 48, height: 48, borderRadius: 24,
+    position: 'absolute', bottom: 92, right: 28,
+    width: 44, height: 44, borderRadius: 22,
     backgroundColor: theme.surface,
     borderWidth: 1, borderColor: theme.accent,
     justifyContent: 'center', alignItems: 'center',
-    elevation: 6,
+    elevation: 5,
   },
 
   copyingBanner: {
