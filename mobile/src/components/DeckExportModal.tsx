@@ -55,7 +55,12 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
     <Modal visible={visible} transparent animationType="fade" onRequestClose={handleClose}>
       <Pressable style={styles.overlay} onPress={busy ? undefined : handleClose}>
         <Pressable style={styles.sheet} onPress={e => e.stopPropagation()}>
-          <Text style={styles.title}>Export Deck</Text>
+          <View style={styles.titleRow}>
+            <Text style={styles.title}>Export Deck</Text>
+            <TouchableOpacity onPress={busy ? undefined : handleClose} style={styles.closeBtn}>
+              <Feather name="x" size={22} color={theme.textMuted} />
+            </TouchableOpacity>
+          </View>
 
           {state === 'error' ? (
             <View style={styles.errorWrap}>
@@ -100,11 +105,6 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
             </View>
           )}
 
-          {!busy && (
-            <TouchableOpacity style={styles.cancelBtn} onPress={handleClose}>
-              <Text style={styles.cancelText}>Cancel</Text>
-            </TouchableOpacity>
-          )}
         </Pressable>
       </Pressable>
     </Modal>
@@ -124,6 +124,8 @@ const styles = StyleSheet.create({
     padding: 24,
     gap: 16,
   },
+  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  closeBtn:  { padding: 4 },
   title: {
     color: theme.text,
     fontSize: 18,
@@ -185,18 +187,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '700',
     fontSize: 14,
-  },
-  cancelBtn: {
-    backgroundColor: theme.bg,
-    borderRadius: 10,
-    padding: 14,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.border,
-  },
-  cancelText: {
-    color: theme.textMuted,
-    fontSize: 15,
-    fontWeight: '600',
   },
 });

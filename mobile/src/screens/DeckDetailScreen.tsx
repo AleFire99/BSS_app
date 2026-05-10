@@ -390,14 +390,15 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             keyExtractor={c => c.id}
             renderItem={({ item }) => renderCardRow({ card_id: item.id, count: getDeckCount(item.id) }, item, false)}
             ListEmptyComponent={<Text style={styles.empty}>No cards match filters</Text>}
+            contentContainerStyle={{ paddingBottom: 100 }}
             initialNumToRender={20}
             maxToRenderPerBatch={20}
             windowSize={10}
             removeClippedSubviews
           />
 
-          <TouchableOpacity style={styles.doneBtn} onPress={closeAddMode}>
-            <Text style={styles.doneBtnText}>Done</Text>
+          <TouchableOpacity style={styles.fab} onPress={closeAddMode}>
+            <Feather name="check" size={22} color="#000" />
           </TouchableOpacity>
 
           {/* Picker modals */}
@@ -703,9 +704,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center', alignItems: 'center', elevation: 5,
   },
   fabDisabled: { borderColor: theme.border, opacity: 0.4 },
-
-  doneBtn:     { backgroundColor: theme.surface, margin: 12, borderRadius: 8, padding: 14, alignItems: 'center' },
-  doneBtnText: { color: theme.text, fontWeight: '700', fontSize: 15 },
 
   toast: {
     position: 'absolute', bottom: 80, left: 16, right: 16,
