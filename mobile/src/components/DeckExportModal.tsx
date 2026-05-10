@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import {
   Modal, View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Pressable,
 } from 'react-native';
+import { captureRef } from 'react-native-view-shot';
+import * as Sharing from 'expo-sharing';
 import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
 import { theme } from '../theme';
 import { buildTXT, buildCSV, shareTextExport, saveTextToDevice } from '../utils/deckExport';
+import DeckExportImage from './DeckExportImage';
 
 type ExportState = 'idle' | 'sharing' | 'error';
 
@@ -19,6 +22,7 @@ interface Props {
 export default function DeckExportModal({ visible, deck, cardMap, onClose }: Props) {
   const [state, setState] = useState<ExportState>('idle');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const imageRef = useRef<View | null>(null);
 
   const safeName = deck.name.replace(/[^a-zA-Z0-9_-]/g, '_');
 
@@ -49,10 +53,27 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
     saveTextToDevice(buildCSV(deck, cardMap), `${safeName}.csv`, 'text/csv'),
   );
 
+  const handleImageReady = useCallback((ref: React.RefObject<View | null>) => {
+    imageRef.current = ref.current;
+  }, []);
+
+  const shareImage = () => wrap(async () => {
+    if (!imageRef.current) throw new Error('Image not ready yet.');
+    const uri = await captureRef(imageRef.current, { format: 'png', quality: 1 });
+    await Sharing.shareAsync(uri, { mimeType: 'image/png', dialogTitle: 'Share Deck Image' });
+  });
+
   const busy = state === 'sharing';
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={handleClose}>
+      {/* Hidden off-screen render of export image so it's ready to capture */}
+      {visible && (
+        <View style={styles.offscreen} pointerEvents="none">
+          <DeckExportImage deck={deck} cardMap={cardMap} onReady={handleImageReady} />
+        </View>
+      )}
+
       <Pressable style={styles.overlay} onPress={busy ? undefined : handleClose}>
         <Pressable style={styles.sheet} onPress={e => e.stopPropagation()}>
           <View style={styles.titleRow}>
@@ -76,6 +97,16 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
             </View>
           ) : (
             <View style={styles.btnList}>
+              <View style={styles.exportBtn}>
+                <Feather name="image" size={22} color={theme.accent} />
+                <View style={styles.exportBtnText}>
+                  <Text style={styles.exportBtnLabel}>Image</Text>
+                  <Text style={styles.exportBtnSub}>deck card preview</Text>
+                </View>
+                <TouchableOpacity style={styles.exportAction} onPress={shareImage} disabled={busy}>
+                  <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
+                </TouchableOpacity>
+              </View>
               <View style={styles.exportBtn}>
                 <Feather name="file-text" size={22} color={theme.accent} />
                 <View style={styles.exportBtnText}>
@@ -112,6 +143,12 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
 }
 
 const styles = StyleSheet.create({
+  offscreen: {
+    position: 'absolute',
+    top: -9999,
+    left: 0,
+    opacity: 0,
+  },
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
