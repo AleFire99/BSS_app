@@ -40,7 +40,9 @@
       "Bash(git push *)",
       "Bash(git branch *)",
       "Bash(adb devices *)",
-      "Bash(git pull *)"
+      "Bash(git pull *)",
+      "Bash(git -C \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\" log --oneline develop..feature/deck-import-export)",
+      "Bash(git -C \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\" log --oneline -30)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View, Text, Modal, ScrollView, TouchableOpacity,
+  View, Text, Modal, TouchableOpacity,
   StyleSheet, Image,
 } from 'react-native';
 import { Deck, DeckCard, Card } from '../types';
@@ -12,7 +12,7 @@ interface Props {
   onClose: () => void;
 }
 
-type Phase = 'idle' | 'hand' | 'final';
+type Phase = 'hand' | 'final';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -24,21 +24,25 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function HandTester({ deck, cardMap, onClose }: Props) {
-  const [phase, setPhase]         = useState<Phase>('idle');
+  const [phase, setPhase]         = useState<Phase>('hand');
   const [hand, setHand]           = useState<string[]>([]);
   const [pool, setPool]           = useState<string[]>([]);
   const [mulligans, setMulligans] = useState(0);
 
-  const drawHand = (mull: number) => {
+  const drawHand = () => {
     const expanded = deck.cards.flatMap(dc => Array(dc.count).fill(dc.card_id));
     const shuffled = shuffle(expanded);
     setHand(shuffled.slice(0, 4));
     setPool(shuffled.slice(4));
-    setMulligans(mull);
     setPhase('hand');
   };
 
-  useEffect(() => { drawHand(0); }, []);
+  const handleMulligan = () => {
+    setMulligans(m => m + 1);
+    drawHand();
+  };
+
+  useEffect(() => { drawHand(); }, []);
 
   const handleAccept = () => {
     setPool(prev => {
@@ -62,7 +66,7 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   };
 
   return (
-    <Modal visible animationType="slide" transparent>
+    <Modal visible animationType="fade" transparent>
       <View style={styles.overlay}>
         <View style={styles.container}>
           {/* Header */}
@@ -80,70 +84,46 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
             </TouchableOpacity>
           </View>
 
-          {(phase === 'hand' || phase === 'final') && (
-            <>
-              <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                style={styles.cardScroll}
-                contentContainerStyle={styles.cardRow}
-              >
-                {hand.map((cardId, i) => {
-                  const card = cardMap[cardId];
-                  const imageUri = `https://www.bssdb.dev/cards/bss/${cardId}.png`;
-                  return (
-                    <View key={`${cardId}-${i}`} style={styles.cardWrapper}>
-                      <Image
-                        source={{ uri: imageUri }}
-                        style={styles.cardImage}
-                        resizeMode="contain"
-                      />
-                      {card && (
-                        <Text style={styles.cardName} numberOfLines={2}>
-                          {card.name}
-                        </Text>
-                      )}
-                    </View>
-                  );
-                })}
-              </ScrollView>
-
-              <Text style={styles.handCount}>{hand.length} cards in hand</Text>
-
-              <View style={styles.actions}>
-                {phase === 'hand' && (
-                  <>
-                    <TouchableOpacity
-                      style={[styles.btn, styles.btnSecondary, mulligans >= 1 && styles.btnDisabled]}
-                      onPress={() => mulligans < 1 && drawHand(mulligans + 1)}
-                      disabled={mulligans >= 1}
-                    >
-                      <Text style={[styles.btnSecondaryText, mulligans >= 1 && styles.btnTextDisabled]}>
-                        Mulligan
-                      </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={handleAccept}>
-                      <Text style={styles.btnText}>Accept + Draw 5th</Text>
-                    </TouchableOpacity>
-                  </>
-                )}
-                {phase === 'final' && (
-                  <>
-                    <TouchableOpacity
-                      style={[styles.btn, styles.btnSecondary, pool.length === 0 && styles.btnDisabled]}
-                      onPress={handleDrawMore}
-                      disabled={pool.length === 0}
-                    >
-                      <Text style={styles.btnSecondaryText}>Draw 1 More</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={() => drawHand(0)}>
-                      <Text style={styles.btnText}>New Hand</Text>
-                    </TouchableOpacity>
-                  </>
-                )}
+          {/* Card grid */}
+          <View style={styles.cardGrid}>
+            {hand.map((cardId, i) => (
+              <View key={`${cardId}-${i}`} style={styles.cardWrapper}>
+                <Image
+                  source={{ uri: `https://www.bssdb.dev/cards/bss/${cardId}.png` }}
+                  style={styles.cardImage}
+                  resizeMode="cover"
+                />
               </View>
-            </>
-          )}
+            ))}
+          </View>
+
+          {/* Action buttons */}
+          <View style={styles.actions}>
+            {phase === 'hand' && (
+              <>
+                <TouchableOpacity style={[styles.btn, styles.btnSecondary]} onPress={handleMulligan}>
+                  <Text style={styles.btnSecondaryText}>Mulligan</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={handleAccept}>
+                  <Text style={styles.btnText}>Accept + Draw 5th</Text>
+                </TouchableOpacity>
+              </>
+            )}
+            {phase === 'final' && (
+              <>
+                <TouchableOpacity
+                  style={[styles.btn, styles.btnSecondary, pool.length === 0 && styles.btnDisabled]}
+                  onPress={handleDrawMore}
+                  disabled={pool.length === 0}
+                >
+                  <Text style={styles.btnSecondaryText}>Draw 1 More</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn} onPress={drawHand}>
+                  <Text style={styles.btnText}>New Hand</Text>
+                </TouchableOpacity>
+              </>
+            )}
+          </View>
         </View>
       </View>
     </Modal>
@@ -154,14 +134,14 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.7)',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
   },
   container: {
     backgroundColor: theme.bg,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingBottom: 32,
-    minHeight: '60%',
+    borderRadius: 16,
+    paddingBottom: 20,
+    maxHeight: '85%',
   },
   header: {
     flexDirection: 'row',
@@ -175,18 +155,15 @@ const styles = StyleSheet.create({
   mulliganCount: { color: theme.textMuted, fontSize: 13, marginTop: 2 },
   closeBtn:      { padding: 4 },
   closeBtnText:  { color: theme.textMuted, fontSize: 20 },
-  cardScroll:  { maxHeight: 220 },
-  cardRow:     { paddingHorizontal: 16, paddingVertical: 12, gap: 12 },
-  cardWrapper: { width: 110, alignItems: 'center', gap: 6 },
-  cardImage:   { width: 110, height: 154, borderRadius: 6, backgroundColor: theme.border },
-  cardName: {
-    color: theme.textMuted, fontSize: 11,
-    textAlign: 'center', width: 110,
+  cardGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: 12,
+    gap: 8,
   },
-  handCount: {
-    color: theme.textMuted, fontSize: 12,
-    textAlign: 'center', marginBottom: 4,
-  },
+  cardWrapper: { width: 80 },
+  cardImage:   { width: 80, height: 112, borderRadius: 6, backgroundColor: theme.border },
   actions: {
     flexDirection: 'row', gap: 10,
     paddingHorizontal: 16, paddingTop: 12,
@@ -202,5 +179,4 @@ const styles = StyleSheet.create({
   btnDisabled:     { opacity: 0.4 },
   btnText:         { color: '#fff', fontWeight: '700', fontSize: 14 },
   btnSecondaryText:{ color: theme.accent, fontWeight: '700', fontSize: 14 },
-  btnTextDisabled: { color: theme.textMuted },
 });

@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDecks, getDeck, createDeck, updateDeck, deleteDeck, addCardToDeck } from '../api';
+import { pickAndImportDeck } from '../utils/deckImport';
 import { Feather } from '@expo/vector-icons';
 import { Deck } from '../types';
 import DeckItem from '../components/DeckItem';
@@ -30,14 +31,16 @@ export default function DecksScreen({ navigation }: Props) {
   const [renameName, setRenameName]           = useState('');
   const [renaming, setRenaming]               = useState(false);
   const [copying, setCopying]                 = useState(false);
+  const [importing, setImporting]             = useState(false);
 
   // Delete flow
   const [confirmDeck, setConfirmDeck]   = useState<Deck | null>(null);
   const [collapsingId, setCollapsingId] = useState<number | null>(null);
   const [undoItem, setUndoItem]         = useState<{ deck: Deck; index: number } | null>(null);
   const [showToast, setShowToast]       = useState(false);
-  const pendingDeleteRef = useRef<{ deck: Deck; index: number } | null>(null);
-  const deleteTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingDeleteRef  = useRef<{ deck: Deck; index: number } | null>(null);
+  const deleteTimerRef    = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingUndoIdRef  = useRef<number | null>(null);
   const toastAnim        = useRef(new Animated.Value(0)).current;
 
   const load = useCallback(() => {
@@ -114,6 +117,32 @@ export default function DecksScreen({ navigation }: Props) {
     }
   };
 
+  // ── Import ───────────────────────────────────────────────────────────────────
+
+  const handleImport = async () => {
+    setImporting(true);
+    try {
+      const result = await pickAndImportDeck();
+      if (!result) return;
+      load();
+      if (result.unknownIds.length > 0) {
+        const skipped = result.unknownIds.slice(0, 5).join(', ');
+        const more = result.unknownIds.length > 5 ? ` (+${result.unknownIds.length - 5} more)` : '';
+        Alert.alert(
+          'Import complete',
+          `"${result.deckName}" imported with ${result.cardCount} cards.\n\n` +
+          `${result.unknownIds.length} unknown card ID(s) skipped:\n${skipped}${more}`,
+        );
+      } else {
+        navigation.navigate('DeckDetail', { deckId: result.deckId });
+      }
+    } catch (e: any) {
+      Alert.alert('Import failed', e.message);
+    } finally {
+      setImporting(false);
+    }
+  };
+
   // ── Delete ────────────────────────────────────────────────────────────────────
 
   const handleDeletePress = (deck: Deck) => { setContextDeck(null); setConfirmDeck(deck); };
@@ -136,9 +165,19 @@ export default function DecksScreen({ navigation }: Props) {
     setUndoItem(item);
     setShowToast(true);
 
-    if (deleteTimerRef.current) clearTimeout(deleteTimerRef.current);
+    if (deleteTimerRef.current) {
+      clearTimeout(deleteTimerRef.current);
+      deleteTimerRef.current = null;
+      // Commit the deck whose undo window we just closed
+      if (pendingUndoIdRef.current !== null) {
+        deleteDeck(pendingUndoIdRef.current).catch(e => Alert.alert('Error', e.message));
+      }
+    }
+
+    pendingUndoIdRef.current = item.deck.id;
     deleteTimerRef.current = setTimeout(() => {
       deleteDeck(item.deck.id).catch(e => Alert.alert('Error', e.message));
+      pendingUndoIdRef.current = null;
       setUndoItem(null);
       setShowToast(false);
       deleteTimerRef.current = null;
@@ -147,6 +186,7 @@ export default function DecksScreen({ navigation }: Props) {
 
   const handleUndo = () => {
     if (deleteTimerRef.current) { clearTimeout(deleteTimerRef.current); deleteTimerRef.current = null; }
+    pendingUndoIdRef.current = null;
     setShowToast(false);
     if (undoItem) {
       setDecks(prev => {
@@ -189,16 +229,21 @@ export default function DecksScreen({ navigation }: Props) {
         contentContainerStyle={{ paddingVertical: 8, paddingHorizontal: 12 }}
       />
 
-      {/* FAB */}
-      <TouchableOpacity style={styles.fab} onPress={() => setCreateVisible(true)}>
-        <Text style={styles.fabText}>+</Text>
+      {/* Import FAB */}
+      <TouchableOpacity style={styles.fabImport} onPress={handleImport} disabled={importing}>
+        <Feather name="download" size={20} color={theme.accent} />
       </TouchableOpacity>
 
-      {/* Copying indicator */}
-      {copying && (
+      {/* FAB */}
+      <TouchableOpacity style={styles.fab} onPress={() => setCreateVisible(true)}>
+        <Feather name="plus" size={22} color="#000" />
+      </TouchableOpacity>
+
+      {/* Copying / importing indicator */}
+      {(copying || importing) && (
         <View style={styles.copyingBanner}>
           <ActivityIndicator color={theme.accent} size="small" />
-          <Text style={styles.copyingText}>Copying deck…</Text>
+          <Text style={styles.copyingText}>{importing ? 'Importing deck…' : 'Copying deck…'}</Text>
         </View>
       )}
 
@@ -292,9 +337,13 @@ export default function DecksScreen({ navigation }: Props) {
       </Modal>
 
       {/* Create deck modal */}
-      <Modal visible={createVisible} transparent animationType="slide">
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <TouchableOpacity style={styles.overlay} activeOpacity={1} onPress={() => setCreateVisible(false)} />
+      <Modal visible={createVisible} transparent animationType="fade">
+        <TouchableOpacity style={styles.scrim} activeOpacity={1} onPress={() => setCreateVisible(false)} />
+        <KeyboardAvoidingView
+          style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 24 }}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          pointerEvents="box-none"
+        >
           <View style={styles.createSheet}>
             <Text style={styles.sheetTitle}>New Deck</Text>
             <TextInput
@@ -332,7 +381,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center', alignItems: 'center',
     elevation: 6,
   },
-  fabText: { color: '#fff', fontSize: 32, lineHeight: 36 },
+  fabImport: {
+    position: 'absolute', bottom: 92, right: 28,
+    width: 44, height: 44, borderRadius: 22,
+    backgroundColor: theme.surface,
+    borderWidth: 1, borderColor: theme.accent,
+    justifyContent: 'center', alignItems: 'center',
+    elevation: 5,
+  },
 
   copyingBanner: {
     position: 'absolute', top: 12, alignSelf: 'center',
@@ -369,11 +425,12 @@ const styles = StyleSheet.create({
   dialogBtnText: { fontSize: 14, fontWeight: '600' },
 
   // Context menu sheet
-  sheetWrap: { ...StyleSheet.absoluteFillObject, justifyContent: 'flex-end' },
+  sheetWrap: { ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 },
   sheet: {
     backgroundColor: '#2a2a2a',
-    borderTopLeftRadius: 20, borderTopRightRadius: 20,
-    paddingTop: 20, paddingBottom: 36, paddingHorizontal: 0,
+    borderRadius: 20,
+    paddingVertical: 8, paddingHorizontal: 0,
+    width: '100%',
   },
   sheetDeckName: { color: theme.textMuted, fontSize: 13, paddingHorizontal: 20, marginBottom: 8 },
   menuRow:    { flexDirection: 'row', alignItems: 'center', gap: 16, paddingVertical: 14, paddingHorizontal: 20 },
@@ -381,11 +438,10 @@ const styles = StyleSheet.create({
   menuDivider:{ height: 1, backgroundColor: theme.border, marginVertical: 4, marginHorizontal: 20 },
   menuDanger: { color: '#ef5350' },
 
-  // Create / rename shared
-  overlay:    { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' },
+  // Create sheet
   createSheet: {
     backgroundColor: theme.surface,
-    borderTopLeftRadius: 20, borderTopRightRadius: 20,
+    borderRadius: 16,
     padding: 24, gap: 12,
   },
   sheetTitle: { color: theme.text, fontSize: 18, fontWeight: '700', marginBottom: 4 },
