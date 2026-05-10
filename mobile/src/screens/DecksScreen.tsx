@@ -38,8 +38,9 @@ export default function DecksScreen({ navigation }: Props) {
   const [collapsingId, setCollapsingId] = useState<number | null>(null);
   const [undoItem, setUndoItem]         = useState<{ deck: Deck; index: number } | null>(null);
   const [showToast, setShowToast]       = useState(false);
-  const pendingDeleteRef = useRef<{ deck: Deck; index: number } | null>(null);
-  const deleteTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingDeleteRef  = useRef<{ deck: Deck; index: number } | null>(null);
+  const deleteTimerRef    = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingUndoIdRef  = useRef<number | null>(null);
   const toastAnim        = useRef(new Animated.Value(0)).current;
 
   const load = useCallback(() => {
@@ -164,9 +165,19 @@ export default function DecksScreen({ navigation }: Props) {
     setUndoItem(item);
     setShowToast(true);
 
-    if (deleteTimerRef.current) clearTimeout(deleteTimerRef.current);
+    if (deleteTimerRef.current) {
+      clearTimeout(deleteTimerRef.current);
+      deleteTimerRef.current = null;
+      // Commit the deck whose undo window we just closed
+      if (pendingUndoIdRef.current !== null) {
+        deleteDeck(pendingUndoIdRef.current).catch(e => Alert.alert('Error', e.message));
+      }
+    }
+
+    pendingUndoIdRef.current = item.deck.id;
     deleteTimerRef.current = setTimeout(() => {
       deleteDeck(item.deck.id).catch(e => Alert.alert('Error', e.message));
+      pendingUndoIdRef.current = null;
       setUndoItem(null);
       setShowToast(false);
       deleteTimerRef.current = null;
@@ -175,6 +186,7 @@ export default function DecksScreen({ navigation }: Props) {
 
   const handleUndo = () => {
     if (deleteTimerRef.current) { clearTimeout(deleteTimerRef.current); deleteTimerRef.current = null; }
+    pendingUndoIdRef.current = null;
     setShowToast(false);
     if (undoItem) {
       setDecks(prev => {
