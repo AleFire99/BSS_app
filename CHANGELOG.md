@@ -5,6 +5,15 @@ Versions follow [Semantic Versioning](https://semver.org). Dates are YYYY-MM-DD.
 
 ---
 
+## [1.3.1] — 2026-05-13
+
+### Fixed
+- Rulebook: numbered steps no longer show a redundant bullet point (`•`) alongside the number
+- Rulebook: opening a chapter now collapses any previously open chapter (accordion behaviour)
+- Rulebook: the open chapter's title stays pinned at the top of the screen while scrolling its content, so it can always be tapped to collapse
+
+---
+
 ## [1.3.0] — 2026-05-13
 
 ### Added

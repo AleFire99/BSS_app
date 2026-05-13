@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.3.0</Text>
+      <Text style={styles.version}>v1.3.1</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,15 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.3.1</Text>
+
+          <Text style={styles.changelogGroup}>Rulebook</Text>
+          <Text style={styles.body}>• Numbered steps no longer show a redundant bullet point</Text>
+          <Text style={styles.body}>• Opening a chapter now collapses the previous one</Text>
+          <Text style={styles.body}>• Open chapter title stays pinned at the top while scrolling</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.3.0</Text>
 
           <Text style={styles.changelogGroup}>Rulings</Text>
