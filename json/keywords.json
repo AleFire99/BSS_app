@@ -2,83 +2,83 @@
     "keywords": [
         {
             "name": "Agile",
-            "description": "When a battle with one of your spirits that costs less than this card ends, you may return that spirit to your hand. If you do, you may summon this spirit."
+            "description": "Triggered. When a battle ends involving one of your spirits that costs less than this card, you may return that spirit to your hand. If you do, you may summon this card (paying its normal cost)."
         },
         {
             "name": "Armor",
-            "description": "This spirit cannot be selected by the effects of your opponent's spirits, nexuses, or magic of the specified colors."
+            "description": "Constant. This spirit cannot be selected by the effects of your opponent's spirits, nexuses, or magic of the specified colors."
         },
         {
             "name": "Ascend",
-            "description": "As an additional summoning cost, you must place all cores from one of your spirits into your reserve."
+            "description": "Additional summoning requirement. When summoning this card, you must also place all cores from one of your spirits that meets the specified condition into your reserve."
         },
         {
             "name": "Astral",
-            "description": "This spirit cannot be blocked by your opponent's spirits without \"Astral\"."
+            "description": "Constant. While active, this spirit can only be blocked by spirits that also have Astral. Active timing is shown on the card; if no timing is listed, it is always active. If gained multiple times with overlapping timings, only one instance is active."
         },
         {
             "name": "A.T. Field",
-            "description": "If this spirit has a \"soul core\" on it, it cannot be destroyed by the destruction effects of your opponent's spirits."
+            "description": "Constant. While this spirit has a soul core on it, it cannot be destroyed by destruction effects on your opponent's spirits."
         },
         {
             "name": "Awaken",
-            "description": "You may remove any number of cores from your other spirits and place them onto this spirit. \"When Destroyed\" effects are not triggered by this effect."
+            "description": "Activated. Usable during any flash window while this spirit is on the field. Move any number of cores from your other field cards onto this spirit. When Destroyed effects on those cards do not trigger from this effect."
         },
         {
             "name": "Blessed",
-            "description": "Place a core from the void into your life when this spirit's attack reduces your opponent's life."
+            "description": "Triggered. When this spirit attacks unblocked and reduces your opponent's life, place 1 core from the void into your life. Only activates once even if gained multiple times."
         },
         {
             "name": "Bloodcurse",
-            "description": "When one of your spirits with \"Curse\" or \"Bloodcurse\" reduces your opponent's life, place the lost life cores into the void instead of their reserve."
+            "description": "Triggered. When one of your spirits with Curse or Bloodcurse reduces your opponent's life, the lost life cores go to the void instead of their reserve."
         },
         {
             "name": "Burst",
-            "description": "Place this card without paying its cost."
+            "description": "Set this card facedown in your burst area without paying its cost. Activates for free when its trigger condition is met."
         },
         {
             "name": "Chain",
-            "description": "If you have a symbol of the chained color, also activate the following effect."
+            "description": "Activates as a continuation of another effect on the same card. Only activates if you control a symbol of the specified color."
         },
         {
             "name": "Confront",
-            "description": "Your opponent must block if able."
-        },
-        {
-            "name": "Curse",
-            "description": "If one of your opponent's spirits blocks, destroy it when the battle ends."
+            "description": "Constant. When this spirit attacks, your opponent must declare a block if they control any refreshed spirit. Spirits with Armor that cannot normally be targeted by effects can still be chosen as the blocker."
         },
         {
             "name": "Crush",
-            "description": "Discard a number of cards from the top of your opponent's deck equal to the total of this spirit's level plus any specified modifier."
+            "description": "Triggered. When this spirit attacks, your opponent discards cards from the top of their deck equal to this spirit's level + the specified modifier (0 if no modifier shown). If gained multiple times, only the version with the highest modifier activates."
+        },
+        {
+            "name": "Curse",
+            "description": "Triggered. When this spirit is blocked, the blocking spirit is destroyed at end of battle. Only activates once even if gained multiple times."
         },
         {
             "name": "Feast",
-            "description": "Summon a Small Supsprite Token. If you already control a Small or Medium one, remove all cores from one, place them into your reserve, and summon the next size token (S -> M -> L) instead."
+            "description": "Summons a Supsprite Token based on what you currently control: no tokens → Small; one Small token → remove its cores to reserve and summon a Medium; one Medium token → remove its cores and summon a Large. If you have multiple Small or Medium tokens, choose one to upgrade."
         },
         {
             "name": "Gale",
-            "description": "When this spirit is blocked, your opponent selects the specified number of refreshed spirits they control and exhausts them."
+            "description": "Triggered. When this spirit is blocked, your opponent exhausts the specified number (N) of their refreshed spirits. If gained multiple times, only the version with the highest N activates."
         },
         {
             "name": "Immortal",
-            "description": "You may summon this spirit card from your trash when one of your other spirits of the specified cost is destroyed."
+            "description": "Triggered. When this spirit is in your trash and another spirit you control that meets the specified condition is destroyed, you may summon this spirit from your trash for free."
         },
         {
             "name": "Link",
-            "description": "When your qualifying spirit attacks, you may exhaust this spirit to link it to that spirit during this battle. While linked, that spirit gains this spirit's BP and symbols. Links can't stack."
+            "description": "Triggered. When one of your spirits that meets the specified condition attacks, you may exhaust this spirit to link it to the attacker for the battle. While linked, the attacker gains this spirit's BP and symbols. Only one link per battle; an already-linked spirit cannot link again. If either spirit leaves the field, the link ends immediately."
         },
         {
             "name": "Luster",
-            "description": "When the battle ends, return all magic cards you used during the battle from your trash to your hand"
+            "description": "Triggered. When this spirit attacks, at end of battle return all magic cards you used during this battle from your trash to your hand. Cards that ended up somewhere other than your trash will not return."
         },
         {
             "name": "Raid",
-            "description": "Up to the specified number of times per turn, you may exhaust one of your nexuses to refresh this spirit."
+            "description": "Triggered. When this spirit attacks, you may exhaust one of your nexuses to refresh this spirit. Can activate up to the specified number of times (N) per turn. If gained multiple times, only the version with the highest N activates."
         },
         {
             "name": "Swift",
-            "description": "You may summon this card from your hand by using cores from your reserve to pay its cost and place cores onto it."
+            "description": "Activated. During a flash window, you may summon this card from your hand. The cost can only be paid using cores from your reserve — cores on field cards cannot be used."
         }
     ]
 }

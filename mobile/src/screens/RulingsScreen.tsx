@@ -6,8 +6,9 @@ import {
 import { getKeywords, getKeywordDetail, getCardRulings } from '../api';
 import { KeywordDef, QAItem, CardRuling } from '../types';
 import { theme } from '../theme';
+import RulebookView from '../components/RulebookView';
 
-type Segment = 'keywords' | 'cards';
+type Segment = 'keywords' | 'cards' | 'rulebook';
 
 interface CardGroup {
   card_id: string;
@@ -109,23 +110,36 @@ export default function RulingsScreen() {
             Card Rulings ({cardGroups.length})
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.seg, segment === 'rulebook' && styles.segActive]}
+          onPress={() => switchSegment('rulebook')}
+        >
+          <Text style={[styles.segText, segment === 'rulebook' && styles.segTextActive]}>
+            Rulebook
+          </Text>
+        </TouchableOpacity>
       </View>
 
-      {/* Search */}
-      <View style={styles.searchWrap}>
-        <TextInput
-          style={styles.search}
-          placeholder={segment === 'keywords' ? 'Search keywords…' : 'Search by card name or ID…'}
-          placeholderTextColor={theme.textMuted}
-          value={search}
-          onChangeText={setSearch}
-        />
-        {search.length > 0 && (
-          <TouchableOpacity style={styles.clearBtn} onPress={() => setSearch('')}>
-            <Text style={styles.clearText}>✕</Text>
-          </TouchableOpacity>
-        )}
-      </View>
+      {/* Search — hidden on Rulebook */}
+      {segment !== 'rulebook' && (
+        <View style={styles.searchWrap}>
+          <TextInput
+            style={styles.search}
+            placeholder={segment === 'keywords' ? 'Search keywords…' : 'Search by card name or ID…'}
+            placeholderTextColor={theme.textMuted}
+            value={search}
+            onChangeText={setSearch}
+          />
+          {search.length > 0 && (
+            <TouchableOpacity style={styles.clearBtn} onPress={() => setSearch('')}>
+              <Text style={styles.clearText}>✕</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
+
+      {/* Rulebook */}
+      {segment === 'rulebook' && <RulebookView />}
 
       {/* Keywords list */}
       {segment === 'keywords' && (
