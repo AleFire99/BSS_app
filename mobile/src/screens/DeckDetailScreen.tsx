@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react'
 import {
   View, Text, FlatList, Image, StyleSheet, TouchableOpacity,
   ActivityIndicator, Alert, TextInput, Modal, Animated, Pressable,
-  KeyboardAvoidingView, Platform, ScrollView,
+  KeyboardAvoidingView, Platform, ScrollView, Dimensions,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDeck, getCards, addCardToDeck, removeCardFromDeck, updateDeck, updateCardCount } from '../api';
@@ -49,6 +49,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [addSetOpen,    setAddSetOpen]    = useState(false);
   const [addRarityOpen, setAddRarityOpen] = useState(false);
   const [addTypeOpen,   setAddTypeOpen]   = useState(false);
+  const [toolbarBottom, setToolbarBottom] = useState(0);
 
   // Card swipe-delete flow
   const [collapsingCardId, setCollapsingCardId] = useState<string | null>(null);
@@ -332,7 +333,10 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           </View>
 
           {/* Filter toolbar */}
-          <View style={styles.addToolbar}>
+          <View
+            style={styles.addToolbar}
+            onLayout={e => setToolbarBottom(e.nativeEvent.layout.y + e.nativeEvent.layout.height)}
+          >
             <TouchableOpacity
               style={[styles.filterBtn, !!addSet && styles.filterBtnActive]}
               onPress={() => setAddSetOpen(true)}
@@ -389,8 +393,9 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             data={filteredAdd}
             keyExtractor={c => c.id}
             renderItem={({ item }) => renderCardRow({ card_id: item.id, count: getDeckCount(item.id) }, item, false)}
+            ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
             ListEmptyComponent={<Text style={styles.empty}>No cards match filters</Text>}
-            contentContainerStyle={{ paddingBottom: 100 }}
+            contentContainerStyle={{ paddingBottom: 100, paddingHorizontal: 12, paddingTop: 8 }}
             initialNumToRender={20}
             maxToRenderPerBatch={20}
             windowSize={10}
@@ -401,19 +406,21 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <Feather name="check" size={22} color="#000" />
           </TouchableOpacity>
 
-          {/* Picker modals */}
+          {/* Set picker dropdown */}
           <Modal visible={addSetOpen} transparent animationType="fade">
-            <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setAddSetOpen(false)} />
-            <View style={styles.pickerCenteredWrap} pointerEvents="box-none">
-              <View style={styles.pickerSheet}>
-                <Text style={styles.pickerTitle}>Select Set</Text>
-                <ScrollView>
-                  <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddSet(null); setAddSetOpen(false); }}>
-                    <Text style={[styles.pickerRowText, !addSet && styles.pickerRowSelected]}>All Sets</Text>
+            <Pressable style={StyleSheet.absoluteFill} onPress={() => setAddSetOpen(false)} />
+            <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
+              <View style={[styles.dropSetMenu, { top: toolbarBottom }]}>
+                <Text style={styles.dropMenuTitle}>Set</Text>
+                <ScrollView style={{ maxHeight: 260 }}>
+                  <TouchableOpacity style={styles.dropMenuRow} onPress={() => { setAddSet(null); setAddSetOpen(false); }}>
+                    <Text style={[styles.dropMenuText, !addSet && styles.dropMenuTextActive]}>All Sets</Text>
+                    {!addSet && <Feather name="check" size={16} color={theme.accent} />}
                   </TouchableOpacity>
                   {addSets.map(s => (
-                    <TouchableOpacity key={s} style={styles.pickerRow} onPress={() => { setAddSet(s); setAddSetOpen(false); }}>
-                      <Text style={[styles.pickerRowText, addSet === s && styles.pickerRowSelected]}>{s}</Text>
+                    <TouchableOpacity key={s} style={styles.dropMenuRow} onPress={() => { setAddSet(s); setAddSetOpen(false); }}>
+                      <Text style={[styles.dropMenuText, addSet === s && styles.dropMenuTextActive]}>{s}</Text>
+                      {addSet === s && <Feather name="check" size={16} color={theme.accent} />}
                     </TouchableOpacity>
                   ))}
                 </ScrollView>
@@ -421,40 +428,42 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             </View>
           </Modal>
 
+          {/* Rarity picker dropdown */}
           <Modal visible={addRarityOpen} transparent animationType="fade">
-            <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setAddRarityOpen(false)} />
-            <View style={styles.pickerCenteredWrap} pointerEvents="box-none">
-              <View style={styles.pickerSheet}>
-                <Text style={styles.pickerTitle}>Select Rarity</Text>
-                <ScrollView>
-                  <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddRarity(null); setAddRarityOpen(false); }}>
-                    <Text style={[styles.pickerRowText, !addRarity && styles.pickerRowSelected]}>All Rarities</Text>
+            <Pressable style={StyleSheet.absoluteFill} onPress={() => setAddRarityOpen(false)} />
+            <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
+              <View style={[styles.dropRarityMenu, { top: toolbarBottom }]}>
+                <Text style={styles.dropMenuTitle}>Rarity</Text>
+                <TouchableOpacity style={styles.dropMenuRow} onPress={() => { setAddRarity(null); setAddRarityOpen(false); }}>
+                  <Text style={[styles.dropMenuText, !addRarity && styles.dropMenuTextActive]}>All Rarities</Text>
+                  {!addRarity && <Feather name="check" size={16} color={theme.accent} />}
+                </TouchableOpacity>
+                {addRarities.map(r => (
+                  <TouchableOpacity key={r} style={styles.dropMenuRow} onPress={() => { setAddRarity(r); setAddRarityOpen(false); }}>
+                    <Text style={[styles.dropMenuText, addRarity === r && styles.dropMenuTextActive]}>{r}</Text>
+                    {addRarity === r && <Feather name="check" size={16} color={theme.accent} />}
                   </TouchableOpacity>
-                  {addRarities.map(r => (
-                    <TouchableOpacity key={r} style={styles.pickerRow} onPress={() => { setAddRarity(r); setAddRarityOpen(false); }}>
-                      <Text style={[styles.pickerRowText, addRarity === r && styles.pickerRowSelected]}>{r}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </ScrollView>
+                ))}
               </View>
             </View>
           </Modal>
 
+          {/* Type picker dropdown */}
           <Modal visible={addTypeOpen} transparent animationType="fade">
-            <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setAddTypeOpen(false)} />
-            <View style={styles.pickerCenteredWrap} pointerEvents="box-none">
-              <View style={styles.pickerSheet}>
-                <Text style={styles.pickerTitle}>Select Type</Text>
-                <ScrollView>
-                  <TouchableOpacity style={styles.pickerRow} onPress={() => { setAddType(null); setAddTypeOpen(false); }}>
-                    <Text style={[styles.pickerRowText, !addType && styles.pickerRowSelected]}>All Types</Text>
+            <Pressable style={StyleSheet.absoluteFill} onPress={() => setAddTypeOpen(false)} />
+            <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
+              <View style={[styles.dropTypeMenu, { top: toolbarBottom }]}>
+                <Text style={styles.dropMenuTitle}>Type</Text>
+                <TouchableOpacity style={styles.dropMenuRow} onPress={() => { setAddType(null); setAddTypeOpen(false); }}>
+                  <Text style={[styles.dropMenuText, !addType && styles.dropMenuTextActive]}>All Types</Text>
+                  {!addType && <Feather name="check" size={16} color={theme.accent} />}
+                </TouchableOpacity>
+                {TYPES.map(t => (
+                  <TouchableOpacity key={t} style={styles.dropMenuRow} onPress={() => { setAddType(t); setAddTypeOpen(false); }}>
+                    <Text style={[styles.dropMenuText, addType === t && styles.dropMenuTextActive]}>{t}</Text>
+                    {addType === t && <Feather name="check" size={16} color={theme.accent} />}
                   </TouchableOpacity>
-                  {TYPES.map(t => (
-                    <TouchableOpacity key={t} style={styles.pickerRow} onPress={() => { setAddType(t); setAddTypeOpen(false); }}>
-                      <Text style={[styles.pickerRowText, addType === t && styles.pickerRowSelected]}>{t}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </ScrollView>
+                ))}
               </View>
             </View>
           </Modal>
@@ -730,10 +739,37 @@ const styles = StyleSheet.create({
   btn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
   btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
 
-  pickerCenteredWrap: { ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center' },
-  pickerSheet:       { width: '90%', maxHeight: '70%', backgroundColor: theme.surface, borderRadius: 16, padding: 20 },
-  pickerTitle:       { color: theme.text, fontSize: 16, fontWeight: '700', marginBottom: 12 },
-  pickerRow:         { paddingVertical: 13, borderBottomWidth: 1, borderBottomColor: theme.border },
-  pickerRowText:     { color: theme.text, fontSize: 14 },
-  pickerRowSelected: { fontWeight: '700', color: theme.accent },
+  dropSetMenu: {
+    position: 'absolute', left: 12,
+    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+    minWidth: 130, elevation: 10,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  dropRarityMenu: {
+    position: 'absolute', left: Math.round((Dimensions.get('window').width - 40) / 3) + 20,
+    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+    minWidth: 140, elevation: 10,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  dropTypeMenu: {
+    position: 'absolute', right: 12,
+    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+    minWidth: 130, elevation: 10,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  dropMenuTitle: {
+    color: theme.textMuted, fontSize: 11, fontWeight: '700',
+    textTransform: 'uppercase', letterSpacing: 0.8,
+    paddingHorizontal: 14, paddingVertical: 8,
+  },
+  dropMenuRow: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    paddingHorizontal: 14, paddingVertical: 12,
+    borderTopWidth: 1, borderTopColor: theme.border,
+  },
+  dropMenuText:       { color: theme.text, fontSize: 14 },
+  dropMenuTextActive: { color: theme.accent, fontWeight: '700' },
 });
