@@ -203,9 +203,26 @@ cd mobile
 npx expo start                                    # dev server
 npx expo start --android                          # run on emulator
 
+# Build APK locally (fast, ~1-2 min incremental) and install on emulator
+npx expo run:android --variant release
+$env:ANDROID_HOME = "C:\Users\AleFire\AppData\Local\Android\Sdk"
+$adb = "$env:ANDROID_HOME\platform-tools\adb.exe"
+& $adb install -r "android\app\build\outputs\apk\release\app-release.apk"
+& $adb shell am start -n com.alefire.bssapp/.MainActivity
+
 # Build APK (EAS cloud build — no Android SDK needed locally)
 eas build --platform android --profile preview
 ```
+
+### UI Testing Workflow
+
+**Always build and install on the emulator to test UI changes.** Do not rely on `expo start` alone — it doesn't reflect production build behavior.
+
+1. Ensure emulator is running (`$adb devices` shows `emulator-5554 device`).
+2. From `mobile/`: `npx expo run:android --variant release`
+3. Install: `& $adb install -r "android\app\build\outputs\apk\release\app-release.apk"`
+4. Launch: `& $adb shell am start -n com.alefire.bssapp/.MainActivity`
+5. Test the golden path and any affected features manually on device.
 
 ### Updating Cards for New Sets
 
