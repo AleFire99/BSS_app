@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.2.0</Text>
+      <Text style={styles.version}>v1.3.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,14 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.3.0</Text>
+
+          <Text style={styles.changelogGroup}>Rulings</Text>
+          <Text style={styles.body}>• New Rulebook tab — condensed comprehensive game rules and tournament rules in an accordion layout</Text>
+          <Text style={styles.body}>• Keyword descriptions now include full mechanics, effect type, edge cases, and stacking rules</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.2.0</Text>
 
           <Text style={styles.changelogGroup}>Card Detail</Text>
