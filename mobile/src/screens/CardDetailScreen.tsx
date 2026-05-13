@@ -3,6 +3,7 @@ import {
   View, Text, Image, ScrollView, StyleSheet, TouchableOpacity,
   Modal, Pressable, ActivityIndicator,
 } from 'react-native';
+import CardZoomModal from '../components/CardZoomModal';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { theme, COLOR_MAP } from '../theme';
 import { Effect, QAItem } from '../types';
@@ -37,6 +38,8 @@ export default function CardDetailScreen({ route, navigation }: Props) {
     getCardRulingsById(card.id).then(setCardRulings).catch(() => {});
   }, [card.id]);
 
+  const [zoomVisible, setZoomVisible] = useState(false);
+
   // Keyword detail modal
   const [kwModal,   setKwModal]   = useState<{ name: string; description: string; qa: QAItem[] } | null>(null);
   const [kwLoading, setKwLoading] = useState(false);
@@ -54,7 +57,9 @@ export default function CardDetailScreen({ route, navigation }: Props) {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Image source={{ uri: imageUrl }} style={styles.image} resizeMode="contain" />
+      <TouchableOpacity onPress={() => setZoomVisible(true)} activeOpacity={0.9}>
+        <Image source={{ uri: imageUrl }} style={styles.image} resizeMode="contain" />
+      </TouchableOpacity>
 
       {/* Alt art strip */}
       {allArtIds.length > 1 && (
@@ -174,6 +179,8 @@ export default function CardDetailScreen({ route, navigation }: Props) {
           </View>
         </View>
       </Modal>
+
+      <CardZoomModal uri={imageUrl} visible={zoomVisible} onClose={() => setZoomVisible(false)} />
 
       {/* Card rulings modal */}
       <Modal visible={rulingsModal} transparent animationType="fade">

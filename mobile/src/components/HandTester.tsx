@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { Deck, DeckCard, Card } from '../types';
 import { theme } from '../theme';
+import CardZoomModal from './CardZoomModal';
 
 interface Props {
   deck: Deck & { cards: DeckCard[] };
@@ -28,6 +29,7 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   const [hand, setHand]           = useState<string[]>([]);
   const [pool, setPool]           = useState<string[]>([]);
   const [mulligans, setMulligans] = useState(0);
+  const [zoomedUri, setZoomedUri] = useState<string | null>(null);
 
   const drawHand = () => {
     const expanded = deck.cards.flatMap(dc => Array(dc.count).fill(dc.card_id));
@@ -67,6 +69,7 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
 
   return (
     <Modal visible animationType="fade" transparent>
+      <CardZoomModal uri={zoomedUri ?? ''} visible={!!zoomedUri} onClose={() => setZoomedUri(null)} />
       <View style={styles.overlay}>
         <View style={styles.container}>
           {/* Header */}
@@ -87,13 +90,18 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
           {/* Card grid */}
           <View style={styles.cardGrid}>
             {hand.map((cardId, i) => (
-              <View key={`${cardId}-${i}`} style={styles.cardWrapper}>
+              <TouchableOpacity
+                key={`${cardId}-${i}`}
+                style={styles.cardWrapper}
+                onPress={() => setZoomedUri(`https://www.bssdb.dev/cards/bss/${cardId}.png`)}
+                activeOpacity={0.85}
+              >
                 <Image
                   source={{ uri: `https://www.bssdb.dev/cards/bss/${cardId}.png` }}
                   style={styles.cardImage}
                   resizeMode="cover"
                 />
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
 

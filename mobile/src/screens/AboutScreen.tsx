@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.1.0</Text>
+      <Text style={styles.version}>v1.2.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,21 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.2.0</Text>
+
+          <Text style={styles.changelogGroup}>Card Detail</Text>
+          <Text style={styles.body}>• Tap the card image to zoom it full-screen</Text>
+          <Text style={styles.body}>• Tap anywhere or the X button to dismiss</Text>
+
+          <Text style={styles.changelogGroup}>Hand Tester</Text>
+          <Text style={styles.body}>• Tap any card in your hand to zoom it full-screen</Text>
+
+          <Text style={styles.changelogGroup}>Deck Builder</Text>
+          <Text style={styles.body}>• Set, Rarity, and Type filters in add-card mode now use inline dropdowns matching the Cards browser</Text>
+          <Text style={styles.body}>• Fixed: card spacing in add-card mode is now consistent with the Cards browser</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.1.0</Text>
 
           <Text style={styles.changelogGroup}>Deck Export</Text>
