@@ -44,6 +44,10 @@ const CARD_GAP = 5;
 const CARD_W = Math.floor((TOTAL_W - SIDE_PAD * 2 - CARD_GAP * (CARD_COLS - 1)) / CARD_COLS);
 const CARD_H = Math.round(CARD_W * 88 / 63);
 
+const SB_COLS = 5;
+const SB_CARD_W = Math.floor((TOTAL_W - SIDE_PAD * 2 - CARD_GAP * (SB_COLS - 1)) / SB_COLS);
+const SB_CARD_H = Math.round(SB_CARD_W * 88 / 63);
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 interface CardEntry {
@@ -65,15 +69,15 @@ interface DeckStats {
 }
 
 interface Props {
-  deck: Deck & { cards: DeckCard[] };
+  deck: Deck & { cards: DeckCard[]; sideboard?: DeckCard[] };
   cardMap: Record<string, Card>;
   onReady: (ref: React.RefObject<View | null>) => void;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function buildEntries(deck: Deck & { cards: DeckCard[] }, cardMap: Record<string, Card>): CardEntry[] {
-  return deck.cards.flatMap(dc => {
+function buildEntries(cards: DeckCard[], cardMap: Record<string, Card>): CardEntry[] {
+  return cards.flatMap(dc => {
     const card = cardMap[dc.card_id];
     if (!card) return [];
     const elements = (card.color ?? [])
@@ -206,7 +210,7 @@ function CompactSummary({ stats }: { stats: DeckStats }) {
       <DonutChart stats={stats} />
 
       <View style={s.statPairs}>
-        <StatPair label="Avg Cost" value={stats.avgCost.toFixed(1)} sub="mana" />
+        <StatPair label="Avg Cost" value={stats.avgCost.toFixed(1)} />
         <StatPair
           label="Spirit / Nexus / Magic"
           value={`${stats.byKind.spirit} / ${stats.byKind.nexus} / ${stats.byKind.magic}`}
@@ -277,11 +281,41 @@ function CardGrid({ sorted, onImageSettle }: { sorted: CardEntry[]; onImageSettl
   );
 }
 
-function Footer({ total }: { total: number }) {
+function SideboardSection({ entries, onImageSettle }: { entries: CardEntry[]; onImageSettle: () => void }) {
+  if (entries.length === 0) return null;
+  const total = entries.reduce((s, c) => s + c.count, 0);
+  return (
+    <View>
+      <SectionLabel label="Sideboard" total={total} unique={entries.length} />
+      <View style={s.sbRow}>
+        {entries.map((c, i) => (
+          <View key={`sb-${c.card_id}-${i}`} style={s.sbSlot}>
+            <Image
+              source={{ uri: `https://www.bssdb.dev/cards/bss/${c.card_id}.png` }}
+              style={s.sbImage}
+              resizeMode="cover"
+              onLoad={onImageSettle}
+              onError={onImageSettle}
+            />
+            {c.count > 1 && (
+              <View style={s.badge}>
+                <Text style={s.badgeText}>×{c.count}</Text>
+              </View>
+            )}
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+}
+
+function Footer({ total, sbTotal }: { total: number; sbTotal: number }) {
   return (
     <View style={s.footer}>
       <Text style={s.footerLeft}>EXPORTED · BSS COMPANION</Text>
-      <Text style={s.footerRight}>{total} CARDS</Text>
+      <Text style={s.footerRight}>
+        {sbTotal > 0 ? `${total} CARDS + ${sbTotal} SB` : `${total} CARDS`}
+      </Text>
     </View>
   );
 }
@@ -290,10 +324,11 @@ function Footer({ total }: { total: number }) {
 
 const DeckExportImage = React.forwardRef<View, Props>(({ deck, cardMap, onReady }, _) => {
   const viewRef = useRef<View>(null);
-  const entries = useMemo(() => buildEntries(deck, cardMap), [deck, cardMap]);
-  const stats   = useMemo(() => deriveStats(entries), [entries]);
-  const sorted  = useMemo(() => sortEntries(entries), [entries]);
-  const uniqueCount = entries.length;
+  const entries   = useMemo(() => buildEntries(deck.cards, cardMap), [deck.cards, cardMap]);
+  const sbEntries = useMemo(() => buildEntries(deck.sideboard ?? [], cardMap), [deck.sideboard, cardMap]);
+  const stats     = useMemo(() => deriveStats(entries), [entries]);
+  const sorted    = useMemo(() => sortEntries(entries), [entries]);
+  const uniqueCount = entries.length + sbEntries.length;
   const [loadedCount, setLoadedCount] = useState(0);
 
   useEffect(() => {
@@ -306,12 +341,15 @@ const DeckExportImage = React.forwardRef<View, Props>(({ deck, cardMap, onReady 
     day: '2-digit', month: 'short', year: 'numeric',
   }).toUpperCase();
 
+  const sbTotal = sbEntries.reduce((s, c) => s + c.count, 0);
+
   return (
     <View ref={viewRef} style={s.root} collapsable={false}>
       <Header name={deck.name} date={date} />
       <CompactSummary stats={stats} />
       <CardGrid sorted={sorted} onImageSettle={onImageSettle} />
-      <Footer total={stats.total} />
+      <SideboardSection entries={sbEntries} onImageSettle={onImageSettle} />
+      <Footer total={stats.total} sbTotal={sbTotal} />
     </View>
   );
 });
@@ -332,8 +370,8 @@ const s = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'space-between',
     paddingHorizontal: SIDE_PAD,
-    paddingTop: 18,
-    paddingBottom: 14,
+    paddingTop: 10,
+    paddingBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: P.border,
     gap: 12,
@@ -344,7 +382,7 @@ const s = StyleSheet.create({
     fontFamily: 'monospace',
     letterSpacing: 2,
     textTransform: 'uppercase',
-    marginBottom: 6,
+    marginBottom: 3,
   },
   deckName: {
     color: P.text,
@@ -366,14 +404,14 @@ const s = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: SIDE_PAD,
-    paddingVertical: 14,
+    paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: P.border,
-    gap: 14,
+    gap: 10,
   },
   statPairs: {
     flex: 1,
-    gap: 10,
+    gap: 7,
   },
   statLabel: {
     color: P.muted,
@@ -429,8 +467,8 @@ const s = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: SIDE_PAD,
-    paddingTop: 14,
-    paddingBottom: 8,
+    paddingTop: 8,
+    paddingBottom: 5,
     gap: 10,
   },
   sectionLabelText: {
@@ -457,7 +495,7 @@ const s = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: SIDE_PAD,
     gap: CARD_GAP,
-    paddingBottom: 16,
+    paddingBottom: 10,
   },
   cardSlot: {
     width: CARD_W,
@@ -489,13 +527,32 @@ const s = StyleSheet.create({
     lineHeight: 10,
   },
 
+  // Sideboard grid (5-col, compact)
+  sbRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingHorizontal: SIDE_PAD,
+    gap: CARD_GAP,
+    paddingBottom: 10,
+  },
+  sbSlot: {
+    width: SB_CARD_W,
+    height: SB_CARD_H,
+  },
+  sbImage: {
+    width: SB_CARD_W,
+    height: SB_CARD_H,
+    borderRadius: 4,
+    backgroundColor: P.border,
+  },
+
   // Footer
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: SIDE_PAD,
-    paddingVertical: 14,
+    paddingVertical: 8,
     borderTopWidth: 1,
     borderTopColor: P.border,
   },
