@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.3.1</Text>
+      <Text style={styles.version}>v1.4.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,40 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.4.0</Text>
+
+          <Text style={styles.changelogGroup}>Sideboard</Text>
+          <Text style={styles.body}>• Deck builder now supports a 10-card sideboard alongside the main deck</Text>
+          <Text style={styles.body}>• Section tabs (Main Deck / Sideboard) in deck view to switch between card pools</Text>
+          <Text style={styles.body}>• 4-copy rule enforced combined across main + sideboard</Text>
+          <Text style={styles.body}>• Sideboard card count shown in the deck list</Text>
+
+          <Text style={styles.changelogGroup}>Swap Plans</Text>
+          <Text style={styles.body}>• Create swap plans per deck for specific matchups (e.g. "vs Aggro")</Text>
+          <Text style={styles.body}>• Mark cards to remove from main deck and bring in from sideboard</Text>
+          <Text style={styles.body}>• Deck size indicator shows resulting count and warns if outside 50–60 card range</Text>
+          <Text style={styles.body}>• Preview mode (eye icon) shows the post-plan deck in list or grid view</Text>
+          <Text style={styles.body}>• Tap any card in preview to view full card details</Text>
+          <Text style={styles.body}>• Test opening hands from the post-plan card pool (layers FAB)</Text>
+          <Text style={styles.body}>• Long-press context menu: rename, copy, delete — same pattern as decks</Text>
+          <Text style={styles.body}>• Tap plan or deck title in header to rename inline</Text>
+
+          <Text style={styles.changelogGroup}>Export / Import</Text>
+          <Text style={styles.body}>• Sideboard section in TXT and CSV exports</Text>
+          <Text style={styles.body}>• Image export shows sideboard in a compact 5-column grid below main deck</Text>
+          <Text style={styles.body}>• Import supports sideboard in TXT (=== Sideboard ===) and CSV (Section column)</Text>
+          <Text style={styles.body}>• JSON export removed</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
+          <Text style={styles.changelogVersion}>v1.3.2</Text>
+
+          <Text style={styles.changelogGroup}>Deck Export</Text>
+          <Text style={styles.body}>• Removed incorrect "mana" label from Avg Cost stat</Text>
+          <Text style={styles.body}>• Tightened padding in export image — renders more compact on mobile screens</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.3.1</Text>
 
           <Text style={styles.changelogGroup}>Rulebook</Text>

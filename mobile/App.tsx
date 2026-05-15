@@ -7,22 +7,26 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import { initCardsDb, initDeckDb } from './src/db';
 
-import CardsScreen      from './src/screens/CardsScreen';
-import CardDetailScreen from './src/screens/CardDetailScreen';
-import DecksScreen      from './src/screens/DecksScreen';
-import DeckDetailScreen from './src/screens/DeckDetailScreen';
-import RulingsScreen    from './src/screens/RulingsScreen';
-import AboutScreen      from './src/screens/AboutScreen';
+import CardsScreen          from './src/screens/CardsScreen';
+import CardDetailScreen      from './src/screens/CardDetailScreen';
+import DecksScreen           from './src/screens/DecksScreen';
+import DeckDetailScreen      from './src/screens/DeckDetailScreen';
+import SwapPlansScreen       from './src/screens/SwapPlansScreen';
+import SwapPlanDetailScreen  from './src/screens/SwapPlanDetailScreen';
+import RulingsScreen         from './src/screens/RulingsScreen';
+import AboutScreen           from './src/screens/AboutScreen';
 import { Card } from './src/types';
 import { theme } from './src/theme';
 
 // ── Navigation types ──────────────────────────────────────────────────────────
 
 export type RootStackParamList = {
-  Cards:      undefined;
-  CardDetail: { card: Card };
-  Decks:      undefined;
-  DeckDetail: { deckId: number };
+  Cards:          undefined;
+  CardDetail:     { card: Card };
+  Decks:          undefined;
+  DeckDetail:     { deckId: number };
+  SwapPlans:      { deckId: number; deckName: string };
+  SwapPlanDetail: { planId: number; deckId: number; deckName: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -47,9 +51,11 @@ function CardsStack() {
 function DecksStack() {
   return (
     <Stack.Navigator screenOptions={screenOpts}>
-      <Stack.Screen name="Decks"      component={DecksScreen}      options={{ title: 'My Decks' }} />
-      <Stack.Screen name="DeckDetail" component={DeckDetailScreen} options={{ title: 'Deck' }} />
-      <Stack.Screen name="CardDetail" component={CardDetailScreen} options={{ title: 'Card' }} />
+      <Stack.Screen name="Decks"          component={DecksScreen}          options={{ title: 'My Decks' }} />
+      <Stack.Screen name="DeckDetail"     component={DeckDetailScreen}     options={{ title: 'Deck' }} />
+      <Stack.Screen name="SwapPlans"      component={SwapPlansScreen}      options={{ title: 'Swap Plans' }} />
+      <Stack.Screen name="SwapPlanDetail" component={SwapPlanDetailScreen} options={{ title: 'Plan' }} />
+      <Stack.Screen name="CardDetail"     component={CardDetailScreen}     options={{ title: 'Card' }} />
     </Stack.Navigator>
   );
 }

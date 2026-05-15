@@ -4,7 +4,7 @@ import { Deck, DeckCard, Card } from '../../types';
 // ── Stats computation (client-side, cross-DB join in JS) ──────────────────────
 
 function computeStats(
-  deckCards: DeckCard[],
+  mainCards: DeckCard[],
   cardMap: Map<string, Card>,
 ): Pick<Deck, 'card_count' | 'colors' | 'type_counts' | 'avg_cost'> {
   let total = 0;
@@ -12,7 +12,7 @@ function computeStats(
   const colors: Record<string, number> = {};
   const type_counts: Record<string, number> = {};
 
-  for (const dc of deckCards) {
+  for (const dc of mainCards) {
     const card = cardMap.get(dc.card_id);
     if (!card) continue;
     total += dc.count;
@@ -61,17 +61,35 @@ interface DeckRow {
   UpdatedAt: string;
 }
 
-interface DeckCardRow { CardID: string; Count: number; }
+interface DeckCardRow { CardID: string; Count: number; Section: 'main' | 'sideboard'; }
 
-function rowToDeck(row: DeckRow, cards: DeckCard[], cardMap: Map<string, Card>): Deck {
+function splitCards(rows: DeckCardRow[]): { main: DeckCard[]; side: DeckCard[] } {
+  const main: DeckCard[] = [];
+  const side: DeckCard[] = [];
+  for (const r of rows) {
+    const dc: DeckCard = { card_id: r.CardID, count: r.Count, section: r.Section };
+    if (r.Section === 'sideboard') side.push(dc);
+    else main.push(dc);
+  }
+  return { main, side };
+}
+
+function rowToDeck(
+  row: DeckRow,
+  main: DeckCard[],
+  side: DeckCard[],
+  cardMap: Map<string, Card>,
+): Deck {
   return {
-    id:         row.DeckID,
-    name:       row.Name,
-    notes:      row.Notes,
-    created_at: row.CreatedAt,
-    updated_at: row.UpdatedAt,
-    cards,
-    ...computeStats(cards, cardMap),
+    id:             row.DeckID,
+    name:           row.Name,
+    notes:          row.Notes,
+    created_at:     row.CreatedAt,
+    updated_at:     row.UpdatedAt,
+    cards:          main,
+    sideboard:      side,
+    sideboard_count: side.reduce((s, dc) => s + dc.count, 0),
+    ...computeStats(main, cardMap),
   };
 }
 
@@ -86,7 +104,7 @@ export async function getDecks(): Promise<Deck[]> {
   const allCardRows = await Promise.all(
     deckRows.map(d =>
       deckDb.getAllAsync<DeckCardRow>(
-        'SELECT CardID, Count FROM DeckCards WHERE DeckID = ?', [d.DeckID],
+        'SELECT CardID, Count, Section FROM DeckCards WHERE DeckID = ?', [d.DeckID],
       ),
     ),
   );
@@ -95,24 +113,25 @@ export async function getDecks(): Promise<Deck[]> {
   const cardMap = await fetchCardMap(allCardIds);
 
   return deckRows.map((d, i) => {
-    const cards = allCardRows[i].map(r => ({ card_id: r.CardID, count: r.Count }));
-    return rowToDeck(d, cards, cardMap);
+    const { main, side } = splitCards(allCardRows[i]);
+    return rowToDeck(d, main, side, cardMap);
   });
 }
 
-export async function getDeck(id: number): Promise<Deck & { cards: DeckCard[] }> {
+export async function getDeck(id: number): Promise<Deck & { cards: DeckCard[]; sideboard: DeckCard[] }> {
   const row = await deckDb.getFirstAsync<DeckRow>(
     'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt FROM Decks WHERE DeckID = ?', [id],
   );
   if (!row) throw new Error(`Deck not found: ${id}`);
 
   const cardRows = await deckDb.getAllAsync<DeckCardRow>(
-    'SELECT CardID, Count FROM DeckCards WHERE DeckID = ?', [id],
+    'SELECT CardID, Count, Section FROM DeckCards WHERE DeckID = ?', [id],
   );
-  const cards = cardRows.map(r => ({ card_id: r.CardID, count: r.Count }));
-  const cardMap = await fetchCardMap(cards.map(c => c.card_id));
+  const { main, side } = splitCards(cardRows);
+  const allIds = cardRows.map(r => r.CardID);
+  const cardMap = await fetchCardMap(allIds);
 
-  return rowToDeck(row, cards, cardMap) as Deck & { cards: DeckCard[] };
+  return rowToDeck(row, main, side, cardMap) as Deck & { cards: DeckCard[]; sideboard: DeckCard[] };
 }
 
 export async function createDeck(name: string, notes?: string): Promise<Deck> {
@@ -123,7 +142,7 @@ export async function createDeck(name: string, notes?: string): Promise<Deck> {
     'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt FROM Decks WHERE DeckID = ?',
     [result.lastInsertRowId],
   );
-  return rowToDeck(row!, [], new Map());
+  return rowToDeck(row!, [], [], new Map());
 }
 
 export async function updateDeck(
@@ -148,20 +167,56 @@ export async function addCardToDeck(
   deckId: number,
   cardId: string,
   count = 1,
+  section: 'main' | 'sideboard' = 'main',
 ): Promise<void> {
-  await deckDb.runAsync(
-    `INSERT INTO DeckCards (DeckID, CardID, Count) VALUES (?, ?, ?)
-     ON CONFLICT(DeckID, CardID) DO UPDATE SET Count = MIN(Count + excluded.Count, 4)`,
-    [deckId, cardId, count],
+  // Enforce 4-copy limit across both sections
+  const existing = await deckDb.getFirstAsync<{ total: number }>(
+    'SELECT SUM(Count) AS total FROM DeckCards WHERE DeckID = ? AND CardID = ?',
+    [deckId, cardId],
   );
+  const currentTotal = existing?.total ?? 0;
+  const canAdd = Math.max(0, 4 - currentTotal);
+  if (canAdd === 0) return;
+  const addCount = Math.min(count, canAdd);
+
+  // Enforce sideboard 10-card cap
+  if (section === 'sideboard') {
+    const sbRow = await deckDb.getFirstAsync<{ total: number }>(
+      `SELECT SUM(Count) AS total FROM DeckCards WHERE DeckID = ? AND Section = 'sideboard'`,
+      [deckId],
+    );
+    const sbTotal = sbRow?.total ?? 0;
+    const sbSlots = Math.max(0, 10 - sbTotal);
+    if (sbSlots === 0) return;
+    const finalCount = Math.min(addCount, sbSlots);
+    if (finalCount <= 0) return;
+
+    await deckDb.runAsync(
+      `INSERT INTO DeckCards (DeckID, CardID, Count, Section) VALUES (?, ?, ?, ?)
+       ON CONFLICT(DeckID, CardID, Section) DO UPDATE SET Count = Count + ?`,
+      [deckId, cardId, finalCount, section, finalCount],
+    );
+  } else {
+    await deckDb.runAsync(
+      `INSERT INTO DeckCards (DeckID, CardID, Count, Section) VALUES (?, ?, ?, ?)
+       ON CONFLICT(DeckID, CardID, Section) DO UPDATE SET Count = Count + ?`,
+      [deckId, cardId, addCount, section, addCount],
+    );
+  }
+
   await deckDb.runAsync(
     'UPDATE Decks SET UpdatedAt = CURRENT_TIMESTAMP WHERE DeckID = ?', [deckId],
   );
 }
 
-export async function removeCardFromDeck(deckId: number, cardId: string): Promise<void> {
+export async function removeCardFromDeck(
+  deckId: number,
+  cardId: string,
+  section: 'main' | 'sideboard' = 'main',
+): Promise<void> {
   await deckDb.runAsync(
-    'DELETE FROM DeckCards WHERE DeckID = ? AND CardID = ?', [deckId, cardId],
+    'DELETE FROM DeckCards WHERE DeckID = ? AND CardID = ? AND Section = ?',
+    [deckId, cardId, section],
   );
   await deckDb.runAsync(
     'UPDATE Decks SET UpdatedAt = CURRENT_TIMESTAMP WHERE DeckID = ?', [deckId],
@@ -172,14 +227,15 @@ export async function updateCardCount(
   deckId: number,
   cardId: string,
   count: number,
+  section: 'main' | 'sideboard' = 'main',
 ): Promise<void> {
   if (count <= 0) {
-    await removeCardFromDeck(deckId, cardId);
+    await removeCardFromDeck(deckId, cardId, section);
     return;
   }
   await deckDb.runAsync(
-    'UPDATE DeckCards SET Count = ? WHERE DeckID = ? AND CardID = ?',
-    [count, deckId, cardId],
+    'UPDATE DeckCards SET Count = ? WHERE DeckID = ? AND CardID = ? AND Section = ?',
+    [count, deckId, cardId, section],
   );
   await deckDb.runAsync(
     'UPDATE Decks SET UpdatedAt = CURRENT_TIMESTAMP WHERE DeckID = ?', [deckId],

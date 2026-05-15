@@ -130,7 +130,7 @@ export default function DecksScreen({ navigation }: Props) {
         const more = result.unknownIds.length > 5 ? ` (+${result.unknownIds.length - 5} more)` : '';
         Alert.alert(
           'Import complete',
-          `"${result.deckName}" imported with ${result.cardCount} cards.\n\n` +
+          `"${result.deckName}" imported with ${result.cardCount} main + ${result.sideboardCount} sideboard cards.\n\n` +
           `${result.unknownIds.length} unknown card ID(s) skipped:\n${skipped}${more}`,
         );
       } else {

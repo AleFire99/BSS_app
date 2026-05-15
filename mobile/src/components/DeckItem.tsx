@@ -20,7 +20,9 @@ export default function DeckItem({ deck, onPress, onLongPress }: Props) {
       {/* Top row: name + card count + date */}
       <View style={styles.header}>
         <Text style={styles.name}>{deck.name}</Text>
-        <Text style={styles.count}>{deck.card_count} cards</Text>
+        <Text style={styles.count}>
+          {deck.card_count} cards{deck.sideboard_count > 0 ? ` · ${deck.sideboard_count} SB` : ''}
+        </Text>
       </View>
 
       {/* Color chips */}
