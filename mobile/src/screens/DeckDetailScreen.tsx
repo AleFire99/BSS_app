@@ -27,7 +27,7 @@ const SORT_CYCLE: SortMode[] = ['type+cost', 'type+name', 'type+color'];
 export default function DeckDetailScreen({ route, navigation }: Props) {
   const { deckId } = route.params;
 
-  const [deck, setDeck]           = useState<(Deck & { cards: DeckCard[] }) | null>(null);
+  const [deck, setDeck]           = useState<(Deck & { cards: DeckCard[]; sideboard: DeckCard[] }) | null>(null);
   const [allCards, setAllCards]   = useState<Card[]>([]);
   const [loading, setLoading]     = useState(true);
   const [addMode, setAddMode]     = useState(false);
@@ -38,6 +38,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [viewMode, setViewMode]   = useState<'list' | 'grid'>('list');
   const [sortMode, setSortMode]     = useState<SortMode>('type+cost');
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<'main' | 'sideboard'>('main');
 
   // Add card filter states
   const [addSearch,     setAddSearch]     = useState('');
@@ -67,20 +68,32 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   }, [deckId]);
 
   useEffect(() => { load(); navigation.setOptions({ title: 'Deck' }); }, []);
+
   useEffect(() => {
     if (!deck) return;
     navigation.setOptions({
-      title: deck.name,
-      headerRight: () => (
+      headerTitle: () => (
         <TouchableOpacity
           onPress={() => { setEditName(deck.name); setEditModal(true); }}
-          style={{ marginRight: 16 }}
+          style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}
         >
-          <Feather name="edit-2" size={20} color="#fff" />
+          <Text style={{ color: '#fff', fontSize: 17, fontWeight: '600' }} numberOfLines={1}>
+            {deck.name}
+          </Text>
+          <Feather name="edit-2" size={13} color="rgba(255,255,255,0.5)" />
+        </TouchableOpacity>
+      ),
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SwapPlans', { deckId, deckName: deck.name })}
+          style={{ padding: 8, marginRight: 4 }}
+        >
+          <Feather name="shuffle" size={20} color="#fff" />
         </TouchableOpacity>
       ),
     });
   }, [deck]);
+
   useEffect(() => {
     Animated.spring(cardToastAnim, { toValue: showCardToast ? 1 : 0, useNativeDriver: true, bounciness: 4 }).start();
   }, [showCardToast, cardToastAnim]);
@@ -94,8 +107,25 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const addRarities = useMemo(() => [...new Set(allCards.map(c => c.rarity))].sort(), [allCards]);
   const maxAddCost  = useMemo(() => allCards.length > 0 ? Math.max(...allCards.map(c => c.cost)) : 13, [allCards]);
 
-  const getDeckCount = (cardId: string) =>
-    deck?.cards?.find(dc => dc.card_id === cardId)?.count ?? 0;
+  // Count of a card in the ACTIVE section
+  const getSectionCount = useCallback((cardId: string): number => {
+    const arr = activeSection === 'main' ? deck?.cards : deck?.sideboard;
+    return arr?.find(dc => dc.card_id === cardId)?.count ?? 0;
+  }, [deck, activeSection]);
+
+  // Combined count across BOTH sections (for 4-copy limit)
+  const getTotalCount = useCallback((cardId: string): number => {
+    const main = deck?.cards?.find(dc => dc.card_id === cardId)?.count ?? 0;
+    const side = deck?.sideboard?.find(dc => dc.card_id === cardId)?.count ?? 0;
+    return main + side;
+  }, [deck]);
+
+  // Can we add one more of this card (considering 4-copy + sideboard 10-cap)?
+  const canAddMore = useCallback((cardId: string): boolean => {
+    if (getTotalCount(cardId) >= 4) return false;
+    if (activeSection === 'sideboard' && (deck?.sideboard_count ?? 0) >= 10) return false;
+    return true;
+  }, [getTotalCount, activeSection, deck?.sideboard_count]);
 
   const filteredAdd = useMemo(() => {
     return allCards.filter(c => {
@@ -118,8 +148,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     });
   }, [allCards, addSearch, addColors, addType, addRarity, addSet, addCostRange]);
 
+  const activeCards = useMemo(
+    () => (activeSection === 'main' ? deck?.cards : deck?.sideboard) ?? [],
+    [deck, activeSection],
+  );
+
   const sortedCards = useMemo(() => {
-    const cards = [...(deck?.cards ?? [])];
+    const cards = [...activeCards];
     return cards.sort((a, b) => {
       const ca = cardMap[a.card_id], cb = cardMap[b.card_id];
       if (!ca || !cb) return 0;
@@ -130,7 +165,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       if (sortMode === 'type+color') return (ca.color[0] ?? '').localeCompare(cb.color[0] ?? '');
       return 0;
     });
-  }, [deck?.cards, cardMap, sortMode]);
+  }, [activeCards, cardMap, sortMode]);
 
   const closeAddMode = () => {
     setAddMode(false);
@@ -142,15 +177,15 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const handleAdd = async (cardId: string) => {
     if (pendingAdds.current.has(cardId)) return;
     pendingAdds.current.add(cardId);
-    try { await addCardToDeck(deckId, cardId); load(); }
+    try { await addCardToDeck(deckId, cardId, 1, activeSection); load(); }
     catch (e: any) { Alert.alert('Error', e.message); }
     finally { pendingAdds.current.delete(cardId); }
   };
 
   const handleDecrement = async (cardId: string, currentCount: number) => {
     try {
-      if (currentCount <= 1) await removeCardFromDeck(deckId, cardId);
-      else await updateCardCount(deckId, cardId, currentCount - 1);
+      if (currentCount <= 1) await removeCardFromDeck(deckId, cardId, activeSection);
+      else await updateCardCount(deckId, cardId, currentCount - 1, activeSection);
       load();
     } catch (e: any) { Alert.alert('Error', e.message); }
   };
@@ -162,26 +197,39 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   };
 
   const handleCardDeletePress = useCallback((dc: DeckCard) => {
-    const idx = deck?.cards?.findIndex(c => c.card_id === dc.card_id) ?? -1;
+    const arr = activeSection === 'main' ? deck?.cards : deck?.sideboard;
+    const idx = arr?.findIndex(c => c.card_id === dc.card_id) ?? -1;
     pendingCardDeleteRef.current = { dc, index: idx };
     setCollapsingCardId(dc.card_id);
-  }, [deck]);
+  }, [deck, activeSection]);
 
   const handleCardCollapseEnd = useCallback(() => {
     const item = pendingCardDeleteRef.current;
     if (!item) return;
     pendingCardDeleteRef.current = null;
     setCollapsingCardId(null);
-    setDeck(prev => prev ? {
-      ...prev,
-      cards: prev.cards?.filter(c => c.card_id !== item.dc.card_id) ?? [],
-      card_count: Math.max(0, prev.card_count - item.dc.count),
-    } : null);
+    const isMain = item.dc.section === 'main';
+    setDeck(prev => {
+      if (!prev) return prev;
+      if (isMain) {
+        return {
+          ...prev,
+          cards: prev.cards?.filter(c => c.card_id !== item.dc.card_id) ?? [],
+          card_count: Math.max(0, prev.card_count - item.dc.count),
+        };
+      } else {
+        return {
+          ...prev,
+          sideboard: prev.sideboard?.filter(c => c.card_id !== item.dc.card_id) ?? [],
+          sideboard_count: Math.max(0, prev.sideboard_count - item.dc.count),
+        };
+      }
+    });
     setUndoCard(item);
     setShowCardToast(true);
     if (cardDeleteTimerRef.current) clearTimeout(cardDeleteTimerRef.current);
     cardDeleteTimerRef.current = setTimeout(() => {
-      removeCardFromDeck(deckId, item.dc.card_id).catch(e => Alert.alert('Error', e.message));
+      removeCardFromDeck(deckId, item.dc.card_id, item.dc.section).catch(e => Alert.alert('Error', e.message));
       setUndoCard(null);
       setShowCardToast(false);
       cardDeleteTimerRef.current = null;
@@ -192,11 +240,18 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     if (cardDeleteTimerRef.current) { clearTimeout(cardDeleteTimerRef.current); cardDeleteTimerRef.current = null; }
     setShowCardToast(false);
     if (undoCard) {
+      const isMain = undoCard.dc.section === 'main';
       setDeck(prev => {
         if (!prev) return prev;
-        const next = [...(prev.cards ?? [])];
-        next.splice(Math.min(undoCard.index, next.length), 0, undoCard.dc);
-        return { ...prev, cards: next, card_count: prev.card_count + undoCard.dc.count };
+        if (isMain) {
+          const next = [...(prev.cards ?? [])];
+          next.splice(Math.min(undoCard.index, next.length), 0, undoCard.dc);
+          return { ...prev, cards: next, card_count: prev.card_count + undoCard.dc.count };
+        } else {
+          const next = [...(prev.sideboard ?? [])];
+          next.splice(Math.min(undoCard.index, next.length), 0, undoCard.dc);
+          return { ...prev, sideboard: next, sideboard_count: prev.sideboard_count + undoCard.dc.count };
+        }
       });
       setUndoCard(null);
     }
@@ -210,6 +265,8 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const addCostActive = addCostRange[0] !== 0 || addCostRange[1] !== maxAddCost;
 
   const renderCardRow = (dc: DeckCard, card: Card, swipeable = false) => {
+    const totalCount = getTotalCount(dc.card_id);
+    const atSbCap = activeSection === 'sideboard' && deck.sideboard_count >= 10;
     const row = (
       <View style={styles.cardBlock}>
         <TouchableOpacity
@@ -247,10 +304,10 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           <Text style={styles.qty}>×{dc.count}</Text>
           <TouchableOpacity
             onPress={() => handleAdd(dc.card_id)}
-            disabled={dc.count >= 4}
-            style={[styles.qtyBtn, dc.count >= 4 && styles.qtyBtnDisabled]}
+            disabled={totalCount >= 4 || atSbCap}
+            style={[styles.qtyBtn, (totalCount >= 4 || atSbCap) && styles.qtyBtnDisabled]}
           >
-            <Text style={[styles.qtyBtnText, dc.count >= 4 && styles.qtyBtnTextDisabled]}>+</Text>
+            <Text style={[styles.qtyBtnText, (totalCount >= 4 || atSbCap) && styles.qtyBtnTextDisabled]}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -272,7 +329,12 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     <View style={styles.container}>
       {/* Stats bar */}
       <View style={styles.statsBar}>
-        <Text style={styles.cardCount}>{deck.card_count} cards</Text>
+        <View style={styles.statsCountGroup}>
+          <Text style={styles.cardCount}>{deck.card_count}</Text>
+          {deck.sideboard_count > 0 && (
+            <Text style={styles.sbCount}>+{deck.sideboard_count} SB</Text>
+          )}
+        </View>
         <View style={styles.colorRow}>
           {Object.entries(deck.colors).sort((a, b) => b[1] - a[1]).map(([c, n]) => (
             <View key={c} style={styles.colorChip}>
@@ -289,7 +351,27 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         </TouchableOpacity>
       </View>
 
-      {deck.card_count > 0 && (
+      {/* Section toggle */}
+      <View style={styles.sectionToggle}>
+        <TouchableOpacity
+          style={[styles.sectionTab, activeSection === 'main' && styles.sectionTabActive]}
+          onPress={() => { setActiveSection('main'); if (addMode) closeAddMode(); }}
+        >
+          <Text style={[styles.sectionTabText, activeSection === 'main' && styles.sectionTabTextActive]}>
+            Main Deck ({deck.card_count})
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.sectionTab, activeSection === 'sideboard' && styles.sectionTabActive]}
+          onPress={() => { setActiveSection('sideboard'); if (addMode) closeAddMode(); }}
+        >
+          <Text style={[styles.sectionTabText, activeSection === 'sideboard' && styles.sectionTabTextActive]}>
+            Sideboard ({deck.sideboard_count}/10)
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {activeSection === 'main' && deck.card_count > 0 && (
         <View style={styles.deckStatsBadges}>
           <View style={styles.deckStatsBadge}>
             <Text style={styles.deckStatsBadgeLabel}>Avg Cost</Text>
@@ -387,12 +469,21 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <RangeSlider min={0} max={maxAddCost} values={addCostRange} onChange={setAddCostRange} />
           </View>
 
+          {activeSection === 'sideboard' && (
+            <Text style={styles.sbCapHint}>
+              Sideboard: {deck.sideboard_count}/10 cards
+            </Text>
+          )}
+
           <Text style={styles.addCount}>{filteredAdd.length} cards</Text>
 
           <FlatList
             data={filteredAdd}
             keyExtractor={c => c.id}
-            renderItem={({ item }) => renderCardRow({ card_id: item.id, count: getDeckCount(item.id) }, item, false)}
+            renderItem={({ item }) => {
+              const sectionCount = getSectionCount(item.id);
+              return renderCardRow({ card_id: item.id, count: sectionCount, section: activeSection }, item, false);
+            }}
             ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
             ListEmptyComponent={<Text style={styles.empty}>No cards match filters</Text>}
             contentContainerStyle={{ paddingBottom: 100, paddingHorizontal: 12, paddingTop: 8 }}
@@ -481,7 +572,11 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
                 return renderCardRow(item, card, true);
               }}
               ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
-              ListEmptyComponent={<Text style={styles.empty}>Deck is empty. Add cards!</Text>}
+              ListEmptyComponent={
+                <Text style={styles.empty}>
+                  {activeSection === 'main' ? 'Deck is empty. Add cards!' : 'Sideboard is empty. Add cards!'}
+                </Text>
+              }
               contentContainerStyle={{ paddingBottom: 200, paddingHorizontal: 12, paddingTop: 8 }}
             />
           ) : (
@@ -512,12 +607,20 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
                   </TouchableOpacity>
                 );
               }}
-              ListEmptyComponent={<Text style={styles.empty}>Deck is empty. Add cards!</Text>}
+              ListEmptyComponent={
+                <Text style={styles.empty}>
+                  {activeSection === 'main' ? 'Deck is empty. Add cards!' : 'Sideboard is empty. Add cards!'}
+                </Text>
+              }
               contentContainerStyle={{ paddingBottom: 200, paddingHorizontal: 8 }}
             />
           )}
 
-          <TouchableOpacity style={styles.fab} onPress={() => setAddMode(true)}>
+          <TouchableOpacity
+            style={[styles.fab, activeSection === 'sideboard' && deck.sideboard_count >= 10 && styles.fabDisabled]}
+            onPress={() => setAddMode(true)}
+            disabled={activeSection === 'sideboard' && deck.sideboard_count >= 10}
+          >
             <Feather name="plus" size={22} color="#000" />
           </TouchableOpacity>
           <TouchableOpacity
@@ -580,7 +683,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         </View>
       </Modal>
 
-      {/* Rename deck modal — keyboard-aware */}
+      {/* Rename deck modal */}
       <Modal visible={editModal} transparent animationType="fade">
         <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setEditModal(false)} />
         <KeyboardAvoidingView
@@ -616,12 +719,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center',
     backgroundColor: theme.surface, paddingVertical: 8, paddingHorizontal: 12, gap: 8,
   },
+  statsCountGroup: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
   cardCount: { color: theme.accent, fontWeight: '700', fontSize: 14 },
+  sbCount:   { color: theme.textMuted, fontSize: 11, fontWeight: '600' },
   colorRow:  { flex: 1, flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
   colorChip: { flexDirection: 'row', alignItems: 'center', gap: 3 },
   dot:       { width: 10, height: 10, borderRadius: 5 },
   colorQty:  { color: theme.textMuted, fontSize: 12 },
   statsBtn:  { paddingHorizontal: 10, paddingVertical: 6 },
+
+  sectionToggle: {
+    flexDirection: 'row',
+    backgroundColor: theme.surface,
+    borderTopWidth: 1, borderTopColor: theme.border,
+  },
+  sectionTab: {
+    flex: 1, paddingVertical: 10, alignItems: 'center',
+    borderBottomWidth: 2, borderBottomColor: 'transparent',
+  },
+  sectionTabActive:     { borderBottomColor: theme.accent },
+  sectionTabText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
+  sectionTabTextActive: { color: theme.accent },
 
   sortMenuWrap: { ...StyleSheet.absoluteFillObject },
   sortMenu: {
@@ -682,6 +800,7 @@ const styles = StyleSheet.create({
   addSearchWrap:       { marginHorizontal: 12, marginTop: 8, marginBottom: 6, position: 'relative' },
   addToolbar:          { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
   addCount:            { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
+  sbCapHint:           { color: theme.accent, fontSize: 11, marginLeft: 14, marginBottom: 2 },
   search: {
     backgroundColor: theme.surface, color: theme.text,
     borderRadius: 8, paddingHorizontal: 12, paddingRight: 36,
