@@ -99,6 +99,7 @@ export default function CardsScreen({ navigation }: Props) {
 
       {/* Search bar */}
       <View style={styles.searchWrap}>
+        <Feather name="search" size={15} color={theme.textMuted} style={{ marginLeft: 10, marginRight: 6 }} />
         <TextInput
           style={styles.search}
           placeholder="Search name, effects, keywords…"
@@ -294,14 +295,16 @@ const styles = StyleSheet.create({
   center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
   err:       { color: 'red' },
 
-  searchWrap: { marginHorizontal: 12, marginBottom: 6, position: 'relative' },
+  searchWrap: {
+    marginHorizontal: 12, marginBottom: 6,
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: theme.surface, borderRadius: 8,
+    position: 'relative',
+  },
   search: {
-    backgroundColor: theme.surface,
+    flex: 1,
     color: theme.text,
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingRight: 36,
-    paddingVertical: 8,
+    paddingLeft: 0, paddingRight: 36, paddingVertical: 8,
     fontSize: 14,
   },
   clearBtn:  { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },

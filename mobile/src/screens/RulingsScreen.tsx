@@ -6,6 +6,7 @@ import {
 import { getKeywords, getKeywordDetail, getCardRulings } from '../api';
 import { KeywordDef, QAItem, CardRuling } from '../types';
 import { theme } from '../theme';
+import { Feather } from '@expo/vector-icons';
 import RulebookView from '../components/RulebookView';
 
 type Segment = 'keywords' | 'cards' | 'rulebook';
@@ -123,6 +124,7 @@ export default function RulingsScreen() {
       {/* Search — hidden on Rulebook */}
       {segment !== 'rulebook' && (
         <View style={styles.searchWrap}>
+          <Feather name="search" size={15} color={theme.textMuted} style={{ marginLeft: 10, marginRight: 6 }} />
           <TextInput
             style={styles.search}
             placeholder={segment === 'keywords' ? 'Search keywords…' : 'Search by card name or ID…'}
@@ -267,10 +269,15 @@ const styles = StyleSheet.create({
   segText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
   segTextActive: { color: '#fff', fontWeight: '700' },
 
-  searchWrap: { marginHorizontal: 12, marginBottom: 8, position: 'relative' },
+  searchWrap: {
+    marginHorizontal: 12, marginBottom: 8,
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: theme.surface, borderRadius: 8,
+    position: 'relative',
+  },
   search: {
-    backgroundColor: theme.surface, color: theme.text, borderRadius: 8,
-    paddingHorizontal: 12, paddingRight: 36, paddingVertical: 8, fontSize: 14,
+    flex: 1, color: theme.text,
+    paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
   },
   clearBtn:  { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
   clearText: { color: theme.textMuted, fontSize: 15 },
