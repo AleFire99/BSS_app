@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { RULEBOOK, RuleChapter, RuleSection } from '../data/rulebook';
 import { theme } from '../theme';
 
@@ -47,6 +48,7 @@ function BookHeader({ label }: { label: string }) {
   return (
     <View style={styles.bookHeader}>
       <Text style={styles.bookHeaderText}>{label}</Text>
+      <View style={styles.bookHeaderLine} />
     </View>
   );
 }
@@ -62,7 +64,7 @@ function ChapterHeader({
     <View style={[styles.chapterWrap, open && styles.chapterWrapOpen]}>
       <TouchableOpacity style={styles.chapterRow} onPress={() => onPress(chapter.id)} activeOpacity={0.75}>
         <Text style={styles.chapterTitle}>{chapter.title}</Text>
-        <Text style={styles.chevron}>{open ? '▲' : '▼'}</Text>
+        <Feather name={open ? 'chevron-up' : 'chevron-down'} size={15} color={theme.textMuted} />
       </TouchableOpacity>
     </View>
   );
@@ -90,30 +92,27 @@ function ChapterBody({ chapter }: { chapter: RuleChapter }) {
 }
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 12, paddingBottom: 32 },
+  container: { paddingHorizontal: 12, paddingTop: 4, paddingBottom: 32 },
 
   bookHeader: {
-    marginTop: 16, marginBottom: 4,
-    paddingVertical: 6, paddingHorizontal: 10,
-    backgroundColor: theme.accent,
-    borderRadius: 8,
+    marginTop: 20, marginBottom: 4,
+    flexDirection: 'row', alignItems: 'center', gap: 10,
   },
   bookHeaderText: {
-    color: '#1a1a1a', fontSize: 12, fontWeight: '800',
-    textTransform: 'uppercase', letterSpacing: 1,
+    color: theme.accent, fontSize: 11, fontWeight: '800',
+    textTransform: 'uppercase', letterSpacing: 1.5,
   },
+  bookHeaderLine: { flex: 1, height: 1, backgroundColor: theme.border },
 
   chapterWrap:     { borderBottomWidth: 1, borderBottomColor: theme.border },
-  chapterWrapOpen: { backgroundColor: theme.surface },
+  chapterWrapOpen: {},
 
   chapterRow: {
     flexDirection: 'row', alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 13, paddingHorizontal: 4,
-    backgroundColor: theme.surface,
+    paddingVertical: 13,
   },
-  chapterTitle: { color: theme.text, fontSize: 14, fontWeight: '700', flex: 1, marginRight: 8 },
-  chevron:      { color: theme.textMuted, fontSize: 11 },
+  chapterTitle: { color: theme.text, fontSize: 14, fontWeight: '600', flex: 1, marginRight: 8 },
 
   chapterBody: { paddingBottom: 12 },
 

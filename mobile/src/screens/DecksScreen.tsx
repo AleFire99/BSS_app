@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import {
   View, Text, FlatList, StyleSheet, TouchableOpacity,
   ActivityIndicator, Alert, TextInput, Modal, Animated,
-  KeyboardAvoidingView, Platform,
+  KeyboardAvoidingView, Platform, Pressable,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDecks, getDeck, createDeck, updateDeck, deleteDeck, addCardToDeck } from '../api';
@@ -11,14 +11,39 @@ import { Feather } from '@expo/vector-icons';
 import { Deck } from '../types';
 import DeckItem from '../components/DeckItem';
 import SwipeableRow from '../components/SwipeableRow';
-import { theme } from '../theme';
+import { theme, COLOR_MAP } from '../theme';
 import { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Decks'>;
 
+type SortMode = 'name' | 'date' | 'quantity' | 'avg_cost';
+
+const SORT_LABELS: Record<SortMode, string> = {
+  name:     'Name',
+  date:     'Date',
+  quantity: 'Quantity',
+  avg_cost: 'Avg cost',
+};
+const SORT_CYCLE: SortMode[] = ['name', 'date', 'quantity', 'avg_cost'];
+const SORT_DEFAULT_DIR: Record<SortMode, 'asc' | 'desc'> = {
+  name:     'asc',
+  date:     'desc',
+  quantity: 'desc',
+  avg_cost: 'asc',
+};
+
+const COLORS = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'White'];
+
 export default function DecksScreen({ navigation }: Props) {
   const [decks, setDecks]     = useState<Deck[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Filters
+  const [search, setSearch]               = useState('');
+  const [filterColors, setFilterColors]   = useState<string[]>([]);
+  const [sortMode, setSortMode]           = useState<SortMode>('date');
+  const [sortDir, setSortDir]             = useState<'asc' | 'desc'>('desc');
+  const [sortMenuOpen, setSortMenuOpen]   = useState(false);
 
   // Create modal
   const [createVisible, setCreateVisible] = useState(false);
@@ -57,6 +82,35 @@ export default function DecksScreen({ navigation }: Props) {
   useEffect(() => {
     Animated.spring(toastAnim, { toValue: showToast ? 1 : 0, useNativeDriver: true, bounciness: 4 }).start();
   }, [showToast, toastAnim]);
+
+  // ── Derived display list ──────────────────────────────────────────────────────
+
+  const displayDecks = useMemo(() => {
+    let list = [...decks];
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      list = list.filter(d => d.name.toLowerCase().includes(q));
+    }
+    if (filterColors.length > 0) {
+      list = list.filter(d => filterColors.every(c => (d.colors[c] ?? 0) > 0));
+    }
+    switch (sortMode) {
+      case 'name':     list.sort((a, b) => sortDir === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)); break;
+      case 'date':     list.sort((a, b) => sortDir === 'desc' ? b.updated_at.localeCompare(a.updated_at) : a.updated_at.localeCompare(b.updated_at)); break;
+      case 'quantity': list.sort((a, b) => sortDir === 'desc' ? b.card_count - a.card_count : a.card_count - b.card_count); break;
+      case 'avg_cost': list.sort((a, b) => sortDir === 'asc' ? a.avg_cost - b.avg_cost : b.avg_cost - a.avg_cost); break;
+    }
+    return list;
+  }, [decks, search, filterColors, sortMode, sortDir]);
+
+  const toggleColor = (color: string) =>
+    setFilterColors(prev => prev.includes(color) ? prev.filter(c => c !== color) : [...prev, color]);
+
+  const handleSetSortMode = (mode: SortMode) => {
+    setSortMode(mode);
+    setSortDir(SORT_DEFAULT_DIR[mode]);
+    setSortMenuOpen(false);
+  };
 
   // ── Create ────────────────────────────────────────────────────────────────────
 
@@ -168,7 +222,6 @@ export default function DecksScreen({ navigation }: Props) {
     if (deleteTimerRef.current) {
       clearTimeout(deleteTimerRef.current);
       deleteTimerRef.current = null;
-      // Commit the deck whose undo window we just closed
       if (pendingUndoIdRef.current !== null) {
         deleteDeck(pendingUndoIdRef.current).catch(e => Alert.alert('Error', e.message));
       }
@@ -198,6 +251,24 @@ export default function DecksScreen({ navigation }: Props) {
     }
   };
 
+  // ── Render helpers ────────────────────────────────────────────────────────────
+
+  const renderDeckItem = (item: Deck) => (
+    <SwipeableRow
+      onDeletePress={() => handleDeletePress(item)}
+      collapsing={collapsingId === item.id}
+      onCollapseEnd={handleCollapseEnd}
+    >
+      <View style={styles.itemWrapper}>
+        <DeckItem
+          deck={item}
+          onPress={() => navigation.navigate('DeckDetail', { deckId: item.id })}
+          onLongPress={() => setContextDeck(item)}
+        />
+      </View>
+    </SwipeableRow>
+  );
+
   // ─────────────────────────────────────────────────────────────────────────────
 
   if (loading) return <View style={styles.center}><ActivityIndicator color={theme.accent} size="large" /></View>;
@@ -206,26 +277,56 @@ export default function DecksScreen({ navigation }: Props) {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={decks}
-        keyExtractor={d => String(d.id)}
-        renderItem={({ item }) => (
-          <SwipeableRow
-            onDeletePress={() => handleDeletePress(item)}
-            collapsing={collapsingId === item.id}
-            onCollapseEnd={handleCollapseEnd}
-          >
-            <View style={styles.itemWrapper}>
-              <DeckItem
-                deck={item}
-                onPress={() => navigation.navigate('DeckDetail', { deckId: item.id })}
-                onLongPress={() => setContextDeck(item)}
+      <View style={styles.filterBarContainer}>
+        <View style={styles.filterBar}>
+          <View style={styles.searchRow}>
+            <View style={styles.searchBox}>
+              <Feather name="search" size={15} color={theme.textMuted} style={{ marginRight: 6 }} />
+              <TextInput
+                style={styles.searchInput}
+                placeholder="Search decks…"
+                placeholderTextColor={theme.textMuted}
+                value={search}
+                onChangeText={setSearch}
               />
+              {search.length > 0 && (
+                <TouchableOpacity onPress={() => setSearch('')}>
+                  <Feather name="x" size={15} color={theme.textMuted} />
+                </TouchableOpacity>
+              )}
             </View>
-          </SwipeableRow>
-        )}
+            <TouchableOpacity
+              style={styles.sortBtn}
+              onPress={() => setSortMenuOpen(true)}
+            >
+              <Feather name="sliders" size={15} color={theme.textMuted} />
+              <Text style={styles.sortBtnText}>{SORT_LABELS[sortMode]}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.dirBtn} onPress={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}>
+              <Feather name={sortDir === 'asc' ? 'chevron-up' : 'chevron-down'} size={18} color={theme.textMuted} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.gemRow}>
+            {COLORS.map(c => {
+              const active = filterColors.includes(c);
+              return (
+                <TouchableOpacity key={c} onPress={() => toggleColor(c)} activeOpacity={0.7}>
+                  <View style={[styles.gem, { backgroundColor: COLOR_MAP[c] ?? '#999' }, active && styles.gemActive]} />
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </View>
+      </View>
+      <FlatList
+        style={{ flex: 1 }}
+        data={displayDecks}
+        keyExtractor={d => String(d.id)}
+        renderItem={({ item }) => renderDeckItem(item)}
         ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
-        ListEmptyComponent={<Text style={styles.empty}>No decks yet. Create one!</Text>}
+        ListEmptyComponent={<Text style={styles.empty}>
+          {decks.length === 0 ? 'No decks yet. Create one!' : 'No decks match your filters.'}
+        </Text>}
         contentContainerStyle={{ paddingVertical: 8, paddingHorizontal: 12 }}
       />
 
@@ -257,6 +358,28 @@ export default function DecksScreen({ navigation }: Props) {
           <Text style={styles.undoText}>Undo</Text>
         </TouchableOpacity>
       </Animated.View>
+
+      {/* Sort menu */}
+      <Modal visible={sortMenuOpen} transparent animationType="fade">
+        <Pressable style={StyleSheet.absoluteFill} onPress={() => setSortMenuOpen(false)} />
+        <View style={styles.sortMenuWrap} pointerEvents="box-none">
+          <View style={styles.sortMenu}>
+            <Text style={styles.sortMenuTitle}>Sort by</Text>
+            {SORT_CYCLE.map(mode => (
+              <TouchableOpacity
+                key={mode}
+                style={styles.sortMenuRow}
+                onPress={() => handleSetSortMode(mode)}
+              >
+                <Text style={[styles.sortMenuText, sortMode === mode && styles.sortMenuTextActive]}>
+                  {SORT_LABELS[mode]}
+                </Text>
+                {sortMode === mode && <Feather name="check" size={15} color={theme.accent} />}
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+      </Modal>
 
       {/* Context menu (long-press) */}
       <Modal visible={!!contextDeck} transparent animationType="fade">
@@ -373,6 +496,50 @@ const styles = StyleSheet.create({
   center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
   empty:     { color: theme.textMuted, textAlign: 'center', marginTop: 60, fontSize: 15 },
   itemWrapper: {},
+
+  // Filter bar
+  filterBarContainer: { paddingHorizontal: 12, paddingTop: 8 },
+  filterBar:   { marginBottom: 8 },
+  searchRow:   { flexDirection: 'row', gap: 8, marginBottom: 8 },
+  searchBox: {
+    flex: 1, flexDirection: 'row', alignItems: 'center',
+    backgroundColor: theme.surface, borderRadius: 8,
+    paddingHorizontal: 10, height: 38,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  searchInput:  { flex: 1, color: theme.text, fontSize: 14, paddingVertical: 0 },
+  sortBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 5,
+    backgroundColor: theme.surface, borderRadius: 8,
+    paddingHorizontal: 10, height: 38,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  sortBtnText: { color: theme.textMuted, fontSize: 13 },
+
+  gemRow:    { flexDirection: 'row', gap: 8, alignItems: 'center' },
+  gem:       { width: 26, height: 26, borderRadius: 13, opacity: 0.4 },
+  gemActive: { opacity: 1, borderWidth: 2.5, borderColor: '#fff' },
+
+  dirBtn: {
+    backgroundColor: theme.surface, borderRadius: 8,
+    width: 38, height: 38,
+    justifyContent: 'center', alignItems: 'center',
+    borderWidth: 1, borderColor: theme.border,
+  },
+
+  // Sort menu
+  sortMenuWrap: { ...StyleSheet.absoluteFillObject },
+  sortMenu: {
+    position: 'absolute', top: 90, right: 12,
+    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4, minWidth: 150,
+    elevation: 10,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+    borderWidth: 1, borderColor: theme.border,
+  },
+  sortMenuTitle: { color: theme.textMuted, fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.8, paddingHorizontal: 14, paddingVertical: 8 },
+  sortMenuRow:   { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 14, paddingVertical: 12, borderTopWidth: 1, borderTopColor: theme.border },
+  sortMenuText:  { color: theme.text, fontSize: 14 },
+  sortMenuTextActive: { color: theme.accent, fontWeight: '700' },
 
   fab: {
     position: 'absolute', bottom: 24, right: 24,

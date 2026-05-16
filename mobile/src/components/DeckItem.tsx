@@ -17,7 +17,7 @@ export default function DeckItem({ deck, onPress, onLongPress }: Props) {
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} onLongPress={onLongPress} activeOpacity={0.75}>
-      {/* Top row: name + card count + date */}
+      {/* Top row: name + card count */}
       <View style={styles.header}>
         <Text style={styles.name}>{deck.name}</Text>
         <Text style={styles.count}>
