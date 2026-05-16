@@ -8,6 +8,7 @@ export {
   addCardToDeck,
   removeCardFromDeck,
   updateCardCount,
+  reorderDecks,
 } from './db/queries/decks';
 export {
   getKeywords,

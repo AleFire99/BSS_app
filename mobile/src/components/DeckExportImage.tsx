@@ -208,24 +208,24 @@ function CompactSummary({ stats }: { stats: DeckStats }) {
   return (
     <View style={s.summary}>
       <DonutChart stats={stats} />
-
-      <View style={s.statPairs}>
-        <StatPair label="Avg Cost" value={stats.avgCost.toFixed(1)} />
-        <StatPair
-          label="Spirit / Nexus / Magic"
-          value={`${stats.byKind.spirit} / ${stats.byKind.nexus} / ${stats.byKind.magic}`}
-          sub={stats.multiColorCount > 0 ? `${stats.multiColorCount} multi-color` : 'breakdown'}
-        />
-      </View>
-
-      <View style={s.legend}>
-        {usedElements.map(e => (
-          <View key={e} style={s.legendRow}>
-            <View style={[s.legendDot, { backgroundColor: ELEMENT_COLORS[e] }]} />
-            <Text style={s.legendName}>{ELEMENT_LABEL[e]}</Text>
-            <Text style={s.legendCount}>{stats.byElement[e]}</Text>
-          </View>
-        ))}
+      <View style={s.summaryRight}>
+        <View style={s.statPairs}>
+          <StatPair label="Avg Cost" value={stats.avgCost.toFixed(1)} />
+          <StatPair
+            label="Spirit / Nexus / Magic"
+            value={`${stats.byKind.spirit} / ${stats.byKind.nexus} / ${stats.byKind.magic}`}
+            sub={stats.multiColorCount > 0 ? `${stats.multiColorCount} multi-color` : 'breakdown'}
+          />
+        </View>
+        <View style={s.legend}>
+          {usedElements.map(e => (
+            <View key={e} style={s.legendRow}>
+              <View style={[s.legendDot, { backgroundColor: ELEMENT_COLORS[e] }]} />
+              <Text style={s.legendName}>{ELEMENT_LABEL[e]}</Text>
+              <Text style={s.legendCount}>{stats.byElement[e]}</Text>
+            </View>
+          ))}
+        </View>
       </View>
     </View>
   );
@@ -402,15 +402,18 @@ const s = StyleSheet.create({
   // Compact summary
   summary: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     paddingHorizontal: SIDE_PAD,
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: P.border,
-    gap: 10,
+    gap: 12,
+  },
+  summaryRight: {
+    flex: 1,
+    gap: 6,
   },
   statPairs: {
-    flex: 1,
     gap: 7,
   },
   statLabel: {
@@ -436,12 +439,16 @@ const s = StyleSheet.create({
     marginTop: 1,
   },
   legend: {
-    gap: 5,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 4,
+    marginTop: 2,
   },
   legendRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 5,
+    marginRight: 8,
   },
   legendDot: {
     width: 8,
@@ -451,7 +458,6 @@ const s = StyleSheet.create({
   legendName: {
     color: P.text,
     fontSize: 10,
-    flex: 1,
   },
   legendCount: {
     color: P.muted,

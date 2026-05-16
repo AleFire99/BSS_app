@@ -62,6 +62,7 @@ export interface Deck {
   notes: string | null;
   created_at: string;
   updated_at: string;
+  position: number;
   card_count: number;
   sideboard_count: number;
   colors: Record<string, number>;

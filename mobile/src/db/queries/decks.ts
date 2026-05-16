@@ -59,6 +59,7 @@ interface DeckRow {
   Notes: string | null;
   CreatedAt: string;
   UpdatedAt: string;
+  Position: number;
 }
 
 interface DeckCardRow { CardID: string; Count: number; Section: 'main' | 'sideboard'; }
@@ -86,6 +87,7 @@ function rowToDeck(
     notes:          row.Notes,
     created_at:     row.CreatedAt,
     updated_at:     row.UpdatedAt,
+    position:       row.Position ?? 0,
     cards:          main,
     sideboard:      side,
     sideboard_count: side.reduce((s, dc) => s + dc.count, 0),
@@ -97,7 +99,7 @@ function rowToDeck(
 
 export async function getDecks(): Promise<Deck[]> {
   const deckRows = await deckDb.getAllAsync<DeckRow>(
-    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt FROM Decks ORDER BY UpdatedAt DESC',
+    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position FROM Decks ORDER BY Position ASC',
   );
   if (deckRows.length === 0) return [];
 
@@ -120,7 +122,7 @@ export async function getDecks(): Promise<Deck[]> {
 
 export async function getDeck(id: number): Promise<Deck & { cards: DeckCard[]; sideboard: DeckCard[] }> {
   const row = await deckDb.getFirstAsync<DeckRow>(
-    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt FROM Decks WHERE DeckID = ?', [id],
+    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position FROM Decks WHERE DeckID = ?', [id],
   );
   if (!row) throw new Error(`Deck not found: ${id}`);
 
@@ -135,14 +137,26 @@ export async function getDeck(id: number): Promise<Deck & { cards: DeckCard[]; s
 }
 
 export async function createDeck(name: string, notes?: string): Promise<Deck> {
+  const posRow = await deckDb.getFirstAsync<{ maxPos: number }>(
+    'SELECT COALESCE(MAX(Position), 0) + 1 AS maxPos FROM Decks',
+  );
+  const pos = posRow?.maxPos ?? 0;
   const result = await deckDb.runAsync(
-    'INSERT INTO Decks (Name, Notes) VALUES (?, ?)', [name, notes ?? null],
+    'INSERT INTO Decks (Name, Notes, Position) VALUES (?, ?, ?)', [name, notes ?? null, pos],
   );
   const row = await deckDb.getFirstAsync<DeckRow>(
-    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt FROM Decks WHERE DeckID = ?',
+    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position FROM Decks WHERE DeckID = ?',
     [result.lastInsertRowId],
   );
   return rowToDeck(row!, [], [], new Map());
+}
+
+export async function reorderDecks(ids: number[]): Promise<void> {
+  await deckDb.withTransactionAsync(async () => {
+    for (let i = 0; i < ids.length; i++) {
+      await deckDb.runAsync('UPDATE Decks SET Position = ? WHERE DeckID = ?', [i, ids[i]]);
+    }
+  });
 }
 
 export async function updateDeck(

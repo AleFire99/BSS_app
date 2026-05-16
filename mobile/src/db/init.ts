@@ -75,6 +75,19 @@ async function migrateToV1(): Promise<void> {
   });
 }
 
+async function migrateToV2(): Promise<void> {
+  await deckDb.withTransactionAsync(async () => {
+    await deckDb.execAsync(`ALTER TABLE Decks ADD COLUMN Position INTEGER DEFAULT 0`);
+    await deckDb.execAsync(`
+      UPDATE Decks SET Position = (
+        SELECT COUNT(*) FROM Decks d2 WHERE d2.UpdatedAt > Decks.UpdatedAt
+      )
+    `);
+    await deckDb.runAsync('DELETE FROM schema_version');
+    await deckDb.runAsync('INSERT INTO schema_version VALUES (?)', [2]);
+  });
+}
+
 async function runMigrations(): Promise<void> {
   const versionTable = await deckDb.getFirstAsync<{ name: string }>(
     `SELECT name FROM sqlite_master WHERE type='table' AND name='schema_version'`,
@@ -89,6 +102,7 @@ async function runMigrations(): Promise<void> {
   }
 
   if (currentVersion < 1) await migrateToV1();
+  if (currentVersion < 2) await migrateToV2();
 }
 
 // ── Public init ───────────────────────────────────────────────────────────────

@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.4.0</Text>
+      <Text style={styles.version}>v1.5.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,22 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.5.0</Text>
+
+          <Text style={styles.changelogGroup}>Deck List</Text>
+          <Text style={styles.body}>• Search bar to filter decks by name</Text>
+          <Text style={styles.body}>• Color gem filter — tap one or more colors to narrow the list to decks containing those colors</Text>
+          <Text style={styles.body}>• Sort by Name, Date, Quantity, or Avg Cost with asc/desc toggle</Text>
+          <Text style={styles.body}>• Empty state distinguishes no decks from no matches</Text>
+
+          <Text style={styles.changelogGroup}>Deck Export</Text>
+          <Text style={styles.body}>• Color legend in image export now wraps compactly — no more spread-out column for multi-color decks</Text>
+
+          <Text style={styles.changelogGroup}>Rulebook</Text>
+          <Text style={styles.body}>• Redesigned to match the style of Keywords and Card Rulings — flat rows, no solid header blocks, consistent chevron icons</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.4.0</Text>
 
           <Text style={styles.changelogGroup}>Sideboard</Text>

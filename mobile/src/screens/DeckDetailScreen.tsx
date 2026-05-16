@@ -399,6 +399,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         <View style={styles.flex}>
           {/* Search */}
           <View style={styles.addSearchWrap}>
+            <Feather name="search" size={15} color={theme.textMuted} style={{ marginLeft: 10, marginRight: 6 }} />
             <TextInput
               style={styles.search}
               placeholder="Search name, effects, keywords…"
@@ -797,14 +798,18 @@ const styles = StyleSheet.create({
   gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
   gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
 
-  addSearchWrap:       { marginHorizontal: 12, marginTop: 8, marginBottom: 6, position: 'relative' },
+  addSearchWrap: {
+    marginHorizontal: 12, marginTop: 8, marginBottom: 6,
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: theme.surface, borderRadius: 8,
+    position: 'relative',
+  },
   addToolbar:          { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
   addCount:            { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
   sbCapHint:           { color: theme.accent, fontSize: 11, marginLeft: 14, marginBottom: 2 },
   search: {
-    backgroundColor: theme.surface, color: theme.text,
-    borderRadius: 8, paddingHorizontal: 12, paddingRight: 36,
-    paddingVertical: 8, fontSize: 14,
+    flex: 1, color: theme.text,
+    paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
   },
   clearBtn:            { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
   clearText:           { color: theme.textMuted, fontSize: 15 },
