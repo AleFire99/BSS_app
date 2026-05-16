@@ -24,7 +24,7 @@ const SORT_LABELS: Record<SortMode, string> = {
   quantity: 'Quantity',
   avg_cost: 'Avg cost',
 };
-const SORT_CYCLE: SortMode[] = ['name', 'date', 'quantity', 'avg_cost'];
+const SORT_CYCLE: SortMode[] = ['date', 'avg_cost', 'name', 'quantity'];
 const SORT_DEFAULT_DIR: Record<SortMode, 'asc' | 'desc'> = {
   name:     'asc',
   date:     'desc',
@@ -319,6 +319,7 @@ export default function DecksScreen({ navigation }: Props) {
         </View>
       </View>
       <FlatList
+        key={`${sortMode}-${sortDir}`}
         style={{ flex: 1 }}
         data={displayDecks}
         keyExtractor={d => String(d.id)}

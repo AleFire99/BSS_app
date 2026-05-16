@@ -8,6 +8,8 @@ export function buildTXT(
 ): string {
   const sortedMain = [...deck.cards].sort((a, b) => a.card_id.localeCompare(b.card_id));
   const lines = [`=== ${deck.name} ===`];
+  lines.push('');
+  lines.push('=== Main ===');
   for (const dc of sortedMain) {
     const name = cardMap[dc.card_id]?.name ?? dc.card_id;
     lines.push(`${dc.count}x ${dc.card_id}: ${name}`);

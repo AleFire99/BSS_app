@@ -3,9 +3,12 @@ import {
   View, Text, Modal, TouchableOpacity,
   StyleSheet, Image,
 } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
 import { theme } from '../theme';
 import CardZoomModal from './CardZoomModal';
+
+const MAX_HAND = 7;
 
 interface Props {
   deck: Deck & { cards: DeckCard[] };
@@ -25,11 +28,13 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function HandTester({ deck, cardMap, onClose }: Props) {
-  const [phase, setPhase]         = useState<Phase>('hand');
-  const [hand, setHand]           = useState<string[]>([]);
-  const [pool, setPool]           = useState<string[]>([]);
-  const [mulligans, setMulligans] = useState(0);
-  const [zoomedUri, setZoomedUri] = useState<string | null>(null);
+  const [phase, setPhase]                   = useState<Phase>('hand');
+  const [hand, setHand]                     = useState<string[]>([]);
+  const [pool, setPool]                     = useState<string[]>([]);
+  const [handMulliganed, setHandMulliganed] = useState(false);
+  const [handsAccepted, setHandsAccepted]   = useState(0);
+  const [mulligansUsed, setMulligansUsed]   = useState(0);
+  const [zoomedUri, setZoomedUri]           = useState<string | null>(null);
 
   const drawHand = () => {
     const expanded = deck.cards.flatMap(dc => Array(dc.count).fill(dc.card_id));
@@ -37,16 +42,23 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
     setHand(shuffled.slice(0, 4));
     setPool(shuffled.slice(4));
     setPhase('hand');
+    setHandMulliganed(false);
   };
 
   const handleMulligan = () => {
-    setMulligans(m => m + 1);
-    drawHand();
+    setMulligansUsed(m => m + 1);
+    setHandMulliganed(true);
+    const expanded = deck.cards.flatMap(dc => Array(dc.count).fill(dc.card_id));
+    const shuffled = shuffle(expanded);
+    setHand(shuffled.slice(0, 4));
+    setPool(shuffled.slice(4));
+    setPhase('hand');
   };
 
   useEffect(() => { drawHand(); }, []);
 
   const handleAccept = () => {
+    setHandsAccepted(h => h + 1);
     setPool(prev => {
       if (prev.length > 0) {
         setHand(h => [...h, prev[0]]);
@@ -67,6 +79,10 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
     });
   };
 
+  const cleanPct = handsAccepted > 0
+    ? Math.round((handsAccepted - mulligansUsed) / handsAccepted * 100)
+    : 0;
+
   return (
     <Modal visible animationType="fade" transparent>
       <CardZoomModal uri={zoomedUri ?? ''} visible={!!zoomedUri} onClose={() => setZoomedUri(null)} />
@@ -74,16 +90,19 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
         <View style={styles.container}>
           {/* Header */}
           <View style={styles.header}>
-            <View>
-              <Text style={styles.title}>Hand Test</Text>
-              {mulligans > 0 && (
-                <Text style={styles.mulliganCount}>
-                  {mulligans} mulligan{mulligans !== 1 ? 's' : ''}
+            <View style={{ flex: 1 }}>
+              <Text style={styles.title}>Opening Hand</Text>
+              {handsAccepted > 0 && (
+                <Text style={styles.stats}>
+                  {handsAccepted} hand{handsAccepted !== 1 ? 's' : ''} · {cleanPct}% kept
                 </Text>
               )}
             </View>
-            <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Text style={styles.closeBtnText}>✕</Text>
+            <TouchableOpacity onPress={drawHand} style={styles.headerBtn}>
+              <Feather name="rotate-ccw" size={18} color={theme.textMuted} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onClose} style={styles.headerBtn}>
+              <Feather name="x" size={20} color={theme.textMuted} />
             </TouchableOpacity>
           </View>
 
@@ -109,27 +128,20 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
           <View style={styles.actions}>
             {phase === 'hand' && (
               <>
-                <TouchableOpacity style={[styles.btn, styles.btnSecondary]} onPress={handleMulligan}>
-                  <Text style={styles.btnSecondaryText}>Mulligan</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btn} onPress={handleAccept}>
-                  <Text style={styles.btnText}>Accept + Draw 5th</Text>
+                {!handMulliganed && (
+                  <TouchableOpacity style={[styles.pill, styles.pillSecondary]} onPress={handleMulligan}>
+                    <Text style={styles.pillSecondaryText}>Mulligan</Text>
+                  </TouchableOpacity>
+                )}
+                <TouchableOpacity style={styles.pill} onPress={handleAccept}>
+                  <Text style={styles.pillText}>+1</Text>
                 </TouchableOpacity>
               </>
             )}
-            {phase === 'final' && (
-              <>
-                <TouchableOpacity
-                  style={[styles.btn, styles.btnSecondary, pool.length === 0 && styles.btnDisabled]}
-                  onPress={handleDrawMore}
-                  disabled={pool.length === 0}
-                >
-                  <Text style={styles.btnSecondaryText}>Draw 1 More</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.btn} onPress={drawHand}>
-                  <Text style={styles.btnText}>New Hand</Text>
-                </TouchableOpacity>
-              </>
+            {phase === 'final' && hand.length < MAX_HAND && pool.length > 0 && (
+              <TouchableOpacity style={styles.pill} onPress={handleDrawMore}>
+                <Text style={styles.pillText}>+1</Text>
+              </TouchableOpacity>
             )}
           </View>
         </View>
@@ -153,16 +165,16 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    padding: 20,
+    alignItems: 'center',
+    padding: 16,
+    paddingRight: 12,
     borderBottomWidth: 1,
     borderBottomColor: theme.border,
+    gap: 4,
   },
-  title:         { color: theme.text, fontSize: 18, fontWeight: '700' },
-  mulliganCount: { color: theme.textMuted, fontSize: 13, marginTop: 2 },
-  closeBtn:      { padding: 4 },
-  closeBtnText:  { color: theme.textMuted, fontSize: 20 },
+  title:     { color: theme.text, fontSize: 18, fontWeight: '700' },
+  stats:     { color: theme.textMuted, fontSize: 12, marginTop: 2 },
+  headerBtn: { padding: 6 },
   cardGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -173,18 +185,24 @@ const styles = StyleSheet.create({
   cardWrapper: { width: 80 },
   cardImage:   { width: 80, height: 112, borderRadius: 6, backgroundColor: theme.border },
   actions: {
-    flexDirection: 'row', gap: 10,
-    paddingHorizontal: 16, paddingTop: 12,
+    flexDirection: 'row',
+    gap: 10,
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    justifyContent: 'flex-end',
   },
-  btn: {
-    flex: 1, backgroundColor: theme.accent,
-    borderRadius: 8, padding: 14, alignItems: 'center',
+  pill: {
+    backgroundColor: theme.accent,
+    borderRadius: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    alignItems: 'center',
   },
-  btnSecondary: {
-    backgroundColor: theme.surface,
-    borderWidth: 1, borderColor: theme.accent,
+  pillSecondary: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: theme.accent,
   },
-  btnDisabled:     { opacity: 0.4 },
-  btnText:         { color: '#fff', fontWeight: '700', fontSize: 14 },
-  btnSecondaryText:{ color: theme.accent, fontWeight: '700', fontSize: 14 },
+  pillText:          { color: '#fff', fontWeight: '700', fontSize: 14 },
+  pillSecondaryText: { color: theme.accent, fontWeight: '700', fontSize: 14 },
 });

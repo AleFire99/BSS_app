@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.5.0</Text>
+      <Text style={styles.version}>v1.6.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,31 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.6.0</Text>
+
+          <Text style={styles.changelogGroup}>Opening Hand</Text>
+          <Text style={styles.body}>• Renamed from "Hand Test" to "Opening Hand"</Text>
+          <Text style={styles.body}>• New playing card icon on the hand tester FAB</Text>
+          <Text style={styles.body}>• Reset button (↺) in the modal header draws a new hand without closing</Text>
+          <Text style={styles.body}>• One mulligan per hand — button disappears after use</Text>
+          <Text style={styles.body}>• Compact +1 button to draw the 5th card (and up to 7 total)</Text>
+          <Text style={styles.body}>• Session stats: tracks percentage of hands kept without mulligan</Text>
+          <Text style={styles.body}>• Hand tester now also available in Swap Plan edit mode</Text>
+
+          <Text style={styles.changelogGroup}>Deck List</Text>
+          <Text style={styles.body}>• Sort modal reordered: Date first, then alphabetical</Text>
+          <Text style={styles.body}>• Fixed occasional spacing glitch when toggling sort direction</Text>
+
+          <Text style={styles.changelogGroup}>Rulebook</Text>
+          <Text style={styles.body}>• Chapter title no longer sticks at the top while scrolling</Text>
+
+          <Text style={styles.changelogGroup}>Export / Import</Text>
+          <Text style={styles.body}>• TXT export now includes a "=== Main ===" section header for consistency with sideboard</Text>
+          <Text style={styles.body}>• TXT import correctly handles the new Main header</Text>
+          <Text style={styles.body}>• Image export version now reflects the current app version</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.5.0</Text>
 
           <Text style={styles.changelogGroup}>Deck List</Text>
