@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getDeck, getCards, addCardToDeck, removeCardFromDeck, updateDeck, updateCardCount } from '../api';
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import HandTester from '../components/HandTester';
 import DeckExportModal from '../components/DeckExportModal';
 import SwipeableRow from '../components/SwipeableRow';
@@ -636,7 +636,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             onPress={() => setHandTester(true)}
             disabled={deck.card_count === 0}
           >
-            <Feather name="layers" size={20} color={deck.card_count === 0 ? theme.textMuted : theme.accent} />
+            <MaterialCommunityIcons name="cards-playing-outline" size={20} color={deck.card_count === 0 ? theme.textMuted : theme.accent} />
           </TouchableOpacity>
 
           <Animated.View

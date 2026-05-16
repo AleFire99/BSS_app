@@ -4,7 +4,7 @@ import {
   Alert, Modal, Pressable, Image, ScrollView, TextInput, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import {
   getSwapPlan, getDeck, getCard, addCardToSwapPlan, removeCardFromSwapPlan, updateSwapPlanCardCount,
   updateSwapPlan,
@@ -480,7 +480,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
           onPress={() => setHandTester(true)}
           disabled={previewMain.length === 0}
         >
-          <Feather name="layers" size={20} color={previewMain.length === 0 ? theme.border : theme.accent} />
+          <MaterialCommunityIcons name="cards-playing-outline" size={20} color={previewMain.length === 0 ? theme.border : theme.accent} />
         </TouchableOpacity>
       </View>
       {handTester && deckObj && (
@@ -595,7 +595,21 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
           )}
         </View>
       </Modal>
+      <TouchableOpacity
+        style={[styles.fabSecondary, mainCards.length === 0 && styles.fabDisabled]}
+        onPress={() => setHandTester(true)}
+        disabled={mainCards.length === 0}
+      >
+        <MaterialCommunityIcons name="cards-playing-outline" size={20} color={mainCards.length === 0 ? theme.border : theme.accent} />
+      </TouchableOpacity>
     </View>
+    {handTester && deckObj && (
+      <HandTester
+        deck={{ ...deckObj, cards: mainCards }}
+        cardMap={allCardMeta}
+        onClose={() => setHandTester(false)}
+      />
+    )}
     {renameModalEl}
     </>
   );

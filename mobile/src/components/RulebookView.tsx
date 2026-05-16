@@ -7,15 +7,6 @@ import { theme } from '../theme';
 const GAME_CHAPTERS    = RULEBOOK.filter(c => c.book === 'game');
 const TOURNEY_CHAPTERS = RULEBOOK.filter(c => c.book === 'tournament');
 
-function getStickyIndex(openId: string | null): number[] {
-  if (!openId) return [];
-  const gi = GAME_CHAPTERS.findIndex(c => c.id === openId);
-  if (gi >= 0) return [1 + gi];
-  const ti = TOURNEY_CHAPTERS.findIndex(c => c.id === openId);
-  if (ti >= 0) return [1 + GAME_CHAPTERS.length + 1 + ti];
-  return [];
-}
-
 export default function RulebookView() {
   const [openId, setOpenId] = useState<string | null>(null);
 
@@ -26,7 +17,6 @@ export default function RulebookView() {
   return (
     <ScrollView
       contentContainerStyle={styles.container}
-      stickyHeaderIndices={getStickyIndex(openId)}
     >
       {[
         <BookHeader key="gh" label="Game Rules" />,

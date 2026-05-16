@@ -87,6 +87,8 @@ function parseTXT(content: string, filename: string): ParsedDeck {
       const hdr = headerMatch[1].toLowerCase();
       if (hdr === 'sideboard') {
         currentSection = 'sideboard';
+      } else if (hdr === 'main') {
+        currentSection = 'main';
       } else {
         name = headerMatch[1];
         currentSection = 'main';

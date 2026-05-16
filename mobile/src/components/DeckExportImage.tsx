@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 import Svg, { Circle, Path, Text as SvgText } from 'react-native-svg';
 import { Deck, DeckCard, Card } from '../types';
 
@@ -187,7 +188,7 @@ function Header({ name, date }: { name: string; date: string }) {
       </View>
       <View style={{ alignItems: 'flex-end' }}>
         <Text style={s.dateText}>{date}</Text>
-        <Text style={s.dateText}>v1.0</Text>
+        <Text style={s.dateText}>v{Constants.expoConfig?.version ?? '?'}</Text>
       </View>
     </View>
   );
