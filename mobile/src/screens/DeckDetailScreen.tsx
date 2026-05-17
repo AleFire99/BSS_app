@@ -137,7 +137,8 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           (e.condition?.toLowerCase().includes(lq) ?? false) ||
           e.keywords.some(kw => kw.name.toLowerCase().includes(lq))
         );
-        if (!nameMatch && !effectMatch) return false;
+        const subtypeMatch = c.subtypes.some(st => st.toLowerCase().includes(lq));
+        if (!nameMatch && !effectMatch && !subtypeMatch) return false;
       }
       if (addColors.length > 0 && !addColors.every(col => c.color.includes(col))) return false;
       if (addType   && c.type !== addType)     return false;
