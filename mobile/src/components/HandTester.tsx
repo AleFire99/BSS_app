@@ -32,8 +32,8 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   const [hand, setHand]                     = useState<string[]>([]);
   const [pool, setPool]                     = useState<string[]>([]);
   const [handMulliganed, setHandMulliganed] = useState(false);
-  const [handsAccepted, setHandsAccepted]   = useState(0);
-  const [mulligansUsed, setMulligansUsed]   = useState(0);
+  const [totalRounds,    setTotalRounds]    = useState(0);
+  const [keptHands,      setKeptHands]      = useState(0);
   const [zoomedUri, setZoomedUri]           = useState<string | null>(null);
 
   const drawHand = () => {
@@ -46,7 +46,7 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   };
 
   const handleMulligan = () => {
-    setMulligansUsed(m => m + 1);
+    setTotalRounds(r => r + 1);
     setHandMulliganed(true);
     const expanded = deck.cards.flatMap(dc => Array(dc.count).fill(dc.card_id));
     const shuffled = shuffle(expanded);
@@ -58,7 +58,10 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   useEffect(() => { drawHand(); }, []);
 
   const handleAccept = () => {
-    setHandsAccepted(h => h + 1);
+    if (!handMulliganed) {
+      setTotalRounds(r => r + 1);
+      setKeptHands(k => k + 1);
+    }
     setPool(prev => {
       if (prev.length > 0) {
         setHand(h => [...h, prev[0]]);
@@ -79,8 +82,8 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
     });
   };
 
-  const cleanPct = handsAccepted > 0
-    ? Math.round((handsAccepted - mulligansUsed) / handsAccepted * 100)
+  const cleanPct = totalRounds > 0
+    ? Math.round(keptHands / totalRounds * 100)
     : 0;
 
   return (
@@ -92,9 +95,9 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
           <View style={styles.header}>
             <View style={{ flex: 1 }}>
               <Text style={styles.title}>Opening Hand</Text>
-              {handsAccepted > 0 && (
+              {totalRounds > 0 && (
                 <Text style={styles.stats}>
-                  {handsAccepted} hand{handsAccepted !== 1 ? 's' : ''} · {cleanPct}% kept
+                  {totalRounds} hand{totalRounds !== 1 ? 's' : ''} · {cleanPct}% kept
                 </Text>
               )}
             </View>
