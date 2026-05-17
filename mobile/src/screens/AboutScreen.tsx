@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.6.0</Text>
+      <Text style={styles.version}>v1.7.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,20 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.7.0</Text>
+
+          <Text style={styles.changelogGroup}>Cards & Deck Builder</Text>
+          <Text style={styles.body}>• Search now matches card subtypes (e.g. "DRAGON", "NEXUS BRAVE", "VALIANT HERO")</Text>
+
+          <Text style={styles.changelogGroup}>Opening Hand</Text>
+          <Text style={styles.body}>• Mulligan percentage now locks in at the moment you decide — accepting a mulliganed hand no longer moves the counter</Text>
+
+          <Text style={styles.changelogGroup}>Bug Fixes</Text>
+          <Text style={styles.body}>• Android system app info now shows the correct version</Text>
+          <Text style={styles.body}>• App icon now appears correctly in the recent apps switcher</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.6.0</Text>
 
           <Text style={styles.changelogGroup}>Opening Hand</Text>

@@ -60,7 +60,8 @@ export default function CardsScreen({ navigation }: Props) {
           (e.condition?.toLowerCase().includes(lq) ?? false) ||
           e.keywords.some(kw => kw.name.toLowerCase().includes(lq))
         );
-        if (!nameMatch && !effectMatch) return false;
+        const subtypeMatch = c.subtypes.some(st => st.toLowerCase().includes(lq));
+        if (!nameMatch && !effectMatch && !subtypeMatch) return false;
       }
       if (filterColors.length > 0 && !filterColors.every(col => c.color.includes(col))) return false;
       if (filterType   && c.type !== filterType)   return false;
