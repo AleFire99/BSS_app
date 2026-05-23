@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useMemo } from 'react';
 import {
   Modal, View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Pressable,
 } from 'react-native';
@@ -6,7 +6,9 @@ import { captureRef } from 'react-native-view-shot';
 import * as Sharing from 'expo-sharing';
 import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
-import { theme } from '../theme';
+import { ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
+import { useTranslation } from 'react-i18next';
 import * as FileSystem from 'expo-file-system/legacy';
 import { buildTXT, buildCSV, shareTextExport, saveTextToDevice } from '../utils/deckExport';
 import DeckExportImage from './DeckExportImage';
@@ -21,6 +23,10 @@ interface Props {
 }
 
 export default function DeckExportModal({ visible, deck, cardMap, onClose }: Props) {
+  const { theme } = useAppSettings();
+  const { t } = useTranslation();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   const [state, setState] = useState<ExportState>('idle');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const imageRef = useRef<View | null>(null);
@@ -77,7 +83,6 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={handleClose}>
-      {/* Hidden off-screen render of export image so it's ready to capture */}
       {visible && (
         <View style={styles.offscreen} pointerEvents="none">
           <DeckExportImage deck={deck} cardMap={cardMap} onReady={handleImageReady} />
@@ -87,7 +92,7 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
       <Pressable style={styles.overlay} onPress={busy ? undefined : handleClose}>
         <Pressable style={styles.sheet} onPress={e => e.stopPropagation()}>
           <View style={styles.titleRow}>
-            <Text style={styles.title}>Export Deck</Text>
+            <Text style={styles.title}>{t('exportModal.title')}</Text>
             <TouchableOpacity onPress={busy ? undefined : handleClose} style={styles.closeBtn}>
               <Feather name="x" size={22} color={theme.textMuted} />
             </TouchableOpacity>
@@ -97,21 +102,21 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
             <View style={styles.errorWrap}>
               <Text style={styles.errorText}>{errorMsg}</Text>
               <TouchableOpacity style={styles.retryBtn} onPress={reset}>
-                <Text style={styles.retryText}>Try Again</Text>
+                <Text style={styles.retryText}>{t('exportModal.tryAgain')}</Text>
               </TouchableOpacity>
             </View>
           ) : busy ? (
             <View style={styles.loadingWrap}>
               <ActivityIndicator color={theme.accent} size="large" />
-              <Text style={styles.loadingText}>Opening share sheet…</Text>
+              <Text style={styles.loadingText}>{t('exportModal.sharing')}</Text>
             </View>
           ) : (
             <View style={styles.btnList}>
               <View style={styles.exportBtn}>
                 <Feather name="image" size={22} color={theme.accent} />
                 <View style={styles.exportBtnText}>
-                  <Text style={styles.exportBtnLabel}>Image</Text>
-                  <Text style={styles.exportBtnSub}>deck card preview</Text>
+                  <Text style={styles.exportBtnLabel}>{t('exportModal.image')}</Text>
+                  <Text style={styles.exportBtnSub}>{t('exportModal.imageSub')}</Text>
                 </View>
                 <TouchableOpacity style={styles.exportAction} onPress={shareImage} disabled={busy}>
                   <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
@@ -123,8 +128,8 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
               <View style={styles.exportBtn}>
                 <Feather name="file-text" size={22} color={theme.accent} />
                 <View style={styles.exportBtnText}>
-                  <Text style={styles.exportBtnLabel}>Text</Text>
-                  <Text style={styles.exportBtnSub}>plain text list</Text>
+                  <Text style={styles.exportBtnLabel}>{t('exportModal.text')}</Text>
+                  <Text style={styles.exportBtnSub}>{t('exportModal.textSub')}</Text>
                 </View>
                 <TouchableOpacity style={styles.exportAction} onPress={exportTXT} disabled={busy}>
                   <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
@@ -136,8 +141,8 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
               <View style={styles.exportBtn}>
                 <Feather name="grid" size={22} color={theme.accent} />
                 <View style={styles.exportBtnText}>
-                  <Text style={styles.exportBtnLabel}>CSV</Text>
-                  <Text style={styles.exportBtnSub}>spreadsheet format</Text>
+                  <Text style={styles.exportBtnLabel}>{t('exportModal.csv')}</Text>
+                  <Text style={styles.exportBtnSub}>{t('exportModal.csvSub')}</Text>
                 </View>
                 <TouchableOpacity style={styles.exportAction} onPress={exportCSV} disabled={busy}>
                   <Feather name="share-2" size={20} color={busy ? theme.border : theme.accent} />
@@ -148,94 +153,90 @@ export default function DeckExportModal({ visible, deck, cardMap, onClose }: Pro
               </View>
             </View>
           )}
-
         </Pressable>
       </Pressable>
     </Modal>
   );
 }
 
-const styles = StyleSheet.create({
-  offscreen: {
-    position: 'absolute',
-    top: -9999,
-    left: 0,
-    opacity: 0,
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-  },
-  sheet: {
-    backgroundColor: theme.surface,
-    borderRadius: 16,
-    padding: 24,
-    gap: 16,
-  },
-  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  closeBtn:  { padding: 4 },
-  title: {
-    color: theme.text,
-    fontSize: 18,
-    fontWeight: '700',
-  },
-  btnList: {
-    gap: 8,
-  },
-  exportBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: theme.bg,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: theme.border,
-    padding: 16,
-    gap: 14,
-  },
-  exportAction: { padding: 6 },
-  exportBtnText: {
-    flex: 1,
-    gap: 2,
-  },
-  exportBtnLabel: {
-    color: theme.text,
-    fontSize: 15,
-    fontWeight: '700',
-  },
-  exportBtnSub: {
-    color: theme.textMuted,
-    fontSize: 12,
-  },
-  loadingWrap: {
-    alignItems: 'center',
-    paddingVertical: 24,
-    gap: 12,
-  },
-  loadingText: {
-    color: theme.textMuted,
-    fontSize: 14,
-  },
-  errorWrap: {
-    alignItems: 'center',
-    gap: 12,
-    paddingVertical: 8,
-  },
-  errorText: {
-    color: '#ef5350',
-    fontSize: 14,
-    textAlign: 'center',
-  },
-  retryBtn: {
-    backgroundColor: theme.accent,
-    borderRadius: 8,
-    paddingHorizontal: 24,
-    paddingVertical: 10,
-  },
-  retryText: {
-    color: '#fff',
-    fontWeight: '700',
-    fontSize: 14,
-  },
-});
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    offscreen: {
+      position: 'absolute',
+      top: -9999,
+      left: 0,
+      opacity: 0,
+    },
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      justifyContent: 'center',
+      paddingHorizontal: 24,
+    },
+    sheet: {
+      backgroundColor: theme.surface,
+      borderRadius: 16,
+      padding: 24,
+      gap: 16,
+    },
+    titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+    closeBtn:  { padding: 4 },
+    title: {
+      color: theme.text,
+      fontSize: 18,
+      fontWeight: '700',
+    },
+    btnList: { gap: 8 },
+    exportBtn: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: theme.bg,
+      borderRadius: 12,
+      borderWidth: 1,
+      borderColor: theme.border,
+      padding: 16,
+      gap: 14,
+    },
+    exportAction: { padding: 6 },
+    exportBtnText: { flex: 1, gap: 2 },
+    exportBtnLabel: {
+      color: theme.text,
+      fontSize: 15,
+      fontWeight: '700',
+    },
+    exportBtnSub: {
+      color: theme.textMuted,
+      fontSize: 12,
+    },
+    loadingWrap: {
+      alignItems: 'center',
+      paddingVertical: 24,
+      gap: 12,
+    },
+    loadingText: {
+      color: theme.textMuted,
+      fontSize: 14,
+    },
+    errorWrap: {
+      alignItems: 'center',
+      gap: 12,
+      paddingVertical: 8,
+    },
+    errorText: {
+      color: '#ef5350',
+      fontSize: 14,
+      textAlign: 'center',
+    },
+    retryBtn: {
+      backgroundColor: theme.accent,
+      borderRadius: 8,
+      paddingHorizontal: 24,
+      paddingVertical: 10,
+    },
+    retryText: {
+      color: '#fff',
+      fontWeight: '700',
+      fontSize: 14,
+    },
+  });
+}

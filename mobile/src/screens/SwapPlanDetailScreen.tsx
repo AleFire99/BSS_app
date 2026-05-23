@@ -12,7 +12,9 @@ import {
 import { cardsDb } from '../db/init';
 import { SwapPlan, SwapPlanCard, DeckCard, Card, Deck } from '../types';
 import HandTester from '../components/HandTester';
-import { theme, COLOR_MAP } from '../theme';
+import { COLOR_MAP, ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
+import { useTranslation } from 'react-i18next';
 import { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'SwapPlanDetail'>;
@@ -21,6 +23,9 @@ const TYPE_ORDER: Record<string, number> = { SPIRIT: 0, NEXUS: 1, MAGIC: 2 };
 
 export default function SwapPlanDetailScreen({ route, navigation }: Props) {
   const { planId, deckId, deckName } = route.params;
+  const { theme } = useAppSettings();
+  const { t } = useTranslation();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const [plan, setPlan]           = useState<SwapPlan | null>(null);
   const [mainCards, setMainCards] = useState<DeckCard[]>([]);
@@ -29,17 +34,14 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
   const [allCardMeta, setAllCardMeta] = useState<Record<string, Card>>({});
   const [loading, setLoading]     = useState(true);
 
-  // Rename modal
   const [renameModal, setRenameModal] = useState(false);
   const [renameName, setRenameName]   = useState('');
 
-  // Preview mode state
   const [previewMode, setPreviewMode]       = useState(false);
   const [previewSection, setPreviewSection] = useState<'main' | 'sideboard'>('main');
   const [viewMode, setViewMode]             = useState<'list' | 'grid'>('list');
   const [handTester, setHandTester]         = useState(false);
 
-  // Card picker state
   const [pickerVisible, setPickerVisible]     = useState(false);
   const [pickerDirection, setPickerDirection] = useState<'out' | 'in'>('out');
 
@@ -51,13 +53,11 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
       setMainCards(deck.cards ?? []);
       setSideCards(deck.sideboard ?? []);
 
-      // Build card meta: start from hydrated plan cards
       const meta: Record<string, Card> = {};
       for (const spc of p.cards) {
         if (spc.card) meta[spc.card_id] = spc.card;
       }
 
-      // Fetch metadata for all deck card IDs not yet in meta
       const allIds = [...new Set([
         ...(deck.cards ?? []).map(dc => dc.card_id),
         ...(deck.sideboard ?? []).map(dc => dc.card_id),
@@ -86,15 +86,13 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
       }
       setAllCardMeta(meta);
     } catch (e: any) {
-      Alert.alert('Error', e.message);
+      Alert.alert(t('common.error'), e.message);
     } finally {
       setLoading(false);
     }
   }, [planId, deckId]);
 
-  useEffect(() => {
-    load();
-  }, []);
+  useEffect(() => { load(); }, []);
 
   useEffect(() => {
     if (!plan) return;
@@ -125,8 +123,6 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
     () => inCards.reduce((s, c) => s + c.count, 0) - outCards.reduce((s, c) => s + c.count, 0),
     [inCards, outCards],
   );
-
-  // ── Preview computation ───────────────────────────────────────────────────
 
   const previewMain = useMemo(() => {
     const map = new Map(mainCards.map(dc => [dc.card_id, { ...dc }]));
@@ -169,16 +165,14 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
     return [...arr].sort((a, b) => {
       const ca = allCardMeta[a.card_id], cb = allCardMeta[b.card_id];
       if (!ca || !cb) return 0;
-      const t = (TYPE_ORDER[ca.type] ?? 3) - (TYPE_ORDER[cb.type] ?? 3);
-      if (t !== 0) return t;
+      const td = (TYPE_ORDER[ca.type] ?? 3) - (TYPE_ORDER[cb.type] ?? 3);
+      if (td !== 0) return td;
       return ca.cost - cb.cost;
     });
   }, [previewSection, previewMain, previewSide, allCardMeta]);
 
   const previewMainCount = previewMain.reduce((s, dc) => s + dc.count, 0);
   const previewSideCount = previewSide.reduce((s, dc) => s + dc.count, 0);
-
-  // ── Picker ────────────────────────────────────────────────────────────────
 
   const pickerCandidates = useMemo(() => {
     if (pickerDirection === 'out') {
@@ -195,7 +189,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
     try {
       await addCardToSwapPlan(planId, dc.card_id, pickerDirection, dc.count);
       await load();
-    } catch (e: any) { Alert.alert('Error', e.message); }
+    } catch (e: any) { Alert.alert(t('common.error'), e.message); }
   };
 
   const navigateToCard = async (cardId: string) => {
@@ -211,14 +205,14 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
       await updateSwapPlan(plan.id, { name: renameName.trim() });
       setRenameModal(false);
       await load();
-    } catch (e: any) { Alert.alert('Error', e.message); }
+    } catch (e: any) { Alert.alert(t('common.error'), e.message); }
   };
 
   const handleRemove = async (spc: SwapPlanCard) => {
     try {
       await removeCardFromSwapPlan(planId, spc.card_id, spc.direction);
       await load();
-    } catch (e: any) { Alert.alert('Error', e.message); }
+    } catch (e: any) { Alert.alert(t('common.error'), e.message); }
   };
 
   const handleCountChange = async (spc: SwapPlanCard, delta: number) => {
@@ -230,10 +224,8 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
     try {
       await updateSwapPlanCardCount(planId, spc.card_id, spc.direction, newCount);
       await load();
-    } catch (e: any) { Alert.alert('Error', e.message); }
+    } catch (e: any) { Alert.alert(t('common.error'), e.message); }
   };
-
-  // ── Render helpers ────────────────────────────────────────────────────────
 
   const renderPlanCard = (spc: SwapPlanCard) => {
     const card = spc.card ?? allCardMeta[spc.card_id];
@@ -363,12 +355,10 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
   const deckOutOfRange = netChange !== 0 && (finalMainCount < 50 || finalMainCount > 60);
 
   const netChangeDesc = netChange === 0
-    ? 'Deck size unchanged'
+    ? t('swapPlanDetail.deckUnchanged')
     : netChange > 0
-      ? `Deck grows by ${netChange}`
-      : `Deck shrinks by ${Math.abs(netChange)}`;
-
-  // ── Preview view ──────────────────────────────────────────────────────────
+      ? t('swapPlanDetail.deckGrows', { count: netChange })
+      : t('swapPlanDetail.deckShrinks', { count: Math.abs(netChange) });
 
   const renameModalEl = (
     <Modal visible={renameModal} transparent animationType="fade">
@@ -382,7 +372,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
         pointerEvents="box-none"
       >
         <View style={styles.renameSheet}>
-          <Text style={styles.renameTitle}>Rename Plan</Text>
+          <Text style={styles.renameTitle}>{t('swapPlanDetail.renamePlan')}</Text>
           <TextInput
             style={styles.renameInput}
             value={renameName}
@@ -392,7 +382,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
             selectTextOnFocus
           />
           <TouchableOpacity style={styles.renameBtn} onPress={handleRenamePlan} disabled={!renameName.trim()}>
-            <Text style={styles.renameBtnText}>Save</Text>
+            <Text style={styles.renameBtnText}>{t('swapPlanDetail.save')}</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
@@ -403,24 +393,22 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
     return (
       <>
       <View style={styles.container}>
-        {/* Stats line */}
         <View style={styles.previewStatsBar}>
           <Text style={styles.previewStatsText}>
-            {previewMainCount} main · {previewSideCount} sideboard
+            {t('swapPlanDetail.main', { count: previewMainCount })} · {t('swapPlanDetail.sideboardLabel', { count: previewSideCount })}
           </Text>
           <TouchableOpacity onPress={() => setViewMode(v => v === 'list' ? 'grid' : 'list')} style={styles.viewToggle}>
             <Feather name={viewMode === 'list' ? 'grid' : 'list'} size={18} color={theme.accent} />
           </TouchableOpacity>
         </View>
 
-        {/* Section tabs */}
         <View style={styles.sectionToggle}>
           <TouchableOpacity
             style={[styles.sectionTab, previewSection === 'main' && styles.sectionTabActive]}
             onPress={() => setPreviewSection('main')}
           >
             <Text style={[styles.sectionTabText, previewSection === 'main' && styles.sectionTabTextActive]}>
-              Main ({previewMainCount})
+              {t('swapPlanDetail.main', { count: previewMainCount })}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -428,7 +416,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
             onPress={() => setPreviewSection('sideboard')}
           >
             <Text style={[styles.sectionTabText, previewSection === 'sideboard' && styles.sectionTabTextActive]}>
-              Sideboard ({previewSideCount})
+              {t('swapPlanDetail.sideboardLabel', { count: previewSideCount })}
             </Text>
           </TouchableOpacity>
         </View>
@@ -440,7 +428,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
             keyExtractor={dc => dc.card_id}
             renderItem={({ item }) => renderPreviewListRow(item)}
             ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
-            ListEmptyComponent={<Text style={styles.empty}>No cards in this section after plan</Text>}
+            ListEmptyComponent={<Text style={styles.empty}>{t('swapPlanDetail.noCardsAfterPlan')}</Text>}
             contentContainerStyle={{ paddingHorizontal: 12, paddingTop: 8, paddingBottom: 40 }}
           />
         ) : (
@@ -471,7 +459,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
                 </TouchableOpacity>
               );
             }}
-            ListEmptyComponent={<Text style={styles.empty}>No cards in this section after plan</Text>}
+            ListEmptyComponent={<Text style={styles.empty}>{t('swapPlanDetail.noCardsAfterPlan')}</Text>}
             contentContainerStyle={{ paddingHorizontal: 8, paddingBottom: 40 }}
           />
         )}
@@ -495,13 +483,10 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
     );
   }
 
-  // ── Edit view ─────────────────────────────────────────────────────────────
-
   return (
     <>
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-        {/* Net change hint */}
         {(outCards.length > 0 || inCards.length > 0) && (
           <View style={styles.netRow}>
             <Feather
@@ -521,7 +506,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
         {/* Remove section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Remove from Main</Text>
+            <Text style={styles.sectionTitle}>{t('swapPlanDetail.removeFromMain')}</Text>
             <Text style={styles.sectionCount}>{outCards.length} cards</Text>
             <TouchableOpacity
               style={styles.addBtn}
@@ -532,7 +517,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
             </TouchableOpacity>
           </View>
           {outCards.length === 0 ? (
-            <Text style={styles.emptySec}>No cards selected to remove</Text>
+            <Text style={styles.emptySec}>{t('swapPlanDetail.noCardsToRemove')}</Text>
           ) : (
             outCards.map(renderPlanCard)
           )}
@@ -541,7 +526,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
         {/* Add section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Add from Sideboard</Text>
+            <Text style={styles.sectionTitle}>{t('swapPlanDetail.addFromSideboard')}</Text>
             <Text style={styles.sectionCount}>{inCards.length} cards</Text>
             <TouchableOpacity
               style={styles.addBtn}
@@ -554,8 +539,8 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
           {inCards.length === 0 ? (
             <Text style={styles.emptySec}>
               {sideCards.length === 0
-                ? 'Sideboard is empty — add cards to sideboard first'
-                : 'No cards selected to bring in'}
+                ? t('swapPlanDetail.sideboardEmpty')
+                : t('swapPlanDetail.noCardsToAdd')}
             </Text>
           ) : (
             inCards.map(renderPlanCard)
@@ -572,7 +557,7 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
         <View style={styles.pickerSheet}>
           <View style={styles.pickerHeader}>
             <Text style={styles.pickerTitle}>
-              {pickerDirection === 'out' ? 'Remove from Main' : 'Add from Sideboard'}
+              {pickerDirection === 'out' ? t('swapPlanDetail.removeFromMain') : t('swapPlanDetail.addFromSideboard')}
             </Text>
             <TouchableOpacity onPress={() => setPickerVisible(false)} style={{ padding: 4 }}>
               <Feather name="x" size={22} color={theme.textMuted} />
@@ -581,8 +566,8 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
           {pickerCandidates.length === 0 ? (
             <Text style={[styles.emptySec, { padding: 24, textAlign: 'center' }]}>
               {pickerDirection === 'out'
-                ? 'All main deck cards already in plan'
-                : 'All sideboard cards already in plan'}
+                ? t('swapPlanDetail.allMainInPlan')
+                : t('swapPlanDetail.allSideInPlan')}
             </Text>
           ) : (
             <FlatList
@@ -615,126 +600,127 @@ export default function SwapPlanDetailScreen({ route, navigation }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.bg },
-  center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
-  empty:     { color: theme.textMuted, textAlign: 'center', marginTop: 40, fontSize: 14 },
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: theme.bg },
+    center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
+    empty:     { color: theme.textMuted, textAlign: 'center', marginTop: 40, fontSize: 14 },
 
-  netRow: {
-    flexDirection: 'row', alignItems: 'center', gap: 6,
-    paddingHorizontal: 16, paddingVertical: 10,
-    backgroundColor: theme.surface, borderBottomWidth: 1, borderBottomColor: theme.border,
-  },
-  netText:     { color: theme.textMuted, fontSize: 12 },
-  netTextOk:   { color: '#4caf50' },
-  netTextWarn: { color: '#ef5350' },
-  netCount:    { color: theme.text, fontWeight: '700', fontSize: 12 },
+    netRow: {
+      flexDirection: 'row', alignItems: 'center', gap: 6,
+      paddingHorizontal: 16, paddingVertical: 10,
+      backgroundColor: theme.surface, borderBottomWidth: 1, borderBottomColor: theme.border,
+    },
+    netText:     { color: theme.textMuted, fontSize: 12 },
+    netTextOk:   { color: '#4caf50' },
+    netTextWarn: { color: '#ef5350' },
+    netCount:    { color: theme.text, fontWeight: '700', fontSize: 12 },
 
-  section: {
-    marginTop: 16, marginHorizontal: 12,
-    backgroundColor: theme.surface, borderRadius: 10, overflow: 'hidden',
-  },
-  sectionHeader: {
-    flexDirection: 'row', alignItems: 'center',
-    paddingHorizontal: 14, paddingVertical: 12,
-    borderBottomWidth: 1, borderBottomColor: theme.border,
-  },
-  sectionTitle: { flex: 1, color: theme.text, fontSize: 14, fontWeight: '700' },
-  sectionCount: { color: theme.textMuted, fontSize: 12, marginRight: 10 },
-  addBtn:       { padding: 6 },
-  emptySec:     { color: theme.textMuted, fontSize: 12, padding: 14 },
+    section: {
+      marginTop: 16, marginHorizontal: 12,
+      backgroundColor: theme.surface, borderRadius: 10, overflow: 'hidden',
+    },
+    sectionHeader: {
+      flexDirection: 'row', alignItems: 'center',
+      paddingHorizontal: 14, paddingVertical: 12,
+      borderBottomWidth: 1, borderBottomColor: theme.border,
+    },
+    sectionTitle: { flex: 1, color: theme.text, fontSize: 14, fontWeight: '700' },
+    sectionCount: { color: theme.textMuted, fontSize: 12, marginRight: 10 },
+    addBtn:       { padding: 6 },
+    emptySec:     { color: theme.textMuted, fontSize: 12, padding: 14 },
 
-  cardRow: {
-    flexDirection: 'row', alignItems: 'center',
-    padding: 10, gap: 10,
-    borderTopWidth: 1, borderTopColor: theme.border,
-  },
-  cardImage:    { width: 40, height: 56, borderRadius: 3, backgroundColor: theme.border },
-  cardInfo:     { flex: 1, gap: 3 },
-  cardName:     { color: theme.text, fontSize: 13, fontWeight: '600' },
-  cardMeta:     { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  cardMetaText: { color: theme.textMuted, fontSize: 11 },
-  colorDot:     { width: 8, height: 8, borderRadius: 4 },
+    cardRow: {
+      flexDirection: 'row', alignItems: 'center',
+      padding: 10, gap: 10,
+      borderTopWidth: 1, borderTopColor: theme.border,
+    },
+    cardImage:    { width: 40, height: 56, borderRadius: 3, backgroundColor: theme.border },
+    cardInfo:     { flex: 1, gap: 3 },
+    cardName:     { color: theme.text, fontSize: 13, fontWeight: '600' },
+    cardMeta:     { flexDirection: 'row', alignItems: 'center', gap: 6 },
+    cardMetaText: { color: theme.textMuted, fontSize: 11 },
+    colorDot:     { width: 8, height: 8, borderRadius: 4 },
 
-  countRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  qty:               { color: theme.text, fontSize: 14, fontWeight: '700', minWidth: 24, textAlign: 'center' },
-  qtyBtn:            { width: 28, height: 28, borderRadius: 14, backgroundColor: theme.bg, borderWidth: 1, borderColor: theme.accent, alignItems: 'center', justifyContent: 'center' },
-  qtyBtnDisabled:    { borderColor: theme.border },
-  qtyBtnText:        { color: theme.accent, fontSize: 18, lineHeight: 22, fontWeight: '700' },
-  qtyBtnTextDisabled:{ color: theme.textMuted },
-  removeBtn: { padding: 6, marginLeft: 4 },
+    countRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+    qty:               { color: theme.text, fontSize: 14, fontWeight: '700', minWidth: 24, textAlign: 'center' },
+    qtyBtn:            { width: 28, height: 28, borderRadius: 14, backgroundColor: theme.bg, borderWidth: 1, borderColor: theme.accent, alignItems: 'center', justifyContent: 'center' },
+    qtyBtnDisabled:    { borderColor: theme.border },
+    qtyBtnText:        { color: theme.accent, fontSize: 18, lineHeight: 22, fontWeight: '700' },
+    qtyBtnTextDisabled:{ color: theme.textMuted },
+    removeBtn: { padding: 6, marginLeft: 4 },
 
-  // Preview
-  previewStatsBar: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    backgroundColor: theme.surface,
-    paddingHorizontal: 14, paddingVertical: 8,
-    borderBottomWidth: 1, borderBottomColor: theme.border,
-  },
-  previewStatsText: { color: theme.textMuted, fontSize: 12 },
-  viewToggle: { padding: 6 },
+    previewStatsBar: {
+      flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+      backgroundColor: theme.surface,
+      paddingHorizontal: 14, paddingVertical: 8,
+      borderBottomWidth: 1, borderBottomColor: theme.border,
+    },
+    previewStatsText: { color: theme.textMuted, fontSize: 12 },
+    viewToggle: { padding: 6 },
 
-  sectionToggle: {
-    flexDirection: 'row',
-    backgroundColor: theme.surface,
-    borderBottomWidth: 1, borderBottomColor: theme.border,
-  },
-  sectionTab: {
-    flex: 1, paddingVertical: 10, alignItems: 'center',
-    borderBottomWidth: 2, borderBottomColor: 'transparent',
-  },
-  sectionTabActive:     { borderBottomColor: theme.accent },
-  sectionTabText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
-  sectionTabTextActive: { color: theme.accent },
+    sectionToggle: {
+      flexDirection: 'row',
+      backgroundColor: theme.surface,
+      borderBottomWidth: 1, borderBottomColor: theme.border,
+    },
+    sectionTab: {
+      flex: 1, paddingVertical: 10, alignItems: 'center',
+      borderBottomWidth: 2, borderBottomColor: 'transparent',
+    },
+    sectionTabActive:     { borderBottomColor: theme.accent },
+    sectionTabText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
+    sectionTabTextActive: { color: theme.accent },
 
-  previewRow: {
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: theme.surface, borderRadius: 8,
-    padding: 8, gap: 10,
-  },
-  countBadge: {
-    backgroundColor: theme.border, borderRadius: 6,
-    paddingHorizontal: 8, paddingVertical: 4,
-  },
-  countBadgeText: { color: theme.text, fontSize: 13, fontWeight: '700' },
+    previewRow: {
+      flexDirection: 'row', alignItems: 'center',
+      backgroundColor: theme.surface, borderRadius: 8,
+      padding: 8, gap: 10,
+    },
+    countBadge: {
+      backgroundColor: theme.border, borderRadius: 6,
+      paddingHorizontal: 8, paddingVertical: 4,
+    },
+    countBadgeText: { color: theme.text, fontSize: 13, fontWeight: '700' },
 
-  gridItem:      { width: '33.33%', padding: 3 },
-  gridImage:     { width: '100%', aspectRatio: 63 / 88, borderRadius: 4, backgroundColor: theme.border },
-  gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
-  gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
+    gridItem:      { width: '33.33%', padding: 3 },
+    gridImage:     { width: '100%', aspectRatio: 63 / 88, borderRadius: 4, backgroundColor: theme.border },
+    gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
+    gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
 
-  pickerSheet: {
-    position: 'absolute', bottom: 0, left: 0, right: 0,
-    backgroundColor: theme.surface, borderTopLeftRadius: 16, borderTopRightRadius: 16,
-    maxHeight: '70%',
-  },
-  pickerHeader: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    padding: 16, borderBottomWidth: 1, borderBottomColor: theme.border,
-  },
-  pickerTitle: { color: theme.text, fontSize: 16, fontWeight: '700' },
-  pickerRow:   {
-    flexDirection: 'row', alignItems: 'center',
-    paddingHorizontal: 16, paddingVertical: 10, gap: 12,
-  },
-  pickerImage: { width: 36, height: 50, borderRadius: 3, backgroundColor: theme.border },
-  pickerInfo:  { flex: 1, gap: 3 },
+    pickerSheet: {
+      position: 'absolute', bottom: 0, left: 0, right: 0,
+      backgroundColor: theme.surface, borderTopLeftRadius: 16, borderTopRightRadius: 16,
+      maxHeight: '70%',
+    },
+    pickerHeader: {
+      flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+      padding: 16, borderBottomWidth: 1, borderBottomColor: theme.border,
+    },
+    pickerTitle: { color: theme.text, fontSize: 16, fontWeight: '700' },
+    pickerRow:   {
+      flexDirection: 'row', alignItems: 'center',
+      paddingHorizontal: 16, paddingVertical: 10, gap: 12,
+    },
+    pickerImage: { width: 36, height: 50, borderRadius: 3, backgroundColor: theme.border },
+    pickerInfo:  { flex: 1, gap: 3 },
 
-  fabSecondary: {
-    position: 'absolute', bottom: 24, right: 24,
-    width: 44, height: 44, borderRadius: 22,
-    backgroundColor: theme.surface, borderWidth: 1, borderColor: theme.accent,
-    justifyContent: 'center', alignItems: 'center', elevation: 5,
-  },
-  fabDisabled: { borderColor: theme.border, opacity: 0.4 },
+    fabSecondary: {
+      position: 'absolute', bottom: 24, right: 24,
+      width: 44, height: 44, borderRadius: 22,
+      backgroundColor: theme.surface, borderWidth: 1, borderColor: theme.accent,
+      justifyContent: 'center', alignItems: 'center', elevation: 5,
+    },
+    fabDisabled: { borderColor: theme.border, opacity: 0.4 },
 
-  renameSheet: { backgroundColor: theme.surface, borderRadius: 16, padding: 24, gap: 12 },
-  renameTitle: { color: theme.text, fontSize: 18, fontWeight: '700' },
-  renameInput: {
-    backgroundColor: theme.bg, color: theme.text,
-    borderRadius: 8, paddingHorizontal: 12, paddingVertical: 10,
-    fontSize: 14, borderWidth: 1, borderColor: theme.border,
-  },
-  renameBtn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
-  renameBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
-});
+    renameSheet: { backgroundColor: theme.surface, borderRadius: 16, padding: 24, gap: 12 },
+    renameTitle: { color: theme.text, fontSize: 18, fontWeight: '700' },
+    renameInput: {
+      backgroundColor: theme.bg, color: theme.text,
+      borderRadius: 8, paddingHorizontal: 12, paddingVertical: 10,
+      fontSize: 14, borderWidth: 1, borderColor: theme.border,
+    },
+    renameBtn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
+    renameBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
+  });
+}

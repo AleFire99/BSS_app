@@ -3,9 +3,11 @@ import {
   View, Text, TextInput, FlatList, ScrollView, StyleSheet,
   TouchableOpacity, Modal, ActivityIndicator, Pressable,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { getKeywords, getKeywordDetail, getCardRulings } from '../api';
 import { KeywordDef, QAItem, CardRuling } from '../types';
-import { theme } from '../theme';
+import { ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
 import { Feather } from '@expo/vector-icons';
 import RulebookView from '../components/RulebookView';
 
@@ -18,6 +20,10 @@ interface CardGroup {
 }
 
 export default function RulingsScreen() {
+  const { theme } = useAppSettings();
+  const { t } = useTranslation();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   const [segment, setSegment]     = useState<Segment>('keywords');
   const [search,  setSearch]      = useState('');
 
@@ -26,11 +32,8 @@ export default function RulingsScreen() {
   const [loading,     setLoading]     = useState(true);
   const [error,       setError]       = useState<string | null>(null);
 
-  // Selected keyword detail modal
   const [kwDetail,       setKwDetail]       = useState<{ name: string; description: string; qa: QAItem[] } | null>(null);
   const [kwDetailLoading, setKwDetailLoading] = useState(false);
-
-  // Selected card rulings modal
   const [cardDetail, setCardDetail] = useState<CardGroup | null>(null);
 
   useEffect(() => {
@@ -40,7 +43,6 @@ export default function RulingsScreen() {
       .finally(() => setLoading(false));
   }, []);
 
-  // Reset search on segment switch
   const switchSegment = useCallback((s: Segment) => {
     setSegment(s);
     setSearch('');
@@ -100,7 +102,7 @@ export default function RulingsScreen() {
           onPress={() => switchSegment('keywords')}
         >
           <Text style={[styles.segText, segment === 'keywords' && styles.segTextActive]}>
-            Keywords ({keywords.length})
+            {t('rulings.keywords')} ({keywords.length})
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -108,7 +110,7 @@ export default function RulingsScreen() {
           onPress={() => switchSegment('cards')}
         >
           <Text style={[styles.segText, segment === 'cards' && styles.segTextActive]}>
-            Card Rulings ({cardGroups.length})
+            {t('rulings.cardRulings')} ({cardGroups.length})
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -116,7 +118,7 @@ export default function RulingsScreen() {
           onPress={() => switchSegment('rulebook')}
         >
           <Text style={[styles.segText, segment === 'rulebook' && styles.segTextActive]}>
-            Rulebook
+            {t('rulings.rulebook')}
           </Text>
         </TouchableOpacity>
       </View>
@@ -127,7 +129,7 @@ export default function RulingsScreen() {
           <Feather name="search" size={15} color={theme.textMuted} style={{ marginLeft: 10, marginRight: 6 }} />
           <TextInput
             style={styles.search}
-            placeholder={segment === 'keywords' ? 'Search keywords…' : 'Search by card name or ID…'}
+            placeholder={segment === 'keywords' ? t('rulings.searchKeywords') : t('rulings.searchCards')}
             placeholderTextColor={theme.textMuted}
             value={search}
             onChangeText={setSearch}
@@ -140,10 +142,8 @@ export default function RulingsScreen() {
         </View>
       )}
 
-      {/* Rulebook */}
       {segment === 'rulebook' && <RulebookView />}
 
-      {/* Keywords list */}
       {segment === 'keywords' && (
         <FlatList
           data={filteredKeywords}
@@ -164,7 +164,6 @@ export default function RulingsScreen() {
         />
       )}
 
-      {/* Card Q&A list */}
       {segment === 'cards' && (
         <FlatList
           data={filteredCards}
@@ -205,12 +204,12 @@ export default function RulingsScreen() {
                   {kwDetailLoading && <ActivityIndicator color={theme.accent} style={{ marginVertical: 12 }} />}
                   {kwDetail.qa.length > 0 && (
                     <>
-                      <Text style={styles.qaHeader}>Rulings ({kwDetail.qa.length})</Text>
-                      {kwDetail.qa.map((qa, i) => <QABlock key={i} qa={qa} />)}
+                      <Text style={styles.qaHeader}>{t('rulings.rulings', { count: kwDetail.qa.length })}</Text>
+                      {kwDetail.qa.map((qa, i) => <QABlock key={i} qa={qa} styles={styles} t={t} />)}
                     </>
                   )}
                   {!kwDetailLoading && kwDetail.qa.length === 0 && (
-                    <Text style={styles.emptyNote}>No rulings for this keyword.</Text>
+                    <Text style={styles.emptyNote}>{t('rulings.noRulings')}</Text>
                   )}
                 </ScrollView>
               </>
@@ -236,7 +235,7 @@ export default function RulingsScreen() {
                   </TouchableOpacity>
                 </View>
                 <ScrollView>
-                  {cardDetail.entries.map((qa, i) => <QABlock key={i} qa={qa} />)}
+                  {cardDetail.entries.map((qa, i) => <QABlock key={i} qa={qa} styles={styles} t={t} />)}
                 </ScrollView>
               </>
             )}
@@ -247,85 +246,84 @@ export default function RulingsScreen() {
   );
 }
 
-function QABlock({ qa }: { qa: QAItem }) {
+function QABlock({ qa, styles, t }: { qa: QAItem; styles: any; t: any }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <TouchableOpacity style={styles.qaBlock} onPress={() => setExpanded(v => !v)} activeOpacity={0.85}>
       <Text style={styles.qaQ}>{qa.question}</Text>
       {expanded && <Text style={styles.qaA}>{qa.answer}</Text>}
-      <Text style={styles.qaToggle}>{expanded ? '▲ Hide' : '▼ Show answer'}</Text>
+      <Text style={styles.qaToggle}>{expanded ? t('rulings.hide') : t('rulings.showAnswer')}</Text>
     </TouchableOpacity>
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.bg },
-  center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
-  err:       { color: 'red' },
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: theme.bg },
+    center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
+    err:       { color: 'red' },
 
-  segRow:        { flexDirection: 'row', marginHorizontal: 12, marginTop: 10, marginBottom: 6, backgroundColor: theme.surface, borderRadius: 10, padding: 3 },
-  seg:           { flex: 1, paddingVertical: 8, alignItems: 'center', borderRadius: 8 },
-  segActive:     { backgroundColor: theme.accent },
-  segText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
-  segTextActive: { color: '#fff', fontWeight: '700' },
+    segRow:        { flexDirection: 'row', marginHorizontal: 12, marginTop: 10, marginBottom: 6, backgroundColor: theme.surface, borderRadius: 10, padding: 3 },
+    seg:           { flex: 1, paddingVertical: 8, alignItems: 'center', borderRadius: 8 },
+    segActive:     { backgroundColor: theme.accent },
+    segText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
+    segTextActive: { color: '#fff', fontWeight: '700' },
 
-  searchWrap: {
-    marginHorizontal: 12, marginBottom: 8,
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: theme.surface, borderRadius: 8,
-    position: 'relative',
-  },
-  search: {
-    flex: 1, color: theme.text,
-    paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
-  },
-  clearBtn:  { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
-  clearText: { color: theme.textMuted, fontSize: 15 },
+    searchWrap: {
+      marginHorizontal: 12, marginBottom: 8,
+      flexDirection: 'row', alignItems: 'center',
+      backgroundColor: theme.surface, borderRadius: 8, position: 'relative',
+    },
+    search: {
+      flex: 1, color: theme.text,
+      paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
+    },
+    clearBtn:  { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
+    clearText: { color: theme.textMuted, fontSize: 15 },
 
-  listContent: { paddingHorizontal: 12, paddingBottom: 20 },
-  sep:         { height: 1, backgroundColor: theme.border },
+    listContent: { paddingHorizontal: 12, paddingBottom: 20 },
+    sep:         { height: 1, backgroundColor: theme.border },
 
-  kwRow:      { paddingVertical: 12 },
-  kwRowInner: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
-  kwName:     { color: theme.text, fontSize: 15, fontWeight: '700', flex: 1 },
-  kwDesc:     { color: theme.textMuted, fontSize: 12, lineHeight: 17 },
+    kwRow:      { paddingVertical: 12 },
+    kwRowInner: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
+    kwName:     { color: theme.text, fontSize: 15, fontWeight: '700', flex: 1 },
+    kwDesc:     { color: theme.textMuted, fontSize: 12, lineHeight: 17 },
 
-  cardRow:      { paddingVertical: 12 },
-  cardRowInner: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
-  cardId:       { color: theme.accent, fontSize: 12, fontWeight: '700' },
-  cardName:     { color: theme.text, fontSize: 14 },
+    cardRow:      { paddingVertical: 12 },
+    cardRowInner: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
+    cardId:       { color: theme.accent, fontSize: 12, fontWeight: '700' },
+    cardName:     { color: theme.text, fontSize: 14 },
 
-  badge: {
-    backgroundColor: theme.surface, borderRadius: 10,
-    paddingHorizontal: 7, paddingVertical: 2,
-    color: theme.textMuted, fontSize: 11, fontWeight: '600',
-    borderWidth: 1, borderColor: theme.border,
-    overflow: 'hidden',
-  },
+    badge: {
+      backgroundColor: theme.surface, borderRadius: 10,
+      paddingHorizontal: 7, paddingVertical: 2,
+      color: theme.textMuted, fontSize: 11, fontWeight: '600',
+      borderWidth: 1, borderColor: theme.border, overflow: 'hidden',
+    },
 
-  centeredWrap: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center', alignItems: 'center',
-    padding: 20, backgroundColor: 'rgba(0,0,0,0.55)',
-  },
-  centeredSheet: {
-    width: '100%', maxHeight: '80%',
-    backgroundColor: theme.surface,
-    borderRadius: 20, padding: 20,
-    elevation: 16,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.4, shadowRadius: 12,
-  },
-  sheetHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 },
-  sheetTitle:  { color: theme.text, fontSize: 18, fontWeight: '700', flex: 1, marginRight: 12 },
-  sheetSub:    { color: theme.accent, fontSize: 12, fontWeight: '600', marginTop: 2 },
-  closeBtn:    { color: theme.textMuted, fontSize: 18, lineHeight: 22 },
+    centeredWrap: {
+      ...StyleSheet.absoluteFillObject,
+      justifyContent: 'center', alignItems: 'center',
+      padding: 20, backgroundColor: 'rgba(0,0,0,0.55)',
+    },
+    centeredSheet: {
+      width: '100%', maxHeight: '80%',
+      backgroundColor: theme.surface,
+      borderRadius: 20, padding: 20, elevation: 16,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.4, shadowRadius: 12,
+    },
+    sheetHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 },
+    sheetTitle:  { color: theme.text, fontSize: 18, fontWeight: '700', flex: 1, marginRight: 12 },
+    sheetSub:    { color: theme.accent, fontSize: 12, fontWeight: '600', marginTop: 2 },
+    closeBtn:    { color: theme.textMuted, fontSize: 18, lineHeight: 22 },
 
-  kwDefText: { color: theme.text, fontSize: 14, lineHeight: 21, marginBottom: 16 },
-  qaHeader:  { color: theme.accent, fontSize: 12, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 },
-  emptyNote: { color: theme.textMuted, fontSize: 13, fontStyle: 'italic' },
+    kwDefText: { color: theme.text, fontSize: 14, lineHeight: 21, marginBottom: 16 },
+    qaHeader:  { color: theme.accent, fontSize: 12, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 },
+    emptyNote: { color: theme.textMuted, fontSize: 13, fontStyle: 'italic' },
 
-  qaBlock:  { backgroundColor: theme.bg, borderRadius: 8, padding: 12, marginBottom: 8 },
-  qaQ:      { color: theme.text, fontSize: 13, fontWeight: '600', lineHeight: 19, marginBottom: 4 },
-  qaA:      { color: theme.textMuted, fontSize: 13, lineHeight: 19, marginBottom: 6 },
-  qaToggle: { color: theme.accent, fontSize: 11, fontWeight: '600' },
-});
+    qaBlock:  { backgroundColor: theme.bg, borderRadius: 8, padding: 12, marginBottom: 8 },
+    qaQ:      { color: theme.text, fontSize: 13, fontWeight: '600', lineHeight: 19, marginBottom: 4 },
+    qaA:      { color: theme.textMuted, fontSize: 13, lineHeight: 19, marginBottom: 6 },
+    qaToggle: { color: theme.accent, fontSize: 11, fontWeight: '600' },
+  });
+}

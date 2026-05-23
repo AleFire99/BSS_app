@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View, Text, Modal, TouchableOpacity,
   StyleSheet, Image,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { Deck, DeckCard, Card } from '../types';
-import { theme } from '../theme';
+import { ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
+import { useTranslation } from 'react-i18next';
 import CardZoomModal from './CardZoomModal';
 
 const MAX_HAND = 7;
@@ -28,6 +30,10 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function HandTester({ deck, cardMap, onClose }: Props) {
+  const { theme } = useAppSettings();
+  const { t } = useTranslation();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   const [phase, setPhase]                   = useState<Phase>('hand');
   const [hand, setHand]                     = useState<string[]>([]);
   const [pool, setPool]                     = useState<string[]>([]);
@@ -91,13 +97,12 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
       <CardZoomModal uri={zoomedUri ?? ''} visible={!!zoomedUri} onClose={() => setZoomedUri(null)} />
       <View style={styles.overlay}>
         <View style={styles.container}>
-          {/* Header */}
           <View style={styles.header}>
             <View style={{ flex: 1 }}>
-              <Text style={styles.title}>Opening Hand</Text>
+              <Text style={styles.title}>{t('handTester.title')}</Text>
               {totalRounds > 0 && (
                 <Text style={styles.stats}>
-                  {totalRounds} hand{totalRounds !== 1 ? 's' : ''} · {cleanPct}% kept
+                  {t('handTester.stats', { count: totalRounds, pct: cleanPct })}
                 </Text>
               )}
             </View>
@@ -109,7 +114,6 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
             </TouchableOpacity>
           </View>
 
-          {/* Card grid */}
           <View style={styles.cardGrid}>
             {hand.map((cardId, i) => (
               <TouchableOpacity
@@ -127,13 +131,12 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
             ))}
           </View>
 
-          {/* Action buttons */}
           <View style={styles.actions}>
             {phase === 'hand' && (
               <>
                 {!handMulliganed && (
                   <TouchableOpacity style={[styles.pill, styles.pillSecondary]} onPress={handleMulligan}>
-                    <Text style={styles.pillSecondaryText}>Mulligan</Text>
+                    <Text style={styles.pillSecondaryText}>{t('handTester.mulligan')}</Text>
                   </TouchableOpacity>
                 )}
                 <TouchableOpacity style={styles.pill} onPress={handleAccept}>
@@ -153,59 +156,61 @@ export default function HandTester({ deck, cardMap, onClose }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    justifyContent: 'center',
-    paddingHorizontal: 16,
-  },
-  container: {
-    backgroundColor: theme.bg,
-    borderRadius: 16,
-    paddingBottom: 20,
-    maxHeight: '85%',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-    paddingRight: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.border,
-    gap: 4,
-  },
-  title:     { color: theme.text, fontSize: 18, fontWeight: '700' },
-  stats:     { color: theme.textMuted, fontSize: 12, marginTop: 2 },
-  headerBtn: { padding: 6 },
-  cardGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    padding: 12,
-    gap: 8,
-  },
-  cardWrapper: { width: 80 },
-  cardImage:   { width: 80, height: 112, borderRadius: 6, backgroundColor: theme.border },
-  actions: {
-    flexDirection: 'row',
-    gap: 10,
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    justifyContent: 'flex-end',
-  },
-  pill: {
-    backgroundColor: theme.accent,
-    borderRadius: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-    alignItems: 'center',
-  },
-  pillSecondary: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: theme.accent,
-  },
-  pillText:          { color: '#fff', fontWeight: '700', fontSize: 14 },
-  pillSecondaryText: { color: theme.accent, fontWeight: '700', fontSize: 14 },
-});
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      justifyContent: 'center',
+      paddingHorizontal: 16,
+    },
+    container: {
+      backgroundColor: theme.bg,
+      borderRadius: 16,
+      paddingBottom: 20,
+      maxHeight: '85%',
+    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 16,
+      paddingRight: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.border,
+      gap: 4,
+    },
+    title:     { color: theme.text, fontSize: 18, fontWeight: '700' },
+    stats:     { color: theme.textMuted, fontSize: 12, marginTop: 2 },
+    headerBtn: { padding: 6 },
+    cardGrid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      padding: 12,
+      gap: 8,
+    },
+    cardWrapper: { width: 80 },
+    cardImage:   { width: 80, height: 112, borderRadius: 6, backgroundColor: theme.border },
+    actions: {
+      flexDirection: 'row',
+      gap: 10,
+      paddingHorizontal: 16,
+      paddingTop: 12,
+      justifyContent: 'flex-end',
+    },
+    pill: {
+      backgroundColor: theme.accent,
+      borderRadius: 20,
+      paddingHorizontal: 20,
+      paddingVertical: 8,
+      alignItems: 'center',
+    },
+    pillSecondary: {
+      backgroundColor: 'transparent',
+      borderWidth: 1,
+      borderColor: theme.accent,
+    },
+    pillText:          { color: '#fff', fontWeight: '700', fontSize: 14 },
+    pillSecondaryText: { color: theme.accent, fontWeight: '700', fontSize: 14 },
+  });
+}

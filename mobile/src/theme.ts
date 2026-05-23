@@ -14,7 +14,7 @@ export const RARITY_COLOR: Record<string, string> = {
   C:  '#424242',
 };
 
-export const theme = {
+export const darkTheme = {
   bg:         '#121212',
   surface:    '#1e1e1e',
   border:     '#333333',
@@ -22,3 +22,17 @@ export const theme = {
   textMuted:  '#9e9e9e',
   accent:     '#f9a825',
 };
+
+export const lightTheme = {
+  bg:         '#e8e8e8',
+  surface:    '#f2f2f2',
+  border:     '#c8c8c8',
+  text:       '#1a1a1a',
+  textMuted:  '#5e5e5e',
+  accent:     '#d4860a',
+};
+
+export type ThemeType = typeof darkTheme;
+
+// Legacy export — used by components not yet migrated; prefer useAppSettings().theme
+export const theme = darkTheme;

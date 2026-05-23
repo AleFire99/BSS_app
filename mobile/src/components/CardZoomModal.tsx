@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Modal, View, Image, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { theme } from '../theme';
+import { ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
 
 interface Props {
   uri: string;
@@ -10,6 +11,9 @@ interface Props {
 }
 
 export default function CardZoomModal({ uri, visible, onClose }: Props) {
+  const { theme } = useAppSettings();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   return (
     <Modal visible={visible} transparent animationType="fade" statusBarTranslucent>
       <Pressable style={styles.backdrop} onPress={onClose}>
@@ -22,24 +26,26 @@ export default function CardZoomModal({ uri, visible, onClose }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.92)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: '90%',
-    height: '80%',
-  },
-  closeBtn: {
-    position: 'absolute',
-    top: 48,
-    right: 20,
-    backgroundColor: theme.surface,
-    borderRadius: 20,
-    padding: 8,
-    elevation: 4,
-  },
-});
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    backdrop: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.92)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    image: {
+      width: '90%',
+      height: '80%',
+    },
+    closeBtn: {
+      position: 'absolute',
+      top: 48,
+      right: 20,
+      backgroundColor: theme.surface,
+      borderRadius: 20,
+      padding: 8,
+      elevation: 4,
+    },
+  });
+}

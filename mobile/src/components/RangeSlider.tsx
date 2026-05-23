@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { View, PanResponder, StyleSheet } from 'react-native';
-import { theme } from '../theme';
+import { ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
 
 interface Props {
   min: number;
@@ -9,10 +10,13 @@ interface Props {
   onChange: (v: [number, number]) => void;
 }
 
+const THUMB = 24;
+
 export default function RangeSlider({ min, max, values, onChange }: Props) {
+  const { theme } = useAppSettings();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
   const [trackWidth, setTrackWidth] = useState(0);
 
-  // Keep refs current so PanResponder closures never go stale
   const trackWidthRef = useRef(0);
   const valuesRef     = useRef(values);
   const onChangeRef   = useRef(onChange);
@@ -91,17 +95,17 @@ export default function RangeSlider({ min, max, values, onChange }: Props) {
   );
 }
 
-const THUMB = 24;
-
-const styles = StyleSheet.create({
-  container: { height: THUMB + 8, justifyContent: 'center', marginHorizontal: THUMB / 2 },
-  track:     { height: 4, backgroundColor: theme.border, borderRadius: 2 },
-  fill:      { position: 'absolute', height: 4, backgroundColor: theme.accent, borderRadius: 2 },
-  thumb: {
-    position: 'absolute',
-    width: THUMB, height: THUMB, borderRadius: THUMB / 2,
-    backgroundColor: '#fff',
-    shadowColor: '#000', shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.35, shadowRadius: 3, elevation: 4,
-  },
-});
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    container: { height: THUMB + 8, justifyContent: 'center', marginHorizontal: THUMB / 2 },
+    track:     { height: 4, backgroundColor: theme.border, borderRadius: 2 },
+    fill:      { position: 'absolute', height: 4, backgroundColor: theme.accent, borderRadius: 2 },
+    thumb: {
+      position: 'absolute',
+      width: THUMB, height: THUMB, borderRadius: THUMB / 2,
+      backgroundColor: '#fff',
+      shadowColor: '#000', shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.35, shadowRadius: 3, elevation: 4,
+    },
+  });
+}

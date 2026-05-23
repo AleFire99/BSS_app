@@ -42,7 +42,18 @@
       "Bash(adb devices *)",
       "Bash(git pull *)",
       "Bash(git -C \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\" log --oneline develop..feature/deck-import-export)",
-      "Bash(git -C \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\" log --oneline -30)"
+      "Bash(git -C \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\" log --oneline -30)",
+      "Bash(git tag *)",
+      "Bash(git commit *)",
+      "PowerShell($adb = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\"; & $adb install -r \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\\\\app\\\\build\\\\outputs\\\\apk\\\\release\\\\app-release.apk\"; & $adb shell am start -n com.alefire.bssapp/.MainActivity)",
+      "PowerShell($adb = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\"; & $adb install -r \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\\\\app\\\\build\\\\outputs\\\\apk\\\\release\\\\app-release.apk\"; & $adb shell am start -n com.alefire.bssapp/.MainActivity; Start-Sleep 3; & $adb shell screencap -p /sdcard/decks2.png; & $adb pull /sdcard/decks2.png \"$env:TEMP\\\\decks2.png\")",
+      "Read(//c/Users/AleFire/AppData/Local/Temp/**)",
+      "PowerShell($adb = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\"; & $adb install -r \"C:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\android\\\\app\\\\build\\\\outputs\\\\apk\\\\release\\\\app-release.apk\"; & $adb shell am start -n com.alefire.bssapp/.MainActivity)",
+      "PowerShell($adb = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\"; & $adb shell screencap -p /sdcard/screen.png; & $adb pull /sdcard/screen.png \"$env:TEMP\\\\screen.png\")",
+      "PowerShell($env:ANDROID_HOME = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\"; & \"$env:ANDROID_HOME\\\\platform-tools\\\\adb.exe\" devices)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\AleFire\\\\Desktop\\\\Projects\\\\BSS_app\\\\mobile\\\\src\" -Recurse -Exclude \"node_modules\" | Where-Object { $_.Extension -in @\\(\".tsx\", \".ts\", \".json\"\\) } | Select-Object FullName)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "PowerShell($env:ANDROID_HOME = \"C:\\\\Users\\\\AleFire\\\\AppData\\\\Local\\\\Android\\\\Sdk\"; $emu = \"$env:ANDROID_HOME\\\\emulator\\\\emulator.exe\"; & $emu -avd Pixel_8 -no-snapshot-load)"
     ]
   }
 }

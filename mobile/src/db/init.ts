@@ -1,11 +1,13 @@
 import * as SQLite from 'expo-sqlite';
 import { Asset } from 'expo-asset';
 import * as FileSystem from 'expo-file-system/legacy';
+import { setCardTranslations } from './queries/cards';
 
 export let cardsDb: SQLite.SQLiteDatabase;
 export let deckDb: SQLite.SQLiteDatabase;
 
 const CARDS_DB_MODULE = require('../../assets/cards.db');
+const CARDS_IT_MODULE = require('../../assets/i18n/cards_it.json');
 
 // ── Schema migration ──────────────────────────────────────────────────────────
 
@@ -105,6 +107,16 @@ async function runMigrations(): Promise<void> {
   if (currentVersion < 2) await migrateToV2();
 }
 
+// ── Load card translations ────────────────────────────────────────────────────
+
+async function loadCardTranslations(): Promise<void> {
+  try {
+    setCardTranslations('it', CARDS_IT_MODULE);
+  } catch {
+    // Silent fallback to English
+  }
+}
+
 // ── Public init ───────────────────────────────────────────────────────────────
 
 export async function initCardsDb(): Promise<void> {
@@ -121,6 +133,8 @@ export async function initCardsDb(): Promise<void> {
   }
 
   cardsDb = await SQLite.openDatabaseAsync('cards.db');
+
+  await loadCardTranslations();
 }
 
 export async function initDeckDb(): Promise<void> {

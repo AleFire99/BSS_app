@@ -32,6 +32,22 @@ interface CoreRow {
   Cores: number;
 }
 
+// ── Translation overlay ───────────────────────────────────────────────────────
+
+type CardTranslationEntry = { effects?: string[] };
+type TranslationMap = Record<string, CardTranslationEntry>;
+
+let _lang = 'en';
+let _translationsIt: TranslationMap = {};
+
+export function setCardTranslations(lang: string, data: TranslationMap): void {
+  if (lang === 'it') _translationsIt = data;
+}
+
+export function setCardLanguage(lang: string): void {
+  _lang = lang;
+}
+
 // ── SQL ───────────────────────────────────────────────────────────────────────
 
 // Use || as GROUP_CONCAT entry delimiter to safely handle "4,5" list modifiers.
@@ -121,20 +137,40 @@ function assembleCards(
     coreMap.get(row.CardID)!.push({ lv: row.Level, bp: row.BP, cores: row.Cores });
   }
 
-  return cardRows.map(row => ({
-    id:          row.CardID,
-    name:        row.Name,
-    type:        row.type,
-    set:         row.set_name,
-    cost:        row.Cost,
-    rarity:      row.Rarity,
-    color:       row.colors   ? row.colors.split('|')   : [],
-    subtypes:    row.subtypes ? row.subtypes.split('|') : [],
-    symbols:     row.symbols  ? row.symbols.split('|')  : [],
-    core:        coreMap.get(row.CardID)    ?? [],
-    effects:     effectsMap.get(row.CardID) ?? [],
-    alt_art_ids: row.alt_art_ids ? row.alt_art_ids.split('|') : [],
-  }));
+  return cardRows.map(row => {
+    const effects = effectsMap.get(row.CardID) ?? [];
+    let name = row.Name;
+
+    let subtypes = row.subtypes ? row.subtypes.split('|') : [];
+
+    if (_lang === 'it') {
+      const tr = _translationsIt[row.CardID];
+      if (tr?.effects && tr.effects.length > 0) {
+        let tIdx = 0;
+        for (let i = 0; i < effects.length && tIdx < tr.effects.length; i++) {
+          const d = effects[i].details;
+          if (d && d !== 'N/A') {
+            effects[i] = { ...effects[i], details: tr.effects[tIdx++] };
+          }
+        }
+      }
+    }
+
+    return {
+      id:          row.CardID,
+      name,
+      type:        row.type,
+      set:         row.set_name,
+      cost:        row.Cost,
+      rarity:      row.Rarity,
+      color:       row.colors   ? row.colors.split('|')   : [],
+      subtypes,
+      symbols:     row.symbols  ? row.symbols.split('|')  : [],
+      core:        coreMap.get(row.CardID) ?? [],
+      effects,
+      alt_art_ids: row.alt_art_ids ? row.alt_art_ids.split('|') : [],
+    };
+  });
 }
 
 // ── Public API ────────────────────────────────────────────────────────────────

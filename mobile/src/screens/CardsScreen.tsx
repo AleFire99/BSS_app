@@ -4,13 +4,15 @@ import {
   ActivityIndicator, TouchableOpacity, ScrollView, Modal, Pressable,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
 import { getCards } from '../api';
 import { Card } from '../types';
 import CardItem from '../components/CardItem';
 import CardGrid from '../components/CardGrid';
 import { Feather } from '@expo/vector-icons';
 import RangeSlider from '../components/RangeSlider';
-import { theme, COLOR_MAP } from '../theme';
+import { COLOR_MAP } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
 import { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Cards'>;
@@ -21,6 +23,10 @@ const TYPES  = ['SPIRIT', 'MAGIC', 'NEXUS'];
 const PAGE_SIZE = 50;
 
 export default function CardsScreen({ navigation }: Props) {
+  const { theme, language } = useAppSettings();
+  const { t } = useTranslation();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   const [cards, setCards]       = useState<Card[]>([]);
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState<string | null>(null);
@@ -38,11 +44,12 @@ export default function CardsScreen({ navigation }: Props) {
   const [displayCount,  setDisplayCount]  = useState(PAGE_SIZE);
 
   useEffect(() => {
+    setLoading(true);
     getCards()
       .then(setCards)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [language]);
 
   const sets     = useMemo(() => [...new Set(cards.map(c => c.set))].sort(), [cards]);
   const rarities = useMemo(() => [...new Set(cards.map(c => c.rarity))].sort(), [cards]);
@@ -90,7 +97,7 @@ export default function CardsScreen({ navigation }: Props) {
   const footer = displayCount < filtered.length
     ? <ActivityIndicator color={theme.accent} style={{ padding: 16 }} />
     : filtered.length > PAGE_SIZE
-      ? <Text style={styles.footerText}>All {filtered.length} cards shown</Text>
+      ? <Text style={styles.footerText}>{t('cards.allShown', { count: filtered.length })}</Text>
       : null;
 
   const costActive = costRange[0] !== 0 || costRange[1] !== maxCost;
@@ -103,7 +110,7 @@ export default function CardsScreen({ navigation }: Props) {
         <Feather name="search" size={15} color={theme.textMuted} style={{ marginLeft: 10, marginRight: 6 }} />
         <TextInput
           style={styles.search}
-          placeholder="Search name, effects, keywords…"
+          placeholder={t('cards.searchPlaceholder')}
           placeholderTextColor={theme.textMuted}
           value={search}
           onChangeText={setSearch}
@@ -122,7 +129,7 @@ export default function CardsScreen({ navigation }: Props) {
           onPress={() => setSetPickerOpen(true)}
         >
           <Text style={[styles.filterBtnText, !!filterSet && styles.filterBtnTextActive]} numberOfLines={1}>
-            {filterSet ?? 'Set'} ▾
+            {filterSet ?? t('cards.set')} ▾
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -130,7 +137,7 @@ export default function CardsScreen({ navigation }: Props) {
           onPress={() => setRarityPickerOpen(true)}
         >
           <Text style={[styles.filterBtnText, !!filterRarity && styles.filterBtnTextActive]} numberOfLines={1}>
-            {filterRarity ?? 'Rarity'} ▾
+            {filterRarity ?? t('cards.rarity')} ▾
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -138,7 +145,7 @@ export default function CardsScreen({ navigation }: Props) {
           onPress={() => setTypePickerOpen(true)}
         >
           <Text style={[styles.filterBtnText, !!filterType && styles.filterBtnTextActive]} numberOfLines={1}>
-            {filterType ?? 'Type'} ▾
+            {filterType ?? t('cards.type')} ▾
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -164,18 +171,15 @@ export default function CardsScreen({ navigation }: Props) {
       {/* Cost range slider */}
       <View style={styles.costSection}>
         <Text style={[styles.costLabel, costActive && styles.costLabelActive]}>
-          Cost: {costRange[0]} – {costRange[1]}
+          {t('cards.cost')}: {costRange[0]} – {costRange[1]}
         </Text>
-        <RangeSlider
-          min={0}
-          max={maxCost}
-          values={costRange}
-          onChange={setCostRange}
-        />
+        <RangeSlider min={0} max={maxCost} values={costRange} onChange={setCostRange} />
       </View>
 
       <Text style={styles.count}>
-        {filtered.length} cards{displayCount < filtered.length ? ` · showing ${displayCount}` : ''}
+        {displayCount < filtered.length
+          ? t('common.cardsShowing', { count: filtered.length, shown: displayCount })
+          : t('common.cards', { count: filtered.length })}
       </Text>
 
       {viewMode === 'list' ? (
@@ -210,13 +214,13 @@ export default function CardsScreen({ navigation }: Props) {
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setSetPickerOpen(false)} />
         <View style={styles.dropMenuWrap} pointerEvents="box-none">
           <View style={styles.dropSetMenu}>
-            <Text style={styles.dropMenuTitle}>Set</Text>
+            <Text style={styles.dropMenuTitle}>{t('cards.set')}</Text>
             <ScrollView style={{ maxHeight: 260 }}>
               <TouchableOpacity
                 style={styles.dropMenuRow}
                 onPress={() => { setFilterSet(null); setSetPickerOpen(false); }}
               >
-                <Text style={[styles.dropMenuText, !filterSet && styles.dropMenuTextActive]}>All Sets</Text>
+                <Text style={[styles.dropMenuText, !filterSet && styles.dropMenuTextActive]}>{t('cards.allSets')}</Text>
                 {!filterSet && <Feather name="check" size={16} color={theme.accent} />}
               </TouchableOpacity>
               {sets.map(s => (
@@ -239,12 +243,12 @@ export default function CardsScreen({ navigation }: Props) {
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setRarityPickerOpen(false)} />
         <View style={styles.dropMenuWrap} pointerEvents="box-none">
           <View style={styles.dropRarityMenu}>
-            <Text style={styles.dropMenuTitle}>Rarity</Text>
+            <Text style={styles.dropMenuTitle}>{t('cards.rarity')}</Text>
             <TouchableOpacity
               style={styles.dropMenuRow}
               onPress={() => { setFilterRarity(null); setRarityPickerOpen(false); }}
             >
-              <Text style={[styles.dropMenuText, !filterRarity && styles.dropMenuTextActive]}>All Rarities</Text>
+              <Text style={[styles.dropMenuText, !filterRarity && styles.dropMenuTextActive]}>{t('cards.allRarities')}</Text>
               {!filterRarity && <Feather name="check" size={16} color={theme.accent} />}
             </TouchableOpacity>
             {rarities.map(r => (
@@ -266,22 +270,22 @@ export default function CardsScreen({ navigation }: Props) {
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setTypePickerOpen(false)} />
         <View style={styles.dropMenuWrap} pointerEvents="box-none">
           <View style={styles.dropTypeMenu}>
-            <Text style={styles.dropMenuTitle}>Type</Text>
+            <Text style={styles.dropMenuTitle}>{t('cards.type')}</Text>
             <TouchableOpacity
               style={styles.dropMenuRow}
               onPress={() => { setFilterType(null); setTypePickerOpen(false); }}
             >
-              <Text style={[styles.dropMenuText, !filterType && styles.dropMenuTextActive]}>All Types</Text>
+              <Text style={[styles.dropMenuText, !filterType && styles.dropMenuTextActive]}>{t('cards.allTypes')}</Text>
               {!filterType && <Feather name="check" size={16} color={theme.accent} />}
             </TouchableOpacity>
-            {TYPES.map(t => (
+            {TYPES.map(tp => (
               <TouchableOpacity
-                key={t}
+                key={tp}
                 style={styles.dropMenuRow}
-                onPress={() => { setFilterType(t); setTypePickerOpen(false); }}
+                onPress={() => { setFilterType(tp); setTypePickerOpen(false); }}
               >
-                <Text style={[styles.dropMenuText, filterType === t && styles.dropMenuTextActive]}>{t}</Text>
-                {filterType === t && <Feather name="check" size={16} color={theme.accent} />}
+                <Text style={[styles.dropMenuText, filterType === tp && styles.dropMenuTextActive]}>{tp}</Text>
+                {filterType === tp && <Feather name="check" size={16} color={theme.accent} />}
               </TouchableOpacity>
             ))}
           </View>
@@ -291,76 +295,76 @@ export default function CardsScreen({ navigation }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.bg, paddingTop: 8 },
-  center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
-  err:       { color: 'red' },
+function makeStyles(theme: ReturnType<typeof import('../contexts/AppSettingsContext').useAppSettings>['theme']) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: theme.bg, paddingTop: 8 },
+    center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
+    err:       { color: 'red' },
 
-  searchWrap: {
-    marginHorizontal: 12, marginBottom: 6,
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: theme.surface, borderRadius: 8,
-    position: 'relative',
-  },
-  search: {
-    flex: 1,
-    color: theme.text,
-    paddingLeft: 0, paddingRight: 36, paddingVertical: 8,
-    fontSize: 14,
-  },
-  clearBtn:  { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
-  clearText: { color: theme.textMuted, fontSize: 15 },
+    searchWrap: {
+      marginHorizontal: 12, marginBottom: 6,
+      flexDirection: 'row', alignItems: 'center',
+      backgroundColor: theme.surface, borderRadius: 8,
+      position: 'relative',
+    },
+    search: {
+      flex: 1, color: theme.text,
+      paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
+    },
+    clearBtn:  { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
+    clearText: { color: theme.textMuted, fontSize: 15 },
 
-  toolbarRow: { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
-  filterBtn:         { flex: 1, backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
-  filterBtnActive:   { backgroundColor: theme.accent },
-  filterBtnText:     { color: theme.textMuted, fontSize: 13 },
-  filterBtnTextActive: { color: '#fff', fontWeight: '700' },
-  viewToggle:     { backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 7, justifyContent: 'center' },
+    toolbarRow: { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
+    filterBtn:           { flex: 1, backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
+    filterBtnActive:     { backgroundColor: theme.accent },
+    filterBtnText:       { color: theme.textMuted, fontSize: 13 },
+    filterBtnTextActive: { color: '#fff', fontWeight: '700' },
+    viewToggle: { backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 7, justifyContent: 'center' },
 
-  gemRow:    { flexDirection: 'row', gap: 12, paddingHorizontal: 14, marginBottom: 8, alignItems: 'center' },
-  gem:       { width: 28, height: 28, borderRadius: 14, opacity: 0.45 },
-  gemActive: { opacity: 1, borderWidth: 2.5, borderColor: '#fff' },
+    gemRow:    { flexDirection: 'row', gap: 12, paddingHorizontal: 14, marginBottom: 8, alignItems: 'center' },
+    gem:       { width: 28, height: 28, borderRadius: 14, opacity: 0.45 },
+    gemActive: { opacity: 1, borderWidth: 2.5, borderColor: '#fff' },
 
-  costSection:     { marginHorizontal: 12, marginBottom: 6 },
-  costLabel:       { color: theme.textMuted, fontSize: 11, marginBottom: 6 },
-  costLabelActive: { color: theme.accent },
+    costSection:     { marginHorizontal: 12, marginBottom: 6 },
+    costLabel:       { color: theme.textMuted, fontSize: 11, marginBottom: 6 },
+    costLabelActive: { color: theme.accent },
 
-  count:      { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
-  footerText: { color: theme.textMuted, fontSize: 12, textAlign: 'center', padding: 16 },
+    count:      { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
+    footerText: { color: theme.textMuted, fontSize: 12, textAlign: 'center', padding: 16 },
 
-  dropMenuWrap: { ...StyleSheet.absoluteFillObject },
-  dropSetMenu: {
-    position: 'absolute', top: 148, left: 12,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 130, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  dropRarityMenu: {
-    position: 'absolute', top: 148, left: 148,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 140, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  dropTypeMenu: {
-    position: 'absolute', top: 148, right: 56,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 130, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  dropMenuTitle: {
-    color: theme.textMuted, fontSize: 11, fontWeight: '700',
-    textTransform: 'uppercase', letterSpacing: 0.8,
-    paddingHorizontal: 14, paddingVertical: 8,
-  },
-  dropMenuRow: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: 14, paddingVertical: 12,
-    borderTopWidth: 1, borderTopColor: theme.border,
-  },
-  dropMenuText:       { color: theme.text, fontSize: 14 },
-  dropMenuTextActive: { color: theme.accent, fontWeight: '700' },
-});
+    dropMenuWrap: { ...StyleSheet.absoluteFillObject },
+    dropSetMenu: {
+      position: 'absolute', top: 148, left: 12,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 130, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    dropRarityMenu: {
+      position: 'absolute', top: 148, left: 148,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 140, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    dropTypeMenu: {
+      position: 'absolute', top: 148, right: 56,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 130, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    dropMenuTitle: {
+      color: theme.textMuted, fontSize: 11, fontWeight: '700',
+      textTransform: 'uppercase', letterSpacing: 0.8,
+      paddingHorizontal: 14, paddingVertical: 8,
+    },
+    dropMenuRow: {
+      flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+      paddingHorizontal: 14, paddingVertical: 12,
+      borderTopWidth: 1, borderTopColor: theme.border,
+    },
+    dropMenuText:       { color: theme.text, fontSize: 14 },
+    dropMenuTextActive: { color: theme.accent, fontWeight: '700' },
+  });
+}

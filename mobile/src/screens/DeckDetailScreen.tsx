@@ -12,7 +12,9 @@ import DeckExportModal from '../components/DeckExportModal';
 import SwipeableRow from '../components/SwipeableRow';
 import RangeSlider from '../components/RangeSlider';
 import { Card, Deck, DeckCard } from '../types';
-import { theme, COLOR_MAP } from '../theme';
+import { COLOR_MAP, ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
+import { useTranslation } from 'react-i18next';
 import { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'DeckDetail'>;
@@ -21,11 +23,19 @@ const COLORS = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'White'];
 const TYPES  = ['SPIRIT', 'MAGIC', 'NEXUS'];
 const TYPE_ORDER: Record<string, number> = { SPIRIT: 0, NEXUS: 1, MAGIC: 2 };
 type SortMode = 'type+cost' | 'type+name' | 'type+color';
-const SORT_LABELS: Record<SortMode, string> = { 'type+cost': 'Cost', 'type+name': 'Name', 'type+color': 'Color' };
 const SORT_CYCLE: SortMode[] = ['type+cost', 'type+name', 'type+color'];
 
 export default function DeckDetailScreen({ route, navigation }: Props) {
   const { deckId } = route.params;
+  const { theme } = useAppSettings();
+  const { t } = useTranslation();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
+  const SORT_LABELS = useMemo<Record<SortMode, string>>(() => ({
+    'type+cost':  t('deckDetail.sort.cost'),
+    'type+name':  t('deckDetail.sort.name'),
+    'type+color': t('deckDetail.sort.color'),
+  }), [t]);
 
   const [deck, setDeck]           = useState<(Deck & { cards: DeckCard[]; sideboard: DeckCard[] }) | null>(null);
   const [allCards, setAllCards]   = useState<Card[]>([]);
@@ -40,7 +50,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<'main' | 'sideboard'>('main');
 
-  // Add card filter states
   const [addSearch,     setAddSearch]     = useState('');
   const [addColors,     setAddColors]     = useState<string[]>([]);
   const [addType,       setAddType]       = useState<string | null>(null);
@@ -52,7 +61,6 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [addTypeOpen,   setAddTypeOpen]   = useState(false);
   const [toolbarBottom, setToolbarBottom] = useState(0);
 
-  // Card swipe-delete flow
   const [collapsingCardId, setCollapsingCardId] = useState<string | null>(null);
   const [undoCard, setUndoCard]                 = useState<{ dc: DeckCard; index: number } | null>(null);
   const [showCardToast, setShowCardToast]       = useState(false);
@@ -63,7 +71,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const load = useCallback(() => {
     Promise.all([getDeck(deckId), getCards()])
       .then(([d, cards]) => { setDeck(d); setAllCards(cards); })
-      .catch(e => Alert.alert('Error', e.message))
+      .catch(e => Alert.alert(t('common.error'), e.message))
       .finally(() => setLoading(false));
   }, [deckId]);
 
@@ -107,20 +115,17 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const addRarities = useMemo(() => [...new Set(allCards.map(c => c.rarity))].sort(), [allCards]);
   const maxAddCost  = useMemo(() => allCards.length > 0 ? Math.max(...allCards.map(c => c.cost)) : 13, [allCards]);
 
-  // Count of a card in the ACTIVE section
   const getSectionCount = useCallback((cardId: string): number => {
     const arr = activeSection === 'main' ? deck?.cards : deck?.sideboard;
     return arr?.find(dc => dc.card_id === cardId)?.count ?? 0;
   }, [deck, activeSection]);
 
-  // Combined count across BOTH sections (for 4-copy limit)
   const getTotalCount = useCallback((cardId: string): number => {
     const main = deck?.cards?.find(dc => dc.card_id === cardId)?.count ?? 0;
     const side = deck?.sideboard?.find(dc => dc.card_id === cardId)?.count ?? 0;
     return main + side;
   }, [deck]);
 
-  // Can we add one more of this card (considering 4-copy + sideboard 10-cap)?
   const canAddMore = useCallback((cardId: string): boolean => {
     if (getTotalCount(cardId) >= 4) return false;
     if (activeSection === 'sideboard' && (deck?.sideboard_count ?? 0) >= 10) return false;
@@ -179,7 +184,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     if (pendingAdds.current.has(cardId)) return;
     pendingAdds.current.add(cardId);
     try { await addCardToDeck(deckId, cardId, 1, activeSection); load(); }
-    catch (e: any) { Alert.alert('Error', e.message); }
+    catch (e: any) { Alert.alert(t('common.error'), e.message); }
     finally { pendingAdds.current.delete(cardId); }
   };
 
@@ -188,13 +193,13 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       if (currentCount <= 1) await removeCardFromDeck(deckId, cardId, activeSection);
       else await updateCardCount(deckId, cardId, currentCount - 1, activeSection);
       load();
-    } catch (e: any) { Alert.alert('Error', e.message); }
+    } catch (e: any) { Alert.alert(t('common.error'), e.message); }
   };
 
   const handleRename = async () => {
     if (!editName.trim()) return;
     try { await updateDeck(deckId, { name: editName.trim() }); setEditModal(false); load(); }
-    catch (e: any) { Alert.alert('Error', e.message); }
+    catch (e: any) { Alert.alert(t('common.error'), e.message); }
   };
 
   const handleCardDeletePress = useCallback((dc: DeckCard) => {
@@ -230,7 +235,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     setShowCardToast(true);
     if (cardDeleteTimerRef.current) clearTimeout(cardDeleteTimerRef.current);
     cardDeleteTimerRef.current = setTimeout(() => {
-      removeCardFromDeck(deckId, item.dc.card_id, item.dc.section).catch(e => Alert.alert('Error', e.message));
+      removeCardFromDeck(deckId, item.dc.card_id, item.dc.section).catch(e => Alert.alert(t('common.error'), e.message));
       setUndoCard(null);
       setShowCardToast(false);
       cardDeleteTimerRef.current = null;
@@ -359,7 +364,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           onPress={() => { setActiveSection('main'); if (addMode) closeAddMode(); }}
         >
           <Text style={[styles.sectionTabText, activeSection === 'main' && styles.sectionTabTextActive]}>
-            Main Deck ({deck.card_count})
+            {t('deckDetail.mainDeck', { count: deck.card_count })}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -367,7 +372,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           onPress={() => { setActiveSection('sideboard'); if (addMode) closeAddMode(); }}
         >
           <Text style={[styles.sectionTabText, activeSection === 'sideboard' && styles.sectionTabTextActive]}>
-            Sideboard ({deck.sideboard_count}/10)
+            {t('deckDetail.sideboard', { count: deck.sideboard_count })}
           </Text>
         </TouchableOpacity>
       </View>
@@ -375,22 +380,22 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       {activeSection === 'main' && deck.card_count > 0 && (
         <View style={styles.deckStatsBadges}>
           <View style={styles.deckStatsBadge}>
-            <Text style={styles.deckStatsBadgeLabel}>Avg Cost</Text>
+            <Text style={styles.deckStatsBadgeLabel}>{t('deckDetail.avgCost')}</Text>
             <Text style={styles.deckStatsBadgeValue}>⬡ {deck.avg_cost}</Text>
           </View>
           <View style={styles.deckStatsDivider} />
           <View style={styles.deckStatsBadge}>
-            <Text style={styles.deckStatsBadgeLabel}>Spirit</Text>
+            <Text style={styles.deckStatsBadgeLabel}>{t('deckDetail.spirit')}</Text>
             <Text style={styles.deckStatsBadgeValue}>{deck.type_counts?.['SPIRIT'] ?? 0}</Text>
           </View>
           <View style={styles.deckStatsDivider} />
           <View style={styles.deckStatsBadge}>
-            <Text style={styles.deckStatsBadgeLabel}>Magic</Text>
+            <Text style={styles.deckStatsBadgeLabel}>{t('deckDetail.magic')}</Text>
             <Text style={styles.deckStatsBadgeValue}>{deck.type_counts?.['MAGIC'] ?? 0}</Text>
           </View>
           <View style={styles.deckStatsDivider} />
           <View style={styles.deckStatsBadge}>
-            <Text style={styles.deckStatsBadgeLabel}>Nexus</Text>
+            <Text style={styles.deckStatsBadgeLabel}>{t('deckDetail.nexus')}</Text>
             <Text style={styles.deckStatsBadgeValue}>{deck.type_counts?.['NEXUS'] ?? 0}</Text>
           </View>
         </View>
@@ -403,7 +408,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <Feather name="search" size={15} color={theme.textMuted} style={{ marginLeft: 10, marginRight: 6 }} />
             <TextInput
               style={styles.search}
-              placeholder="Search name, effects, keywords…"
+              placeholder={t('cards.searchPlaceholder')}
               placeholderTextColor={theme.textMuted}
               value={addSearch}
               onChangeText={setAddSearch}
@@ -426,7 +431,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               onPress={() => setAddSetOpen(true)}
             >
               <Text style={[styles.filterBtnText, !!addSet && styles.filterBtnTextActive]} numberOfLines={1}>
-                {addSet ?? 'Set'} ▾
+                {addSet ?? t('deckDetail.set')} ▾
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -434,7 +439,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               onPress={() => setAddRarityOpen(true)}
             >
               <Text style={[styles.filterBtnText, !!addRarity && styles.filterBtnTextActive]} numberOfLines={1}>
-                {addRarity ?? 'Rarity'} ▾
+                {addRarity ?? t('deckDetail.rarity')} ▾
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -442,7 +447,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               onPress={() => setAddTypeOpen(true)}
             >
               <Text style={[styles.filterBtnText, !!addType && styles.filterBtnTextActive]} numberOfLines={1}>
-                {addType ?? 'Type'} ▾
+                {addType ?? t('deckDetail.type')} ▾
               </Text>
             </TouchableOpacity>
           </View>
@@ -466,18 +471,18 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           {/* Cost slider */}
           <View style={styles.costSection}>
             <Text style={[styles.costLabel, addCostActive && styles.costLabelActive]}>
-              Cost: {addCostRange[0]} – {addCostRange[1]}
+              {t('deckDetail.cost')}: {addCostRange[0]} – {addCostRange[1]}
             </Text>
             <RangeSlider min={0} max={maxAddCost} values={addCostRange} onChange={setAddCostRange} />
           </View>
 
           {activeSection === 'sideboard' && (
             <Text style={styles.sbCapHint}>
-              Sideboard: {deck.sideboard_count}/10 cards
+              {t('deckDetail.sideboardCap', { count: deck.sideboard_count })}
             </Text>
           )}
 
-          <Text style={styles.addCount}>{filteredAdd.length} cards</Text>
+          <Text style={styles.addCount}>{t('common.cards', { count: filteredAdd.length })}</Text>
 
           <FlatList
             data={filteredAdd}
@@ -487,7 +492,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               return renderCardRow({ card_id: item.id, count: sectionCount, section: activeSection }, item, false);
             }}
             ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
-            ListEmptyComponent={<Text style={styles.empty}>No cards match filters</Text>}
+            ListEmptyComponent={<Text style={styles.empty}>{t('deckDetail.noCardsMatch')}</Text>}
             contentContainerStyle={{ paddingBottom: 100, paddingHorizontal: 12, paddingTop: 8 }}
             initialNumToRender={20}
             maxToRenderPerBatch={20}
@@ -504,10 +509,10 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <Pressable style={StyleSheet.absoluteFill} onPress={() => setAddSetOpen(false)} />
             <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
               <View style={[styles.dropSetMenu, { top: toolbarBottom }]}>
-                <Text style={styles.dropMenuTitle}>Set</Text>
+                <Text style={styles.dropMenuTitle}>{t('deckDetail.set')}</Text>
                 <ScrollView style={{ maxHeight: 260 }}>
                   <TouchableOpacity style={styles.dropMenuRow} onPress={() => { setAddSet(null); setAddSetOpen(false); }}>
-                    <Text style={[styles.dropMenuText, !addSet && styles.dropMenuTextActive]}>All Sets</Text>
+                    <Text style={[styles.dropMenuText, !addSet && styles.dropMenuTextActive]}>{t('deckDetail.allSets')}</Text>
                     {!addSet && <Feather name="check" size={16} color={theme.accent} />}
                   </TouchableOpacity>
                   {addSets.map(s => (
@@ -526,9 +531,9 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <Pressable style={StyleSheet.absoluteFill} onPress={() => setAddRarityOpen(false)} />
             <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
               <View style={[styles.dropRarityMenu, { top: toolbarBottom }]}>
-                <Text style={styles.dropMenuTitle}>Rarity</Text>
+                <Text style={styles.dropMenuTitle}>{t('deckDetail.rarity')}</Text>
                 <TouchableOpacity style={styles.dropMenuRow} onPress={() => { setAddRarity(null); setAddRarityOpen(false); }}>
-                  <Text style={[styles.dropMenuText, !addRarity && styles.dropMenuTextActive]}>All Rarities</Text>
+                  <Text style={[styles.dropMenuText, !addRarity && styles.dropMenuTextActive]}>{t('deckDetail.allRarities')}</Text>
                   {!addRarity && <Feather name="check" size={16} color={theme.accent} />}
                 </TouchableOpacity>
                 {addRarities.map(r => (
@@ -546,15 +551,15 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             <Pressable style={StyleSheet.absoluteFill} onPress={() => setAddTypeOpen(false)} />
             <View style={StyleSheet.absoluteFillObject} pointerEvents="box-none">
               <View style={[styles.dropTypeMenu, { top: toolbarBottom }]}>
-                <Text style={styles.dropMenuTitle}>Type</Text>
+                <Text style={styles.dropMenuTitle}>{t('deckDetail.type')}</Text>
                 <TouchableOpacity style={styles.dropMenuRow} onPress={() => { setAddType(null); setAddTypeOpen(false); }}>
-                  <Text style={[styles.dropMenuText, !addType && styles.dropMenuTextActive]}>All Types</Text>
+                  <Text style={[styles.dropMenuText, !addType && styles.dropMenuTextActive]}>{t('deckDetail.allTypes')}</Text>
                   {!addType && <Feather name="check" size={16} color={theme.accent} />}
                 </TouchableOpacity>
-                {TYPES.map(t => (
-                  <TouchableOpacity key={t} style={styles.dropMenuRow} onPress={() => { setAddType(t); setAddTypeOpen(false); }}>
-                    <Text style={[styles.dropMenuText, addType === t && styles.dropMenuTextActive]}>{t}</Text>
-                    {addType === t && <Feather name="check" size={16} color={theme.accent} />}
+                {TYPES.map(ty => (
+                  <TouchableOpacity key={ty} style={styles.dropMenuRow} onPress={() => { setAddType(ty); setAddTypeOpen(false); }}>
+                    <Text style={[styles.dropMenuText, addType === ty && styles.dropMenuTextActive]}>{ty}</Text>
+                    {addType === ty && <Feather name="check" size={16} color={theme.accent} />}
                   </TouchableOpacity>
                 ))}
               </View>
@@ -576,7 +581,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               ItemSeparatorComponent={() => <View style={{ height: 6 }} />}
               ListEmptyComponent={
                 <Text style={styles.empty}>
-                  {activeSection === 'main' ? 'Deck is empty. Add cards!' : 'Sideboard is empty. Add cards!'}
+                  {activeSection === 'main' ? t('deckDetail.emptyMain') : t('deckDetail.emptySideboard')}
                 </Text>
               }
               contentContainerStyle={{ paddingBottom: 200, paddingHorizontal: 12, paddingTop: 8 }}
@@ -611,7 +616,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               }}
               ListEmptyComponent={
                 <Text style={styles.empty}>
-                  {activeSection === 'main' ? 'Deck is empty. Add cards!' : 'Sideboard is empty. Add cards!'}
+                  {activeSection === 'main' ? t('deckDetail.emptyMain') : t('deckDetail.emptySideboard')}
                 </Text>
               }
               contentContainerStyle={{ paddingBottom: 200, paddingHorizontal: 8 }}
@@ -644,9 +649,9 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             style={[styles.toast, { transform: [{ translateY: cardToastTranslate }], opacity: cardToastAnim }]}
             pointerEvents={showCardToast ? 'auto' : 'none'}
           >
-            <Text style={styles.toastMsg}>Card removed</Text>
+            <Text style={styles.toastMsg}>{t('deckDetail.cardRemoved')}</Text>
             <TouchableOpacity onPress={handleCardUndo} style={styles.undoBtn}>
-              <Text style={styles.undoText}>Undo</Text>
+              <Text style={styles.undoText}>{t('deckDetail.undo')}</Text>
             </TouchableOpacity>
           </Animated.View>
         </View>
@@ -668,7 +673,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setSortMenuOpen(false)} />
         <View style={styles.sortMenuWrap} pointerEvents="box-none">
           <View style={styles.sortMenu}>
-            <Text style={styles.sortMenuTitle}>Sort by</Text>
+            <Text style={styles.sortMenuTitle}>{t('deckDetail.sortBy')}</Text>
             {SORT_CYCLE.map(mode => (
               <TouchableOpacity
                 key={mode}
@@ -694,7 +699,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           pointerEvents="box-none"
         >
           <View style={styles.sheet}>
-            <Text style={styles.sheetTitle}>Rename Deck</Text>
+            <Text style={styles.sheetTitle}>{t('deckDetail.renameDeck')}</Text>
             <TextInput
               style={styles.input}
               value={editName}
@@ -703,7 +708,7 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
               autoFocus
             />
             <TouchableOpacity style={styles.btn} onPress={handleRename}>
-              <Text style={styles.btnText}>Save</Text>
+              <Text style={styles.btnText}>{t('deckDetail.save')}</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
@@ -712,189 +717,191 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.bg },
-  flex:      { flex: 1 },
-  center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: theme.bg },
+    flex:      { flex: 1 },
+    center:    { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.bg },
 
-  statsBar: {
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: theme.surface, paddingVertical: 8, paddingHorizontal: 12, gap: 8,
-  },
-  statsCountGroup: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
-  cardCount: { color: theme.accent, fontWeight: '700', fontSize: 14 },
-  sbCount:   { color: theme.textMuted, fontSize: 11, fontWeight: '600' },
-  colorRow:  { flex: 1, flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
-  colorChip: { flexDirection: 'row', alignItems: 'center', gap: 3 },
-  dot:       { width: 10, height: 10, borderRadius: 5 },
-  colorQty:  { color: theme.textMuted, fontSize: 12 },
-  statsBtn:  { paddingHorizontal: 10, paddingVertical: 6 },
+    statsBar: {
+      flexDirection: 'row', alignItems: 'center',
+      backgroundColor: theme.surface, paddingVertical: 8, paddingHorizontal: 12, gap: 8,
+    },
+    statsCountGroup: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
+    cardCount: { color: theme.accent, fontWeight: '700', fontSize: 14 },
+    sbCount:   { color: theme.textMuted, fontSize: 11, fontWeight: '600' },
+    colorRow:  { flex: 1, flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
+    colorChip: { flexDirection: 'row', alignItems: 'center', gap: 3 },
+    dot:       { width: 10, height: 10, borderRadius: 5 },
+    colorQty:  { color: theme.textMuted, fontSize: 12 },
+    statsBtn:  { paddingHorizontal: 10, paddingVertical: 6 },
 
-  sectionToggle: {
-    flexDirection: 'row',
-    backgroundColor: theme.surface,
-    borderTopWidth: 1, borderTopColor: theme.border,
-  },
-  sectionTab: {
-    flex: 1, paddingVertical: 10, alignItems: 'center',
-    borderBottomWidth: 2, borderBottomColor: 'transparent',
-  },
-  sectionTabActive:     { borderBottomColor: theme.accent },
-  sectionTabText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
-  sectionTabTextActive: { color: theme.accent },
+    sectionToggle: {
+      flexDirection: 'row',
+      backgroundColor: theme.surface,
+      borderTopWidth: 1, borderTopColor: theme.border,
+    },
+    sectionTab: {
+      flex: 1, paddingVertical: 10, alignItems: 'center',
+      borderBottomWidth: 2, borderBottomColor: 'transparent',
+    },
+    sectionTabActive:     { borderBottomColor: theme.accent },
+    sectionTabText:       { color: theme.textMuted, fontSize: 13, fontWeight: '600' },
+    sectionTabTextActive: { color: theme.accent },
 
-  sortMenuWrap: { ...StyleSheet.absoluteFillObject },
-  sortMenu: {
-    position: 'absolute', top: 90, right: 12,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 150, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  sortMenuTitle: {
-    color: theme.textMuted, fontSize: 11, fontWeight: '700',
-    textTransform: 'uppercase', letterSpacing: 0.8,
-    paddingHorizontal: 14, paddingVertical: 8,
-  },
-  sortMenuRow: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: 14, paddingVertical: 12,
-    borderTopWidth: 1, borderTopColor: theme.border,
-  },
-  sortMenuText:       { color: theme.text, fontSize: 14 },
-  sortMenuTextActive: { color: theme.accent, fontWeight: '700' },
+    sortMenuWrap: { ...StyleSheet.absoluteFillObject },
+    sortMenu: {
+      position: 'absolute', top: 90, right: 12,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 150, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    sortMenuTitle: {
+      color: theme.textMuted, fontSize: 11, fontWeight: '700',
+      textTransform: 'uppercase', letterSpacing: 0.8,
+      paddingHorizontal: 14, paddingVertical: 8,
+    },
+    sortMenuRow: {
+      flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+      paddingHorizontal: 14, paddingVertical: 12,
+      borderTopWidth: 1, borderTopColor: theme.border,
+    },
+    sortMenuText:       { color: theme.text, fontSize: 14 },
+    sortMenuTextActive: { color: theme.accent, fontWeight: '700' },
 
-  deckStatsBadges: {
-    flexDirection: 'row', backgroundColor: theme.surface,
-    borderTopWidth: 1, borderTopColor: theme.border, paddingVertical: 8,
-  },
-  deckStatsBadge:      { flex: 1, alignItems: 'center', gap: 2 },
-  deckStatsBadgeLabel: { color: theme.textMuted, fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
-  deckStatsBadgeValue: { color: theme.text, fontSize: 15, fontWeight: '700' },
-  deckStatsDivider:    { width: 1, backgroundColor: theme.border, marginVertical: 4 },
+    deckStatsBadges: {
+      flexDirection: 'row', backgroundColor: theme.surface,
+      borderTopWidth: 1, borderTopColor: theme.border, paddingVertical: 8,
+    },
+    deckStatsBadge:      { flex: 1, alignItems: 'center', gap: 2 },
+    deckStatsBadgeLabel: { color: theme.textMuted, fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
+    deckStatsBadgeValue: { color: theme.text, fontSize: 15, fontWeight: '700' },
+    deckStatsDivider:    { width: 1, backgroundColor: theme.border, marginVertical: 4 },
 
-  cardBlock: {
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: theme.surface, borderRadius: 8,
-  },
-  cardBlockTouchable: { flex: 1, flexDirection: 'row', padding: 8, gap: 10, alignItems: 'center' },
-  cardBlockImage:     { width: 50, height: 70, borderRadius: 4, backgroundColor: theme.border },
-  cardBlockInfo:      { flex: 1 },
-  cardBlockName:      { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
-  cardBlockMeta:      { flexDirection: 'row', gap: 8, marginBottom: 2, alignItems: 'center' },
-  cardBlockMetaText:  { color: theme.textMuted, fontSize: 12 },
-  cardBlockSub:       { color: theme.textMuted, fontSize: 11 },
-  cardBlockQty:       { flexDirection: 'row', alignItems: 'center', gap: 6, paddingRight: 12 },
-  colorDots:          { flexDirection: 'row', gap: 3, alignItems: 'center' },
-  colorDot:           { width: 10, height: 10, borderRadius: 5 },
+    cardBlock: {
+      flexDirection: 'row', alignItems: 'center',
+      backgroundColor: theme.surface, borderRadius: 8,
+    },
+    cardBlockTouchable: { flex: 1, flexDirection: 'row', padding: 8, gap: 10, alignItems: 'center' },
+    cardBlockImage:     { width: 50, height: 70, borderRadius: 4, backgroundColor: theme.border },
+    cardBlockInfo:      { flex: 1 },
+    cardBlockName:      { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
+    cardBlockMeta:      { flexDirection: 'row', gap: 8, marginBottom: 2, alignItems: 'center' },
+    cardBlockMetaText:  { color: theme.textMuted, fontSize: 12 },
+    cardBlockSub:       { color: theme.textMuted, fontSize: 11 },
+    cardBlockQty:       { flexDirection: 'row', alignItems: 'center', gap: 6, paddingRight: 12 },
+    colorDots:          { flexDirection: 'row', gap: 3, alignItems: 'center' },
+    colorDot:           { width: 10, height: 10, borderRadius: 5 },
 
-  qty:                { color: theme.text, fontSize: 15, fontWeight: '700', minWidth: 26, textAlign: 'center' },
-  qtyBtn:             { width: 32, height: 32, borderRadius: 16, backgroundColor: theme.bg, borderWidth: 1, borderColor: theme.accent, alignItems: 'center', justifyContent: 'center' },
-  qtyBtnDisabled:     { borderColor: theme.border },
-  qtyBtnText:         { color: theme.accent, fontSize: 20, lineHeight: 24, fontWeight: '700' },
-  qtyBtnTextDisabled: { color: theme.textMuted },
+    qty:                { color: theme.text, fontSize: 15, fontWeight: '700', minWidth: 26, textAlign: 'center' },
+    qtyBtn:             { width: 32, height: 32, borderRadius: 16, backgroundColor: theme.bg, borderWidth: 1, borderColor: theme.accent, alignItems: 'center', justifyContent: 'center' },
+    qtyBtnDisabled:     { borderColor: theme.border },
+    qtyBtnText:         { color: theme.accent, fontSize: 20, lineHeight: 24, fontWeight: '700' },
+    qtyBtnTextDisabled: { color: theme.textMuted },
 
-  gridItem:      { width: '33.33%', padding: 3 },
-  gridImage:     { width: '100%', aspectRatio: 63 / 88, borderRadius: 4, backgroundColor: theme.border },
-  gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
-  gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
+    gridItem:      { width: '33.33%', padding: 3 },
+    gridImage:     { width: '100%', aspectRatio: 63 / 88, borderRadius: 4, backgroundColor: theme.border },
+    gridBadge:     { position: 'absolute', top: 5, right: 5, backgroundColor: theme.accent, borderRadius: 8, paddingHorizontal: 5, paddingVertical: 2 },
+    gridBadgeText: { color: '#fff', fontSize: 10, fontWeight: '800' },
 
-  addSearchWrap: {
-    marginHorizontal: 12, marginTop: 8, marginBottom: 6,
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: theme.surface, borderRadius: 8,
-    position: 'relative',
-  },
-  addToolbar:          { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
-  addCount:            { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
-  sbCapHint:           { color: theme.accent, fontSize: 11, marginLeft: 14, marginBottom: 2 },
-  search: {
-    flex: 1, color: theme.text,
-    paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
-  },
-  clearBtn:            { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
-  clearText:           { color: theme.textMuted, fontSize: 15 },
-  filterBtn:           { flex: 1, backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
-  filterBtnActive:     { backgroundColor: theme.accent },
-  filterBtnText:       { color: theme.textMuted, fontSize: 13 },
-  filterBtnTextActive: { color: '#fff', fontWeight: '700' },
-  gemRow:              { flexDirection: 'row', gap: 12, paddingHorizontal: 14, marginBottom: 8, alignItems: 'center' },
-  gem:                 { width: 28, height: 28, borderRadius: 14, opacity: 0.45 },
-  gemActive:           { opacity: 1, borderWidth: 2.5, borderColor: '#fff' },
-  costSection:         { marginHorizontal: 12, marginBottom: 6 },
-  costLabel:           { color: theme.textMuted, fontSize: 11, marginBottom: 6 },
-  costLabelActive:     { color: theme.accent },
+    addSearchWrap: {
+      marginHorizontal: 12, marginTop: 8, marginBottom: 6,
+      flexDirection: 'row', alignItems: 'center',
+      backgroundColor: theme.surface, borderRadius: 8,
+      position: 'relative',
+    },
+    addToolbar:          { flexDirection: 'row', marginHorizontal: 12, marginBottom: 6, gap: 8 },
+    addCount:            { color: theme.textMuted, fontSize: 11, marginLeft: 14, marginBottom: 4 },
+    sbCapHint:           { color: theme.accent, fontSize: 11, marginLeft: 14, marginBottom: 2 },
+    search: {
+      flex: 1, color: theme.text,
+      paddingLeft: 0, paddingRight: 36, paddingVertical: 8, fontSize: 14,
+    },
+    clearBtn:            { position: 'absolute', right: 10, top: 0, bottom: 0, justifyContent: 'center', paddingHorizontal: 4 },
+    clearText:           { color: theme.textMuted, fontSize: 15 },
+    filterBtn:           { flex: 1, backgroundColor: theme.surface, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 7 },
+    filterBtnActive:     { backgroundColor: theme.accent },
+    filterBtnText:       { color: theme.textMuted, fontSize: 13 },
+    filterBtnTextActive: { color: '#fff', fontWeight: '700' },
+    gemRow:              { flexDirection: 'row', gap: 12, paddingHorizontal: 14, marginBottom: 8, alignItems: 'center' },
+    gem:                 { width: 28, height: 28, borderRadius: 14, opacity: 0.45 },
+    gemActive:           { opacity: 1, borderWidth: 2.5, borderColor: '#fff' },
+    costSection:         { marginHorizontal: 12, marginBottom: 6 },
+    costLabel:           { color: theme.textMuted, fontSize: 11, marginBottom: 6 },
+    costLabelActive:     { color: theme.accent },
 
-  empty: { color: theme.textMuted, textAlign: 'center', marginTop: 40, fontSize: 14 },
+    empty: { color: theme.textMuted, textAlign: 'center', marginTop: 40, fontSize: 14 },
 
-  fab: {
-    position: 'absolute', width: 56, height: 56, borderRadius: 28,
-    backgroundColor: theme.accent, right: 20, bottom: 24,
-    justifyContent: 'center', alignItems: 'center', elevation: 6,
-  },
-  fabSecondary: {
-    position: 'absolute', width: 44, height: 44, borderRadius: 22,
-    backgroundColor: theme.surface, borderWidth: 1, borderColor: theme.accent,
-    justifyContent: 'center', alignItems: 'center', elevation: 5,
-  },
-  fabDisabled: { borderColor: theme.border, opacity: 0.4 },
+    fab: {
+      position: 'absolute', width: 56, height: 56, borderRadius: 28,
+      backgroundColor: theme.accent, right: 20, bottom: 24,
+      justifyContent: 'center', alignItems: 'center', elevation: 6,
+    },
+    fabSecondary: {
+      position: 'absolute', width: 44, height: 44, borderRadius: 22,
+      backgroundColor: theme.surface, borderWidth: 1, borderColor: theme.accent,
+      justifyContent: 'center', alignItems: 'center', elevation: 5,
+    },
+    fabDisabled: { borderColor: theme.border, opacity: 0.4 },
 
-  toast: {
-    position: 'absolute', bottom: 80, left: 16, right: 16,
-    backgroundColor: '#2a2a2a', borderRadius: 8,
-    flexDirection: 'row', alignItems: 'center', paddingLeft: 16, height: 48,
-    elevation: 8,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 6,
-  },
-  toastMsg:  { flex: 1, color: '#e0e0e0', fontSize: 14 },
-  undoBtn:   { paddingHorizontal: 16, paddingVertical: 12 },
-  undoText:  { color: theme.accent, fontSize: 14, fontWeight: '700' },
+    toast: {
+      position: 'absolute', bottom: 80, left: 16, right: 16,
+      backgroundColor: theme.surface, borderRadius: 8,
+      flexDirection: 'row', alignItems: 'center', paddingLeft: 16, height: 48,
+      elevation: 8,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 6,
+    },
+    toastMsg:  { flex: 1, color: theme.text, fontSize: 14 },
+    undoBtn:   { paddingHorizontal: 16, paddingVertical: 12 },
+    undoText:  { color: theme.accent, fontSize: 14, fontWeight: '700' },
 
-  sheet: {
-    backgroundColor: theme.surface,
-    borderRadius: 16,
-    padding: 24, gap: 12,
-  },
-  sheetTitle: { color: theme.text, fontSize: 18, fontWeight: '700' },
-  input: {
-    backgroundColor: theme.bg, color: theme.text,
-    borderRadius: 8, paddingHorizontal: 12, paddingVertical: 10,
-    fontSize: 14, borderWidth: 1, borderColor: theme.border,
-  },
-  btn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
-  btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
+    sheet: {
+      backgroundColor: theme.surface,
+      borderRadius: 16,
+      padding: 24, gap: 12,
+    },
+    sheetTitle: { color: theme.text, fontSize: 18, fontWeight: '700' },
+    input: {
+      backgroundColor: theme.bg, color: theme.text,
+      borderRadius: 8, paddingHorizontal: 12, paddingVertical: 10,
+      fontSize: 14, borderWidth: 1, borderColor: theme.border,
+    },
+    btn:     { backgroundColor: theme.accent, borderRadius: 8, padding: 14, alignItems: 'center' },
+    btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
 
-  dropSetMenu: {
-    position: 'absolute', left: 12,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 130, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  dropRarityMenu: {
-    position: 'absolute', left: Math.round((Dimensions.get('window').width - 40) / 3) + 20,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 140, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  dropTypeMenu: {
-    position: 'absolute', right: 12,
-    backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
-    minWidth: 130, elevation: 10,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
-    borderWidth: 1, borderColor: theme.border,
-  },
-  dropMenuTitle: {
-    color: theme.textMuted, fontSize: 11, fontWeight: '700',
-    textTransform: 'uppercase', letterSpacing: 0.8,
-    paddingHorizontal: 14, paddingVertical: 8,
-  },
-  dropMenuRow: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: 14, paddingVertical: 12,
-    borderTopWidth: 1, borderTopColor: theme.border,
-  },
-  dropMenuText:       { color: theme.text, fontSize: 14 },
-  dropMenuTextActive: { color: theme.accent, fontWeight: '700' },
-});
+    dropSetMenu: {
+      position: 'absolute', left: 12,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 130, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    dropRarityMenu: {
+      position: 'absolute', left: Math.round((Dimensions.get('window').width - 40) / 3) + 20,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 140, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    dropTypeMenu: {
+      position: 'absolute', right: 12,
+      backgroundColor: theme.surface, borderRadius: 10, paddingVertical: 4,
+      minWidth: 130, elevation: 10,
+      shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.35, shadowRadius: 8,
+      borderWidth: 1, borderColor: theme.border,
+    },
+    dropMenuTitle: {
+      color: theme.textMuted, fontSize: 11, fontWeight: '700',
+      textTransform: 'uppercase', letterSpacing: 0.8,
+      paddingHorizontal: 14, paddingVertical: 8,
+    },
+    dropMenuRow: {
+      flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+      paddingHorizontal: 14, paddingVertical: 12,
+      borderTopWidth: 1, borderTopColor: theme.border,
+    },
+    dropMenuText:       { color: theme.text, fontSize: 14 },
+    dropMenuTextActive: { color: theme.accent, fontWeight: '700' },
+  });
+}

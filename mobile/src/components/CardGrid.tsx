@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FlatList, Image, TouchableOpacity, StyleSheet, Dimensions, View } from 'react-native';
 import { Card } from '../types';
-import { theme } from '../theme';
+import { ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
 
 const COLS = 3;
 const CELL_W = (Dimensions.get('window').width - 24) / COLS;
@@ -15,6 +16,9 @@ interface Props {
 }
 
 export default function CardGrid({ cards, onPress, onEndReached, footer }: Props) {
+  const { theme } = useAppSettings();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   return (
     <FlatList
       data={cards}
@@ -41,8 +45,10 @@ export default function CardGrid({ cards, onPress, onEndReached, footer }: Props
   );
 }
 
-const styles = StyleSheet.create({
-  content: { paddingHorizontal: 4 },
-  cell:    { width: CELL_W, height: CELL_H, padding: 2 },
-  image:   { flex: 1, borderRadius: 4, backgroundColor: theme.border },
-});
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    content: { paddingHorizontal: 4 },
+    cell:    { width: CELL_W, height: CELL_H, padding: 2 },
+    image:   { flex: 1, borderRadius: 4, backgroundColor: theme.border },
+  });
+}

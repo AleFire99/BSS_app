@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Card } from '../types';
-import { COLOR_MAP, theme } from '../theme';
+import { COLOR_MAP, ThemeType } from '../theme';
+import { useAppSettings } from '../contexts/AppSettingsContext';
 
 interface Props {
   card: Card;
@@ -11,6 +12,8 @@ interface Props {
 }
 
 export default function CardItem({ card, onPress, actionLabel, onAction }: Props) {
+  const { theme } = useAppSettings();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
   const imageUrl = `https://www.bssdb.dev/cards/bss/${card.id}.png`;
 
   return (
@@ -40,36 +43,38 @@ export default function CardItem({ card, onPress, actionLabel, onAction }: Props
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: theme.surface,
-    borderRadius: 8,
-    marginHorizontal: 12,
-    marginVertical: 4,
-    padding: 8,
-    gap: 10,
-  },
-  image: {
-    width: 50,
-    height: 70,
-    borderRadius: 4,
-    backgroundColor: theme.border,
-  },
-  info: { flex: 1 },
-  name: { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
-  cost: { color: theme.textMuted, fontSize: 12 },
-  rarity: { fontSize: 12, fontWeight: '700', color: theme.textMuted },
-  colors: { flexDirection: 'row', gap: 3 },
-  dot: { width: 10, height: 10, borderRadius: 5 },
-  sub: { color: theme.textMuted, fontSize: 11 },
-  action: {
-    backgroundColor: theme.accent,
-    borderRadius: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  actionText: { color: '#fff', fontSize: 12, fontWeight: '700' },
-});
+function makeStyles(theme: ThemeType) {
+  return StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: theme.surface,
+      borderRadius: 8,
+      marginHorizontal: 12,
+      marginVertical: 4,
+      padding: 8,
+      gap: 10,
+    },
+    image: {
+      width: 50,
+      height: 70,
+      borderRadius: 4,
+      backgroundColor: theme.border,
+    },
+    info: { flex: 1 },
+    name: { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
+    row: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 2 },
+    cost: { color: theme.textMuted, fontSize: 12 },
+    rarity: { fontSize: 12, fontWeight: '700', color: theme.textMuted },
+    colors: { flexDirection: 'row', gap: 3 },
+    dot: { width: 10, height: 10, borderRadius: 5 },
+    sub: { color: theme.textMuted, fontSize: 11 },
+    action: {
+      backgroundColor: theme.accent,
+      borderRadius: 6,
+      paddingHorizontal: 10,
+      paddingVertical: 6,
+    },
+    actionText: { color: '#fff', fontSize: 12, fontWeight: '700' },
+  });
+}
