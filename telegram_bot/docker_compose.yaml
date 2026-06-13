@@ -6,4 +6,4 @@ services:
     image: alefire/bss-bot:latest
     restart: always
     environment:
-      - BOT_TOKEN=REDACTED_BOT_TOKEN  # You can pass environment variables here if necessary
+      - BOT_TOKEN=${BOT_TOKEN}
