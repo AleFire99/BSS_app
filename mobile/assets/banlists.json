@@ -1,0 +1,32 @@
+[
+  {
+    "id": "v2",
+    "name": "Banned/Limited List v2",
+    "effective": "2024-10-10",
+    "source": "https://battlespirits-saga.com/game/rules/banned_restricted-cards/",
+    "complete": true,
+    "entries": [
+      { "card_id": "BSS01-106", "card_name": "Netherworld Depths",            "limit": 0 },
+      { "card_id": "BSS01-117", "card_name": "Big Bang Energy",               "limit": 0 },
+      { "card_id": "BSS04-114", "card_name": "Great Sapphire Labyrinth",      "limit": 0 },
+      { "card_id": "PR-006",    "card_name": "D-08 Axebiter",                 "limit": 0 },
+      { "card_id": "BSS01-119", "card_name": "Volcanic Break",                "limit": 1 },
+      { "card_id": "BSS01-101", "card_name": "Volcanic Canyon",               "limit": 1 },
+      { "card_id": "BSS04-001", "card_name": "Rage Star Dragon Siegwurm Ira", "limit": 1 },
+      { "card_id": "PR-043",    "card_name": "Tsathoggua",                    "limit": 1 }
+    ]
+  },
+  {
+    "id": "v1",
+    "name": "Banned/Limited List v1",
+    "effective": "2023-10-20",
+    "source": "https://battlespirits-saga.com/news/announcements/001.php",
+    "complete": true,
+    "entries": [
+      { "card_id": "BSS01-010", "card_name": "Oviraptodon",        "limit": 0 },
+      { "card_id": "BSS01-106", "card_name": "Netherworld Depths", "limit": 0 },
+      { "card_id": "PR-006",    "card_name": "D-08 Axebiter",      "limit": 0 },
+      { "card_id": "BSS01-119", "card_name": "Volcanic Break",     "limit": 1 }
+    ]
+  }
+]

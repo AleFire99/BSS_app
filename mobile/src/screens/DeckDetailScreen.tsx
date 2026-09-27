@@ -5,13 +5,17 @@ import {
   KeyboardAvoidingView, Platform, ScrollView, Dimensions,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { getDeck, getCards, addCardToDeck, removeCardFromDeck, updateDeck, updateCardCount } from '../api';
+import {
+  getDeck, getCards, addCardToDeck, removeCardFromDeck, updateDeck, updateCardCount,
+  getBanlist, getCustomBanlists, getOfficialBanlists, banlistLimits, getCardLimit, getDeckViolations,
+  formatLabel, DEFAULT_COPY_LIMIT, FORMAT_LATEST, FORMAT_NONE, LIMIT_LABEL,
+} from '../api';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import HandTester from '../components/HandTester';
 import DeckExportModal from '../components/DeckExportModal';
 import SwipeableRow from '../components/SwipeableRow';
 import RangeSlider from '../components/RangeSlider';
-import { Card, Deck, DeckCard } from '../types';
+import { Banlist, Card, Deck, DeckCard } from '../types';
 import { theme, COLOR_MAP } from '../theme';
 import { RootStackParamList } from '../../App';
 
@@ -40,6 +44,12 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<'main' | 'sideboard'>('main');
 
+  // Banlist / format
+  const [banlist, setBanlist]               = useState<Banlist | null>(null);
+  const [customLists, setCustomLists]       = useState<Banlist[]>([]);
+  const [formatMenuOpen, setFormatMenuOpen] = useState(false);
+  const [violationsOpen, setViolationsOpen] = useState(false);
+
   // Add card filter states
   const [addSearch,     setAddSearch]     = useState('');
   const [addColors,     setAddColors]     = useState<string[]>([]);
@@ -61,8 +71,11 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const cardToastAnim        = useRef(new Animated.Value(0)).current;
 
   const load = useCallback(() => {
-    Promise.all([getDeck(deckId), getCards()])
-      .then(([d, cards]) => { setDeck(d); setAllCards(cards); })
+    Promise.all([getDeck(deckId), getCards(), getCustomBanlists()])
+      .then(async ([d, cards, customs]) => {
+        setDeck(d); setAllCards(cards); setCustomLists(customs);
+        setBanlist(await getBanlist(d.format));
+      })
       .catch(e => Alert.alert('Error', e.message))
       .finally(() => setLoading(false));
   }, [deckId]);
@@ -120,12 +133,39 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
     return main + side;
   }, [deck]);
 
-  // Can we add one more of this card (considering 4-copy + sideboard 10-cap)?
+  const limits = useMemo(() => banlistLimits(banlist), [banlist]);
+
+  // Copy limit for a card under the deck's banlist (4 when not listed)
+  const getLimit = useCallback(
+    (cardId: string): number => getCardLimit(cardMap[cardId]?.name, limits),
+    [cardMap, limits],
+  );
+
+  // Copies of the same card NAME across both sections (reprints share a limit)
+  const getNameCount = useCallback((cardId: string): number => {
+    const name = cardMap[cardId]?.name;
+    if (!name) return getTotalCount(cardId);
+    return [...(deck?.cards ?? []), ...(deck?.sideboard ?? [])]
+      .filter(dc => cardMap[dc.card_id]?.name === name)
+      .reduce((s, dc) => s + dc.count, 0);
+  }, [cardMap, deck, getTotalCount]);
+
+  // Can we add one more of this card (considering 4-copy, banlist limit + sideboard 10-cap)?
   const canAddMore = useCallback((cardId: string): boolean => {
-    if (getTotalCount(cardId) >= 4) return false;
+    if (getTotalCount(cardId) >= DEFAULT_COPY_LIMIT) return false;
+    if (getNameCount(cardId) >= getLimit(cardId)) return false;
     if (activeSection === 'sideboard' && (deck?.sideboard_count ?? 0) >= 10) return false;
     return true;
-  }, [getTotalCount, activeSection, deck?.sideboard_count]);
+  }, [getTotalCount, getNameCount, getLimit, activeSection, deck?.sideboard_count]);
+
+  const violations = useMemo(
+    () => getDeckViolations(
+      [...(deck?.cards ?? []), ...(deck?.sideboard ?? [])],
+      id => cardMap[id]?.name,
+      limits,
+    ),
+    [deck, cardMap, limits],
+  );
 
   const filteredAdd = useMemo(() => {
     return allCards.filter(c => {
@@ -189,6 +229,12 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
       else await updateCardCount(deckId, cardId, currentCount - 1, activeSection);
       load();
     } catch (e: any) { Alert.alert('Error', e.message); }
+  };
+
+  const handleFormatChange = async (format: string) => {
+    setFormatMenuOpen(false);
+    try { await updateDeck(deckId, { format }); load(); }
+    catch (e: any) { Alert.alert('Error', e.message); }
   };
 
   const handleRename = async () => {
@@ -266,8 +312,8 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
   const addCostActive = addCostRange[0] !== 0 || addCostRange[1] !== maxAddCost;
 
   const renderCardRow = (dc: DeckCard, card: Card, swipeable = false) => {
-    const totalCount = getTotalCount(dc.card_id);
-    const atSbCap = activeSection === 'sideboard' && deck.sideboard_count >= 10;
+    const addDisabled = !canAddMore(dc.card_id);
+    const limit = getLimit(dc.card_id);
     const row = (
       <View style={styles.cardBlock}>
         <TouchableOpacity
@@ -281,7 +327,14 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
             resizeMode="contain"
           />
           <View style={styles.cardBlockInfo}>
-            <Text style={styles.cardBlockName} numberOfLines={1}>{card.name}</Text>
+            <View style={styles.cardBlockNameRow}>
+              <Text style={[styles.cardBlockName, { flexShrink: 1 }]} numberOfLines={1}>{card.name}</Text>
+              {limit < DEFAULT_COPY_LIMIT && (
+                <View style={[styles.limitBadge, limit === 0 && styles.limitBadgeBanned]}>
+                  <Text style={styles.limitBadgeText}>{limit === 0 ? 'BAN' : `L${limit}`}</Text>
+                </View>
+              )}
+            </View>
             <View style={styles.cardBlockMeta}>
               <Text style={styles.cardBlockMetaText}>⬡ {card.cost}</Text>
               <View style={styles.colorDots}>
@@ -305,10 +358,10 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           <Text style={styles.qty}>×{dc.count}</Text>
           <TouchableOpacity
             onPress={() => handleAdd(dc.card_id)}
-            disabled={totalCount >= 4 || atSbCap}
-            style={[styles.qtyBtn, (totalCount >= 4 || atSbCap) && styles.qtyBtnDisabled]}
+            disabled={addDisabled}
+            style={[styles.qtyBtn, addDisabled && styles.qtyBtnDisabled]}
           >
-            <Text style={[styles.qtyBtnText, (totalCount >= 4 || atSbCap) && styles.qtyBtnTextDisabled]}>+</Text>
+            <Text style={[styles.qtyBtnText, addDisabled && styles.qtyBtnTextDisabled]}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -371,6 +424,39 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
           </Text>
         </TouchableOpacity>
       </View>
+
+      {/* Format + banlist violations */}
+      <View style={styles.formatRow}>
+        <TouchableOpacity style={styles.formatChip} onPress={() => setFormatMenuOpen(true)}>
+          <Feather name="slash" size={13} color={theme.accent} />
+          <Text style={styles.formatChipText} numberOfLines={1}>
+            {formatLabel(deck.format, customLists)}
+          </Text>
+          <Feather name="chevron-down" size={13} color={theme.textMuted} />
+        </TouchableOpacity>
+        {violations.length > 0 ? (
+          <TouchableOpacity style={styles.violationChip} onPress={() => setViolationsOpen(v => !v)}>
+            <Feather name="alert-triangle" size={13} color="#fff" />
+            <Text style={styles.violationChipText}>
+              {violations.length} banlist issue{violations.length !== 1 ? 's' : ''}
+            </Text>
+          </TouchableOpacity>
+        ) : banlist && (
+          <View style={styles.legalChip}>
+            <Feather name="check" size={13} color="#43a047" />
+            <Text style={styles.legalChipText}>Legal</Text>
+          </View>
+        )}
+      </View>
+      {violationsOpen && violations.length > 0 && (
+        <View style={styles.violationBanner}>
+          {violations.map(v => (
+            <Text key={v.card_name} style={styles.violationText}>
+              • {v.card_name}: {v.count} cop{v.count !== 1 ? 'ies' : 'y'} — {LIMIT_LABEL[v.limit] ?? `Limit ${v.limit}`}
+            </Text>
+          ))}
+        </View>
+      )}
 
       {activeSection === 'main' && deck.card_count > 0 && (
         <View style={styles.deckStatsBadges}>
@@ -685,6 +771,31 @@ export default function DeckDetailScreen({ route, navigation }: Props) {
         </View>
       </Modal>
 
+      {/* Format picker */}
+      <Modal visible={formatMenuOpen} transparent animationType="fade">
+        <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setFormatMenuOpen(false)} />
+        <View style={styles.formatMenuWrap} pointerEvents="box-none">
+          <View style={styles.formatMenu}>
+            <Text style={styles.sortMenuTitle}>Banlist</Text>
+            <ScrollView style={{ maxHeight: 360 }}>
+              {[
+                { key: FORMAT_LATEST, label: 'Official (latest)' },
+                ...getOfficialBanlists().map(b => ({ key: b.key, label: `${b.name} · ${b.effective}` })),
+                ...customLists.map(b => ({ key: b.key, label: `${b.name} (custom)` })),
+                { key: FORMAT_NONE, label: 'No banlist' },
+              ].map(opt => (
+                <TouchableOpacity key={opt.key} style={styles.sortMenuRow} onPress={() => handleFormatChange(opt.key)}>
+                  <Text style={[styles.sortMenuText, deck.format === opt.key && styles.sortMenuTextActive]} numberOfLines={1}>
+                    {opt.label}
+                  </Text>
+                  {deck.format === opt.key && <Feather name="check" size={16} color={theme.accent} />}
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+
       {/* Rename deck modal */}
       <Modal visible={editModal} transparent animationType="fade">
         <Pressable style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.5)' }]} onPress={() => setEditModal(false)} />
@@ -780,6 +891,21 @@ const styles = StyleSheet.create({
   cardBlockTouchable: { flex: 1, flexDirection: 'row', padding: 8, gap: 10, alignItems: 'center' },
   cardBlockImage:     { width: 50, height: 70, borderRadius: 4, backgroundColor: theme.border },
   cardBlockInfo:      { flex: 1 },
+  cardBlockNameRow:   { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  limitBadge:         { backgroundColor: '#fb8c00', borderRadius: 4, paddingHorizontal: 4, paddingVertical: 1, marginBottom: 2 },
+  limitBadgeBanned:   { backgroundColor: '#c62828' },
+  limitBadgeText:     { color: '#fff', fontSize: 9, fontWeight: '800' },
+  formatRow:          { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, paddingVertical: 6 },
+  formatChip:         { flexShrink: 1, flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: theme.surface, borderRadius: 14, paddingHorizontal: 10, paddingVertical: 5 },
+  formatChipText:     { flexShrink: 1, color: theme.text, fontSize: 12, fontWeight: '600' },
+  violationChip:      { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: '#c62828', borderRadius: 14, paddingHorizontal: 10, paddingVertical: 5 },
+  violationChipText:  { color: '#fff', fontSize: 12, fontWeight: '700' },
+  legalChip:          { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  legalChipText:      { color: '#43a047', fontSize: 12, fontWeight: '600' },
+  violationBanner:    { marginHorizontal: 12, marginBottom: 6, padding: 10, borderRadius: 8, backgroundColor: 'rgba(198,40,40,0.15)', borderWidth: 1, borderColor: '#c62828', gap: 2 },
+  violationText:      { color: '#ef9a9a', fontSize: 12 },
+  formatMenuWrap:     { flex: 1, justifyContent: 'center', paddingHorizontal: 24 },
+  formatMenu:         { backgroundColor: theme.surface, borderRadius: 12, paddingVertical: 8 },
   cardBlockName:      { color: theme.text, fontSize: 14, fontWeight: '600', marginBottom: 2 },
   cardBlockMeta:      { flexDirection: 'row', gap: 8, marginBottom: 2, alignItems: 'center' },
   cardBlockMetaText:  { color: theme.textMuted, fontSize: 12 },

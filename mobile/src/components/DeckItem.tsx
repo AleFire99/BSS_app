@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { Deck } from '../types';
 import { COLOR_MAP, theme } from '../theme';
 
@@ -20,6 +21,12 @@ export default function DeckItem({ deck, onPress, onLongPress }: Props) {
       {/* Top row: name + card count */}
       <View style={styles.header}>
         <Text style={styles.name}>{deck.name}</Text>
+        {deck.violation_count > 0 && (
+          <View style={styles.warn}>
+            <Feather name="alert-triangle" size={12} color="#fff" />
+            <Text style={styles.warnText}>{deck.violation_count}</Text>
+          </View>
+        )}
         <Text style={styles.count}>
           {deck.card_count} cards{deck.sideboard_count > 0 ? ` · ${deck.sideboard_count} SB` : ''}
         </Text>
@@ -61,6 +68,8 @@ const styles = StyleSheet.create({
   },
   header:    { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   name:      { color: theme.text, fontSize: 16, fontWeight: '700', flex: 1 },
+  warn:      { flexDirection: 'row', alignItems: 'center', gap: 3, backgroundColor: '#c62828', borderRadius: 10, paddingHorizontal: 6, paddingVertical: 2, marginRight: 8 },
+  warnText:  { color: '#fff', fontSize: 11, fontWeight: '700' },
   count:     { color: theme.accent, fontSize: 14, fontWeight: '600' },
   colorRow:  { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
   colorChip: { flexDirection: 'row', alignItems: 'center', gap: 4 },

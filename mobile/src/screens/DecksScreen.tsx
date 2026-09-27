@@ -162,6 +162,7 @@ export default function DecksScreen({ navigation }: Props) {
     try {
       const full    = await getDeck(deck.id);
       const copy    = await createDeck(`${deck.name} (copy)`);
+      await updateDeck(copy.id, { format: deck.format });
       await Promise.all((full.cards ?? []).map(c => addCardToDeck(copy.id, c.card_id, c.count)));
       load();
     } catch (e: any) {

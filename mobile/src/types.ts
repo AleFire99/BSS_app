@@ -68,6 +68,8 @@ export interface Deck {
   colors: Record<string, number>;
   type_counts: Record<string, number>;
   avg_cost: number;
+  format: string;
+  violation_count: number;
   cards?: DeckCard[];
   sideboard?: DeckCard[];
 }
@@ -85,4 +87,37 @@ export interface SwapPlanCard {
   direction: 'out' | 'in';
   count: number;
   card?: Card;
+}
+
+// ── Banlists ──────────────────────────────────────────────────────────────────
+
+/** Copy limit for a card name. 0 = Forbidden, 1–3 = Limited. Absent = default (4). */
+export interface BanlistEntry {
+  card_name: string;
+  card_id?: string;
+  limit: number;
+}
+
+export interface Banlist {
+  /** 'official:<id>' or 'custom:<BanlistID>' — same shape as Deck.format */
+  key: string;
+  kind: 'official' | 'custom';
+  name: string;
+  effective?: string;
+  source?: string;
+  complete?: boolean;
+  entries: BanlistEntry[];
+}
+
+export interface BanlistChange {
+  card_name: string;
+  card_id?: string;
+  from: number | null;   // null = not on previous list
+  to: number | null;     // null = removed from list
+}
+
+export interface BanlistViolation {
+  card_name: string;
+  count: number;
+  limit: number;
 }
