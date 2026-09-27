@@ -15,6 +15,8 @@ import SwapPlansScreen       from './src/screens/SwapPlansScreen';
 import SwapPlanDetailScreen  from './src/screens/SwapPlanDetailScreen';
 import RulingsScreen         from './src/screens/RulingsScreen';
 import AboutScreen           from './src/screens/AboutScreen';
+import BanlistsScreen        from './src/screens/BanlistsScreen';
+import BanlistDetailScreen   from './src/screens/BanlistDetailScreen';
 import { Card } from './src/types';
 import { theme } from './src/theme';
 
@@ -27,6 +29,8 @@ export type RootStackParamList = {
   DeckDetail:     { deckId: number };
   SwapPlans:      { deckId: number; deckName: string };
   SwapPlanDetail: { planId: number; deckId: number; deckName: string };
+  Banlists:       undefined;
+  BanlistDetail:  { banlistKey: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -56,6 +60,16 @@ function DecksStack() {
       <Stack.Screen name="SwapPlans"      component={SwapPlansScreen}      options={{ title: 'Swap Plans' }} />
       <Stack.Screen name="SwapPlanDetail" component={SwapPlanDetailScreen} options={{ title: 'Plan' }} />
       <Stack.Screen name="CardDetail"     component={CardDetailScreen}     options={{ title: 'Card' }} />
+    </Stack.Navigator>
+  );
+}
+
+function BanlistStack() {
+  return (
+    <Stack.Navigator screenOptions={screenOpts}>
+      <Stack.Screen name="Banlists"      component={BanlistsScreen}      options={{ title: 'Banlists' }} />
+      <Stack.Screen name="BanlistDetail" component={BanlistDetailScreen} options={{ title: 'Banlist' }} />
+      <Stack.Screen name="CardDetail"    component={CardDetailScreen}    options={{ title: 'Card' }} />
     </Stack.Navigator>
   );
 }
@@ -122,6 +136,14 @@ export default function App() {
             options={{
               title: 'Decks',
               tabBarIcon: ({ color }) => <Feather name="folder" size={22} color={color} />,
+            }}
+          />
+          <Tab.Screen
+            name="BanlistTab"
+            component={BanlistStack}
+            options={{
+              title: 'Banlist',
+              tabBarIcon: ({ color }) => <Feather name="slash" size={22} color={color} />,
             }}
           />
           <Tab.Screen

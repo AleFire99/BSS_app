@@ -88,6 +88,30 @@ async function migrateToV2(): Promise<void> {
   });
 }
 
+async function migrateToV3(): Promise<void> {
+  await deckDb.withTransactionAsync(async () => {
+    await deckDb.execAsync(`
+      ALTER TABLE Decks ADD COLUMN Format TEXT NOT NULL DEFAULT 'official:latest';
+      CREATE TABLE IF NOT EXISTS CustomBanlists (
+        BanlistID INTEGER PRIMARY KEY AUTOINCREMENT,
+        Name      TEXT    NOT NULL,
+        BasedOn   TEXT,
+        CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+        UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+      );
+      CREATE TABLE IF NOT EXISTS CustomBanlistEntries (
+        BanlistID INTEGER NOT NULL REFERENCES CustomBanlists(BanlistID) ON DELETE CASCADE,
+        CardName  TEXT    NOT NULL,
+        CardID    TEXT,
+        CopyLimit INTEGER NOT NULL CHECK(CopyLimit >= 0),
+        PRIMARY KEY (BanlistID, CardName)
+      );
+    `);
+    await deckDb.runAsync('DELETE FROM schema_version');
+    await deckDb.runAsync('INSERT INTO schema_version VALUES (?)', [3]);
+  });
+}
+
 async function runMigrations(): Promise<void> {
   const versionTable = await deckDb.getFirstAsync<{ name: string }>(
     `SELECT name FROM sqlite_master WHERE type='table' AND name='schema_version'`,
@@ -103,6 +127,7 @@ async function runMigrations(): Promise<void> {
 
   if (currentVersion < 1) await migrateToV1();
   if (currentVersion < 2) await migrateToV2();
+  if (currentVersion < 3) await migrateToV3();
 }
 
 // ── Public init ───────────────────────────────────────────────────────────────

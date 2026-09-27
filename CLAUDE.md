@@ -170,7 +170,7 @@ git branch -d hotfix/fix-name
 
 ## Mobile App (`mobile/`)
 
-React Native + Expo SDK 54, TypeScript. Three tabs: Cards, Decks, Rulings.
+React Native + Expo SDK 54, TypeScript. Tabs: Cards, Decks, Banlist, Rulings, About.
 
 ### Architecture — Local SQLite (no server)
 
@@ -183,6 +183,8 @@ React Native + Expo SDK 54, TypeScript. Three tabs: Cards, Decks, Rulings.
 | Card Q&A | `mobile/assets/qa_cards.json` bundled | Same reason |
 | Keyword Q&A | `mobile/assets/qa_keywords.json` bundled | Same reason |
 | Decks | On-device `deck.db` via expo-sqlite | Created fresh on first launch |
+| Official banlists | `mobile/assets/banlists.json` bundled | Full snapshot per official list (newest = current); edit JSON to add a new list |
+| Custom banlists | On-device `deck.db` (`CustomBanlists`, `CustomBanlistEntries`) | Added by migration V3, which also adds `Decks.Format` |
 
 ### Mobile Key Files
 
@@ -193,6 +195,8 @@ React Native + Expo SDK 54, TypeScript. Three tabs: Cards, Decks, Rulings.
 | `mobile/src/db/queries/cards.ts` | `getCards()` / `getCard()` via 3-pass SQL + JS assembly |
 | `mobile/src/db/queries/decks.ts` | Full deck CRUD; stats computed in JS via cross-DB card lookup |
 | `mobile/src/db/queries/rulings.ts` | Keywords + Q&A from bundled JSON (not DB) |
+| `mobile/src/db/queries/banlists.ts` | Official lists (JSON) + custom list CRUD; format resolution, copy limits, deck violations |
+| `mobile/src/screens/BanlistsScreen.tsx` / `BanlistDetailScreen.tsx` | Banlist tab: official history + diff, custom list editor |
 | `mobile/eas.json` | EAS build profiles: `preview` = APK, `production` = APK |
 | `mobile/assets/cards.db` | Bundled card DB — copy from `telegram_bot/cards.db` when updating |
 
@@ -237,6 +241,7 @@ eas build --platform android --profile preview
 - GROUP_CONCAT uses `||` as entry delimiter (not `,`) to safely handle `4,5` list modifiers in keyword fields
 - Deck stats (colors, type_counts, avg_cost) computed in JS — no cross-DB SQLite joins
 - `PRAGMA foreign_keys = ON` required on `deck.db` for cascade deletes
+- Banlist limits key on card **name** (reprints/alt-arts share a limit). `Decks.Format` = `official:latest` | `official:<id>` | `custom:<BanlistID>` | `none`
 
 ### EAS / Build Notes
 

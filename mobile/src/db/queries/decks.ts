@@ -1,5 +1,6 @@
 import { cardsDb, deckDb } from '../init';
 import { Deck, DeckCard, Card } from '../../types';
+import { getBanlist, banlistLimits, getDeckViolations } from './banlists';
 
 // ── Stats computation (client-side, cross-DB join in JS) ──────────────────────
 
@@ -33,9 +34,9 @@ async function fetchCardMap(cardIds: string[]): Promise<Map<string, Card>> {
   if (cardIds.length === 0) return new Map();
   const placeholders = cardIds.map(() => '?').join(',');
   const rows = await cardsDb.getAllAsync<{
-    CardID: string; Cost: number; type: string; colors: string | null;
+    CardID: string; Name: string; Cost: number; type: string; colors: string | null;
   }>(
-    `SELECT c.CardID, c.Cost, ct.Name AS type,
+    `SELECT c.CardID, c.Name, c.Cost, ct.Name AS type,
        (SELECT GROUP_CONCAT(col.Name,'|') FROM CardColors cc
         JOIN Colors col ON cc.ColorID=col.ColorID WHERE cc.CardID=c.CardID) AS colors
      FROM Cards c JOIN CardTypes ct ON c.TypeID=ct.TypeID
@@ -45,7 +46,7 @@ async function fetchCardMap(cardIds: string[]): Promise<Map<string, Card>> {
   const map = new Map<string, Card>();
   for (const r of rows) {
     map.set(r.CardID, {
-      id: r.CardID, name: '', type: r.type, set: '', cost: r.Cost,
+      id: r.CardID, name: r.Name, type: r.type, set: '', cost: r.Cost,
       rarity: '', color: r.colors ? r.colors.split('|') : [],
       subtypes: [], symbols: [], core: [], effects: [], alt_art_ids: [],
     });
@@ -60,6 +61,7 @@ interface DeckRow {
   CreatedAt: string;
   UpdatedAt: string;
   Position: number;
+  Format: string | null;
 }
 
 interface DeckCardRow { CardID: string; Count: number; Section: 'main' | 'sideboard'; }
@@ -88,18 +90,34 @@ function rowToDeck(
     created_at:     row.CreatedAt,
     updated_at:     row.UpdatedAt,
     position:       row.Position ?? 0,
+    format:         row.Format ?? 'official:latest',
     cards:          main,
     sideboard:      side,
     sideboard_count: side.reduce((s, dc) => s + dc.count, 0),
     ...computeStats(main, cardMap),
+    violation_count: 0,
   };
+}
+
+async function countViolations(
+  format: string,
+  cards: DeckCard[],
+  cardMap: Map<string, Card>,
+  cache: Map<string, Map<string, number>>,
+): Promise<number> {
+  let limits = cache.get(format);
+  if (!limits) {
+    limits = banlistLimits(await getBanlist(format));
+    cache.set(format, limits);
+  }
+  return getDeckViolations(cards, id => cardMap.get(id)?.name, limits).length;
 }
 
 // ── Public API ────────────────────────────────────────────────────────────────
 
 export async function getDecks(): Promise<Deck[]> {
   const deckRows = await deckDb.getAllAsync<DeckRow>(
-    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position FROM Decks ORDER BY Position ASC',
+    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position, Format FROM Decks ORDER BY Position ASC',
   );
   if (deckRows.length === 0) return [];
 
@@ -114,15 +132,18 @@ export async function getDecks(): Promise<Deck[]> {
   const allCardIds = [...new Set(allCardRows.flat().map(r => r.CardID))];
   const cardMap = await fetchCardMap(allCardIds);
 
-  return deckRows.map((d, i) => {
+  const limitsCache = new Map<string, Map<string, number>>();
+  return Promise.all(deckRows.map(async (d, i) => {
     const { main, side } = splitCards(allCardRows[i]);
-    return rowToDeck(d, main, side, cardMap);
-  });
+    const deck = rowToDeck(d, main, side, cardMap);
+    deck.violation_count = await countViolations(deck.format, [...main, ...side], cardMap, limitsCache);
+    return deck;
+  }));
 }
 
 export async function getDeck(id: number): Promise<Deck & { cards: DeckCard[]; sideboard: DeckCard[] }> {
   const row = await deckDb.getFirstAsync<DeckRow>(
-    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position FROM Decks WHERE DeckID = ?', [id],
+    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position, Format FROM Decks WHERE DeckID = ?', [id],
   );
   if (!row) throw new Error(`Deck not found: ${id}`);
 
@@ -133,7 +154,11 @@ export async function getDeck(id: number): Promise<Deck & { cards: DeckCard[]; s
   const allIds = cardRows.map(r => r.CardID);
   const cardMap = await fetchCardMap(allIds);
 
-  return rowToDeck(row, main, side, cardMap) as Deck & { cards: DeckCard[]; sideboard: DeckCard[] };
+  const deck = rowToDeck(row, main, side, cardMap) as Deck & { cards: DeckCard[]; sideboard: DeckCard[] };
+  deck.violation_count = await countViolations(deck.format, cardRows.map(r => ({
+    card_id: r.CardID, count: r.Count, section: r.Section,
+  })), cardMap, new Map());
+  return deck;
 }
 
 export async function createDeck(name: string, notes?: string): Promise<Deck> {
@@ -145,7 +170,7 @@ export async function createDeck(name: string, notes?: string): Promise<Deck> {
     'INSERT INTO Decks (Name, Notes, Position) VALUES (?, ?, ?)', [name, notes ?? null, pos],
   );
   const row = await deckDb.getFirstAsync<DeckRow>(
-    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position FROM Decks WHERE DeckID = ?',
+    'SELECT DeckID, Name, Notes, CreatedAt, UpdatedAt, Position, Format FROM Decks WHERE DeckID = ?',
     [result.lastInsertRowId],
   );
   return rowToDeck(row!, [], [], new Map());
@@ -161,14 +186,14 @@ export async function reorderDecks(ids: number[]): Promise<void> {
 
 export async function updateDeck(
   id: number,
-  data: { name?: string; notes?: string },
+  data: { name?: string; notes?: string; format?: string },
 ): Promise<Deck> {
   await deckDb.runAsync(
     `UPDATE Decks
-     SET Name = COALESCE(?, Name), Notes = COALESCE(?, Notes),
+     SET Name = COALESCE(?, Name), Notes = COALESCE(?, Notes), Format = COALESCE(?, Format),
          UpdatedAt = CURRENT_TIMESTAMP
      WHERE DeckID = ?`,
-    [data.name ?? null, data.notes ?? null, id],
+    [data.name ?? null, data.notes ?? null, data.format ?? null, id],
   );
   return getDeck(id);
 }

@@ -6,7 +6,7 @@ export default function AboutScreen() {
   return (
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <Text style={styles.appName}>BSS Companion</Text>
-      <Text style={styles.version}>v1.7.0</Text>
+      <Text style={styles.version}>v1.8.0</Text>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About</Text>
@@ -35,6 +35,23 @@ export default function AboutScreen() {
         <Text style={styles.sectionTitle}>Changelog</Text>
 
         <View style={styles.changelogEntry}>
+          <Text style={styles.changelogVersion}>v1.8.0</Text>
+
+          <Text style={styles.changelogGroup}>Banlist</Text>
+          <Text style={styles.body}>• New Banlist tab with the official Banned/Limited lists and their history (v1 Oct 2023, v2 Oct 2024)</Text>
+          <Text style={styles.body}>• See what changed between each official list</Text>
+          <Text style={styles.body}>• Create custom banlists (from scratch or copied from an official one) with Forbidden / Limited 1-2-3</Text>
+
+          <Text style={styles.changelogGroup}>Deck Builder</Text>
+          <Text style={styles.body}>• Each deck picks a banlist (default: latest official)</Text>
+          <Text style={styles.body}>• + button respects banlist limits; BAN / L1 badges on restricted cards</Text>
+          <Text style={styles.body}>• Warning on decks that break their banlist</Text>
+
+          <Text style={styles.changelogGroup}>Cards</Text>
+          <Text style={styles.body}>• Card detail shows official banlist status</Text>
+        </View>
+
+        <View style={[styles.changelogEntry, { marginTop: 20 }]}>
           <Text style={styles.changelogVersion}>v1.7.0</Text>
 
           <Text style={styles.changelogGroup}>Cards & Deck Builder</Text>

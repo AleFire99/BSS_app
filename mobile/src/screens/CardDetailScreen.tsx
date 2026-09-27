@@ -7,7 +7,7 @@ import CardZoomModal from '../components/CardZoomModal';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { theme, COLOR_MAP } from '../theme';
 import { Effect, QAItem } from '../types';
-import { getKeywordDetail, getCardRulingsById } from '../api';
+import { getKeywordDetail, getCardRulingsById, getLatestOfficial, getListLimit, LIMIT_LABEL } from '../api';
 import { Feather } from '@expo/vector-icons';
 import { RootStackParamList } from '../../App';
 
@@ -86,6 +86,21 @@ export default function CardDetailScreen({ route, navigation }: Props) {
         <Text style={styles.rarity}>{card.rarity}</Text>
         <Text style={styles.cardId}>{card.id}</Text>
       </View>
+
+      {/* Official banlist status */}
+      {(() => {
+        const latest = getLatestOfficial();
+        const limit = getListLimit(card, latest);
+        if (limit === null || !latest) return null;
+        return (
+          <View style={[styles.banStatus, limit === 0 && styles.banStatusBanned]}>
+            <Feather name={limit === 0 ? 'slash' : 'alert-circle'} size={14} color="#fff" />
+            <Text style={styles.banStatusText}>
+              {LIMIT_LABEL[limit] ?? `Limit ${limit}`} · {latest.name} ({latest.effective})
+            </Text>
+          </View>
+        );
+      })()}
 
       {/* Stats row */}
       <View style={styles.statsRow}>
@@ -284,6 +299,9 @@ const styles = StyleSheet.create({
   colorText:  { color: '#000', fontSize: 12, fontWeight: '700' },
   rarity:     { fontSize: 16, fontWeight: '800', color: theme.textMuted },
   cardId:     { fontSize: 12, color: theme.textMuted, marginLeft: 'auto' },
+  banStatus:       { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: '#fb8c00', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 6, marginBottom: 10 },
+  banStatusBanned: { backgroundColor: '#c62828' },
+  banStatusText:   { color: '#fff', fontSize: 12, fontWeight: '700', flexShrink: 1 },
   statsRow:   { flexDirection: 'row', gap: 8, marginBottom: 8 },
   stat:       { flex: 1, backgroundColor: theme.surface, borderRadius: 8, padding: 10, alignItems: 'center' },
   statLabel:  { color: theme.textMuted, fontSize: 10, marginBottom: 2 },
